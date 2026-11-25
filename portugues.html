@@ -1,0 +1,2628 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="showroom">
+  <title>Língua Portuguesa — GCM Salvador 2026 (FGV)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* 1. Showroom base tokens adapted for Material You (Material Design 3) */
+      --background: #f8f9fc;
+      --surface: #ffffff;
+      --surface-container-lowest: #ffffff;
+      --surface-container-low: #eff3fa;
+      --surface-container: #e4eaf5;
+      --surface-container-high: #d7e0ee;
+      --surface-container-highest: #ccd7e8;
+
+      --on-surface: #181c22;
+      --on-surface-variant: #44474e;
+
+      --outline: #74777f;
+      --outline-variant: #c4c6d0;
+
+      /* Accents */
+      --primary: #0b57d0;
+      --on-primary: #ffffff;
+      --primary-container: #d3e3fd;
+      --on-primary-container: #041e49;
+
+      --secondary: #8c4a00;
+      --on-secondary: #ffffff;
+      --secondary-container: #ffdcbe;
+      --on-secondary-container: #2d1600;
+
+      --tertiary: #181c22;
+      --tertiary-container: #e1e2ec;
+      --on-tertiary-container: #1a1b22;
+
+      /* Semantic */
+      --positive: #146c2e;
+      --on-positive: #ffffff;
+      --positive-container: #c4eed0;
+      --on-positive-container: #072711;
+
+      --warning: #7d5700;
+      --warning-container: #ffdea8;
+      --on-warning-container: #271900;
+
+      --error: #b3261e;
+      --on-error: #ffffff;
+      --error-container: #f9dedc;
+      --on-error-container: #410e0b;
+
+      --focus: var(--primary);
+
+      /* Data series */
+      --data-1: var(--primary);
+      --data-2: var(--secondary);
+      --data-3: var(--positive);
+      --data-4: #5e35b1;
+      --data-context: #9aa0a6;
+
+      /* Fonts */
+      --font-headline: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-label: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.75rem, 1.35rem + 1.4vw, 2.375rem);
+      --headline-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.75rem;
+
+      /* Shape (Material Design 3 radii) */
+      --rounded: 9999px;
+      --rounded-sm: 0.75rem;
+      --rounded-md: 1rem;
+      --rounded-lg: 1.5rem;
+      --rounded-xl: 1.75rem;
+      --rounded-full: 9999px;
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Effects */
+      --headline-tracking: -0.025em;
+      --figure-tracking: -0.03em;
+      --tile-shadow: 0 1px 3px rgba(24, 28, 34, 0.06), 0 4px 12px rgba(24, 28, 34, 0.04);
+      --tile-shadow-hover: 0 6px 20px rgba(24, 28, 34, 0.09);
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+
+      /* Swatch tokens for theme picker */
+      --swatch-ocean: #0b57d0;
+      --swatch-emerald: #146c2e;
+      --swatch-pelourinho: #934b00;
+      --swatch-violet: #5e35b1;
+    }
+
+    /* Dynamic Material You Palettes */
+    [data-theme="emerald"] {
+      --background: #f6faf6;
+      --surface-container-low: #ecf3ec;
+      --surface-container: #e1ebe2;
+      --surface-container-high: #d4e2d5;
+      --surface-container-highest: #c7d8c9;
+      --primary: #146c2e;
+      --on-primary: #ffffff;
+      --primary-container: #c4eed0;
+      --on-primary-container: #072711;
+      --secondary: #006493;
+      --secondary-container: #cbe6ff;
+      --on-secondary-container: #001e30;
+    }
+
+    [data-theme="pelourinho"] {
+      --background: #fcf8f5;
+      --surface-container-low: #f6eee8;
+      --surface-container: #ede2da;
+      --surface-container-high: #e3d5cb;
+      --surface-container-highest: #d8c7bb;
+      --primary: #934b00;
+      --on-primary: #ffffff;
+      --primary-container: #ffdcbe;
+      --on-primary-container: #2f1500;
+      --secondary: #0b57d0;
+      --secondary-container: #d3e3fd;
+      --on-secondary-container: #041e49;
+    }
+
+    [data-theme="violet"] {
+      --background: #fbf8fd;
+      --surface-container-low: #f2eef8;
+      --surface-container: #e7e0f0;
+      --surface-container-high: #dbd2e7;
+      --surface-container-highest: #cfc3df;
+      --primary: #5e35b1;
+      --on-primary: #ffffff;
+      --primary-container: #e8ddff;
+      --on-primary-container: #22005d;
+      --secondary: #006a60;
+      --secondary-container: #bcece4;
+      --on-secondary-container: #00201c;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { overflow-x: clip; margin: 0; padding: 0; }
+    header { position: static !important; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.55;
+      color: var(--on-surface);
+      background-color: var(--background);
+      transition: background-color var(--dur-short) var(--ease-in-out), color var(--dur-short) var(--ease-in-out);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+    }
+
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      user-select: none;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Top App Bar & Hero Banner */
+    .m3-topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding: var(--space-md) var(--space-lg);
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-xl);
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .brand-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--rounded-md);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .brand-icon .material-symbols-outlined {
+      font-size: 26px;
+    }
+
+    .brand-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.0625rem;
+      letter-spacing: -0.015em;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    .brand-sub {
+      font-size: 0.8125rem;
+      color: var(--on-surface-variant);
+      margin: 2px 0 0;
+    }
+
+    /* Material You Dynamic Palette Switcher */
+    .theme-switcher {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: var(--surface-container);
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--rounded);
+    }
+
+    .theme-label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      padding-left: var(--space-xs);
+    }
+
+    .swatch-btn {
+      width: 34px;
+      height: 34px;
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: var(--rounded);
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      position: relative;
+      transition: transform var(--dur-micro) var(--ease-out);
+    }
+
+    .swatch-btn:hover {
+      transform: scale(1.08);
+    }
+
+    .swatch-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: var(--rounded);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--on-primary);
+      box-shadow: inset 0 0 0 2px var(--surface);
+    }
+
+    .swatch-dot.ocean { background: var(--swatch-ocean); }
+    .swatch-dot.emerald { background: var(--swatch-emerald); }
+    .swatch-dot.pelourinho { background: var(--swatch-pelourinho); }
+    .swatch-dot.violet { background: var(--swatch-violet); }
+
+    .swatch-btn[aria-pressed="true"] .swatch-dot {
+      box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--on-surface);
+    }
+
+    /* Hero Header Stack */
+    .hero-card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-xl);
+      padding: var(--space-xl);
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: center;
+    }
+
+    .eyebrow-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--secondary-container);
+      color: var(--on-secondary-container);
+      font-size: var(--label-size);
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--rounded);
+      margin-bottom: var(--space-md);
+    }
+
+    .hero-title {
+      font-family: var(--font-headline);
+      font-size: var(--display-size);
+      font-weight: 800;
+      letter-spacing: var(--headline-tracking);
+      line-height: 1.08;
+      margin: 0 0 var(--space-md);
+      color: var(--on-surface);
+    }
+
+    .hero-lede {
+      color: var(--on-surface-variant);
+      max-width: 60ch;
+      margin: 0 0 var(--space-lg);
+      font-size: 1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    .btn-m3 {
+      min-height: 44px;
+      padding: 10px 22px;
+      border-radius: var(--rounded);
+      border: 0;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+    }
+
+    .btn-m3:active {
+      transform: scale(0.98);
+    }
+
+    .btn-filled {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+    .btn-filled:hover {
+      box-shadow: var(--tile-shadow-hover);
+      filter: brightness(1.06);
+    }
+
+    .btn-tonal {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+    .btn-tonal:hover {
+      background: var(--surface-container-highest);
+    }
+
+    .btn-outlined {
+      background: var(--surface);
+      color: var(--primary);
+      box-shadow: inset 0 0 0 1px var(--outline-variant);
+    }
+    .btn-outlined:hover {
+      background: var(--surface-container-low);
+    }
+
+    .btn-danger-tonal {
+      background: var(--error-container);
+      color: var(--on-error-container);
+    }
+
+    /* Live KPI Strip (4 Tonal Tiles) */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+
+    .kpi-tile {
+      background: var(--surface);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      box-shadow: var(--tile-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .kpi-label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .kpi-value {
+      font-family: var(--font-headline);
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: var(--figure-tracking);
+      color: var(--on-surface);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.15;
+    }
+
+    .kpi-caption {
+      font-size: 0.8125rem;
+      color: var(--on-surface-variant);
+    }
+
+    .kpi-tile.highlight {
+      background: var(--primary-container);
+    }
+    .kpi-tile.highlight .kpi-label,
+    .kpi-tile.highlight .kpi-value,
+    .kpi-tile.highlight .kpi-caption {
+      color: var(--on-primary-container);
+    }
+
+    /* Material 3 Segmented Navigation Bar */
+    .m3-nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      background: var(--surface-container);
+      padding: 6px;
+      border-radius: var(--rounded);
+    }
+
+    .nav-tab {
+      flex: 1 1 200px;
+      min-height: 46px;
+      border: 0;
+      border-radius: var(--rounded);
+      background: transparent;
+      color: var(--on-surface-variant);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 10px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+    }
+
+    .nav-tab:hover {
+      background: var(--surface-container-high);
+      color: var(--on-surface);
+    }
+
+    .nav-tab[aria-selected="true"] {
+      background: var(--surface);
+      color: var(--primary);
+      box-shadow: var(--tile-shadow);
+    }
+
+    .tab-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: var(--rounded);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+
+    /* Workspace Panels */
+    .workspace-panel {
+      display: none;
+      animation: fadeSlideIn var(--dur-short) var(--ease-out);
+    }
+
+    .workspace-panel.is-active {
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Section Header Bar */
+    .section-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: var(--space-md);
+      background: var(--surface-container-low);
+      padding: var(--space-lg);
+      border-radius: var(--rounded-lg);
+    }
+
+    .section-heading {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 4px;
+    }
+
+    .section-desc {
+      margin: 0;
+      color: var(--on-surface-variant);
+      font-size: 0.9375rem;
+      max-width: 65ch;
+    }
+
+    .toolbar-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: var(--space-sm);
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field-label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      padding-left: 4px;
+    }
+
+    .m3-input {
+      min-height: 44px;
+      padding: 10px 16px;
+      border-radius: var(--rounded);
+      border: 1px solid var(--outline-variant);
+      background: var(--surface);
+      color: var(--on-surface);
+      font-size: 0.9375rem;
+      min-width: 220px;
+      transition: box-shadow var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+
+    .m3-input:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px var(--primary-container);
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    .chip-btn {
+      min-height: 44px;
+      padding: 8px 16px;
+      border-radius: var(--rounded);
+      border: 0;
+      background: var(--surface);
+      color: var(--on-surface-variant);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+
+    .chip-btn:hover {
+      background: var(--surface-container-high);
+      color: var(--on-surface);
+    }
+
+    .chip-btn[aria-pressed="true"] {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+
+    /* Topic Cards Grid (12 Edital Topics) */
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .topic-wrapper {
+      container-type: inline-size;
+    }
+
+    .topic-card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      transition: box-shadow var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
+    }
+
+    .topic-card:hover {
+      box-shadow: var(--tile-shadow-hover);
+    }
+
+    .topic-card.is-reviewed {
+      background: var(--surface);
+      box-shadow: inset 0 0 0 2px var(--positive-container), var(--tile-shadow);
+    }
+
+    .topic-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .topic-num-pill {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--rounded);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      white-space: nowrap;
+    }
+
+    .topic-tag-fgv {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--rounded);
+      background: var(--secondary-container);
+      color: var(--on-secondary-container);
+    }
+
+    .topic-title {
+      font-family: var(--font-headline);
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 0;
+      color: var(--on-surface);
+    }
+
+    .topic-summary {
+      background: var(--surface);
+      border-radius: var(--rounded-md);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .topic-summary ul {
+      margin: 0;
+      padding-left: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .topic-summary li {
+      font-size: 0.9125rem;
+      line-height: 1.5;
+      color: var(--on-surface);
+    }
+
+    .fgv-callout {
+      background: var(--surface-container);
+      border-radius: var(--rounded-sm);
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.875rem;
+      color: var(--on-surface);
+    }
+
+    .fgv-callout-title {
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+      font-size: 0.8125rem;
+    }
+
+    /* Micro-check inside topic card */
+    .topic-details {
+      background: var(--surface);
+      border-radius: var(--rounded-md);
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .topic-details summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--primary);
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+    }
+    .topic-details summary::-webkit-details-marker { display: none; }
+
+    .topic-example-body {
+      margin-top: var(--space-sm);
+      padding-top: var(--space-sm);
+      border-top: 1px solid var(--outline-variant);
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+      line-height: 1.55;
+    }
+
+    .topic-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      margin-top: auto;
+      padding-top: var(--space-xs);
+    }
+
+    .review-toggle-btn {
+      min-height: 44px;
+      padding: 8px 16px;
+      border-radius: var(--rounded);
+      border: 0;
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+
+    .review-toggle-btn:hover {
+      background: var(--surface-container-high);
+    }
+
+    .review-toggle-btn[aria-pressed="true"] {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+    }
+
+    .q-ref-chip {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Simulado Layout */
+    .simulado-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 310px;
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .questions-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+    }
+
+    .question-card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-xl);
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      scroll-margin-top: 16px;
+    }
+
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .q-number-badge {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: var(--rounded);
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .q-topic-pill {
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--rounded);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+
+    .q-source-text {
+      background: var(--surface);
+      border-radius: var(--rounded-md);
+      padding: var(--space-md) var(--space-lg);
+      border-left: 4px solid var(--primary);
+      font-size: 0.96875rem;
+      line-height: 1.6;
+      color: var(--on-surface);
+    }
+
+    .q-source-cite {
+      display: block;
+      margin-top: var(--space-xs);
+      font-size: 0.8125rem;
+      color: var(--on-surface-variant);
+      font-style: italic;
+    }
+
+    .q-stem {
+      font-family: var(--font-headline);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      line-height: 1.45;
+      margin: 0;
+      color: var(--on-surface);
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .option-btn {
+      width: 100%;
+      min-height: 52px;
+      text-align: left;
+      background: var(--surface);
+      border: 0;
+      box-shadow: inset 0 0 0 1px var(--outline-variant);
+      border-radius: var(--rounded-md);
+      padding: 12px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      color: var(--on-surface);
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      transition: background-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background: var(--primary-container);
+      box-shadow: inset 0 0 0 2px var(--primary);
+    }
+
+    .option-letter {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--rounded);
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.875rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: -1px;
+    }
+
+    .option-btn.is-correct {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+      box-shadow: inset 0 0 0 2px var(--positive);
+    }
+    .option-btn.is-correct .option-letter {
+      background: var(--positive);
+      color: var(--on-positive);
+    }
+
+    .option-btn.is-wrong {
+      background: var(--error-container);
+      color: var(--on-error-container);
+      box-shadow: inset 0 0 0 2px var(--error);
+    }
+    .option-btn.is-wrong .option-letter {
+      background: var(--error);
+      color: var(--on-error);
+    }
+
+    .option-btn.is-dimmed {
+      opacity: 0.72;
+    }
+
+    .q-feedback {
+      background: var(--surface);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: none;
+      flex-direction: column;
+      gap: var(--space-sm);
+      box-shadow: var(--tile-shadow);
+    }
+
+    .q-feedback.is-visible {
+      display: flex;
+      animation: fadeSlideIn var(--dur-short) var(--ease-out);
+    }
+
+    .feedback-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .feedback-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 0.9375rem;
+    }
+    .feedback-status.ok { color: var(--positive); }
+    .feedback-status.err { color: var(--error); }
+
+    .feedback-key {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--rounded);
+      background: var(--surface-container);
+      color: var(--on-surface);
+    }
+
+    .feedback-explanation {
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    /* Sticky-like Side Panel for Gabarito Map (static inside column) */
+    .simulado-sidebar {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-xl);
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .sidebar-title {
+      font-family: var(--font-headline);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .score-mini-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-sm);
+    }
+
+    .score-pill-box {
+      background: var(--surface);
+      border-radius: var(--rounded-md);
+      padding: var(--space-sm);
+      text-align: center;
+    }
+
+    .score-pill-num {
+      font-family: var(--font-headline);
+      font-size: 1.375rem;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      display: block;
+    }
+    .score-pill-num.ok { color: var(--positive); }
+    .score-pill-num.err { color: var(--error); }
+
+    .score-pill-lbl {
+      font-size: 0.75rem;
+      color: var(--on-surface-variant);
+      font-weight: 600;
+    }
+
+    .answer-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .q-jump-btn {
+      min-height: 44px;
+      border-radius: var(--rounded-sm);
+      border: 0;
+      background: var(--surface);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 0 1px var(--outline-variant);
+      transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .q-jump-btn:hover {
+      transform: translateY(-1px);
+      background: var(--primary-container);
+    }
+
+    .q-jump-btn.ok {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+      box-shadow: inset 0 0 0 1px var(--positive);
+    }
+
+    .q-jump-btn.err {
+      background: var(--error-container);
+      color: var(--on-error-container);
+      box-shadow: inset 0 0 0 1px var(--error);
+    }
+
+    /* Diagnostic Dashboard */
+    .diag-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .diag-card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-xl);
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .diag-hero-score {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      background: var(--surface);
+      padding: var(--space-lg);
+      border-radius: var(--rounded-lg);
+    }
+
+    .diag-big-pct {
+      font-family: var(--font-headline);
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: var(--figure-tracking);
+      color: var(--primary);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .status-chip {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: var(--rounded);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-chip.neutral { background: var(--surface-container); color: var(--on-surface-variant); }
+    .status-chip.good { background: var(--positive-container); color: var(--on-positive-container); }
+    .status-chip.warn { background: var(--warning-container); color: var(--on-warning-container); }
+    .status-chip.bad { background: var(--error-container); color: var(--on-error-container); }
+
+    .topic-bar-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .topic-bar-item {
+      background: var(--surface);
+      border-radius: var(--rounded-md);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .topic-bar-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+
+    .topic-bar-name {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--on-surface);
+    }
+
+    .topic-bar-stat {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+
+    .m3-progress-track {
+      width: 100%;
+      height: 10px;
+      background: var(--surface-container);
+      border-radius: var(--rounded);
+      overflow: hidden;
+    }
+
+    .m3-progress-fill {
+      height: 100%;
+      border-radius: var(--rounded);
+      background: var(--primary);
+      transition: width var(--dur-long) var(--ease-out);
+    }
+    .m3-progress-fill.good { background: var(--positive); }
+    .m3-progress-fill.warn { background: var(--warning); }
+    .m3-progress-fill.bad { background: var(--error); }
+
+    .edital-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    .edital-table th,
+    .edital-table td {
+      padding: 10px 8px;
+      text-align: left;
+      border-bottom: 1px solid var(--outline-variant);
+    }
+
+    .edital-table th {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+
+    .edital-table td.num {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .edital-table tr.is-pt td {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-weight: 600;
+    }
+
+    .empty-state-box {
+      background: var(--surface);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .inline-notice {
+      font-size: 0.8125rem;
+      color: var(--on-surface-variant);
+      margin: 0;
+    }
+
+    /* Footer */
+    .m3-footer {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-xl);
+      padding: var(--space-lg) var(--space-xl);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      font-size: 0.8125rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Container queries for topic cards */
+    @container (max-width: 360px) {
+      .topic-header {
+        flex-direction: column;
+      }
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 960px) {
+      .hero-card {
+        grid-template-columns: 1fr;
+      }
+      .simulado-shell {
+        grid-template-columns: 1fr;
+      }
+      .simulado-sidebar {
+        order: -1;
+      }
+      .diag-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-sm);
+        gap: var(--space-md);
+      }
+      .hero-card,
+      .question-card,
+      .diag-card {
+        padding: var(--space-lg);
+      }
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+      .m3-input {
+        min-width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-grid">
+    <!-- Top App Bar -->
+    <header class="m3-topbar">
+      <div class="brand-block">
+        <div class="brand-icon" aria-hidden="true">
+          <span class="material-symbols-outlined">shield_person</span>
+        </div>
+        <div>
+          <h1 class="brand-title">Língua Portuguesa — GCM Salvador</h1>
+          <p class="brand-sub">Edital Retificado 2026 · Padrão Banca FGV · 12 Tópicos + 14 Questões Oficiais</p>
+        </div>
+      </div>
+
+      <div class="theme-switcher" role="group" aria-label="Paleta dinâmica Material You">
+        <span class="theme-label">Material You:</span>
+        <button type="button" class="swatch-btn" data-theme-choice="ocean" aria-pressed="true" aria-label="Tema Azul Baía" title="Azul Baía">
+          <span class="swatch-dot ocean"><span class="material-symbols-outlined" aria-hidden="true">check</span></span>
+        </button>
+        <button type="button" class="swatch-btn" data-theme-choice="emerald" aria-pressed="false" aria-label="Tema Verde Barra" title="Verde Barra">
+          <span class="swatch-dot emerald"></span>
+        </button>
+        <button type="button" class="swatch-btn" data-theme-choice="pelourinho" aria-pressed="false" aria-label="Tema Terracota Pelourinho" title="Terracota Pelourinho">
+          <span class="swatch-dot pelourinho"></span>
+        </button>
+        <button type="button" class="swatch-btn" data-theme-choice="violet" aria-pressed="false" aria-label="Tema Ametista FGV" title="Ametista FGV">
+          <span class="swatch-dot violet"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero + Live KPIs -->
+    <section class="hero-card" aria-label="Resumo do estudo">
+      <div>
+        <span class="eyebrow-chip">
+          <span class="material-symbols-outlined" aria-hidden="true">verified</span>
+          Concurso Prefeitura de Salvador · Prova 17/01/2027
+        </span>
+        <h2 class="hero-title">Domine o Português da Banca FGV</h2>
+        <p class="hero-lede">
+          Revisão completa dos <strong>12 tópicos oficiais</strong> do Edital 2026 de Guarda Civil Municipal (GCM 3ª Classe) integrada ao simulado com as <strong>14 questões originais da prova FGV de 2019</strong>, gabarito instantâneo comentado e diagnóstico por assunto.
+        </p>
+        <div class="hero-actions">
+          <button type="button" class="btn-m3 btn-filled" onclick="switchTab('simulado')">
+            <span class="material-symbols-outlined" aria-hidden="true">quiz</span>
+            Iniciar Simulado (14 Questões)
+          </button>
+          <button type="button" class="btn-m3 btn-tonal" onclick="switchTab('revisao')">
+            <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+            Revisar 12 Tópicos
+          </button>
+        </div>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-tile highlight">
+          <span class="kpi-label">
+            <span class="material-symbols-outlined" aria-hidden="true">task_alt</span>
+            Tópicos revisados
+          </span>
+          <span class="kpi-value" id="kpi-topics">0 / 12</span>
+          <span class="kpi-caption">Anexo I do Edital 2026</span>
+        </div>
+        <div class="kpi-tile">
+          <span class="kpi-label">
+            <span class="material-symbols-outlined" aria-hidden="true">fact_check</span>
+            Simulado oficial
+          </span>
+          <span class="kpi-value" id="kpi-answered">0 / 14</span>
+          <span class="kpi-caption" id="kpi-hits-sub">0 acertos · 0 erros</span>
+        </div>
+        <div class="kpi-tile">
+          <span class="kpi-label">
+            <span class="material-symbols-outlined" aria-hidden="true">analytics</span>
+            Aproveitamento
+          </span>
+          <span class="kpi-value" id="kpi-accuracy">0%</span>
+          <span class="kpi-caption">2º critério de desempate</span>
+        </div>
+        <div class="kpi-tile">
+          <span class="kpi-label">
+            <span class="material-symbols-outlined" aria-hidden="true">assignment</span>
+            Peso no Edital 2026
+          </span>
+          <span class="kpi-value">10 pts</span>
+          <span class="kpi-caption">Módulo I (mín. 14/28 pts)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Material 3 Segmented Navigation -->
+    <nav class="m3-nav-bar" role="tablist" aria-label="Seções de estudo">
+      <button type="button" class="nav-tab" id="tab-btn-revisao" role="tab" aria-selected="true" aria-controls="panel-revisao" onclick="switchTab('revisao')">
+        <span class="material-symbols-outlined" aria-hidden="true">auto_stories</span>
+        Revisão Completa
+        <span class="tab-badge" id="badge-revisao">0/12</span>
+      </button>
+      <button type="button" class="nav-tab" id="tab-btn-simulado" role="tab" aria-selected="false" aria-controls="panel-simulado" onclick="switchTab('simulado')">
+        <span class="material-symbols-outlined" aria-hidden="true">edit_note</span>
+        Simulado FGV 2019
+        <span class="tab-badge" id="badge-simulado">0/14</span>
+      </button>
+      <button type="button" class="nav-tab" id="tab-btn-diagnostico" role="tab" aria-selected="false" aria-controls="panel-diagnostico" onclick="switchTab('diagnostico')">
+        <span class="material-symbols-outlined" aria-hidden="true">monitoring</span>
+        Diagnóstico &amp; Edital
+        <span class="tab-badge" id="badge-diagnostico">0%</span>
+      </button>
+    </nav>
+
+    <!-- PANEL 1: REVISÃO COMPLETA (12 TÓPICOS) -->
+    <main>
+      <section id="panel-revisao" class="workspace-panel is-active" role="tabpanel" aria-labelledby="tab-btn-revisao">
+        <div class="section-toolbar">
+          <div>
+            <h2 class="section-heading">Revisão Completa — 12 Tópicos do Edital 2026</h2>
+            <p class="section-desc">Resumos objetivos com foco no estilo de cobrança da FGV, exemplos extraídos da prova oficial da GCM Salvador e controle individual de progresso.</p>
+          </div>
+          <div class="toolbar-controls">
+            <div class="field-group">
+              <label class="field-label" for="topic-search">Buscar assunto ou palavra-chave</label>
+              <input type="search" id="topic-search" class="m3-input" placeholder="Ex.: crase, coesão, hífen, FGV..." oninput="renderTopics()">
+            </div>
+            <div class="filter-pills" role="group" aria-label="Filtrar tópicos">
+              <button type="button" class="chip-btn" data-filter="all" aria-pressed="true" onclick="setTopicFilter('all')">Todos (12)</button>
+              <button type="button" class="chip-btn" data-filter="pending" aria-pressed="false" onclick="setTopicFilter('pending')">Pendentes</button>
+              <button type="button" class="chip-btn" data-filter="reviewed" aria-pressed="false" onclick="setTopicFilter('reviewed')">Revisados</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="topics-grid" class="topics-grid"></div>
+      </section>
+
+      <!-- PANEL 2: SIMULADO INTERATIVO (14 QUESTÕES) -->
+      <section id="panel-simulado" class="workspace-panel" role="tabpanel" aria-labelledby="tab-btn-simulado">
+        <div class="section-toolbar">
+          <div>
+            <h2 class="section-heading">Simulado Interativo — Prova Oficial GCM Salvador (FGV)</h2>
+            <p class="section-desc">14 questões oficiais da banca FGV (Caderno Tipo 1 — Branca, 2019). Selecione uma alternativa para receber o gabarito instantâneo e a explicação detalhada.</p>
+          </div>
+          <div class="toolbar-controls">
+            <button type="button" class="btn-m3 btn-tonal" onclick="switchTab('diagnostico')">
+              <span class="material-symbols-outlined" aria-hidden="true">insights</span>
+              Ver Diagnóstico por Tópico
+            </button>
+            <button type="button" class="btn-m3 btn-danger-tonal" id="btn-reset-simulado" onclick="resetSimulado(this)">
+              <span class="material-symbols-outlined" aria-hidden="true">restart_alt</span>
+              Reiniciar Simulado
+            </button>
+          </div>
+        </div>
+
+        <div class="simulado-shell">
+          <div id="questions-container" class="questions-column"></div>
+
+          <aside class="simulado-sidebar" aria-label="Cartão de respostas e placar">
+            <h3 class="sidebar-title">Cartão de Respostas</h3>
+            <div class="score-mini-row">
+              <div class="score-pill-box">
+                <span class="score-pill-num ok" id="side-hits">0</span>
+                <span class="score-pill-lbl">Acertos</span>
+              </div>
+              <div class="score-pill-box">
+                <span class="score-pill-num err" id="side-errors">0</span>
+                <span class="score-pill-lbl">Erros</span>
+              </div>
+              <div class="score-pill-box">
+                <span class="score-pill-num" id="side-remaining">14</span>
+                <span class="score-pill-lbl">Restantes</span>
+              </div>
+            </div>
+
+            <div class="m3-progress-track" aria-hidden="true">
+              <div class="m3-progress-fill" id="simulado-progress-bar" style="width: 0%;"></div>
+            </div>
+
+            <div class="answer-grid" id="answer-map"></div>
+
+            <p class="inline-notice">
+              Clique em qualquer número acima para saltar diretamente para a questão. As cores indicam acerto (verde) ou erro (vermelho) instantâneo.
+            </p>
+
+            <button type="button" class="btn-m3 btn-filled" onclick="switchTab('diagnostico')">
+              <span class="material-symbols-outlined" aria-hidden="true">assessment</span>
+              Abrir Diagnóstico Final
+            </button>
+          </aside>
+        </div>
+      </section>
+
+      <!-- PANEL 3: DIAGNÓSTICO & EDITAL 2026 -->
+      <section id="panel-diagnostico" class="workspace-panel" role="tabpanel" aria-labelledby="tab-btn-diagnostico">
+        <div class="section-toolbar">
+          <div>
+            <h2 class="section-heading">Diagnóstico de Desempenho &amp; Raio-X do Edital 2026</h2>
+            <p class="section-desc">Acompanhe seu rendimento por eixo temático do edital e confira as regras estratégicas da prova objetiva de Guarda Civil Municipal.</p>
+          </div>
+          <div class="toolbar-controls">
+            <button type="button" class="btn-m3 btn-outlined" onclick="switchTab('simulado')">
+              <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+              Voltar ao Simulado
+            </button>
+          </div>
+        </div>
+
+        <div class="diag-grid">
+          <div class="diag-card">
+            <h3 class="sidebar-title">Desempenho por Tópico do Edital</h3>
+            <div class="diag-hero-score">
+              <div>
+                <div class="kpi-label">Pontuação no Simulado Oficial</div>
+                <div class="diag-big-pct" id="diag-pct">0%</div>
+                <div class="kpi-caption" id="diag-summary-text">Responda às questões do simulado para gerar seu diagnóstico personalizado.</div>
+              </div>
+              <span class="status-chip neutral" id="diag-status-chip">Aguardando respostas</span>
+            </div>
+
+            <div id="diag-topics-list" class="topic-bar-list"></div>
+          </div>
+
+          <div class="diag-card">
+            <h3 class="sidebar-title">Estrutura da Prova — Edital 2026</h3>
+            <p class="section-desc">
+              Organizada pela <strong>FGV</strong>, a Prova Objetiva terá <strong>70 questões</strong> (50 vagas imediatas + CR de 10x). Em caso de empate, <strong>Língua Portuguesa é o 2º critério de desempate</strong> (logo após Conhecimentos Específicos).
+            </p>
+
+            <table class="edital-table">
+              <thead>
+                <tr>
+                  <th>Disciplina (Módulo)</th>
+                  <th style="text-align: right;">Questões</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="is-pt">
+                  <td>01. Língua Portuguesa (Módulo I)</td>
+                  <td class="num">10</td>
+                </tr>
+                <tr>
+                  <td>02. Raciocínio Lógico-Matemático (Módulo I)</td>
+                  <td class="num">10</td>
+                </tr>
+                <tr>
+                  <td>03. Informática (Módulo I)</td>
+                  <td class="num">08</td>
+                </tr>
+                <tr>
+                  <td>04. Direito Constitucional e Civil (Módulo II)</td>
+                  <td class="num">10</td>
+                </tr>
+                <tr>
+                  <td>05. Direito Penal e Proc. Penal (Módulo II)</td>
+                  <td class="num">07</td>
+                </tr>
+                <tr>
+                  <td>06. Administração e Políticas Públicas (Módulo II)</td>
+                  <td class="num">05</td>
+                </tr>
+                <tr>
+                  <td>07. Conhecimentos na Área de Atuação (Módulo II)</td>
+                  <td class="num">10</td>
+                </tr>
+                <tr>
+                  <td>08. Legislação Geral, Específica e LOM (Módulo II)</td>
+                  <td class="num">10</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="fgv-callout">
+              <div class="fgv-callout-title">
+                <span class="material-symbols-outlined" aria-hidden="true">info</span>
+                Mínimos para aprovação (Item 9.13)
+              </div>
+              Mínimo de <strong>14 acertos</strong> no Módulo I (de 28), <strong>21 acertos</strong> no Módulo II (de 42) e <strong>35 acertos</strong> no total da prova (de 70). Na edição de 2019, Língua Portuguesa contou com 14 questões; no Edital 2026 passa a 10 questões.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="m3-footer">
+      <span>Fontes: Edital Retificado Concurso Público Prefeitura Municipal do Salvador nº 02/2026 (GCM 3ª Classe) · Prova Oficial FGV 2019 (Tipo 1 Branca) e Gabarito Definitivo FGV.</span>
+      <span>Progresso salvo automaticamente no caderno.</span>
+    </footer>
+  </div>
+
+  <api-shim></api-shim>
+
+  <script>
+    // =========================================================================
+    // DADOS DOS 12 TÓPICOS DO EDITAL 2026 (ANEXO I - LÍNGUA PORTUGUESA)
+    // =========================================================================
+    const EDITAL_TOPICS = [
+      {
+        id: 1,
+        code: `Tópico 01`,
+        title: `Interpretação de textos argumentativos, métodos de raciocínio e tipologia argumentativa`,
+        fgvBadge: `Altíssima incidência (Q2, Q4, Q6, Q7, Q12, Q13)`,
+        bullets: [
+          `<strong>Tese vs. argumentos:</strong> identifique primeiro a ideia central defendida pelo autor e verifique quais justificativas sustentam ou contrariam essa tese.`,
+          `<strong>Métodos de raciocínio:</strong> <em>dedutivo</em> (parte de uma regra geral para um caso particular) e <em>indutivo</em> (parte de dados/observações particulares para uma conclusão geral).`,
+          `<strong>Tipologia argumentativa na FGV:</strong> argumento de autoridade/consenso (na banca, o apelo à maioria ou pesquisa sem prova de mérito é classificado como <em>argumento autoritário</em>), argumento por exemplificação, por causa e consequência, por comparação e por evidência estatística.`,
+          `<strong>Modalização discursiva:</strong> diferencie marcadores de <em>certeza</em> (<code>Sabe-se que</code>, verbo no presente/pretérito) dos de <em>possibilidade/hipótese</em> (<code>reduziria</code>, <code>provavelmente</code>, <code>deve</code>).`
+        ],
+        fgvTip: `A FGV costuma cobrar a exceção ("à exceção de um") ou pedir que você distinga fato comprovado de mera hipótese/opinião.`,
+        exampleTitle: `Exemplo oficial GCM Salvador 2019 (Questão 7)`,
+        exampleBody: `Ao perguntar qual argumento é <strong>desfavorável</strong> à redução da maioridade penal, a FGV listou quatro argumentos pró-redução (proteção contra o tráfico, combate à impunidade, apoio popular, alinhamento externo) e um contrário: <em>"O sistema prisional brasileiro apresenta situação caótica"</em> (se os presídios são caóticos, enviar jovens para lá agrava o problema).`,
+        relatedQuestions: [2, 4, 6, 7, 12, 13]
+      },
+      {
+        id: 2,
+        code: `Tópico 02`,
+        title: `Processos de construção textual`,
+        fgvBadge: `Incidência alta (Q9, Q11)`,
+        bullets: [
+          `<strong>Tipologias textuais:</strong> narração (progressão temporal de fatos), descrição (retrato estático de características), dissertação expositiva (explicação neutra), dissertação argumentativa (defesa de tese) e injunção (orientação/ordem).`,
+          `<strong>Pressupostos e público-alvo:</strong> todo texto pressupõe um leitor-modelo. Manchetes esportivas com jargões (<code>Libertadores</code>, <code>rebaixamento</code>) dirigem-se aos "iniciados" no assunto.`,
+          `<strong>Construção de manchetes jornalísticas:</strong> embora a imprensa recomende objetividade, escolhas lexicais como o verbo <em>"roubam"</em> introduzem carga opinativa e julgamento de valor.`
+        ],
+        fgvTip: `Observe quem fala, para quem fala e com que propósito comunicativo: a FGV analisa manchetes de jornais baianos como <em>A Tarde</em> sob a ótica da intencionalidade discursiva.`,
+        exampleTitle: `Exemplo oficial GCM Salvador 2019 (Questão 9)`,
+        exampleBody: `Nas manchetes <em>"Bahia cai para o Atlético-MG..."</em> e <em>"Vitória perde para Atlético-PR..."</em>, o texto não explica o que são as siglas MG/PR nem o significado de <em>Libertadores</em> ou <em>rebaixamento</em> — prova de que a construção textual se dirige diretamente aos leitores iniciados no futebol.`,
+        relatedQuestions: [9, 11]
+      },
+      {
+        id: 3,
+        code: `Tópico 03`,
+        title: `A progressão textual`,
+        fgvBadge: `Incidência média-alta (Q4, Q5)`,
+        bullets: [
+          `<strong>Tema e rema:</strong> o texto progride ao articular o <em>tema</em> (informação já conhecida/dada) ao <em>rema</em> (informação nova que faz o raciocínio avançar).`,
+          `<strong>Mecanismos de progressão:</strong> progressão linear (o rema de uma frase vira o tema da seguinte), progressão de tema constante (vários remas sobre o mesmo tema) e progressão por hipertema (divisão em subtópicos).`,
+          `<strong>Continuidade e avanço:</strong> na leitura FGV, avalia-se como uma afirmação gera a etapa seguinte da argumentação (ex.: leitura → contato com ideias → visão ampla → material para resolver problemas).`
+        ],
+        fgvTip: `Fique atento a pronomes demonstrativos (<em>isso</em>, <em>essa crença</em>) e advérbios resumitivos (<em>assim</em>) que condensam o bloco anterior para lançar o próximo passo do texto.`,
+        exampleTitle: `Exemplo oficial GCM Salvador 2019 (Questão 4 e 5)`,
+        exampleBody: `No texto sobre leitura, há encadeamento progressivo claro: ler → ter contato com ideias → adquirir visão mais ampla → formar próprias ideias e resolver problemas. O termo <em>"assim"</em> e o par <em>"Quando... também"</em> garantem a transição lógica sem saltos.`,
+        relatedQuestions: [4, 5]
+      },
+      {
+        id: 4,
+        code: `Tópico 04`,
+        title: `Marcas de textualidade: coesão, coerência e intertextualidade`,
+        fgvBadge: `Altíssima incidência (Q5, Q8, Q14)`,
+        bullets: [
+          `<strong>Coesão referencial:</strong> retomada (anáfora: <em>"essa crença"</em>) ou antecipação (catáfora) de termos por pronomes, sinônimos ou elipse, evitando repetições desnecessárias.`,
+          `<strong>Coesão sequencial:</strong> uso de conectivos que estabelecem relações lógicas — <em>causa/consequência</em> (<code>em virtude de</code>, <code>em função de</code>, <code>resultar de</code>), <em>concessão</em> (<code>apesar de</code>, <code>embora</code>), <em>simultaneidade</em> (<code>quando... também</code>).`,
+          `<strong>Coerência:</strong> compatibilidade lógica entre as ideias do texto e o conhecimento de mundo (não contradição).`,
+          `<strong>Intertextualidade:</strong> diálogo entre textos, de forma <em>explícita</em> (citação direta) ou <em>implícita</em> (alusão/paráfrase — ex.: <em>"Olhos de ver; ouvidos de ouvir"</em> remete a passagens bíblicas).`
+        ],
+        fgvTip: `A FGV adora testar a diferença entre <strong>causa/consequência</strong> e <strong>concessão</strong>. Lembre-se: <em>apesar de</em> introduz uma quebra de expectativa, nunca uma causa eficiente!`,
+        exampleTitle: `Exemplo oficial GCM Salvador 2019 (Questão 8)`,
+        exampleBody: `Entre cinco frases, quatro trazem causa e consequência (<em>em virtude da crise</em>, <em>em função do mau tempo</em>, <em>geram problemas</em>, <em>resulta da ignorância</em>). Apenas a opção A (<em>"Apesar das chuvas, as ruas não amanheceram alagadas"</em>) expressa relação concessiva.`,
+        relatedQuestions: [5, 8, 14]
+      },
+      {
+        id: 5,
+        code: `Tópico 05`,
+        title: `Reescritura de frases em busca da melhor expressão escrita`,
+        fgvBadge: `Incidência clássica FGV (Q1)`,
+        bullets: [
+          `<strong>Tríade da reescritura:</strong> a nova frase deve preservar o <em>sentido original</em>, manter a <em>correção gramatical</em> (concordância, regência, crase, colocação pronominal) e ganhar <em>clareza/concisão</em>.`,
+          `<strong>Indeterminação e voz passiva com SE:</strong> ao reescrever frases com sujeito genérico (<em>"Todos"</em>, <em>"Muitas pessoas"</em>), lembre-se de que <strong>VTD + SE</strong> exige concordância do verbo com o sujeito paciente!`,
+          `<strong>Troca de estruturas:</strong> substituição de locuções extensas por verbos precisos (ex.: <em>"não respeitam"</em> → <em>"desrespeitam"</em>) ou orações desenvolvidas por reduzidas.`
+        ],
+        fgvTip: `Em reescritura com a partícula <strong>SE</strong>, identifique imediatamente a transitividade do verbo: se for VTD no plural, o verbo TEM que ir para o plural!`,
+        exampleTitle: `Exemplo oficial GCM Salvador 2019 (Questão 1)`,
+        exampleBody: `<em>"Todos cometem as mesmas falhas"</em> foi reescrita incorretamente como <em>"Comete-se as mesmas falhas"</em>. Como <em>cometer</em> é verbo transitivo direto e <em>"as mesmas falhas"</em> é o sujeito paciente no plural, a forma correta é <strong>"Cometem-se as mesmas falhas"</strong>.`,
+        relatedQuestions: [1]
+      },
+      {
+        id: 6,
+        code: `Tópico 06`,
+        title: `Domínio vocabular e sua importância na construção do sentido do texto`,
+        fgvBadge: `Alta incidência (Q2, Q13, Q14)`,
+        bullets: [
+          `<strong>Campo semântico:</strong> conjunto de vocábulos que compartilham um núcleo de significado no texto (ex.: campo da religiosidade com <em>crença</em>, <em>doutrinas</em>, <em>criação</em>).`,
+          `<strong>Precisão vocabular:</strong> atenção a expressões de aproximação vs. exatidão — <code>"cerca de"</code> indica quantidade aproximada, jamais exata.`,
+          `<strong>Parônimos e homônimos essenciais para GCM:</strong> <em>mandado</em> (ordem judicial) × <em>mandato</em> (período de cargo); <em>flagrante</em> (evidente, no ato) × <em>fragrante</em> (perfumado); <em>ratificar</em> (confirmar) × <em>retificar</em> (corrigir); <em>infringir</em> (violar lei) × <em>infligir</em> (aplicar pena).`
+        ],
+        fgvTip: `Leia o vocábulo sempre dentro do contexto: a FGV testa se uma palavra pertence a um campo semântico específico ou se altera o grau de certeza da frase.`,
+        exampleTitle: `Exemplo oficial GCM Salvador 2019 (Questão 14)`,
+        exampleBody: `No texto de Luiz Carlos Lisboa, as expressões <em>"Olhos de ver; ouvidos de ouvir"</em>, <em>"crença"</em>, <em>"criação"</em> e <em>"doutrinas"</em> integram o campo semântico da religiosidade. Já <em>"nada na natureza foi feito para alguma coisa"</em> expressa visão filosófica/racional alheia a esse campo.`,
+        relatedQuestions: [2, 13, 14]
+      },
+      {
+        id: 7,
+        code: `Tópico 07`,
+        title: `A presença dos estrangeirismos em nosso léxico`,
+        fgvBadge: `Tópico específico Edital 2026`,
+        bullets: [
+          `<strong>Conceito:</strong> incorporação de vocábulos ou expressões estrangeiras (anglicismos, galicismos, latinismos) à Língua Portuguesa por necessidade técnica, cultural ou influência midiática.`,
+          `<strong>Graus de adaptação:</strong> <em>estrangeirismos puros</em> (mantêm grafia original e costumam vir em itálico ou aspas, como <code>upload</code>, <code>link</code>, <code>feedback</code>, <code>habeas corpus</code>) vs. <em>aportuguesamentos</em> já incorporados ao VOLP (<code>futebol</code>, <code>esporte</code>, <code>estresse</code>, <code>deletar</code>, <code>leiaute</code>).`,
+          `<strong>Adequação e estilo:</strong> na redação oficial e na avaliação da FGV, condena-se o abuso de estrangeirismos quando há equivalente claro em português (ex.: preferir <em>prazo</em> a <em>deadline</em>), aceitando-se termos consagrados na informática e no Direito.`
+        ],
+        fgvTip: `No próprio Edital 2026 da GCM Salvador, a FGV grafa termos como <em>"upload"</em>, <em>"link"</em> e <em>"e-mail"</em> em itálico, seguindo a norma para vocábulos estrangeiros ainda não plenamente aportuguesados.`,
+        exampleTitle: `Aplicação prática no padrão FGV`,
+        exampleBody: `Diferencie empréstimos já nacionalizados na ortografia (<em>clube, abajur, boxe, bife</em> — sem destaque gráfico) de estrangeirismos crus (<em>compliance, briefing, impeachment</em> — grafados com itálico ou aspas na escrita formal).`,
+        relatedQuestions: []
+      },
+      {
+        id: 8,
+        code: `Tópico 08`,
+        title: `Os diversos usos das várias classes de palavras`,
+        fgvBadge: `Alta incidência (Q1, Q2, Q5, Q8, Q13)`,
+        bullets: [
+          `<strong>Verbos (modos e tempos):</strong> o <em>futuro do pretérito</em> (<code>reduziria</code>) exprime fato hipotético, condição ou possibilidade não assegurada; o <em>presente do indicativo</em> (<code>sabe-se</code>) marca certeza/atualidade.`,
+          `<strong>Partícula SE:</strong> <em>pronome apassivador</em> junto a VTD/VTDI (<code>Viu-se a morte</code> = a morte foi vista) vs. <em>índice de indeterminação do sujeito</em> junto a VI, VTI ou VL (<code>Reclama-se de tudo</code> — verbo invariável na 3ª pessoa do singular).`,
+          `<strong>Adjetivos e advérbios:</strong> posição do adjetivo altera sentido (<em>bom guarda</em> vs. <em>guarda bom</em>); advérbios modalizadores (<code>provavelmente</code>, <code>urgentemente</code>) revelam o posicionamento do enunciador.`,
+          `<strong>Preposições e conjunções:</strong> atenção ao valor semântico relacional (posse, causa, concessão, tempo, finalidade).`
+        ],
+        fgvTip: `A FGV raramente pede apenas o "nome" da classe gramatical; ela exige a compreensão do <strong>efeito de sentido</strong> produzido pelo tempo verbal, pelo advérbio ou pelo pronome na frase.`,
+        exampleTitle: `Exemplo oficial GCM Salvador 2019 (Questão 2)`,
+        exampleBody: `Na manchete <em>"Comida desperdiçada na América Latina reduziria 37% da fome do mundo"</em>, o verbo <strong>"reduziria"</strong> (futuro do pretérito) não afirma certeza absoluta, mas sim uma possibilidade condicionada à eliminação do desperdício.`,
+        relatedQuestions: [1, 2, 5, 8, 13]
+      },
+      {
+        id: 9,
+        code: `Tópico 09`,
+        title: `A organização sintática e o emprego dos sinais de pontuação`,
+        fgvBadge: `Alta incidência (Q1, Q3, Q10, Q11)`,
+        bullets: [
+          `<strong>Complemento Nominal vs. Objeto Indireto:</strong> ambos são preposicionados, mas o <em>Objeto Indireto</em> completa verbo (<code>precisa de nossos cuidados</code>), enquanto o <em>Complemento Nominal</em> completa substantivo abstrato, adjetivo ou advérbio (<code>conservação do meio ambiente</code>; <code>consciência de que o planeta precisa...</code>).`,
+          `<strong>Concordância verbal com sujeito paciente ou posposto:</strong> identifique sempre quem sofre ou pratica a ação para evitar erros de concordância.`,
+          `<strong>Pontuação essencial:</strong> não se separa por vírgula sujeito de verbo nem verbo de complemento; usa-se vírgula para adjuntos adverbiais deslocados longos, orações adverbiais antepostas e aposto explicativo.`,
+          `<strong>Uso das aspas:</strong> indicam citação direta, neologismo, gíria/coloquialismo (<code>'babas'</code>) ou sentido figurado/irônico (<code>'pesado'</code>).`
+        ],
+        fgvTip: `Para diferenciar <strong>Complemento Nominal</strong> de <strong>Adjunto Adnominal</strong> em substantivos abstratos: se o termo preposicionado <em>sofre</em> a ação (paciente, como em <em>"conservação do meio ambiente"</em> = o meio ambiente é conservado), é Complemento Nominal!`,
+        exampleTitle: `Exemplo oficial GCM Salvador 2019 (Questão 3)`,
+        exampleBody: `Em <em>"conservação <u>do meio ambiente</u>"</em> e <em>"consciência <u>de que o planeta precisa urgentemente de nossos cuidados</u>"</em>, ambos os termos destacados desempenham a função de <strong>complemento nominal</strong> (completam os substantivos abstratos <em>conservação</em> e <em>consciência</em>).`,
+        relatedQuestions: [1, 3, 10, 11]
+      },
+      {
+        id: 10,
+        code: `Tópico 10`,
+        title: `A variação linguística e sua adequação às diversas situações comunicativas`,
+        fgvBadge: `Incidência típica FGV Bahia (Q9, Q11)`,
+        bullets: [
+          `<strong>Principais variedades:</strong> <em>geográfica/diatópica</em> (regionalismos — ex.: <code>baba</code> na Bahia para "pelada de futebol"), <em>social/diastrática</em> (jargões profissionais ou esportivos), <em>situacional/diafásica</em> (registro formal vs. coloquial) e <em>histórica/diacrônica</em>.`,
+          `<strong>Adequação comunicativa:</strong> a norma culta é exigida em atos administrativos, leis e relatórios da GCM; já a linguagem coloquial ou regional pode aparecer no jornalismo popular marcada por aspas.`,
+          `<strong>Preconceito linguístico:</strong> toda variedade é legítima dentro de seu contexto de uso; o que existe é adequação ou inadequação à situação.`
+        ],
+        fgvTip: `Em provas da Bahia, a FGV valoriza exemplos locais (como manchetes do jornal <em>A Tarde</em> com o termo <em>"babas"</em>) para testar o reconhecimento de coloquialidade e regionalismo.`,
+        exampleTitle: `Exemplo oficial GCM Salvador 2019 (Questão 11)`,
+        exampleBody: `Na manchete <em>"'Babas' roubam espaço de banhistas na orla de Salvador"</em>, o substantivo <em>'babas'</em> traz traço de coloquialidade regional e recebe aspas justamente para sinalizar um sentido específico distinto do uso dicionarizado padrão.`,
+        relatedQuestions: [9, 11]
+      },
+      {
+        id: 11,
+        code: `Tópico 11`,
+        title: `A linguagem denotativa e a conotativa`,
+        fgvBadge: `Incidência recorrente (Q9, Q10, Q11)`,
+        bullets: [
+          `<strong>Linguagem denotativa (literal):</strong> emprega as palavras em seu sentido próprio, objetivo, referencial e dicionarizado. É a base de textos jurídicos, boletins de ocorrência e manchetes puramente factuais.`,
+          `<strong>Linguagem conotativa (figurada):</strong> amplia ou desloca o sentido original por meio de metáforas, metonímias, hipérboles ou comparações implícitas (ex.: <code>passar em branco</code>, <code>jogo 'pesado'</code>, <code>usar como escudo</code>, <code>time cai</code>).`,
+          `<strong>Cuidado na leitura FGV:</strong> verbos corriqueiros como <em>cair</em>, <em>roubar</em> ou <em>pesar</em> assumem valor conotativo sempre que fogem do sentido físico imediato.`
+        ],
+        fgvTip: `Se a banca pedir a única opção em sentido <strong>não figurado</strong> (denotativo), procure aquela em que todos os verbos e substantivos podem ser entendidos ao pé da letra.`,
+        exampleTitle: `Exemplo oficial GCM Salvador 2019 (Questão 10)`,
+        exampleBody: `Entre as manchetes do <em>A Tarde</em>, <em>"passa em branco"</em>, <em>"jogo 'pesado'"</em>, <em>"musa da Grande Rio"</em> e <em>"usam reféns como escudo"</em> trazem sentido figurado. Apenas <strong>"Homens armados roubam supermercado e levam celulares"</strong> usa linguagem estritamente denotativa.`,
+        relatedQuestions: [9, 10, 11]
+      },
+      {
+        id: 12,
+        code: `Tópico 12`,
+        title: `A nova ortografia (Acordo Ortográfico)`,
+        fgvBadge: `Tópico obrigatório Edital 2026`,
+        bullets: [
+          `<strong>Acentuação gráfica:</strong> caiu o acento dos ditongos abertos <em>éi</em> e <em>ói</em> em paroxítonas (<code>ideia</code>, <code>assembleia</code>, <code>heroico</code>, <code>jiboia</code> — mas mantém nas oxítonas: <em>papéis, herói</em>); caiu o acento nos hiatos <em>oo</em> e <em>ee</em> (<code>voo</code>, <code>enjoo</code>, <code>leem</code>, <code>veem</code>).`,
+          `<strong>Acento diferencial e trema:</strong> extinto o trema (<code>frequente</code>, <code>linguiça</code>); extintos os diferenciais de <code>para</code> (verbo), <code>pelo</code> e <code>pera</code>. Mantidos: <code>pôde/pode</code>, <code>pôr/por</code> e plural <code>têm/vêm</code>.`,
+          `<strong>Uso do hífen com prefixos:</strong> vogais/consoantes iguais se separam (<code>micro-ondas</code>, <code>anti-inflamatório</code>, <code>inter-regional</code>); diferentes se unem (<code>autoestima</code>, <code>infraestrutura</code>, <code>semianalfabeto</code>). Prefixo terminado em vogal + <strong>R/S</strong> dobra a letra (<code>antirracismo</code>, <code>minissaia</code>). Diante de <strong>H</strong>, usa-se hífen (<code>anti-higiênico</code>, <code>super-homem</code>).`,
+          `<strong>Alfabeto oficial:</strong> passou a 26 letras com a inclusão de <strong>K, W e Y</strong>.`
+        ],
+        fgvTip: `Repare nos próprios enunciados da FGV: palavras como <em>ideias</em> e <em>frequentes</em> já aparecem sem acento/trema. Memorize sobretudo a regra dos opostos no hífen e os verbos <em>têm/vêm</em>.`,
+        exampleTitle: `Checklist rápido de revisão ortográfica`,
+        exampleBody: `<strong>Corretas:</strong> <em>ideia, plateia, voo, leem, frequente, micro-ondas, autoescola, extrajudicial, contrarreforma, super-homem, mal-humorado, bem-vindo</em>. <strong>Incorretas:</strong> <em>idéia, vôo, freqüente, microondas, auto-escola, contra-reforma</em>.`,
+        relatedQuestions: []
+      }
+    ];
+
+    // =========================================================================
+    // SIMULADO OFICIAL: AS 14 QUESTÕES DE LÍNGUA PORTUGUESA (FGV GCM SALVADOR 2019 - TIPO 1 BRANCA)
+    // Gabarito Oficial Definitivo: 1-E, 2-E, 3-D, 4-D, 5-A, 6-D, 7-B, 8-A, 9-A, 10-C, 11-E, 12-A, 13-C, 14-E
+    // =========================================================================
+    const SIMULADO_QUESTIONS = [
+      {
+        num: 1,
+        topicId: 5,
+        topicGroup: `Reescritura, Concordância e Partícula SE`,
+        sourceText: ``,
+        sourceCite: ``,
+        stem: `Nas opções a seguir, a primeira oração foi reescrita de modo a dar-se a ela um caráter genérico, com a utilização da partícula se. Assinale a opção em que isso foi feito de forma gramaticalmente incorreta.`,
+        options: [
+          { letter: `A`, text: `Todo mundo viu a morte de perto. / Viu-se a morte de perto.` },
+          { letter: `B`, text: `As pessoas reclamam de tudo. / Reclama-se de tudo.` },
+          { letter: `C`, text: `Muita gente pensa o contrário de todos. / Pensa-se o contrário de todos.` },
+          { letter: `D`, text: `Muitas pessoas não respeitam os horários. / Desrespeitam-se os horários.` },
+          { letter: `E`, text: `Todos cometem as mesmas falhas. / Comete-se as mesmas falhas.` }
+        ],
+        correct: `E`,
+        explanation: `Na alternativa <strong>E</strong>, o verbo <em>cometer</em> é transitivo direto (quem comete, comete algo). Logo, a partícula <strong>se</strong> atua como <strong>pronome apassivador</strong> e o termo <em>"as mesmas falhas"</em> funciona como sujeito paciente no plural, exigindo concordância plural: <strong>"Cometem-se as mesmas falhas"</strong>. Nas demais opções: em A, C e D o verbo concorda corretamente com os sujeitos pacientes (<em>a morte</em>, <em>o contrário</em> — singular; <em>os horários</em> — plural); em B, <em>reclamar de</em> é transitivo indireto, portanto <em>se</em> é índice de indeterminação do sujeito e o verbo fica obrigatoriamente na 3ª pessoa do singular.`
+      },
+      {
+        num: 2,
+        topicId: 8,
+        topicGroup: `Classes de Palavras (Verbos) e Leitura`,
+        sourceText: `Comida desperdiçada na América Latina reduziria 37% da fome do mundo.<br>Cerca de 348 mil toneladas de alimentos são perdidas por dia na região.`,
+        sourceCite: `Revista Veja, 30/03/2016 (adaptado na prova FGV 2019).`,
+        stem: `Sobre os componentes do texto dessa manchete, assinale a afirmativa correta.`,
+        options: [
+          { letter: `A`, text: `Se a América Latina não desperdiçasse tantos alimentos, acabaria a fome no mundo.` },
+          { letter: `B`, text: `A principal crítica do texto se dirige ao atraso cultural e econômico da América Latina.` },
+          { letter: `C`, text: `A expressão "cerca de" indica precisamente a quantidade de alimentos desperdiçada.` },
+          { letter: `D`, text: `Em todo o texto há a identificação clara do responsável pelo desperdício de alimentos.` },
+          { letter: `E`, text: `A forma verbal "reduziria" indica uma possibilidade, e não uma certeza.` }
+        ],
+        correct: `E`,
+        explanation: `A forma verbal <strong>"reduziria"</strong> está flexionada no <strong>futuro do pretérito do indicativo</strong>, tempo que exprime hipótese, estimativa ou possibilidade condicionada (caso a comida não fosse desperdiçada), e não um fato consumado ou certeza. Erros das demais: (A) reduziria 37%, não "acabaria" com 100% da fome; (B) não há crítica ao atraso cultural/econômico; (C) <em>"cerca de"</em> indica aproximação, nunca precisão; (D) o texto usa voz passiva (<em>"são perdidas"</em>) sem agente da passiva explícito.`
+      },
+      {
+        num: 3,
+        topicId: 9,
+        topicGroup: `Organização Sintática (Complemento Nominal)`,
+        sourceText: `"Muito se tem falado de conservação do meio ambiente, mas não se criou ainda a consciência de que o planeta precisa urgentemente de nossos cuidados."`,
+        sourceCite: `Brasil Escola.`,
+        stem: `Assinale a opção que indica os termos que, nesse segmento do texto, desempenham a mesma função sintática.`,
+        options: [
+          { letter: `A`, text: `de conservação / do meio ambiente` },
+          { letter: `B`, text: `de que o planeta precisa urgentemente / de nossos cuidados` },
+          { letter: `C`, text: `de conservação / de nossos cuidados` },
+          { letter: `D`, text: `de que o planeta precisa urgentemente de nossos cuidados / do meio ambiente` },
+          { letter: `E`, text: `de conservação / de que o planeta precisa` }
+        ],
+        correct: `D`,
+        explanation: `Na alternativa <strong>D</strong>, ambos os segmentos desempenham a função de <strong>complemento nominal</strong>: <em>"do meio ambiente"</em> completa o sentido do substantivo abstrato <em>conservação</em> (com valor passivo: o meio ambiente é conservado), e a oração <em>"de que o planeta precisa urgentemente de nossos cuidados"</em> é subordinada substantiva completiva nominal, completando o substantivo abstrato <em>consciência</em> (consciência de quê?). Atenção à pegadinha da letra C: embora pareçam semelhantes, a FGV analisa <em>"de conservação"</em> ligada à locução verbal <em>"tem falado"</em> (falar sobre algo = adjunto/assunto) de modo distinto de <em>"de nossos cuidados"</em> (objeto indireto de <em>precisa</em>), consagrando D no gabarito oficial definitivo.`
+      },
+      {
+        num: 4,
+        topicId: 1,
+        topicGroup: `Interpretação de Textos e Progressão`,
+        sourceText: `"Ler é importante porque leva a pessoa a ter contato com várias ideias diferentes (dos autores), adquirindo assim uma visão mais ampla do mundo e dos conflitos que envolvem a humanidade e a sociedade. Quando se tem uma visão mais ampla, se tem também mais material para formar as próprias ideias e resolver de melhor forma os próprios problemas."`,
+        sourceCite: `brunokabuki.blogspot.com/2019/`,
+        stem: `Segundo o texto, a leitura`,
+        options: [
+          { letter: `A`, text: `faz os autores entrarem em contato com várias ideias.` },
+          { letter: `B`, text: `obriga os leitores a terem uma visão mais ampla do mundo.` },
+          { letter: `C`, text: `torna menos compreensíveis os conflitos do mundo.` },
+          { letter: `D`, text: `fornece ferramentas para a formação de nossas ideias.` },
+          { letter: `E`, text: `minimiza os problemas que enfrentamos.` }
+        ],
+        correct: `D`,
+        explanation: `O texto afirma literalmente que, ao adquirir uma visão mais ampla pela leitura, a pessoa passa a ter <em>"mais material para formar as próprias ideias e resolver de melhor forma os próprios problemas"</em> — ideia fielmente parafraseada em <strong>D</strong> (<em>"fornece ferramentas para a formação de nossas ideias"</em>). Erros: (A) quem entra em contato com ideias é o leitor ("a pessoa"), não os autores; (B) "leva a pessoa", não "obriga"; (C) amplia a visão sobre os conflitos, não os torna menos compreensíveis; (E) ajuda a <em>resolver melhor</em> os problemas, não necessariamente a diminuí-los.`
+      },
+      {
+        num: 5,
+        topicId: 4,
+        topicGroup: `Coesão Textual e Relações Lógicas`,
+        sourceText: `"Ler é importante porque leva a pessoa a ter contato com várias ideias diferentes (dos autores), adquirindo assim uma visão mais ampla do mundo e dos conflitos que envolvem a humanidade e a sociedade. <u>Quando se tem uma visão mais ampla</u>, <u>se tem também mais material para formar as próprias ideias</u> e resolver de melhor forma os próprios problemas."`,
+        sourceCite: `brunokabuki.blogspot.com/2019/`,
+        stem: `A relação lógica entre os dois segmentos sublinhados é a de`,
+        options: [
+          { letter: `A`, text: `simultaneidade temporal.` },
+          { letter: `B`, text: `causa e consequência.` },
+          { letter: `C`, text: `proporcionalidade.` },
+          { letter: `D`, text: `comparação desproporcional.` },
+          { letter: `E`, text: `condição.` }
+        ],
+        correct: `A`,
+        explanation: `A conjunção temporal <strong>"Quando"</strong> articulada ao advérbio de inclusão/concomitância <strong>"também"</strong> (<em>"Quando se tem..., se tem também..."</em>) estabelece uma relação de <strong>simultaneidade temporal</strong>: no mesmo momento em que o leitor alcança uma visão mais ampla, ele dispõe simultaneamente de mais material para elaborar suas ideias. Não há conectivo condicional (<em>se, caso</em>), causal (<em>porque, já que</em>) nem proporcional (<em>à medida que</em>).`
+      },
+      {
+        num: 6,
+        topicId: 1,
+        topicGroup: `Interpretação de Texto Argumentativo`,
+        sourceText: `"Manifestações públicas constituem um dos aspectos essenciais da vida democrática. Um regime político que é incapaz de tolerar a livre manifestação da população - inclusive a que contraria os ocupantes do poder - não pode ser considerado democrático. Historicamente, os regimes democráticos se consolidam quando a luta política deixa de ser o arriscado jogo do tudo ou nada e se institucionaliza como parte do cotidiano da sociedade."`,
+        sourceCite: `Folha de S.Paulo, 14/06/2014.`,
+        stem: `Esse trecho apresenta uma série de pensamentos de caráter democrático, à exceção de um. Assinale-o.`,
+        options: [
+          { letter: `A`, text: `A luta política não deve ter caráter radical.` },
+          { letter: `B`, text: `As manifestações públicas devem ser normalmente aceitas.` },
+          { letter: `C`, text: `O poder político deve tolerar manifestações opostas.` },
+          { letter: `D`, text: `A luta política não deve fazer parte do cotidiano social.` },
+          { letter: `E`, text: `A violência não deve ser empregada contra manifestações.` }
+        ],
+        correct: `D`,
+        explanation: `O enunciado pede a <strong>exceção</strong>. O texto afirma exatamente o contrário do que diz a opção <strong>D</strong>: a consolidação democrática ocorre quando a luta política deixa de ser um jogo radical do "tudo ou nada" (o que valida A) e <strong>"se institucionaliza como parte do cotidiano da sociedade"</strong>. Todas as outras alternativas (A, B, C, E) sintetizam princípios democráticos coerentes com o texto.`
+      },
+      {
+        num: 7,
+        topicId: 1,
+        topicGroup: `Tipologia e Raciocínio Argumentativo`,
+        sourceText: ``,
+        sourceCite: ``,
+        stem: `Um dos temas de discussão mais frequentes na atualidade é o das vantagens e desvantagens da redução da maioridade penal. Assinale a opção que apresenta um argumento que pode ser considerado desfavorável a essa redução.`,
+        options: [
+          { letter: `A`, text: `A redução protegeria os jovens do aliciamento do tráfico, que tem recrutado menores para a prática de crimes.` },
+          { letter: `B`, text: `O sistema prisional brasileiro apresenta situação caótica.` },
+          { letter: `C`, text: `A impunidade gera o aumento da violência.` },
+          { letter: `D`, text: `A opinião pública brasileira apoia a redução.` },
+          { letter: `E`, text: `A legislação brasileira deve alinhar-se à de países desenvolvidos.` }
+        ],
+        correct: `B`,
+        explanation: `A única afirmação que funciona como contra-argumento (desfavorável à redução da maioridade penal) é <strong>B</strong>: se o sistema prisional brasileiro está em situação caótica e superlotado, encarcerar adolescentes junto a presos adultos tenderia a agravar a reincidência e a criminalidade. As opções A, C, D e E são argumentos clássicos usados por defensores da redução.`
+      },
+      {
+        num: 8,
+        topicId: 4,
+        topicGroup: `Coesão Sequencial (Causa vs. Concessão)`,
+        sourceText: ``,
+        sourceCite: ``,
+        stem: `Assinale a opção que indica a frase em que não ocorre a relação de causa e consequência.`,
+        options: [
+          { letter: `A`, text: `Apesar das chuvas, as ruas não amanheceram alagadas.` },
+          { letter: `B`, text: `Em virtude da crise, o comércio está vendendo menos.` },
+          { letter: `C`, text: `Muitas pessoas deixaram de viajar em função do mau tempo.` },
+          { letter: `D`, text: `As necessidades econômicas geram muitos problemas.` },
+          { letter: `E`, text: `A violência resulta, muitas vezes, da ignorância.` }
+        ],
+        correct: `A`,
+        explanation: `A locução prepositiva <strong>"Apesar de"</strong> introduz uma relação de <strong>concessão</strong> (quebra de expectativa: esperava-se que as chuvas causassem alagamento, mas isso não ocorreu). Nas demais alternativas, há nítida relação de causa e consequência marcada por <em>"Em virtude da"</em> (B), <em>"em função do"</em> (C), <em>"geram"</em> (D) e <em>"resulta... da"</em> (E).`
+      },
+      {
+        num: 9,
+        topicId: 2,
+        topicGroup: `Construção Textual e Adequação ao Público`,
+        sourceText: `Bahia cai para o Atlético-MG e acaba com chance de vaga na Libertadores<br><br>Vitória perde para Atlético-PR e se complica na luta contra o rebaixamento`,
+        sourceCite: `Jornal A Tarde (manchetes esportivas).`,
+        stem: `Sobre essas duas manchetes, assinale a opção que apresenta a afirmativa correta.`,
+        options: [
+          { letter: `A`, text: `A estruturação dos textos se dirige aos "iniciados" no futebol.` },
+          { letter: `B`, text: `A gravidade das derrotas é apresentada como equivalente.` },
+          { letter: `C`, text: `O verbo "cair" pertence à linguagem denotativa.` },
+          { letter: `D`, text: `Uma das siglas representativas de estados está errada.` },
+          { letter: `E`, text: `O jornal mostra parcialidade na informação prestada.` }
+        ],
+        correct: `A`,
+        explanation: `As manchetes empregam jargões e referências pressupostas (<em>Libertadores</em>, <em>rebaixamento</em>, <em>cai para</em> no sentido de ser derrotado, siglas <em>MG</em> e <em>PR</em>), pressupondo familiaridade do leitor com o universo futebolístico — portanto, dirigem-se aos <strong>"iniciados" no futebol</strong> (<strong>A</strong>). Erros: (B) perder chance de vaga internacional vs. risco de rebaixamento têm gravidades distintas; (C) <em>"cai"</em> está em sentido conotativo/figurado; (D) MG e PR estão corretas; (E) as manchetes relatam resultados factuais de ambos os clubes sem parcialidade.`
+      },
+      {
+        num: 10,
+        topicId: 11,
+        topicGroup: `Linguagem Denotativa e Conotativa`,
+        sourceText: ``,
+        sourceCite: `Manchetes do jornal A Tarde.`,
+        stem: `A respeito das manchetes do jornal A Tarde transcritas a seguir, assinale a que não utiliza linguagem figurada.`,
+        options: [
+          { letter: `A`, text: `"Judô do Brasil passa em branco no 2º dia de disputas em Haia".` },
+          { letter: `B`, text: `"Neymar e Cavani minimizam jogo 'pesado' em amistoso".` },
+          { letter: `C`, text: `"Homens armados roubam supermercado e levam celulares".` },
+          { letter: `D`, text: `"Ex de Safadão anuncia que será musa da Grande Rio".` },
+          { letter: `E`, text: `"Lotérica é assaltada e assaltantes usam reféns como escudo".` }
+        ],
+        correct: `C`,
+        explanation: `A única manchete construída integralmente em <strong>linguagem denotativa</strong> (sentido literal, próprio) é a <strong>C</strong>: todos os termos (<em>homens armados</em>, <em>roubam</em>, <em>supermercado</em>, <em>levam celulares</em>) têm interpretação literal. Nas demais há sentido conotativo/figurado: <em>"passa em branco"</em> (sem medalhas, A), <em>"jogo 'pesado'"</em> (duro/violento, B), <em>"musa"</em> (destaque/inspiração, D) e <em>"como escudo"</em> (comparação metafórica de proteção física, E).`
+      },
+      {
+        num: 11,
+        topicId: 10,
+        topicGroup: `Variação Linguística, Aspas e Opinatividade`,
+        sourceText: `"'Babas' roubam espaço de banhistas na orla de Salvador".`,
+        sourceCite: `Jornal A Tarde, 18/11/2011.`,
+        stem: `Sobre os componentes da manchete, assinale a afirmativa incorreta.`,
+        options: [
+          { letter: `A`, text: `O emprego do verbo "roubar" mostra uma visão negativa da ação praticada.` },
+          { letter: `B`, text: `A linguagem utilizada mostra traços de coloquialidade.` },
+          { letter: `C`, text: `A mensagem traz implícita a ideia de que os banhistas têm direito a certo espaço na orla.` },
+          { letter: `D`, text: `O vocábulo 'babas' traz aspas para indicar um sentido diferente do usual.` },
+          { letter: `E`, text: `A manchete é construída de forma não opinativa, como recomenda a informação jornalística.` }
+        ],
+        correct: `E`,
+        explanation: `Como o enunciado pede a afirmativa <strong>incorreta</strong>, o gabarito é <strong>E</strong>: a manchete <em>não</em> é neutra ou isenta de opinião — ao escolher o verbo valorativo e figurado <strong>"roubam"</strong> (em vez de "ocupam" ou "disputam"), o redator já manifesta posicionamento crítico negativo contra os jogos de futebol na areia. As opções A, B, C e D fazem análises corretas (coloquialidade regional baiana de <em>baba</em>, aspas marcando sentido específico e pressuposto de direito dos banhistas).`
+      },
+      {
+        num: 12,
+        topicId: 1,
+        topicGroup: `Tipologia Argumentativa`,
+        sourceText: `"A redução da maioridade penal é urgente, pois, como mostram as pesquisas de opinião, 98% da nossa população apoia a redução da maioridade penal."`,
+        sourceCite: ``,
+        stem: `Nesse caso, a opinião expressa está apoiada em um argumento`,
+        options: [
+          { letter: `A`, text: `autoritário.` },
+          { letter: `B`, text: `narrativo.` },
+          { letter: `C`, text: `causal.` },
+          { letter: `D`, text: `opinativo.` },
+          { letter: `E`, text: `tendencioso.` }
+        ],
+        correct: `A`,
+        explanation: `Na classificação argumentativa adotada pela banca FGV, recorrer ao peso absoluto da maioria ou a uma pesquisa de opinião apresentada como verdade indiscutível (<em>"98% da nossa população apoia"</em>) sem demonstrar racionalmente o mérito jurídico ou social da medida configura um <strong>argumento autoritário</strong> (apelo à autoridade do número/consenso popular para encerrar o debate). Não há narrativa de evento (B), relação de causa física (C), mera opinião isolada sem dado (D) nem adulteração explícita comprovada na frase (E).`
+      },
+      {
+        num: 13,
+        topicId: 6,
+        topicGroup: `Domínio Vocabular e Modalidade Discursiva`,
+        sourceText: ``,
+        sourceCite: ``,
+        stem: `Quando procuramos evitar afirmações de certeza absoluta, empregamos expressões de possibilidade. Assinale a opção que, ao contrário, expressa certeza.`,
+        options: [
+          { letter: `A`, text: `A Terra deve tornar-se um planeta desabitado.` },
+          { letter: `B`, text: `É muito provável que a gasolina suba de preço.` },
+          { letter: `C`, text: `Sabe-se que o desemprego é o pior de nossos problemas.` },
+          { letter: `D`, text: `O Brasil, provavelmente, crescerá mais em 2019.` },
+          { letter: `E`, text: `Existe a possibilidade de nosso país ficar mais rico.` }
+        ],
+        correct: `C`,
+        explanation: `A expressão <strong>"Sabe-se que"</strong> apresenta a proposição seguinte como fato consolidado e de conhecimento certo (<strong>certeza</strong>). Todas as demais opções contêm modalizadores de hipótese, dúvida ou probabilidade: <em>"deve tornar-se"</em> (A), <em>"É muito provável"</em> (B), <em>"provavelmente"</em> (D) e <em>"Existe a possibilidade"</em> (E).`
+      },
+      {
+        num: 14,
+        topicId: 6,
+        topicGroup: `Domínio Vocabular (Campo Semântico) e Intertextualidade`,
+        sourceText: `"A ideia de que a natureza existe para servir o homem seria apenas ingênua, se não fosse perigosamente pretensiosa. Essa crença lançou raízes profundas no espírito humano, reforçada por doutrinas que situam corretamente o Homo Sapiens no ponto mais alto da evolução, mas incidem no equívoco de fazer dele uma espécie de finalidade da criação. Pode-se dizer com segurança que nada na natureza foi feito para alguma coisa, mas pode-se crer em permuta e equilíbrio entre seres e coisas".`,
+        sourceCite: `Lisboa, Luiz Carlos, Olhos de ver; ouvidos de ouvir. Ed. DIFEL, 2013.`,
+        stem: `As opções a seguir apresentam uma série de palavras e expressões do campo semântico da religiosidade, à exceção de uma. Assinale-a.`,
+        options: [
+          { letter: `A`, text: `Olhos de ver; ouvidos de ouvir.` },
+          { letter: `B`, text: `Essa crença lançou raízes profundas.` },
+          { letter: `C`, text: `uma espécie de finalidade da criação.` },
+          { letter: `D`, text: `... reforçada por doutrinas.` },
+          { letter: `E`, text: `nada na natureza foi feito para alguma coisa.` }
+        ],
+        correct: `E`,
+        explanation: `O enunciado solicita a <strong>exceção</strong> ao campo semântico da religiosidade. Em <strong>E</strong>, <em>"nada na natureza foi feito para alguma coisa"</em> expressa justamente uma concepção racional/científica contrária à ideia de desígnio criacionista. Já as demais pertencem ao universo religioso: <em>"Olhos de ver; ouvidos de ouvir"</em> (intertextualidade bíblica direta, A), <em>"crença"</em> (fé/convicção religiosa, B), <em>"criação"</em> (ato criador divino, C) e <em>"doutrinas"</em> (conjuntos dogmáticos, D).`
+      }
+    ];
+
+    // =========================================================================
+    // ESTADO DO APLICATIVO (PERSISTIDO VIA notebookAppApi)
+    // =========================================================================
+    const appState = {
+      activeTab: `revisao`,
+      theme: `ocean`,
+      reviewedTopics: [],
+      answers: {},
+      topicFilter: `all`
+    };
+
+    async function persistState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState({
+            activeTab: appState.activeTab,
+            theme: appState.theme,
+            reviewedTopics: appState.reviewedTopics,
+            answers: appState.answers,
+            topicFilter: appState.topicFilter
+          });
+        } catch (err) {
+          // Silencioso caso fora do host
+        }
+      }
+    }
+
+    function applyTheme(themeName, shouldSave) {
+      const valid = [`ocean`, `emerald`, `pelourinho`, `violet`];
+      const target = valid.includes(themeName) ? themeName : `ocean`;
+      appState.theme = target;
+
+      if (target === `ocean`) {
+        document.documentElement.removeAttribute(`data-theme`);
+      } else {
+        document.documentElement.setAttribute(`data-theme`, target);
+      }
+
+      const buttons = document.querySelectorAll(`[data-theme-choice]`);
+      buttons.forEach(function (btn) {
+        const isCurrent = btn.getAttribute(`data-theme-choice`) === target;
+        btn.setAttribute(`aria-pressed`, isCurrent ? `true` : `false`);
+        const dot = btn.querySelector(`.swatch-dot`);
+        if (dot) {
+          dot.innerHTML = isCurrent
+            ? `<span class="material-symbols-outlined" aria-hidden="true">check</span>`
+            : ``;
+        }
+      });
+
+      if (shouldSave) {
+        persistState();
+      }
+    }
+
+    function switchTab(tabName) {
+      const tabs = [`revisao`, `simulado`, `diagnostico`];
+      if (!tabs.includes(tabName)) return;
+      appState.activeTab = tabName;
+
+      tabs.forEach(function (t) {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const panel = document.getElementById(`panel-${t}`);
+        const active = t === tabName;
+        if (btn) btn.setAttribute(`aria-selected`, active ? `true` : `false`);
+        if (panel) panel.classList.toggle(`is-active`, active);
+      });
+
+      if (tabName === `diagnostico`) {
+        renderDiagnostics();
+      }
+      persistState();
+    }
+
+    function setTopicFilter(filterVal) {
+      appState.topicFilter = filterVal;
+      const pills = document.querySelectorAll(`[data-filter]`);
+      pills.forEach(function (p) {
+        p.setAttribute(`aria-pressed`, p.getAttribute(`data-filter`) === filterVal ? `true` : `false`);
+      });
+      renderTopics();
+      persistState();
+    }
+
+    function toggleTopicReviewed(topicId) {
+      const idx = appState.reviewedTopics.indexOf(topicId);
+      if (idx === -1) {
+        appState.reviewedTopics.push(topicId);
+      } else {
+        appState.reviewedTopics.splice(idx, 1);
+      }
+      renderTopics();
+      updateSummaryMetrics();
+      persistState();
+    }
+
+    function jumpToTopic(topicId) {
+      appState.topicFilter = `all`;
+      const searchEl = document.getElementById(`topic-search`);
+      if (searchEl) searchEl.value = ``;
+      const pills = document.querySelectorAll(`[data-filter]`);
+      pills.forEach(function (p) {
+        p.setAttribute(`aria-pressed`, p.getAttribute(`data-filter`) === `all` ? `true` : `false`);
+      });
+      switchTab(`revisao`);
+      renderTopics();
+      const targetCard = document.getElementById(`topic-card-${topicId}`);
+      if (targetCard) {
+        targetCard.scrollIntoView({ behavior: `smooth`, block: `center` });
+      }
+    }
+
+    function renderTopics() {
+      const container = document.getElementById(`topics-grid`);
+      if (!container) return;
+
+      const searchEl = document.getElementById(`topic-search`);
+      const query = searchEl ? searchEl.value.trim().toLowerCase() : ``;
+
+      const filtered = EDITAL_TOPICS.filter(function (topic) {
+        const isRev = appState.reviewedTopics.includes(topic.id);
+        if (appState.topicFilter === `reviewed` && !isRev) return false;
+        if (appState.topicFilter === `pending` && isRev) return false;
+
+        if (query) {
+          const haystack = [
+            topic.code,
+            topic.title,
+            topic.fgvBadge,
+            topic.fgvTip,
+            topic.exampleBody,
+            topic.bullets.join(` `)
+          ].join(` `).toLowerCase();
+          return haystack.indexOf(query) !== -1;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state-box" style="grid-column: 1 / -1;">
+            <span class="material-symbols-outlined" aria-hidden="true" style="font-size: 36px; color: var(--primary);">search_off</span>
+            <h3 style="margin: 0; font-family: var(--font-headline);">Nenhum tópico encontrado</h3>
+            <p class="section-desc">Não há tópicos correspondentes ao filtro ou termo pesquisado. Limpe a busca para visualizar os 12 assuntos do edital.</p>
+            <button type="button" class="btn-m3 btn-tonal" onclick="clearTopicFilters()">Mostrar todos os 12 tópicos</button>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(function (topic) {
+        const isRev = appState.reviewedTopics.includes(topic.id);
+        const qList = topic.relatedQuestions.length > 0
+          ? `Prova 2019: Q${topic.relatedQuestions.join(`, Q`)}`
+          : `Novidade / Foco Edital 2026`;
+
+        return `
+          <div class="topic-wrapper" id="topic-card-${topic.id}">
+            <article class="topic-card ${isRev ? `is-reviewed` : ``}">
+              <div class="topic-header">
+                <span class="topic-num-pill">${topic.code}</span>
+                <span class="topic-tag-fgv">${topic.fgvBadge}</span>
+              </div>
+
+              <h3 class="topic-title">${topic.title}</h3>
+
+              <div class="topic-summary">
+                <ul>
+                  ${topic.bullets.map(function (b) { return `<li>${b}</li>`; }).join(``)}
+                </ul>
+              </div>
+
+              <div class="fgv-callout">
+                <div class="fgv-callout-title">
+                  <span class="material-symbols-outlined" aria-hidden="true">lightbulb</span>
+                  Radar da Banca FGV
+                </div>
+                ${topic.fgvTip}
+              </div>
+
+              <details class="topic-details">
+                <summary>
+                  <span>${topic.exampleTitle}</span>
+                  <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+                </summary>
+                <div class="topic-example-body">${topic.exampleBody}</div>
+              </details>
+
+              <div class="topic-footer">
+                <button type="button" class="review-toggle-btn" aria-pressed="${isRev ? `true` : `false`}" onclick="toggleTopicReviewed(${topic.id})">
+                  <span class="material-symbols-outlined" aria-hidden="true">${isRev ? `check_circle` : `radio_button_unchecked`}</span>
+                  ${isRev ? `Tópico revisado` : `Marcar como revisado`}
+                </button>
+                <span class="q-ref-chip">${qList}</span>
+              </div>
+            </article>
+          </div>
+        `;
+      }).join(``);
+    }
+
+    function clearTopicFilters() {
+      const searchEl = document.getElementById(`topic-search`);
+      if (searchEl) searchEl.value = ``;
+      setTopicFilter(`all`);
+    }
+
+    // =========================================================================
+    // RENDERIZAÇÃO E INTERAÇÃO DO SIMULADO (14 QUESTÕES)
+    // =========================================================================
+    function renderSimulado() {
+      const container = document.getElementById(`questions-container`);
+      const mapEl = document.getElementById(`answer-map`);
+      if (!container || !mapEl) return;
+
+      container.innerHTML = SIMULADO_QUESTIONS.map(function (q) {
+        const chosen = appState.answers[String(q.num)] || null;
+        const isAnswered = chosen !== null;
+        const isCorrect = isAnswered && chosen === q.correct;
+
+        const sourceBlock = q.sourceText ? `
+          <div class="q-source-text">
+            ${q.sourceText}
+            ${q.sourceCite ? `<span class="q-source-cite">Fonte: ${q.sourceCite}</span>` : ``}
+          </div>
+        ` : ``;
+
+        const optionsHtml = q.options.map(function (opt) {
+          let cls = `option-btn`;
+          if (isAnswered) {
+            if (opt.letter === q.correct) {
+              cls += ` is-correct`;
+            } else if (opt.letter === chosen && chosen !== q.correct) {
+              cls += ` is-wrong`;
+            } else {
+              cls += ` is-dimmed`;
+            }
+          }
+          return `
+            <button type="button" class="${cls}" onclick="selectOption(${q.num}, '${opt.letter}')" aria-pressed="${chosen === opt.letter ? `true` : `false`}">
+              <span class="option-letter">${opt.letter}</span>
+              <span>${opt.text}</span>
+            </button>
+          `;
+        }).join(``);
+
+        return `
+          <article class="question-card" id="question-card-${q.num}">
+            <div class="question-meta">
+              <span class="q-number-badge">Questão ${String(q.num).padStart(2, `0`)} de 14</span>
+              <span class="q-topic-pill">Tópico ${String(q.topicId).padStart(2, `0`)} · ${q.topicGroup}</span>
+            </div>
+
+            ${sourceBlock}
+
+            <h3 class="q-stem">${q.stem}</h3>
+
+            <div class="options-list" role="group" aria-label="Alternativas da questão ${q.num}">
+              ${optionsHtml}
+            </div>
+
+            <div class="q-feedback ${isAnswered ? `is-visible` : ``}" aria-live="polite">
+              <div class="feedback-banner">
+                <span class="feedback-status ${isCorrect ? `ok` : `err`}">
+                  <span class="material-symbols-outlined" aria-hidden="true">${isCorrect ? `check_circle` : `cancel`}</span>
+                  ${isCorrect ? `Resposta correta!` : `Resposta incorreta — você marcou ${chosen}`}
+                </span>
+                <span class="feedback-key">Gabarito Oficial FGV: ${q.correct}</span>
+              </div>
+              <p class="feedback-explanation">${q.explanation}</p>
+            </div>
+          </article>
+        `;
+      }).join(``);
+
+      renderAnswerMap();
+    }
+
+    function renderAnswerMap() {
+      const mapEl = document.getElementById(`answer-map`);
+      if (!mapEl) return;
+
+      mapEl.innerHTML = SIMULADO_QUESTIONS.map(function (q) {
+        const chosen = appState.answers[String(q.num)] || null;
+        let cls = `q-jump-btn`;
+        if (chosen) {
+          cls += chosen === q.correct ? ` ok` : ` err`;
+        }
+        return `<button type="button" class="${cls}" onclick="scrollToQuestion(${q.num})" aria-label="Ir para questão ${q.num}">${String(q.num).padStart(2, `0`)}</button>`;
+      }).join(``);
+    }
+
+    function scrollToQuestion(num) {
+      const el = document.getElementById(`question-card-${num}`);
+      if (el) {
+        el.scrollIntoView({ behavior: `smooth`, block: `start` });
+      }
+    }
+
+    function selectOption(qNum, letter) {
+      appState.answers[String(qNum)] = letter;
+
+      // Atualiza apenas o card afetado para preservar o foco/scroll suave sem piscar a página inteira
+      const q = SIMULADO_QUESTIONS.find(function (item) { return item.num === qNum; });
+      const card = document.getElementById(`question-card-${qNum}`);
+      if (q && card) {
+        const isCorrect = letter === q.correct;
+        const btns = card.querySelectorAll(`.option-btn`);
+        btns.forEach(function (btn, idx) {
+          const optLetter = q.options[idx].letter;
+          btn.classList.remove(`is-correct`, `is-wrong`, `is-dimmed`);
+          btn.setAttribute(`aria-pressed`, optLetter === letter ? `true` : `false`);
+          if (optLetter === q.correct) {
+            btn.classList.add(`is-correct`);
+          } else if (optLetter === letter && !isCorrect) {
+            btn.classList.add(`is-wrong`);
+          } else {
+            btn.classList.add(`is-dimmed`);
+          }
+        });
+
+        const fb = card.querySelector(`.q-feedback`);
+        if (fb) {
+          fb.classList.add(`is-visible`);
+          fb.innerHTML = `
+            <div class="feedback-banner">
+              <span class="feedback-status ${isCorrect ? `ok` : `err`}">
+                <span class="material-symbols-outlined" aria-hidden="true">${isCorrect ? `check_circle` : `cancel`}</span>
+                ${isCorrect ? `Resposta correta!` : `Resposta incorreta — você marcou ${letter}`}
+              </span>
+              <span class="feedback-key">Gabarito Oficial FGV: ${q.correct}</span>
+            </div>
+            <p class="feedback-explanation">${q.explanation}</p>
+          `;
+        }
+      }
+
+      renderAnswerMap();
+      updateSummaryMetrics();
+      if (appState.activeTab === `diagnostico`) {
+        renderDiagnostics();
+      }
+      persistState();
+    }
+
+    function resetSimulado(btn) {
+      if (!btn) return;
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">warning</span>Confirmar reinício`;
+        setTimeout(function () {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">restart_alt</span>Reiniciar Simulado`;
+          }
+        }, 4000);
+        return;
+      }
+
+      btn.dataset.armed = `false`;
+      btn.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">restart_alt</span>Reiniciar Simulado`;
+      appState.answers = {};
+      renderSimulado();
+      updateSummaryMetrics();
+      renderDiagnostics();
+      persistState();
+    }
+
+    // =========================================================================
+    // MÉTRICAS E DIAGNÓSTICO POR TÓPICO
+    // =========================================================================
+    function computeScoreStats() {
+      let answered = 0;
+      let hits = 0;
+      let errors = 0;
+
+      SIMULADO_QUESTIONS.forEach(function (q) {
+        const chosen = appState.answers[String(q.num)];
+        if (chosen) {
+          answered += 1;
+          if (chosen === q.correct) {
+            hits += 1;
+          } else {
+            errors += 1;
+          }
+        }
+      });
+
+      const pct = answered > 0 ? Math.round((hits / answered) * 100) : 0;
+      const totalPct = Math.round((hits / SIMULADO_QUESTIONS.length) * 100);
+      return { answered: answered, hits: hits, errors: errors, pct: pct, totalPct: totalPct };
+    }
+
+    function updateSummaryMetrics() {
+      const stats = computeScoreStats();
+      const revCount = appState.reviewedTopics.length;
+
+      const kpiTopics = document.getElementById(`kpi-topics`);
+      const kpiAnswered = document.getElementById(`kpi-answered`);
+      const kpiHitsSub = document.getElementById(`kpi-hits-sub`);
+      const kpiAcc = document.getElementById(`kpi-accuracy`);
+
+      if (kpiTopics) kpiTopics.textContent = `${revCount} / 12`;
+      if (kpiAnswered) kpiAnswered.textContent = `${stats.answered} / 14`;
+      if (kpiHitsSub) kpiHitsSub.textContent = `${stats.hits} acertos · ${stats.errors} erros`;
+      if (kpiAcc) kpiAcc.textContent = `${stats.pct}%`;
+
+      const badgeRev = document.getElementById(`badge-revisao`);
+      const badgeSim = document.getElementById(`badge-simulado`);
+      const badgeDiag = document.getElementById(`badge-diagnostico`);
+
+      if (badgeRev) badgeRev.textContent = `${revCount}/12`;
+      if (badgeSim) badgeSim.textContent = `${stats.answered}/14`;
+      if (badgeDiag) badgeDiag.textContent = `${stats.pct}%`;
+
+      const sideHits = document.getElementById(`side-hits`);
+      const sideErrors = document.getElementById(`side-errors`);
+      const sideRem = document.getElementById(`side-remaining`);
+      const progBar = document.getElementById(`simulado-progress-bar`);
+
+      if (sideHits) sideHits.textContent = String(stats.hits);
+      if (sideErrors) sideErrors.textContent = String(stats.errors);
+      if (sideRem) sideRem.textContent = String(14 - stats.answered);
+      if (progBar) progBar.style.width = `${Math.round((stats.answered / 14) * 100)}%`;
+    }
+
+    function renderDiagnostics() {
+      const stats = computeScoreStats();
+      const pctEl = document.getElementById(`diag-pct`);
+      const sumEl = document.getElementById(`diag-summary-text`);
+      const chipEl = document.getElementById(`diag-status-chip`);
+      const listEl = document.getElementById(`diag-topics-list`);
+
+      if (pctEl) pctEl.textContent = `${stats.pct}%`;
+
+      if (sumEl && chipEl) {
+        chipEl.classList.remove(`neutral`, `good`, `warn`, `bad`);
+        if (stats.answered === 0) {
+          sumEl.textContent = `Você ainda não respondeu nenhuma questão. Inicie o Simulado FGV 2019 para mapear seus pontos fortes e fracos.`;
+          chipEl.classList.add(`neutral`);
+          chipEl.textContent = `Aguardando respostas`;
+        } else {
+          sumEl.textContent = `${stats.hits} acerto(s) e ${stats.errors} erro(s) em ${stats.answered} de 14 questões respondidas (${stats.totalPct}% da prova completa).`;
+          if (stats.pct >= 75) {
+            chipEl.classList.add(`good`);
+            chipEl.textContent = `Excelente (Nível Competitivo)`;
+          } else if (stats.pct >= 50) {
+            chipEl.classList.add(`warn`);
+            chipEl.textContent = `Em Evolução (Reforce os erros)`;
+          } else {
+            chipEl.classList.add(`bad`);
+            chipEl.textContent = `Revisão Prioritária`;
+          }
+        }
+      }
+
+      if (!listEl) return;
+
+      // Agrupar desempenho pelos eixos do edital presentes nas 14 questões
+      const axes = [
+        {
+          name: `Interpretação, Tipologia Argumentativa e Raciocínio`,
+          topicId: 1,
+          qNums: [4, 6, 7, 12]
+        },
+        {
+          name: `Coesão, Coerência e Construção Textual`,
+          topicId: 4,
+          qNums: [5, 8, 9]
+        },
+        {
+          name: `Sintaxe, Reescritura e Classes de Palavras`,
+          topicId: 9,
+          qNums: [1, 2, 3]
+        },
+        {
+          name: `Domínio Vocabular, Campo Semântico e Modalidade`,
+          topicId: 6,
+          qNums: [13, 14]
+        },
+        {
+          name: `Variação Linguística e Denotação / Conotação`,
+          topicId: 11,
+          qNums: [10, 11]
+        }
+      ];
+
+      listEl.innerHTML = axes.map(function (axis) {
+        let answered = 0;
+        let hits = 0;
+        axis.qNums.forEach(function (qNum) {
+          const q = SIMULADO_QUESTIONS.find(function (item) { return item.num === qNum; });
+          const ans = appState.answers[String(qNum)];
+          if (q && ans) {
+            answered += 1;
+            if (ans === q.correct) hits += 1;
+          }
+        });
+
+        const total = axis.qNums.length;
+        const pct = answered > 0 ? Math.round((hits / answered) * 100) : 0;
+        let fillCls = `m3-progress-fill`;
+        if (answered > 0) {
+          if (pct >= 75) fillCls += ` good`;
+          else if (pct >= 50) fillCls += ` warn`;
+          else fillCls += ` bad`;
+        }
+
+        const statLabel = answered > 0
+          ? `${hits}/${answered} acertos (${pct}%) · ${total} questões no eixo`
+          : `0/${total} respondidas`;
+
+        return `
+          <div class="topic-bar-item">
+            <div class="topic-bar-top">
+              <span class="topic-bar-name">${axis.name}</span>
+              <span class="topic-bar-stat">${statLabel}</span>
+            </div>
+            <div class="m3-progress-track">
+              <div class="${fillCls}" style="width: ${answered > 0 ? pct : 0}%;"></div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+              <span class="q-ref-chip">Questões: ${axis.qNums.map(function (n) { return `Q${n}`; }).join(`, `)}</span>
+              <button type="button" class="chip-btn" onclick="jumpToTopic(${axis.topicId})">
+                <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+                Revisar Tópico ${String(axis.topicId).padStart(2, `0`)}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join(``);
+    }
+
+    // =========================================================================
+    // INICIALIZAÇÃO E EVENTOS DE PALETA MATERIAL YOU
+    // =========================================================================
+    async function initApp() {
+      const themeButtons = document.querySelectorAll(`[data-theme-choice]`);
+      themeButtons.forEach(function (btn) {
+        btn.addEventListener(`click`, function () {
+          applyTheme(btn.getAttribute(`data-theme-choice`), true);
+        });
+      });
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            if (Array.isArray(saved.reviewedTopics)) {
+              appState.reviewedTopics = saved.reviewedTopics;
+            }
+            if (saved.answers && typeof saved.answers === `object`) {
+              appState.answers = saved.answers;
+            }
+            if (typeof saved.theme === `string`) {
+              appState.theme = saved.theme;
+            }
+            if (typeof saved.activeTab === `string`) {
+              appState.activeTab = saved.activeTab;
+            }
+            if (typeof saved.topicFilter === `string`) {
+              appState.topicFilter = saved.topicFilter;
+            }
+          }
+        } catch (err) {
+          // Segue com estado padrão
+        }
+      }
+
+      applyTheme(appState.theme, false);
+
+      const filterPills = document.querySelectorAll(`[data-filter]`);
+      filterPills.forEach(function (p) {
+        p.setAttribute(`aria-pressed`, p.getAttribute(`data-filter`) === appState.topicFilter ? `true` : `false`);
+      });
+
+      renderTopics();
+      renderSimulado();
+      updateSummaryMetrics();
+      renderDiagnostics();
+      switchTab(appState.activeTab);
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    initApp();
+  </script>
+</body>
+</html>
