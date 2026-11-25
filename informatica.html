@@ -1,0 +1,3042 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="showroom">
+  <title>Noções de Informática — GCM Salvador 2026 | Guia Interativo & Simulado FGV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Showroom + Material Design 3 Tonal Palette */
+      --background: #fbfbfd;
+      --surface-container-low: #f5f5f7;
+      --surface-container: #e8e8ed;
+      --surface-container-high: #dcdce1;
+      --surface-elevated: #ffffff;
+
+      /* Ink */
+      --on-surface: #1d1d1f;
+      --on-surface-variant: #59595e;
+
+      /* Rules */
+      --outline: #c7c7cc;
+      --outline-variant: #e5e5ea;
+
+      /* Accents */
+      --primary: #006bd6;
+      --primary-hover: #0055ad;
+      --on-primary: #ffffff;
+      --primary-container: #e8f1fd;
+      --on-primary-container: #004c99;
+      --secondary: #bf4800;
+      --secondary-container: #fdf0e8;
+      --on-secondary-container: #8f3500;
+      --tertiary: #1d1d1f;
+      --error: #c51123;
+      --on-error: #ffffff;
+      --error-container: #fdebec;
+      --on-error-container: #8f0b18;
+
+      /* Semantic */
+      --positive: #1d7a34;
+      --on-positive: #ffffff;
+      --positive-container: #e8f6ec;
+      --on-positive-container: #145925;
+      --warning: #9e5300;
+      --warning-container: #fef4e6;
+      --on-warning-container: #733b00;
+
+      /* Focus */
+      --focus: #006bd6;
+
+      /* Data series */
+      --data-1: #006bd6;
+      --data-2: #bf4800;
+      --data-3: #1d7a34;
+      --data-4: #7b3fa0;
+      --data-context: #aeaeb2;
+
+      /* Fonts */
+      --font-headline: 'Inter Tight', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-label: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Type scale (Narrative) */
+      --display-size: clamp(2.35rem, 1.4rem + 3.4vw, 3.75rem);
+      --headline-size: clamp(1.65rem, 1.2rem + 1.6vw, 2.35rem);
+      --subhead-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.375rem);
+      --body-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+
+      /* Shape */
+      --rounded: 9999px;
+      --rounded-md: 0.875rem;
+      --rounded-lg: 1.25rem;
+      --rounded-full: 9999px;
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 3.75rem;
+      --space-3xl: 5.5rem;
+
+      /* Effects */
+      --headline-tracking: -0.03em;
+      --figure-tracking: -0.03em;
+      --tile-shadow-hover: 0 8px 24px rgb(0 0 0 / 0.08);
+      --focus-ring: 0 0 0 3px var(--primary-container), 0 0 0 5px var(--focus);
+      --nav-bg: rgb(251 251 253 / 0.92);
+      --word-highlight: #fff3b0;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 1.25rem;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      user-select: none;
+      vertical-align: middle;
+    }
+
+    /* Top M3 Navigation Bar inside static header */
+    .site-header {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--outline-variant);
+      padding-block: var(--space-md);
+      padding-inline: var(--space-lg);
+    }
+
+    .nav-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .brand-badge {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: var(--rounded-md);
+      background: var(--primary);
+      color: var(--on-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      color: var(--on-surface);
+      line-height: 1.15;
+    }
+
+    .brand-sub {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      font-weight: 500;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      color: var(--on-surface-variant);
+      text-decoration: none;
+      font-family: var(--font-label);
+      font-size: 0.875rem;
+      font-weight: 500;
+      background: transparent;
+      transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+    }
+
+    .nav-pill:hover {
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+    }
+
+    .nav-pill.active,
+    .nav-pill[aria-current="true"] {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-weight: 600;
+    }
+
+    .status-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      background: var(--surface-container-low);
+      font-size: var(--label-size);
+      font-weight: 500;
+      color: var(--on-surface);
+    }
+
+    .status-strip .dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: var(--rounded-full);
+      background: var(--primary);
+      display: inline-block;
+    }
+
+    /* Layout containers & tonal bands */
+    .band {
+      padding-block: var(--space-2xl);
+      padding-inline: var(--space-lg);
+    }
+
+    .band.alt {
+      background: var(--surface-container-low);
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .container * { min-width: 0; }
+
+    /* Centered Headline Stack (Showroom Defining Treatment 1) */
+    .headline-stack {
+      text-align: center;
+      padding-block: var(--space-xl) var(--space-lg);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--secondary);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      margin-bottom: var(--space-sm);
+    }
+
+    .headline-stack h1 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--display-size);
+      letter-spacing: var(--headline-tracking);
+      line-height: 1.06;
+      color: var(--on-surface);
+      margin: 0 auto;
+      max-width: 19ch;
+    }
+
+    .headline-stack h2 {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--headline-size);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--on-surface);
+      margin: 0 auto;
+      max-width: 26ch;
+    }
+
+    .headline-stack .lede {
+      color: var(--on-surface-variant);
+      font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+      line-height: 1.55;
+      max-width: 58ch;
+      margin: var(--space-md) auto 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    /* Pill actions */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded);
+      border: 0;
+      background: var(--primary);
+      color: var(--on-primary);
+      font-family: var(--font-label);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+    }
+
+    .btn-primary:hover { background: var(--primary-hover); }
+    .btn-primary:active { transform: scale(0.98); }
+
+    .btn-tonal {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded);
+      border: 0;
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-family: var(--font-label);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out);
+    }
+
+    .btn-tonal:hover { background: var(--surface-container-high); }
+
+    .btn-danger-soft {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded);
+      border: 0;
+      background: var(--error-container);
+      color: var(--on-error-container);
+      font-family: var(--font-label);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out);
+    }
+
+    .btn-danger-soft:hover {
+      background: var(--error);
+      color: var(--on-error);
+    }
+
+    .link-more {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding-inline: var(--space-sm);
+      color: var(--primary);
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.9375rem;
+    }
+
+    .link-more:hover { text-decoration: underline; }
+    .link-more::after { content: " \203A"; }
+
+    /* Tiles (Showroom Defining Treatment 2) */
+    .tile {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl) var(--space-lg);
+      border: 0;
+    }
+
+    .band.alt .tile {
+      background: var(--surface-elevated);
+    }
+
+    .tile.compact {
+      padding: var(--space-lg);
+    }
+
+    .tile.figure {
+      text-align: center;
+      padding: var(--space-lg);
+    }
+
+    .tile.figure .label {
+      font-size: var(--label-size);
+      font-weight: 500;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--space-xs);
+    }
+
+    .tile.figure .value {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: clamp(1.875rem, 1.4rem + 1.5vw, 2.5rem);
+      letter-spacing: var(--figure-tracking);
+      line-height: 1.1;
+      color: var(--on-surface);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .tile.figure .caption {
+      color: var(--on-surface-variant);
+      font-size: var(--label-size);
+      font-weight: 500;
+      margin-top: var(--space-xs);
+    }
+
+    /* Grids */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+
+    .grid-asymmetric {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    .grid-asymmetric-rev {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    /* Typography helpers */
+    h3 {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: var(--subhead-size);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-sm);
+    }
+
+    h4 {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+      color: var(--on-surface);
+      margin: 0 0 var(--space-xs);
+    }
+
+    p { margin: 0 0 var(--space-md); max-width: 65ch; }
+    p:last-child { margin-bottom: 0; }
+
+    ul.clean-list {
+      margin: 0;
+      padding-left: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    kbd {
+      font-family: var(--font-mono);
+      font-size: 0.82em;
+      font-weight: 600;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--space-sm);
+      background: var(--surface-container);
+      color: var(--on-surface);
+      display: inline-block;
+      line-height: 1.2;
+    }
+
+    .band.alt kbd {
+      background: var(--surface-container-low);
+    }
+
+    /* Chips & Callouts */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-size: var(--label-size);
+      font-weight: 500;
+    }
+
+    .chip.warn {
+      background: var(--secondary-container);
+      color: var(--on-secondary-container);
+    }
+
+    .chip.ok {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+    }
+
+    .callout {
+      border-radius: var(--rounded-md);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      padding: var(--space-md) var(--space-lg);
+      margin-top: var(--space-md);
+    }
+
+    .callout.trap {
+      background: var(--secondary-container);
+      color: var(--on-secondary-container);
+    }
+
+    .callout.tip {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+    }
+
+    .callout-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-xs);
+    }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: var(--rounded-md);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9375rem;
+    }
+
+    th {
+      color: var(--on-surface-variant);
+      font-weight: 500;
+      font-size: var(--label-size);
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: 1px solid var(--outline-variant);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: 1px solid var(--outline-variant);
+      vertical-align: top;
+      font-variant-numeric: tabular-nums;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    /* Edital Checklist */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: var(--space-sm);
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      min-height: 48px;
+      padding: var(--space-md);
+      border-radius: var(--rounded-md);
+      background: var(--surface-elevated);
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+      text-align: left;
+      border: 0;
+      width: 100%;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      color: var(--on-surface);
+    }
+
+    .check-item:hover {
+      box-shadow: var(--tile-shadow-hover);
+    }
+
+    .check-item.checked {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+
+    .check-box {
+      width: 1.35rem;
+      height: 1.35rem;
+      border-radius: 0.375rem;
+      background: var(--surface-container);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--on-primary);
+    }
+
+    .check-item.checked .check-box {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 0.625rem;
+      border-radius: var(--rounded);
+      background: var(--surface-container);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: var(--rounded);
+      background: var(--primary);
+      transition: width var(--dur-long) var(--ease-out);
+    }
+
+    /* Interactive Windows Explorer Lab */
+    .explorer-shell {
+      background: var(--surface-elevated);
+      border-radius: var(--rounded-md);
+      padding: var(--space-md);
+      box-shadow: var(--tile-shadow-hover);
+    }
+
+    .explorer-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-md);
+      padding: var(--space-xs) var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .nav-icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--rounded);
+      border: 0;
+      background: transparent;
+      color: var(--on-surface);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .nav-icon-btn:hover:not(:disabled) {
+      background: var(--surface-container);
+    }
+
+    .nav-icon-btn:disabled {
+      opacity: 0.38;
+      cursor: not-allowed;
+    }
+
+    .nav-icon-btn.highlight-up {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+
+    .breadcrumbs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-xs);
+      flex: 1;
+      min-width: 0;
+      padding-inline: var(--space-xs);
+    }
+
+    .crumb-btn {
+      min-height: 36px;
+      padding: var(--space-xs) var(--space-sm);
+      border: 0;
+      border-radius: var(--space-sm);
+      background: transparent;
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .crumb-btn:hover { background: var(--surface-container); }
+    .crumb-btn.current {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-weight: 600;
+    }
+
+    .folder-contents {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .folder-entry {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded-md);
+      border: 0;
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .folder-entry:hover { background: var(--primary-container); color: var(--on-primary-container); }
+
+    /* Keyboard Layout Simulator */
+    .segmented {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      padding: var(--space-xs);
+      border-radius: var(--rounded);
+      background: var(--surface-container);
+      margin-bottom: var(--space-md);
+    }
+
+    .seg-btn {
+      min-height: 40px;
+      padding: var(--space-xs) var(--space-md);
+      border: 0;
+      border-radius: var(--rounded);
+      background: transparent;
+      color: var(--on-surface-variant);
+      font-family: var(--font-label);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+    }
+
+    .seg-btn.active {
+      background: var(--surface-elevated);
+      color: var(--on-surface);
+      font-weight: 600;
+    }
+
+    .kbd-test-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .phys-key {
+      min-width: 56px;
+      min-height: 52px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded-md);
+      border: 0;
+      background: var(--surface-elevated);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 0 var(--outline);
+      transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .phys-key:hover { background: var(--primary-container); color: var(--on-primary-container); }
+    .phys-key:active { transform: translateY(2px); box-shadow: none; }
+
+    .kbd-output-box {
+      padding: var(--space-md);
+      border-radius: var(--rounded-md);
+      background: var(--surface-elevated);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+    }
+
+    /* Word Ribbon Interactive Inspector */
+    .ribbon-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      padding: var(--space-md);
+      border-radius: var(--rounded-md);
+      background: var(--surface-container-low);
+      margin-bottom: var(--space-md);
+    }
+
+    .ribbon-btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      min-width: 76px;
+      min-height: 64px;
+      padding: var(--space-sm);
+      border-radius: var(--rounded-md);
+      border: 0;
+      background: var(--surface-elevated);
+      color: var(--on-surface);
+      font-family: var(--font-label);
+      font-size: 0.75rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+    }
+
+    .ribbon-btn:hover { background: var(--surface-container); }
+    .ribbon-btn.active {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-weight: 600;
+    }
+
+    .word-preview-doc {
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--rounded-md);
+      background: var(--surface-elevated);
+      border-left: 4px solid var(--primary);
+      margin-bottom: var(--space-md);
+    }
+
+    /* Excel Live Formula Lab */
+    .excel-grid-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface-elevated);
+      border-radius: var(--rounded-md);
+      overflow: hidden;
+    }
+
+    .excel-grid-table th {
+      background: var(--surface-container);
+      color: var(--on-surface);
+      text-align: center;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      padding: var(--space-sm);
+    }
+
+    .excel-grid-table td {
+      padding: var(--space-sm);
+      border: 1px solid var(--outline-variant);
+      font-family: var(--font-mono);
+    }
+
+    .excel-grid-table td.row-hdr {
+      background: var(--surface-container);
+      text-align: center;
+      font-weight: 600;
+      width: 3rem;
+      color: var(--on-surface-variant);
+    }
+
+    .cell-input {
+      width: 100%;
+      min-height: 40px;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--space-sm);
+      border: 1px solid var(--outline);
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+    }
+
+    .cell-result {
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-container);
+    }
+
+    .formula-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .field-label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+
+    .pill-input, .pill-select {
+      width: 100%;
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded-md);
+      border: 1px solid var(--outline);
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-size: 0.9375rem;
+    }
+
+    .preset-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-md);
+    }
+
+    .preset-chip {
+      min-height: 38px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      border: 0;
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+
+    .preset-chip:hover { background: var(--surface-container-high); }
+    .preset-chip.active {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+
+    /* Storage Calculator */
+    .calc-inputs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr));
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .media-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(175px, 100%), 1fr));
+      gap: var(--space-sm);
+    }
+
+    .media-card {
+      padding: var(--space-md);
+      border-radius: var(--rounded-md);
+      background: var(--surface-elevated);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .media-card.state-insufficient {
+      background: var(--error-container);
+      color: var(--on-error-container);
+    }
+
+    .media-card.state-ideal {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+      box-shadow: 0 0 0 2px var(--positive);
+    }
+
+    .media-card.state-excess {
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+    }
+
+    /* Simulado */
+    .simulado-header-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+    }
+
+    .q-nav-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .q-pill {
+      min-width: 44px;
+      height: 44px;
+      padding-inline: var(--space-sm);
+      border-radius: var(--rounded);
+      border: 0;
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+    }
+
+    .q-pill:hover { background: var(--surface-container-high); }
+    .q-pill.current { box-shadow: 0 0 0 2px var(--primary); }
+    .q-pill.answered { background: var(--primary-container); color: var(--on-primary-container); }
+    .q-pill.correct { background: var(--positive); color: var(--on-positive); }
+    .q-pill.wrong { background: var(--error); color: var(--on-error); }
+
+    .question-card {
+      background: var(--surface-elevated);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      margin-bottom: var(--space-lg);
+    }
+
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+
+    .question-stem {
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--on-surface);
+      margin-bottom: var(--space-lg);
+      max-width: 72ch;
+    }
+
+    .question-figure {
+      margin-bottom: var(--space-lg);
+      padding: var(--space-md);
+      border-radius: var(--rounded-md);
+      background: var(--surface-container-low);
+      overflow-x: auto;
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      width: 100%;
+      min-height: 52px;
+      padding: var(--space-md);
+      border-radius: var(--rounded-md);
+      border: 0;
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: 0.96875rem;
+      line-height: 1.5;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out);
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background: var(--surface-container);
+    }
+
+    .option-btn.selected {
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+
+    .option-btn.is-correct {
+      background: var(--positive-container);
+      color: var(--on-positive-container);
+      box-shadow: 0 0 0 2px var(--positive);
+    }
+
+    .option-btn.is-wrong {
+      background: var(--error-container);
+      color: var(--on-error-container);
+      box-shadow: 0 0 0 2px var(--error);
+    }
+
+    .option-letter {
+      width: 2rem;
+      height: 2rem;
+      border-radius: var(--rounded-full);
+      background: var(--surface-elevated);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 0.875rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .option-btn.selected .option-letter {
+      background: var(--primary);
+      color: var(--on-primary);
+    }
+
+    .option-btn.is-correct .option-letter {
+      background: var(--positive);
+      color: var(--on-positive);
+    }
+
+    .option-btn.is-wrong .option-letter {
+      background: var(--error);
+      color: var(--on-error);
+    }
+
+    .resolution-box {
+      padding: var(--space-lg);
+      border-radius: var(--rounded-md);
+      background: var(--surface-container-low);
+      margin-top: var(--space-md);
+    }
+
+    .resolution-box.ok { border-left: 4px solid var(--positive); }
+    .resolution-box.err { border-left: 4px solid var(--error); }
+
+    .question-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    .diag-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-lg);
+    }
+
+    .diag-card {
+      background: var(--surface-elevated);
+      border-radius: var(--rounded-md);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .diag-bar-track {
+      height: 0.5rem;
+      border-radius: var(--rounded);
+      background: var(--surface-container);
+      overflow: hidden;
+    }
+
+    .diag-bar-fill {
+      height: 100%;
+      border-radius: var(--rounded);
+      background: var(--primary);
+    }
+
+    .diag-bar-fill.high { background: var(--positive); }
+    .diag-bar-fill.mid { background: var(--warning); }
+    .diag-bar-fill.low { background: var(--error); }
+
+    .inline-msg {
+      margin-top: var(--space-sm);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--secondary);
+    }
+
+    /* Footer */
+    .site-footer {
+      padding-block: var(--space-xl);
+      padding-inline: var(--space-lg);
+      border-top: 1px solid var(--outline-variant);
+      color: var(--on-surface-variant);
+      font-size: 0.875rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .grid-asymmetric,
+      .grid-asymmetric-rev,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .band {
+        padding-block: var(--space-xl);
+        padding-inline: var(--space-md);
+      }
+      .site-header {
+        padding-inline: var(--space-md);
+      }
+      .question-card {
+        padding: var(--space-lg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-shell">
+      <div class="brand-group">
+        <div class="brand-badge" aria-hidden="true">
+          <span class="material-symbols-outlined">shield_with_heart</span>
+        </div>
+        <div>
+          <div class="brand-title">GCM Salvador · Informática</div>
+          <div class="brand-sub">Edital 2026 (FGV) &amp; Base Prova 2019</div>
+        </div>
+      </div>
+
+      <nav class="top-nav" aria-label="Navegação principal dos módulos">
+        <a class="nav-pill active" href="#edital" onclick="setActiveNav(this)">Edital 2026</a>
+        <a class="nav-pill" href="#windows" onclick="setActiveNav(this)">Windows</a>
+        <a class="nav-pill" href="#word" onclick="setActiveNav(this)">Word 2016</a>
+        <a class="nav-pill" href="#excel" onclick="setActiveNav(this)">Excel 2016</a>
+        <a class="nav-pill" href="#hardware" onclick="setActiveNav(this)">Hardware &amp; Mídias</a>
+        <a class="nav-pill" href="#internet" onclick="setActiveNav(this)">PDF &amp; Segurança</a>
+        <a class="nav-pill" href="#simulado" onclick="setActiveNav(this)">Simulado (8 Q)</a>
+      </nav>
+
+      <div class="status-strip" aria-live="polite">
+        <span class="dot" aria-hidden="true"></span>
+        <span id="header-progress-text">0/8 tópicos · Simulado 0/8</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO & EDITAL 2026 -->
+    <section id="edital" class="band">
+      <div class="container">
+        <div class="headline-stack">
+          <span class="eyebrow">Guarda Civil Municipal de Salvador · Módulo I — Conhecimentos Básicos</span>
+          <h1>Domine Noções de Informática no padrão FGV</h1>
+          <p class="lede">
+            Revisão teórica completa alinhada ao Edital 2026 (retificado em 18/11/2026) e à prova aplicada pela FGV em 2019 — com laboratórios interativos de Windows, Word, Excel e cálculo de mídias, além de simulado comentado com exatamente 8 questões.
+          </p>
+          <div class="hero-actions">
+            <a href="#simulado" class="btn-primary">
+              <span class="material-symbols-outlined" aria-hidden="true">quiz</span>
+              Ir para o Simulado (8 questões)
+            </a>
+            <a href="#windows" class="link-more">Começar revisão teórica</a>
+          </div>
+        </div>
+
+        <div class="card-grid" style="margin-bottom: var(--space-xl);">
+          <div class="tile figure">
+            <div class="label">Questões de Informática</div>
+            <div class="value">8</div>
+            <div class="caption">28,6% do Módulo I (28 questões)</div>
+          </div>
+          <div class="tile figure">
+            <div class="label">Mínimo no Módulo I</div>
+            <div class="value">14 pts</div>
+            <div class="caption">Critério eliminatório (Edital 9.13)</div>
+          </div>
+          <div class="tile figure">
+            <div class="label">Prova Objetiva</div>
+            <div class="value">17/01/27</div>
+            <div class="caption">08h às 12h30 · 70 questões (A–E)</div>
+          </div>
+          <div class="tile figure">
+            <div class="label">Vagas &amp; Remuneração</div>
+            <div class="value">50 + CR</div>
+            <div class="caption">R$ 3.546,42 (Venc. + Gratificações)</div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:var(--space-md); margin-bottom:var(--space-md);">
+            <div>
+              <h3>Checklist do Conteúdo Programático — Edital 2026</h3>
+              <p style="color:var(--on-surface-variant); margin-bottom:0;">Marque os 8 eixos conforme avança nos estudos. Seu progresso fica salvo automaticamente.</p>
+            </div>
+            <div class="mono" style="font-weight:600; color:var(--primary);" id="checklist-counter">0 de 8 concluídos</div>
+          </div>
+          <div class="progress-track" style="margin-bottom: var(--space-lg);">
+            <div class="progress-fill" id="checklist-progress-bar" style="width: 0%;"></div>
+          </div>
+
+          <div class="checklist-grid" id="edital-checklist">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WINDOWS 10 BR & 11 BR -->
+    <section id="windows" class="band alt">
+      <div class="container">
+        <div class="headline-stack" style="padding-top: var(--space-md);">
+          <span class="eyebrow">Tópico 1 · Sistema Operacional</span>
+          <h2>Windows 10 BR &amp; Windows 11 BR: navegação, teclado e recuperação</h2>
+          <p class="lede">
+            Na prova de 2019, a FGV dedicou 3 das 8 questões ao Windows 10 BR (teclado, imagem do sistema e seta para cima do Explorador de Arquivos). Veja os detalhes que decidem a pontuação.
+          </p>
+        </div>
+
+        <div class="grid-asymmetric" style="margin-bottom: var(--space-xl);">
+          <div class="tile">
+            <div class="chip-row">
+              <span class="chip">Cobrado na Q25, Q27 e Q29 (2019)</span>
+              <span class="chip warn">Edital 2026 cita Windows 11 BR</span>
+            </div>
+            <h3>1. Idiomas, Teclados e Layout ABNT2 vs. US</h3>
+            <p>
+              No Brasil, o layout físico padrão é o <strong>ABNT2</strong> (possui tecla dedicada para <kbd>Ç</kbd> ao lado do <kbd>L</kbd>). Já um teclado comprado nos Estados Unidos (<strong>US / ANSI</strong>) não tem a tecla <kbd>Ç</kbd>: naquela exata posição fica o ponto e vírgula <kbd>;</kbd>.
+            </p>
+            <p>
+              Quando esse teclado americano é conectado a um Windows 10/11 BR configurado apenas com o layout ABNT2, pressionar <kbd>;</kbd> faz surgir <strong>ç</strong> na tela. Para corrigir sem trocar o idioma do Windows, basta acessar <em>Configurações → Hora e Idioma → Idioma → Português (Brasil) → Opções</em> e <strong>adicionar o teclado apropriado</strong> (ex.: Estados Unidos - Internacional).
+            </p>
+            <div class="callout trap">
+              <div class="callout-title">
+                <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+                Pegadinha clássica da FGV
+              </div>
+              Não é necessário instalar um novo pacote de idiomas do Windows, baixar driver proprietário nem usar adaptador físico USB: o problema é exclusivamente de <strong>mapeamento lógico do layout de teclado</strong> nas Opções de Idioma.
+            </div>
+          </div>
+
+          <div class="tile">
+            <h3>Teste de Layout de Teclado ao Vivo</h3>
+            <p style="color:var(--on-surface-variant); font-size:0.9375rem;">
+              Alterne o layout configurado no Windows e clique nas teclas de um teclado americano físico para observar o que aparece na tela.
+            </p>
+            <div class="segmented" role="group" aria-label="Layout do teclado no Windows">
+              <button type="button" class="seg-btn active" id="kbd-mode-abnt2" onclick="setKbdLayout('abnt2')">Português (ABNT2)</button>
+              <button type="button" class="seg-btn" id="kbd-mode-usintl" onclick="setKbdLayout('usintl')">EUA (Internacional)</button>
+            </div>
+            <div class="kbd-test-row">
+              <button type="button" class="phys-key" onclick="pressPhysicalKey('semicolon')">; / :</button>
+              <button type="button" class="phys-key" onclick="pressPhysicalKey('quote')">' / "</button>
+              <button type="button" class="phys-key" onclick="pressPhysicalKey('slash')">/ / ?</button>
+              <button type="button" class="phys-key" onclick="pressPhysicalKey('bracket')">[ / {</button>
+            </div>
+            <div class="kbd-output-box" id="kbd-sim-output">
+              Clique em uma tecla acima para testar o mapeamento no Windows.
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-asymmetric-rev" style="margin-bottom: var(--space-xl);">
+          <div class="tile">
+            <h3>Simulador do Explorador de Arquivos</h3>
+            <p style="color:var(--on-surface-variant); font-size:0.9375rem;">
+              Reprodução da barra de endereços da Q29 (FGV 2019). Clique na seta para cima (<kbd>↑</kbd>) ou navegue pelas pastas e compare com o botão Voltar (<kbd>←</kbd>).
+            </p>
+            <div class="explorer-shell">
+              <div class="explorer-bar">
+                <button type="button" class="nav-icon-btn" id="exp-back-btn" onclick="expGoBack()" title="Voltar para o local anterior" aria-label="Voltar para o local anterior">
+                  <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <button type="button" class="nav-icon-btn" id="exp-fwd-btn" onclick="expGoForward()" title="Avançar" aria-label="Avançar">
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+                <button type="button" class="nav-icon-btn highlight-up" id="exp-up-btn" onclick="expGoUp()" title="Um nível acima" aria-label="Subir um nível na árvore de pastas">
+                  <span class="material-symbols-outlined">arrow_upward</span>
+                </button>
+                <div class="breadcrumbs" id="exp-breadcrumbs" aria-label="Caminho atual"></div>
+              </div>
+              <div class="folder-contents" id="exp-folder-contents"></div>
+              <div class="callout" style="margin-top:0;" id="exp-status-msg">
+                Você está em <strong>jdk1.8.0_161</strong>. Clique na seta para cima (<span class="mono">↑</span>) destacada em azul para subir um nível hierárquico.
+              </div>
+            </div>
+          </div>
+
+          <div class="tile">
+            <h3>2. Explorador de Arquivos, Imagem do Sistema e Atalhos</h3>
+            <p>
+              Na barra de endereços do Explorador de Arquivos (<kbd>Win</kbd> + <kbd>E</kbd>), há três setas à esquerda:
+            </p>
+            <ul class="clean-list" style="margin-bottom:var(--space-md);">
+              <li><strong>Seta para a esquerda (<span class="mono">←</span>):</strong> retorna à <em>última pasta visitada no histórico</em> (pode ser em outro disco).</li>
+              <li><strong>Seta para a direita (<span class="mono">→</span>):</strong> avança no histórico após ter voltado.</li>
+              <li><strong>Seta para cima (<span class="mono">↑</span>):</strong> sobe exatamente <strong>um nível hierárquico</strong> (pasta pai), independentemente de qual pasta você visitou antes.</li>
+            </ul>
+            <h4>Imagem do Sistema vs. Ponto de Restauração</h4>
+            <p>
+              Uma <strong>Imagem do Sistema</strong> cria uma cópia exata da unidade do sistema (partição onde o Windows está instalado). Caso o disco rígido pare de funcionar, ela permite recuperar integralmente: <strong>I. Contas de usuários</strong>, <strong>II. Aplicativos instalados</strong> e <strong>III. Configurações do Windows</strong>, além dos arquivos salvos naquela unidade.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Atalho</th><th>Ação no Windows 10 / 11 BR</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><kbd>Win</kbd> + <kbd>E</kbd> / <kbd>Win</kbd> + <kbd>D</kbd></td><td>Abrir Explorador de Arquivos / Mostrar Área de Trabalho</td></tr>
+                  <tr><td><kbd>Win</kbd> + <kbd>L</kbd> / <kbd>Win</kbd> + <kbd>I</kbd></td><td>Bloquear sessão / Abrir Configurações</td></tr>
+                  <tr><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Esc</kbd></td><td>Abrir diretamente o Gerenciador de Tarefas</td></tr>
+                  <tr><td><kbd>Shift</kbd> + <kbd>Del</kbd></td><td>Excluir arquivo permanentemente (sem ir para a Lixeira)</td></tr>
+                  <tr><td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd></td><td>Criar nova pasta no Explorador de Arquivos</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MS WORD 2016 BR -->
+    <section id="word" class="band">
+      <div class="container">
+        <div class="headline-stack" style="padding-top: var(--space-md);">
+          <span class="eyebrow">Tópico 2 · Editor de Textos</span>
+          <h2>MS Word 2016 BR: Estilos, ícones da Guia Página Inicial e recursos avançados</h2>
+          <p class="lede">
+            A FGV avalia o domínio visual dos ícones da Faixa de Opções, a função estratégica dos Estilos e as diferenças dos atalhos na versão em Português (BR).
+          </p>
+        </div>
+
+        <div class="grid-asymmetric" style="margin-bottom: var(--space-xl);">
+          <div class="tile">
+            <h3>Inspetor Interativo da Faixa de Opções</h3>
+            <p style="color:var(--on-surface-variant); font-size:0.9375rem;">
+              Selecione um comando da Guia Página Inicial ou Revisão para aplicar no texto de exemplo e inspecionar seu funcionamento em prova.
+            </p>
+            <div class="ribbon-strip" role="group" aria-label="Botões do MS Word 2016 BR">
+              <button type="button" class="ribbon-btn active" id="rb-clear" onclick="selectWordTool('clear')">
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                  <text x="2" y="16" font-family="serif" font-weight="700" font-size="14" fill="currentColor">A</text>
+                  <polygon points="12,15 19,8 22,11 15,18" fill="var(--secondary)"/>
+                  <polygon points="10,17 12,15 15,18 13,20" fill="var(--outline)"/>
+                </svg>
+                <span>Limpar Form.</span>
+              </button>
+              <button type="button" class="ribbon-btn" id="rb-styles" onclick="selectWordTool('styles')">
+                <span class="material-symbols-outlined" aria-hidden="true">format_shapes</span>
+                <span>Estilos</span>
+              </button>
+              <button type="button" class="ribbon-btn" id="rb-painter" onclick="selectWordTool('painter')">
+                <span class="material-symbols-outlined" aria-hidden="true">imagesearch_roller</span>
+                <span>Pincel</span>
+              </button>
+              <button type="button" class="ribbon-btn" id="rb-highlight" onclick="selectWordTool('highlight')">
+                <span class="material-symbols-outlined" aria-hidden="true">ink_highlighter</span>
+                <span>Realce</span>
+              </button>
+              <button type="button" class="ribbon-btn" id="rb-fontcolor" onclick="selectWordTool('fontcolor')">
+                <span class="material-symbols-outlined" aria-hidden="true">format_color_text</span>
+                <span>Cor da Fonte</span>
+              </button>
+              <button type="button" class="ribbon-btn" id="rb-track" onclick="selectWordTool('track')">
+                <span class="material-symbols-outlined" aria-hidden="true">rate_review</span>
+                <span>Alterações</span>
+              </button>
+            </div>
+
+            <div class="word-preview-doc" id="word-preview-sample">
+              <div style="font-size:0.75rem; color:var(--on-surface-variant); margin-bottom:var(--space-xs);">Visualização do documento</div>
+              <div id="word-sample-text" style="font-size:1.05rem;">
+                Guarda Civil Municipal de Salvador — Texto com formatação aplicada para inspeção.
+              </div>
+            </div>
+
+            <div id="word-tool-detail">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div class="tile">
+            <h3>Regras de Ouro do MS Word 2016 BR (Edital 2026)</h3>
+            <ul class="clean-list" style="margin-bottom: var(--space-md);">
+              <li>
+                <strong>Estilos (Q30/2019):</strong> Conjuntos nomeados de formatação (fonte, cor, parágrafo). Ao alterar a definição de um estilo (ex.: <em>Título 1</em>), <strong>todos os trechos baseados nele são atualizados automaticamente</strong>. Além disso, os estilos de Título alimentam o Sumário automático.
+              </li>
+              <li>
+                <strong>Limpar Toda a Formatação (Q31/2019):</strong> Ícone de letra <strong>A com borracha</strong> no grupo Fonte. Remove toda a formatação de fonte e parágrafo, retornando ao estilo Normal — mas <strong>NÃO remove a cor de Realce (marca-texto)</strong>!
+              </li>
+              <li>
+                <strong>Localizar e Substituir:</strong> <kbd>Ctrl</kbd> + <kbd>L</kbd> (Localizar), <kbd>Ctrl</kbd> + <kbd>U</kbd> (Substituir), <kbd>Ctrl</kbd> + <kbd>Y</kbd> ou <kbd>F5</kbd> (Ir para). Permite localizar até formatações e caracteres especiais (como marcas de parágrafo <span class="mono">^p</span>).
+              </li>
+              <li>
+                <strong>Controle de Alterações (Guia Revisão):</strong> Registra inserções, exclusões e formatações feitas por diferentes revisores, permitindo aceitar ou rejeitar cada mudança.
+              </li>
+              <li>
+                <strong>Proteção, Macros e Formatos:</strong> Documentos salvos em <span class="mono">.docx</span> não executam macros (VBA); para armazenar macros exige-se <span class="mono">.docm</span>. É possível criptografar o arquivo com senha em <em>Arquivo → Informações → Proteger Documento</em>.
+              </li>
+            </ul>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Atalho PT-BR</th><th>Função no Word 2016 BR</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><kbd>Ctrl</kbd> + <kbd>N</kbd> / <kbd>I</kbd> / <kbd>S</kbd></td><td>Negrito / Itálico / Sublinhado</td></tr>
+                  <tr><td><kbd>Ctrl</kbd> + <kbd>B</kbd></td><td><strong>Salvar</strong> (NÃO é Negrito na versão BR!)</td></tr>
+                  <tr><td><kbd>Ctrl</kbd> + <kbd>T</kbd></td><td>Selecionar <strong>Tudo</strong> no documento</td></tr>
+                  <tr><td><kbd>Ctrl</kbd> + <kbd>Z</kbd> / <kbd>R</kbd></td><td>Desfazer / Refazer última ação</td></tr>
+                  <tr><td><kbd>F7</kbd></td><td>Verificar ortografia e gramática</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MS EXCEL 2016 BR -->
+    <section id="excel" class="band alt">
+      <div class="container">
+        <div class="headline-stack" style="padding-top: var(--space-md);">
+          <span class="eyebrow">Tópico 3 · Planilhas Eletrônicas</span>
+          <h2>MS Excel 2016 BR: fórmulas, precedência, referências e tecla F9</h2>
+          <p class="lede">
+            Em 2019, a FGV cobrou potenciação em células (Q26) e a tecla de atalho para atualizar cálculos (Q28). Experimente no laboratório abaixo.
+          </p>
+        </div>
+
+        <div class="grid-asymmetric" style="margin-bottom: var(--space-xl);">
+          <div class="tile">
+            <h3>Laboratório de Fórmulas Excel 2016 BR</h3>
+            <p style="color:var(--on-surface-variant); font-size:0.9375rem;">
+              Altere os valores numéricos em <strong>B1–B4</strong> ou escolha uma fórmula do padrão FGV e clique em <strong>Recalcular (F9)</strong>.
+            </p>
+
+            <div class="preset-pills" role="group" aria-label="Exemplos de fórmulas FGV">
+              <button type="button" class="preset-chip active" id="ex-p-pow" onclick="setExcelPreset('pow', this)">=B1^B2 (Q26/2019)</button>
+              <button type="button" class="preset-chip" id="ex-p-sumrange" onclick="setExcelPreset('sumrange', this)">=SOMA(B1:B4)</button>
+              <button type="button" class="preset-chip" id="ex-p-sumtwo" onclick="setExcelPreset('sumtwo', this)">=SOMA(B1;B4)</button>
+              <button type="button" class="preset-chip" id="ex-p-avg" onclick="setExcelPreset('avg', this)">=MÉDIA(B1:B4)</button>
+              <button type="button" class="preset-chip" id="ex-p-if" onclick="setExcelPreset('ifcond', this)">=SE(B1&gt;B2;...)</button>
+              <button type="button" class="preset-chip" id="ex-p-prec" onclick="setExcelPreset('prec', this)">=B1+B2*B3</button>
+            </div>
+
+            <div class="formula-bar">
+              <div class="field-group">
+                <label class="field-label" for="excel-formula-input">Barra de Fórmulas (célula B5)</label>
+                <input type="text" id="excel-formula-input" class="pill-input" value="=B1^B2" oninput="evaluateExcelLab()">
+              </div>
+              <button type="button" class="btn-primary" onclick="triggerF9Recalc()">
+                <span class="material-symbols-outlined" aria-hidden="true">refresh</span>
+                Recalcular (F9)
+              </button>
+            </div>
+
+            <div class="table-wrap" style="margin-bottom: var(--space-md);">
+              <table class="excel-grid-table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>A (Rótulo)</th>
+                    <th>B (Valor / Fórmula)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="row-hdr">1</td>
+                    <td>base</td>
+                    <td><input type="number" class="cell-input" id="cell-b1" value="2" aria-label="Célula B1" oninput="evaluateExcelLab()"></td>
+                  </tr>
+                  <tr>
+                    <td class="row-hdr">2</td>
+                    <td>expoente</td>
+                    <td><input type="number" class="cell-input" id="cell-b2" value="4" aria-label="Célula B2" oninput="evaluateExcelLab()"></td>
+                  </tr>
+                  <tr>
+                    <td class="row-hdr">3</td>
+                    <td>fator C</td>
+                    <td><input type="number" class="cell-input" id="cell-b3" value="10" aria-label="Célula B3" oninput="evaluateExcelLab()"></td>
+                  </tr>
+                  <tr>
+                    <td class="row-hdr">4</td>
+                    <td>fator D</td>
+                    <td><input type="number" class="cell-input" id="cell-b4" value="6" aria-label="Célula B4" oninput="evaluateExcelLab()"></td>
+                  </tr>
+                  <tr>
+                    <td class="row-hdr">5</td>
+                    <td>resultado</td>
+                    <td class="cell-result" id="cell-b5-output">16</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout tip" id="excel-explain-box" style="margin-top:0;">
+              <strong>Explicação:</strong> O operador <span class="mono">^</span> calcula a potência de <span class="mono">B1</span> (2) elevado a <span class="mono">B2</span> (4) = <strong>16</strong>. Em Excel, não se usa <span class="mono">**</span> (isso é Python) e toda fórmula inicia com <span class="mono">=</span>.
+            </div>
+          </div>
+
+          <div class="tile">
+            <h3>Regras Essenciais do Excel 2016 BR</h3>
+            <ul class="clean-list" style="margin-bottom: var(--space-md);">
+              <li>
+                <strong>Operadores &amp; Precedência:</strong> <span class="mono">()</span> → <span class="mono">%</span> → <span class="mono">^</span> (potência) → <span class="mono">*</span> e <span class="mono">/</span> → <span class="mono">+</span> e <span class="mono">-</span> → <span class="mono">&amp;</span> (concatena texto) → comparação (<span class="mono">=</span>, <span class="mono">&lt;&gt;</span>, <span class="mono">&lt;=</span>, <span class="mono">&gt;=</span>).
+              </li>
+              <li>
+                <strong>Dois-pontos (<span class="mono">:</span>) vs. Ponto e vírgula (<span class="mono">;</span>):</strong> <span class="mono">B1:B4</span> indica intervalo contínuo (<em>até</em>: B1, B2, B3 e B4). Já <span class="mono">B1;B4</span> indica apenas as duas células listadas (<em>e</em>: B1 e B4).
+              </li>
+              <li>
+                <strong>Referências Relativa, Absoluta e Mista:</strong> <span class="mono">B1</span> varia ao copiar; <span class="mono">$B$1</span> trava coluna e linha (tecla <kbd>F4</kbd> na barra de fórmulas); <span class="mono">$B1</span> trava só a coluna; <span class="mono">B$1</span> trava só a linha.
+              </li>
+              <li>
+                <strong>Atualizar cálculos (<kbd>F9</kbd>):</strong> Quando o modo de cálculo está em Manual (ou com funções voláteis como <span class="mono">=ALEATÓRIO()</span> e <span class="mono">=AGORA()</span>), pressionar <kbd>F9</kbd> recalcula todas as planilhas de todas as pastas de trabalho abertas (<kbd>Shift</kbd> + <kbd>F9</kbd> recalcula só a planilha ativa).
+              </li>
+              <li>
+                <strong>Filtro, Ordenação, Proteção e Formatos:</strong> <span class="mono">.xlsx</span> (padrão), <span class="mono">.xlsm</span> (com macros), <span class="mono">.csv</span> (valores separados por vírgula/ponto e vírgula, sem fórmulas nem formatação).
+              </li>
+            </ul>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Função PT-BR</th><th>O que retorna na prova</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="mono">CONT.NÚM(intervalo)</td><td>Conta apenas células com <strong>números</strong></td></tr>
+                  <tr><td class="mono">CONT.VALORES(intervalo)</td><td>Conta células <strong>não vazias</strong> (texto + número)</td></tr>
+                  <tr><td class="mono">MAIOR(int; k) / MENOR(int; k)</td><td>k-ésimo maior ou menor valor (ex.: 2º maior)</td></tr>
+                  <tr><td class="mono">SE(teste; V; F)</td><td>Retorna V se teste verdadeiro; F se falso</td></tr>
+                  <tr><td class="mono">SOMASE / CONT.SE</td><td>Soma ou conta apenas células que atendem a um critério</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HARDWARE & MÍDIAS DE ARMAZENAMENTO -->
+    <section id="hardware" class="band">
+      <div class="container">
+        <div class="headline-stack" style="padding-top: var(--space-md);">
+          <span class="eyebrow">Tópico 4 · Hardware, Memórias &amp; Mídias</span>
+          <h2>Unidades de medida, armazenamento e componentes do computador</h2>
+          <p class="lede">
+            Aprenda a calcular exatamente o tamanho de arquivos de texto (como na Q32 da prova de 2019) e diferencie memórias voláteis, periféricos e capacidades de mídias.
+          </p>
+        </div>
+
+        <div class="grid-asymmetric" style="margin-bottom: var(--space-xl);">
+          <div class="tile">
+            <div class="chip-row">
+              <span class="chip">Baseado na Q32 (FGV 2019)</span>
+              <span class="chip ok">1 caractere não compactado = 1 Byte</span>
+            </div>
+            <h3>Calculadora de Texto &amp; Escolha da Mídia Ideal</h3>
+            <p style="color:var(--on-surface-variant); font-size:0.9375rem;">
+              Os valores iniciais reproduzem exatamente a Questão 32 da prova de 2019. Ajuste os campos para simular outros cenários de prova.
+            </p>
+            <div class="calc-inputs-grid">
+              <div class="field-group" style="min-width:0;">
+                <label class="field-label" for="calc-books">Quantidade de livros</label>
+                <input type="number" id="calc-books" class="pill-input" min="1" max="10000" value="4" oninput="recalcStorage()">
+              </div>
+              <div class="field-group" style="min-width:0;">
+                <label class="field-label" for="calc-pages">Páginas por livro</label>
+                <input type="number" id="calc-pages" class="pill-input" min="1" max="10000" value="500" oninput="recalcStorage()">
+              </div>
+              <div class="field-group" style="min-width:0;">
+                <label class="field-label" for="calc-lines">Linhas por página</label>
+                <input type="number" id="calc-lines" class="pill-input" min="1" max="500" value="25" oninput="recalcStorage()">
+              </div>
+              <div class="field-group" style="min-width:0;">
+                <label class="field-label" for="calc-chars">Caracteres por linha</label>
+                <input type="number" id="calc-chars" class="pill-input" min="1" max="500" value="60" oninput="recalcStorage()">
+              </div>
+            </div>
+
+            <div class="callout" style="margin-top:0; margin-bottom:var(--space-md);" id="storage-summary-box">
+              <!-- Populated by JS -->
+            </div>
+
+            <div class="media-cards" id="storage-media-cards">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+
+          <div class="tile">
+            <h3>Hardware, Memórias e Escala de Bytes</h3>
+            <h4>1. Memória Principal vs. Secundária</h4>
+            <ul class="clean-list" style="margin-bottom: var(--space-md);">
+              <li><strong>RAM (Random Access Memory):</strong> Memória principal de leitura/escrita, <strong>volátil</strong> (perde os dados ao desligar o computador). Armazena o SO e os programas em execução.</li>
+              <li><strong>Cache (L1, L2, L3):</strong> Memória ultrarrápida (SRAM) integrada ao processador (CPU) para reduzir gargalos entre CPU e RAM.</li>
+              <li><strong>ROM (Read-Only Memory):</strong> Não volátil; guarda o firmware inicial (BIOS/UEFI).</li>
+              <li><strong>Armazenamento Secundário (Não volátil):</strong> SSD (memória flash NAND, sem partes móveis, muito mais rápido), HDD (discos magnéticos), Pen Drive, CD/DVD.</li>
+            </ul>
+            <h4>2. Periféricos: Entrada, Saída e Mistos</h4>
+            <p>
+              <strong>Entrada:</strong> teclado, mouse, scanner, microfone, leitor biométrico. <strong>Saída:</strong> monitor comum, caixa de som, impressora simples. <strong>Mistos (E/S):</strong> tela sensível ao toque (<em>touchscreen</em>), impressora multifuncional, placa de rede / modem, pen drive.
+            </p>
+            <h4>3. Escala de Armazenamento vs. Transmissão</h4>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Unidade</th><th>Equivalência Binária (1024)</th><th>Aproximação Decimal</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="mono">1 Byte (B)</td><td class="mono">8 bits (b)</td><td>1 caractere ASCII</td></tr>
+                  <tr><td class="mono">1 KB</td><td class="mono">1.024 Bytes</td><td class="mono">~10³ Bytes (mil)</td></tr>
+                  <tr><td class="mono">1 MB</td><td class="mono">1.024 KB (1.048.576 B)</td><td class="mono">~10⁶ Bytes (milhão)</td></tr>
+                  <tr><td class="mono">1 GB</td><td class="mono">1.024 MB</td><td class="mono">~10⁹ Bytes (bilhão)</td></tr>
+                  <tr><td class="mono">1 TB</td><td class="mono">1.024 GB</td><td class="mono">~10¹² Bytes (trilhão)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout trap">
+              <div class="callout-title">
+                <span class="material-symbols-outlined" aria-hidden="true">speed</span>
+                B (Byte) vs. b (bit) em redes
+              </div>
+              Armazenamento usa <strong>Bytes (MB, GB)</strong>; velocidade de internet usa <strong>bits por segundo (Mbps, Gbps)</strong>. Uma conexão de 80 Mbps baixa a no máximo <strong>10 MB/s</strong> (80 ÷ 8).
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARQUIVOS DIGITAIS, PDF, INTERNET E SEGURANÇA (EDITAL 2026) -->
+    <section id="internet" class="band alt">
+      <div class="container">
+        <div class="headline-stack" style="padding-top: var(--space-md);">
+          <span class="eyebrow">Tópico 5 · Complemento Completo do Edital 2026</span>
+          <h2>Arquivos digitais, PDF, Internet e Segurança da Informação</h2>
+          <p class="lede">
+            Itens 1, 2 e 8 do Conteúdo Programático de 2026: formatos padrão de arquivos, navegação segura, ameaças digitais, senhas fortes e criptografia.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="tile">
+            <h3>Padrões de Arquivos Digitais &amp; PDF</h3>
+            <div class="table-wrap" style="margin-bottom: var(--space-md);">
+              <table>
+                <thead>
+                  <tr><th>Categoria</th><th>Extensões mais cobradas</th><th>Característica-chave</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Documentos</strong></td><td class="mono">.docx, .odt, .rtf, .txt</td><td><span class="mono">.txt</span> não guarda formatação; <span class="mono">.odt</span> é padrão aberto (LibreOffice)</td></tr>
+                  <tr><td><strong>PDF</strong></td><td class="mono">.pdf (PDF/A arquivamento)</td><td>Mantém layout idêntico em qualquer dispositivo; suporta senha e assinatura</td></tr>
+                  <tr><td><strong>Planilhas</strong></td><td class="mono">.xlsx, .ods, .csv</td><td><span class="mono">.csv</span> é texto puro separado por delimitador (sem fórmulas)</td></tr>
+                  <tr><td><strong>Imagens</strong></td><td class="mono">.jpg, .png, .gif, .svg</td><td><span class="mono">.jpg</span> com perda; <span class="mono">.png</span> sem perda + transparência; <span class="mono">.svg</span> vetorial</td></tr>
+                  <tr><td><strong>Áudio e Vídeo</strong></td><td class="mono">.mp3, .wav / .mp4, .mkv</td><td><span class="mono">.wav</span> sem compressão; <span class="mono">.mp3</span> e <span class="mono">.mp4</span> comprimidos</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              <strong>Transferência de dados:</strong> <strong>Download</strong> é baixar da rede para o dispositivo local; <strong>Upload</strong> é enviar do dispositivo local para um servidor na Internet. A largura de <strong>banda</strong> determina a capacidade máxima do canal de transmissão.
+            </p>
+          </div>
+
+          <div class="tile">
+            <h3>Internet, Navegadores &amp; Segurança</h3>
+            <ul class="clean-list">
+              <li>
+                <strong>HTTPS &amp; Criptografia:</strong> HTTP sobre TLS/SSL (porta 443). Garante <strong>confidencialidade e integridade no tráfego</strong> entre navegador e servidor — mas o cadeado <em>não garante</em> que o site seja honesto (golpistas também usam HTTPS!).
+              </li>
+              <li>
+                <strong>Navegação Anônima (InPrivate):</strong> Não grava histórico, cookies, cache nem preenchimentos de formulário no computador após fechar todas as janelas anônimas — mas <strong>não oculta seu IP</strong> para o provedor, rede corporativa ou sites visitados.
+              </li>
+              <li>
+                <strong>Principais Ameaças:</strong> <strong>Phishing</strong> (engenharia social por e-mail/SMS falso para roubar credenciais); <strong>Ransomware</strong> (sequestra dados por criptografia e exige resgate); <strong>Spyware/Keylogger</strong> (espiona digitação e tela); <strong>Cavalo de Troia (Trojan)</strong> (disfarça-se de programa legítimo).
+              </li>
+              <li>
+                <strong>Senhas Fortes, Tokens e 2FA:</strong> Senha forte combina comprimento (12+ caracteres), letras maiúsculas/minúsculas, números e símbolos sem dados pessoais óbvios. A autenticação em dois fatores (2FA) via <strong>token</strong> (físico ou app autenticador) protege mesmo se a senha vazar.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIMULADO INTERATIVO (EXATAMENTE 8 QUESTÕES) -->
+    <section id="simulado" class="band">
+      <div class="container">
+        <div class="headline-stack" style="padding-top: var(--space-md);">
+          <span class="eyebrow">Avaliação Prática · Padrão FGV (8 Questões, A–E)</span>
+          <h2>Simulado Interativo com Gabarito Comentado e Diagnóstico</h2>
+          <p class="lede">
+            Pratique com exatamente 8 questões de múltipla escolha (A a E) — a mesma quantidade da prova de 2019 e do Módulo I de 2026. Escolha entre a Prova Oficial de 2019 (Q25–Q32) ou o Caderno Inédito 2026.
+          </p>
+        </div>
+
+        <div class="tile compact" style="background: var(--surface-container-low);">
+          <div class="simulado-header-bar">
+            <div class="segmented" role="group" aria-label="Selecionar caderno do simulado" style="margin-bottom:0;">
+              <button type="button" class="seg-btn active" id="deck-btn-2019" onclick="switchDeck('2019')">Prova Oficial FGV 2019 (8 Q)</button>
+              <button type="button" class="seg-btn" id="deck-btn-2026" onclick="switchDeck('2026')">Simulado Inédito Edital 2026 (8 Q)</button>
+            </div>
+
+            <div style="display:flex; flex-wrap:wrap; align-items:center; gap:var(--space-sm);">
+              <span class="chip" id="sim-score-pill">Respondidas: 0/8 · Acertos: 0/8</span>
+              <button type="button" class="btn-danger-soft" id="btn-reset-sim" onclick="handleResetSim(this)">
+                <span class="material-symbols-outlined" aria-hidden="true">restart_alt</span>
+                Reiniciar caderno
+              </button>
+            </div>
+          </div>
+
+          <div class="q-nav-strip" id="q-nav-strip" aria-label="Navegação entre as 8 questões">
+            <!-- Populated by JS -->
+          </div>
+
+          <div id="question-stage">
+            <!-- Populated by JS -->
+          </div>
+
+          <div class="tile" style="background: var(--surface-elevated); margin-top: var(--space-lg);" id="diagnostic-panel">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:var(--space-md);">
+      <div>
+        <strong>Fontes de referência:</strong> Edital do Concurso Público da Guarda Civil Municipal de Salvador (Edital retificado em 18/11/2026 — FGV / SEMGE Salvador) e Caderno de Prova Tipo 1 (Branca) com Gabarito Oficial Definitivo da Prova de 16/06/2019 (FGV Projetos).
+      </div>
+      <div>
+        Material de estudo autoral para preparação do candidato — 8 questões por caderno.
+      </div>
+    </div>
+  </footer>
+
+  <api-shim></api-shim>
+
+  <script>
+    const EDITAL_TOPICS = [
+      { id: `t1`, title: `1. Arquivos digitais: documentos, planilhas, imagens, sons e vídeos` },
+      { id: `t2`, title: `2. Arquivos PDF: características, proteção e preservação de layout` },
+      { id: `t3`, title: `3. Windows 10 BR & 11 BR: janelas, teclado, busca e Explorador de Arquivos` },
+      { id: `t4`, title: `4. MS Word 2016 BR: formatação, estilos, páginas, cabeçalhos e tabelas` },
+      { id: `t5`, title: `5. Word: localizar/substituir, controle de alterações, senhas, macros e formulários` },
+      { id: `t6`, title: `6. MS Excel 2016 BR: fórmulas, operadores, referências, F9, filtros e proteção` },
+      { id: `t7`, title: `7. Hardware, memórias (RAM/ROM/SSD) e cálculo de mídias de armazenamento` },
+      { id: `t8`, title: `8. Internet, navegadores, download/upload, ameaças, senhas fortes e criptografia` }
+    ];
+
+    const WORD_TOOLS = {
+      clear: {
+        name: `Limpar Toda a Formatação`,
+        shortcut: `Ctrl + Espaço (fonte) / Ctrl + Q (parágrafo)`,
+        sampleStyle: `font-weight:400; font-style:normal; color:var(--on-surface); background:transparent; text-decoration:none;`,
+        desc: `Remove toda a formatação aplicada (negrito, itálico, tamanho, cor da fonte), restaurando o texto para o estilo Normal padrão.`,
+        trap: `PEGADINHA FGV: O botão Limpar Formatação NÃO remove a cor de Realce (marca-texto)! Além disso, não apaga o texto — remove apenas os atributos visuais.`
+      },
+      styles: {
+        name: `Estilos (Grupo Estilo — Guia Página Inicial)`,
+        shortcut: `Alt + Ctrl + Shift + S (Painel Estilos)`,
+        sampleStyle: `font-weight:700; font-size:1.22rem; color:var(--primary); letter-spacing:-0.02em;`,
+        desc: `Permite aplicar conjuntos prontos de formatação e alterar rapidamente todas as partes do documento vinculadas ao mesmo estilo de uma só vez (como cobrado na Q30/2019).`,
+        trap: `DICA DE PROVA: Estilos de Título (Título 1, Título 2) são pré-requisito para gerar o Sumário automático na Guia Referências.`
+      },
+      painter: {
+        name: `Pincel de Formatação`,
+        shortcut: `Ctrl + Shift + C (copiar) e Ctrl + Shift + V (colar formatação)`,
+        sampleStyle: `font-weight:600; font-style:italic; color:var(--secondary);`,
+        desc: `Copia apenas a formatação (e não o texto) de um trecho selecionado para aplicá-la em outro ponto do documento.`,
+        trap: `ATENTE AO CLIQUE: 1 clique aplica a formatação uma única vez; 2 cliques (duplo clique) mantém o pincel ativo para aplicar em vários trechos até pressionar Esc.`
+      },
+      highlight: {
+        name: `Cor do Realce do Texto`,
+        shortcut: `Sem atalho padrão direto (Guia Página Inicial → Fonte)`,
+        sampleStyle: `background:var(--word-highlight); color:var(--on-surface); padding:2px 4px; border-radius:4px;`,
+        desc: `Destaca o fundo das palavras selecionadas com efeito de caneta marca-texto para chamar atenção na leitura.`,
+        trap: `DIFERENÇA CLÁSSICA: Realce pinta apenas atrás dos caracteres selecionados e resiste ao botão Limpar Formatação; Sombreamento pinta o bloco do parágrafo inteiro.`
+      },
+      fontcolor: {
+        name: `Cor da Fonte`,
+        shortcut: `Alt + C, FO (acesso via teclado na Faixa)`,
+        sampleStyle: `color:var(--primary); font-weight:600;`,
+        desc: `Altera a cor dos caracteres do texto selecionado (ícone letra A com uma barra colorida embaixo).`,
+        trap: `CONFUSÃO COMUM NA Q31/2019: Não confunda "Cor da Fonte" (A com barra colorida embaixo) com "Limpar Formatação" (A com borracha ao lado).`
+      },
+      track: {
+        name: `Controlar Alterações (Guia Revisão)`,
+        shortcut: `Ctrl + Shift + E`,
+        sampleStyle: `text-decoration:underline; color:var(--error); font-weight:500;`,
+        desc: `Registra todas as edições, exclusões e mudanças de formatação feitas no documento para revisão colaborativa (Aceitar ou Rejeitar).`,
+        trap: `COBRANÇA DE EDITAL 2026: O item 6 de Informática destaca explicitamente "controle de alterações" tanto no Word quanto no Excel.`
+      }
+    };
+
+    const EXPLORER_TREE = {
+      root: {
+        name: `Este Computador`,
+        parent: null,
+        children: [`dados`]
+      },
+      dados: {
+        name: `Dados (D:)`,
+        parent: `root`,
+        children: [`programfiles`, `documentos`]
+      },
+      documentos: {
+        name: `Editais GCM`,
+        parent: `dados`,
+        children: []
+      },
+      programfiles: {
+        name: `Program Files`,
+        parent: `dados`,
+        children: [`java`, `office`]
+      },
+      office: {
+        name: `Microsoft Office`,
+        parent: `programfiles`,
+        children: []
+      },
+      java: {
+        name: `Java`,
+        parent: `programfiles`,
+        children: [`jdk`]
+      },
+      jdk: {
+        name: `jdk1.8.0_161`,
+        parent: `java`,
+        children: [`bin`, `lib`]
+      },
+      bin: {
+        name: `bin`,
+        parent: `jdk`,
+        children: []
+      },
+      lib: {
+        name: `lib`,
+        parent: `jdk`,
+        children: []
+      }
+    };
+
+    const EXCEL_PRESETS = {
+      pow: {
+        formula: `=B1^B2`,
+        explain: `O operador <strong>^</strong> calcula a exponenciação (potência) no Excel: <strong>B1 elevado a B2</strong>. Não use <span class="mono">**</span>.`
+      },
+      sumrange: {
+        formula: `=SOMA(B1:B4)`,
+        explain: `Os dois-pontos (<strong>:</strong>) definem um intervalo contínuo de B1 até B4, somando os quatro valores (B1 + B2 + B3 + B4).`
+      },
+      sumtwo: {
+        formula: `=SOMA(B1;B4)`,
+        explain: `O ponto e vírgula (<strong>;</strong>) separa argumentos individuais: soma <strong>apenas B1 e B4</strong>, ignorando B2 e B3!`
+      },
+      avg: {
+        formula: `=MÉDIA(B1:B4)`,
+        explain: `Calcula a média aritmética simples das 4 células numéricas do intervalo B1:B4.`
+      },
+      ifcond: {
+        formula: `=SE(B1>B2;"B1 maior";"B2 maior ou igual")`,
+        explain: `A função condicional <strong>SE(teste; verdadeiro; falso)</strong> avalia se B1 &gt; B2 e escolhe o texto correspondente.`
+      },
+      prec: {
+        formula: `=B1+B2*B3`,
+        explain: `Atenção à precedência de operadores: a multiplicação <strong>B2 * B3</strong> é executada <strong>antes</strong> da soma com B1!`
+      }
+    };
+
+    const MEDIA_OPTIONS = [
+      { id: `m1`, name: `Disquete 5¼"`, capBytes: 360 * 1024, label: `360 KB` },
+      { id: `m2`, name: `Disquete 3½"`, capBytes: 1.44 * 1024 * 1024, label: `1,44 MB` },
+      { id: `m3`, name: `CD-R`, capBytes: 650 * 1024 * 1024, label: `650 MB` },
+      { id: `m4`, name: `DVD-R`, capBytes: 4.7 * 1024 * 1024 * 1024, label: `4,7 GB` },
+      { id: `m5`, name: `Disco Rígido`, capBytes: 1024 * 1024 * 1024 * 1024, label: `1 TB` }
+    ];
+
+    const DECK_2019 = [
+      {
+        id: `q25`,
+        numLabel: `Q25 · FGV 2019`,
+        topic: `Windows 10 BR`,
+        anchor: `#windows`,
+        stem: `Um usuário tem rodando em sua máquina o Windows 10 BR com somente o pacote de idioma Português (Brasil) instalado. Em viagem aos Estados Unidos, este usuário adquiriu um novo teclado para o computador, mas, ao retornar e instalar o novo teclado, ao pressionar a tecla ponto e vírgula surge na tela uma cedilha. Para solucionar esse problema o usuário deve`,
+        figureHtml: ``,
+        options: [
+          `adicionar o teclado apropriado nas Opções de Idioma do Português (Brasil).`,
+          `alterar o idioma de exibição do Windows.`,
+          `instalar um adaptador de teclado na porta USB.`,
+          `baixar um novo driver para o teclado da página do fabricante.`,
+          `instalar um novo pacote de idiomas e, em seguida, alterar o idioma de exibição do Windows.`
+        ],
+        correct: 0,
+        explanation: `<strong>Gabarito Oficial: A.</strong> O teclado americano (US) possui a tecla ponto e vírgula (;) na mesma posição física em que o teclado brasileiro ABNT2 possui a cedilha (ç). Como o sistema está usando o layout ABNT2 por padrão, basta acessar <em>Configurações → Hora e Idioma → Idioma → Português (Brasil) → Opções</em> e adicionar o layout de teclado <strong>Estados Unidos (Internacional)</strong>. <br><br><strong>Por que as demais estão erradas:</strong> (B e E) Mudar o idioma de exibição muda os menus do Windows, não sendo necessário para corrigir o layout físico do teclado; (C) Adaptador USB não altera o mapeamento de caracteres; (D) Teclados padrão usam drivers genéricos HID do próprio Windows.`
+      },
+      {
+        id: `q26`,
+        numLabel: `Q26 · FGV 2019`,
+        topic: `MS Excel 2016 BR`,
+        anchor: `#excel`,
+        stem: `Usando o MS Excel 2016 BR, um usuário quer calcular a potência do conteúdo da célula B1 na figura a seguir, elevado ao conteúdo da célula B2, e armazenar o resultado na célula B3. Assinale a opção que indica a fórmula que tem de ser digitada na célula B3.`,
+        figureHtml: `
+          <svg width="340" height="130" viewBox="0 0 340 130" role="img" aria-label="Planilha do Excel com B1 igual a 2, B2 igual a 4 e B3 para potência">
+            <rect x="0" y="0" width="340" height="130" rx="10" fill="var(--surface-elevated)" stroke="var(--outline-variant)"/>
+            <rect x="0" y="0" width="340" height="28" fill="var(--surface-container)"/>
+            <line x1="36" y1="0" x2="36" y2="130" stroke="var(--outline-variant)"/>
+            <line x1="150" y1="0" x2="150" y2="130" stroke="var(--outline-variant)"/>
+            <line x1="250" y1="0" x2="250" y2="130" stroke="var(--outline-variant)"/>
+            <line x1="0" y1="28" x2="340" y2="28" stroke="var(--outline-variant)"/>
+            <line x1="0" y1="62" x2="340" y2="62" stroke="var(--outline-variant)"/>
+            <line x1="0" y1="96" x2="340" y2="96" stroke="var(--outline-variant)"/>
+            <text x="93" y="19" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="600" fill="var(--on-surface)">A</text>
+            <text x="200" y="19" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="600" fill="var(--on-surface)">B</text>
+            <text x="295" y="19" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="600" fill="var(--on-surface)">C</text>
+            <text x="18" y="49" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="600" fill="var(--on-surface-variant)">1</text>
+            <text x="18" y="83" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="600" fill="var(--on-surface-variant)">2</text>
+            <text x="18" y="117" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="600" fill="var(--on-surface-variant)">3</text>
+            <text x="48" y="49" font-family="var(--font-body)" font-size="13" fill="var(--on-surface)">base</text>
+            <text x="236" y="49" text-anchor="end" font-family="var(--font-mono)" font-size="13" fill="var(--on-surface)">2</text>
+            <text x="48" y="83" font-family="var(--font-body)" font-size="13" fill="var(--on-surface)">expoente</text>
+            <text x="236" y="83" text-anchor="end" font-family="var(--font-mono)" font-size="13" fill="var(--on-surface)">4</text>
+            <text x="48" y="117" font-family="var(--font-body)" font-size="13" fill="var(--on-surface)">potência</text>
+            <rect x="151" y="97" width="98" height="32" fill="var(--primary-container)"/>
+            <text x="200" y="117" text-anchor="middle" font-family="var(--font-mono)" font-size="12" font-weight="600" fill="var(--on-primary-container)">?</text>
+          </svg>
+        `,
+        options: [
+          `2^4`,
+          `2**4`,
+          `=B1^B2`,
+          `B1^B2`,
+          `=2^4`
+        ],
+        correct: 2,
+        explanation: `<strong>Gabarito Oficial: C.</strong> Para criar uma fórmula dinâmica referenciando células no MS Excel 2016 BR, é obrigatório iniciar com o sinal de igual (<strong>=</strong>) e utilizar o operador de exponenciação circunflexo (<strong>^</strong>) entre as referências: <strong>=B1^B2</strong>. <br><br><strong>Por que as demais estão erradas:</strong> (A e D) Sem o sinal = no início, o Excel trata o conteúdo como texto comum; (B) ** não é operador válido de potência no Excel (e não tem =); (E) =2^4 fixa os números literais em vez de usar o conteúdo dinâmico de B1 e B2.`
+      },
+      {
+        id: `q27`,
+        numLabel: `Q27 · FGV 2019`,
+        topic: `Windows 10 BR`,
+        anchor: `#windows`,
+        stem: `No Windows 10 BR, é possível criar uma imagem do sistema para restaurar o computador se, por exemplo, o disco rígido parar de funcionar. Usando essa imagem, é possível recuperar:<br>I. contas de usuários.<br>II. aplicativos instalados.<br>III. configurações do Windows.<br><br>Está correto o que se afirma em`,
+        figureHtml: ``,
+        options: [
+          `II, somente.`,
+          `I e II, somente.`,
+          `I e III, somente.`,
+          `II e III, somente.`,
+          `I, II e III.`
+        ],
+        correct: 4,
+        explanation: `<strong>Gabarito Oficial: E.</strong> A <strong>Imagem do Sistema</strong> no Windows 10 BR é uma cópia completa (cópia espelho) das unidades necessárias para a execução do Windows. Ela inclui o sistema operacional, drivers, <strong>contas de usuários (I)</strong>, <strong>aplicativos/programas instalados (II)</strong>, <strong>configurações do sistema (III)</strong> e arquivos armazenados na unidade do sistema. Todos os três itens estão corretos.`
+      },
+      {
+        id: `q28`,
+        numLabel: `Q28 · FGV 2019`,
+        topic: `MS Excel 2016 BR`,
+        anchor: `#excel`,
+        stem: `Assinale a opção que indica, no MS Excel 2016 BR, a tecla (ou a combinação de teclas) utilizada para atualizar os cálculos.`,
+        figureHtml: ``,
+        options: [
+          `Ctrl+<espaço>.`,
+          `Esc.`,
+          `F9.`,
+          `SysRq.`,
+          `Tab.`
+        ],
+        correct: 2,
+        explanation: `<strong>Gabarito Oficial: C.</strong> A tecla <strong>F9</strong> no MS Excel 2016 BR recalcula imediatamente todas as fórmulas em todas as planilhas de todas as pastas de trabalho abertas (essencial quando o cálculo está no modo Manual ou há funções voláteis). <br><br><strong>Funções das demais teclas:</strong> (A) Ctrl+Espaço seleciona a coluna inteira da célula ativa; (B) Esc cancela a edição da célula; (D) SysRq/PrintScreen captura tela; (E) Tab move o cursor para a célula à direita.`
+      },
+      {
+        id: `q29`,
+        numLabel: `Q29 · FGV 2019`,
+        topic: `Windows 10 BR`,
+        anchor: `#windows`,
+        stem: `Observe a figura a seguir extraída do Explorador de Arquivos (Windows Explorer) do MS Windows 10 BR. Nesse contexto, um clique sobre a pequena seta para cima fará com que o Explorador de Arquivos`,
+        figureHtml: `
+          <svg width="580" height="72" viewBox="0 0 580 72" role="img" aria-label="Barra de endereço do Explorador de Arquivos mostrando seta para trás, para frente, seta para cima e o caminho Este Computador > Dados (D:) > Program Files > Java > jdk1.8.0_161">
+            <rect x="0" y="0" width="580" height="72" rx="10" fill="var(--surface-elevated)" stroke="var(--outline-variant)"/>
+            <text x="20" y="24" font-family="var(--font-mono)" font-size="14" fill="var(--on-surface-variant)">←   →</text>
+            <rect x="74" y="8" width="26" height="24" rx="6" fill="var(--primary-container)"/>
+            <text x="87" y="24" text-anchor="middle" font-family="var(--font-mono)" font-size="15" font-weight="700" fill="var(--on-primary-container)">↑</text>
+            <rect x="112" y="8" width="452" height="26" rx="6" fill="var(--surface-container-low)"/>
+            <text x="122" y="25" font-family="var(--font-body)" font-size="12" fill="var(--on-surface)">Este Computador › Dados (D:) › Program Files › Java › jdk1.8.0_161</text>
+            <text x="20" y="56" font-family="var(--font-body)" font-size="12" fill="var(--on-surface-variant)">Detalhe da barra: seta para cima (↑) destacada ao lado esquerdo do caminho atual.</text>
+          </svg>
+        `,
+        options: [
+          `mostre o conteúdo da última pasta visitada.`,
+          `mostre o conteúdo da pasta "Java".`,
+          `abra uma lista dos locais recentes.`,
+          `mostre o conteúdo da pasta "Dados (D:)".`,
+          `faça o upload do conteúdo da pasta atual para a nuvem.`
+        ],
+        correct: 1,
+        explanation: `<strong>Gabarito Oficial: B.</strong> A pequena seta para cima (<strong>↑</strong>) na barra do Explorador de Arquivos significa <em>"Subir um nível"</em> na hierarquia de pastas (ir para a pasta pai). Como o caminho atual é <span class="mono">… > Program Files > Java > jdk1.8.0_161</span>, subir um nível leva imediatamente à pasta <strong>"Java"</strong>. <br><br><strong>Atenção aos distratores:</strong> (A) Mostrar a última pasta visitada é função da seta para a esquerda (← Voltar); (C) Locais recentes é a setinha para baixo (v) ao lado do campo; (D) "Dados (D:)" fica três níveis acima; (E) Não existe função de upload nessa seta.`
+      },
+      {
+        id: `q30`,
+        numLabel: `Q30 · FGV 2019`,
+        topic: `MS Word 2016 BR`,
+        anchor: `#word`,
+        stem: `O uso de estilos no MS Office 2016 BR permite`,
+        figureHtml: ``,
+        options: [
+          `alterar rapidamente a formatação de partes de um documento baseadas em um mesmo estilo.`,
+          `aplicar um conjunto predefinido de cores, fontes e plano de fundo aos slides de um documento do PowerPoint.`,
+          `controlar todas as alterações feitas em um documento.`,
+          `inserir um índice de autoridades no documento.`,
+          `utilizar conteúdo e elementos de design como ponto de partida para criar um documento.`
+        ],
+        correct: 0,
+        explanation: `<strong>Gabarito Oficial: A.</strong> Um <strong>Estilo</strong> reúne atributos de fonte e parágrafo sob um único nome (ex.: Normal, Título 1, Ênfase). Ao modificar o estilo, todas as partes do documento que utilizam aquele estilo são atualizadas simultaneamente. <br><br><strong>Por que as demais estão erradas:</strong> (B) Conjunto predefinido de cores/fontes/plano de fundo em slides chama-se <strong>Tema</strong> (no PowerPoint); (C) Controlar alterações é o recurso <strong>Controlar Alterações</strong> na Guia Revisão; (D) Índice de autoridades é uma função específica da Guia Referências; (E) Ponto de partida para criar documento é um <strong>Modelo (Template)</strong>.`
+      },
+      {
+        id: `q31`,
+        numLabel: `Q31 · FGV 2019`,
+        topic: `MS Word 2016 BR`,
+        anchor: `#word`,
+        stem: `Analise o ícone a seguir extraído da Guia Página Inicial no MS Word 2016 BR. Assinale a opção que indica a função desse ícone.`,
+        figureHtml: `
+          <svg width="260" height="86" viewBox="0 0 260 86" role="img" aria-label="Ícone da Guia Página Inicial do Word mostrando a letra A maiúscula com uma borracha rosa ao lado direito">
+            <rect x="0" y="0" width="260" height="86" rx="10" fill="var(--surface-elevated)" stroke="var(--outline-variant)"/>
+            <rect x="20" y="15" width="56" height="56" rx="10" fill="var(--surface-container-low)"/>
+            <text x="30" y="54" font-family="serif" font-weight="700" font-size="34" fill="var(--on-surface)">A</text>
+            <polygon points="48,50 61,37 68,44 55,57" fill="var(--secondary)"/>
+            <polygon points="44,54 48,50 55,57 51,61" fill="var(--outline)"/>
+            <text x="92" y="40" font-family="var(--font-body)" font-size="13" font-weight="600" fill="var(--on-surface)">Guia Página Inicial → Grupo Fonte</text>
+            <text x="92" y="58" font-family="var(--font-body)" font-size="12" fill="var(--on-surface-variant)">Letra A com borracha sobreposta</text>
+          </svg>
+        `,
+        options: [
+          `Cor da Fonte.`,
+          `Estilos.`,
+          `Limpar Formatação.`,
+          `Pincel de Formatação.`,
+          `Realce.`
+        ],
+        correct: 2,
+        explanation: `<strong>Gabarito Oficial: C.</strong> O ícone formado pela letra <strong>A acompanhada de uma borracha</strong> no grupo Fonte da Guia Página Inicial é o botão <strong>Limpar Toda a Formatação</strong> (ou Limpar Formatação). Ele apaga formatações de fonte e parágrafo aplicadas ao texto selecionado, devolvendo-o ao estilo padrão. <br><br><strong>Identificação dos demais ícones:</strong> (A) Cor da Fonte é um A com barra colorida embaixo; (B) Estilos é uma galeria com exemplos "AaBbCc"; (D) Pincel de Formatação é um pincel amarelo no grupo Área de Transferência; (E) Realce é um marcador "ab" com faixa colorida.`
+      },
+      {
+        id: `q32`,
+        numLabel: `Q32 · FGV 2019`,
+        topic: `Hardware & Mídias`,
+        anchor: `#hardware`,
+        stem: `Uma regra bastante usada entre as editoras de livros diz que um livro contém 25 linhas por página e 60 caracteres por linha. Suponha que você quer armazenar, na forma de texto não compactado, o conteúdo de quatro livros de 500 páginas contendo apenas texto, e que um dos dispositivos a seguir será usado exclusivamente para essa finalidade. Assinale a opção que indica o dispositivo que oferece espaço suficiente para a tarefa com o menor desperdício de espaço livre.`,
+        figureHtml: ``,
+        options: [
+          `Disquete de 360 KB.`,
+          `Disquete de 1.44 MB.`,
+          `CD-R de 650 MB.`,
+          `DVD-R de 4.7 GB.`,
+          `Disco rígido de 1 TB.`
+        ],
+        correct: 2,
+        explanation: `<strong>Gabarito Oficial: C.</strong> Passo a passo do cálculo:<br>1) Caracteres por página = 25 linhas × 60 caracteres = <strong>1.500 caracteres</strong>.<br>2) Caracteres por livro = 500 páginas × 1.500 = <strong>750.000 caracteres</strong>.<br>3) Total nos 4 livros = 4 × 750.000 = <strong>3.000.000 caracteres</strong>.<br>4) Como 1 caractere de texto puro ocupa 1 Byte, precisamos de 3.000.000 Bytes ≈ <strong>2,86 MB</strong> (ou ~3 MB).<br><br><strong>Comparando os dispositivos:</strong> (A) 360 KB &lt; 2,86 MB (não cabe); (B) 1,44 MB &lt; 2,86 MB (não cabe); (C) <strong>CD-R de 650 MB</strong> comporta os ~3 MB e, dentre os que comportam, é o de <strong>menor desperdício</strong>; (D e E) 4,7 GB e 1 TB desperdiçam muito mais espaço.`
+      }
+    ];
+
+    const DECK_2026 = [
+      {
+        id: `n1`,
+        numLabel: `Q01 · Padrão FGV 2026`,
+        topic: `MS Word 2016 BR`,
+        anchor: `#word`,
+        stem: `Durante a revisão de um relatório de ocorrência no MS Word 2016 BR, um guarda municipal selecionou um parágrafo que estava em negrito, fonte azul tamanho 16 e com Realce (marca-texto) amarelo, e clicou no botão "Limpar Toda a Formatação". Após essa ação, o texto selecionado ficará`,
+        figureHtml: ``,
+        options: [
+          `totalmente apagado, exigindo Ctrl+Z para recuperá-lo.`,
+          `no tamanho padrão do estilo Normal, mantendo apenas o negrito.`,
+          `sem negrito, sem tamanho 16 e sem cor azul, mas mantendo o Realce amarelo.`,
+          `convertido automaticamente para arquivo PDF somente leitura.`,
+          `sem nenhuma marcação, removendo inclusive o Realce amarelo e a cor azul.`
+        ],
+        correct: 2,
+        explanation: `<strong>Gabarito: C.</strong> Uma das cobranças clássicas de Word em bancas como a FGV: o botão <em>Limpar Toda a Formatação</em> remove atributos de fonte e parágrafo (negrito, itálico, tamanho, cor da fonte), mas <strong>preserva o Realce (marca-texto)</strong> aplicado ao texto. Para remover o realce, é necessário selecionar "Sem Cores" no próprio botão de Realce.`
+      },
+      {
+        id: `n2`,
+        numLabel: `Q02 · Padrão FGV 2026`,
+        topic: `MS Excel 2016 BR`,
+        anchor: `#excel`,
+        stem: `Em uma planilha do MS Excel 2016 BR utilizada pelo setor operacional da GCM, as células contêm: A1 = 10, A2 = 20, A3 = 30 e A4 = 40. Se um agente digitar na célula A5 a fórmula <code>=SOMA(A1;A4)+A2*2</code>, o valor exibido em A5 será`,
+        figureHtml: ``,
+        options: [
+          `90.`,
+          `140.`,
+          `180.`,
+          `240.`,
+          `70.`
+        ],
+        correct: 0,
+        explanation: `<strong>Gabarito: A.</strong> Atenção a dois conceitos simultâneos:<br>1) <strong>Ponto e vírgula (;)</strong> em <span class="mono">SOMA(A1;A4)</span> soma apenas as células A1 e A4 (10 + 40 = <strong>50</strong>), e não o intervalo inteiro A1:A4!<br>2) <strong>Precedência:</strong> <span class="mono">A2*2</span> = 20 × 2 = <strong>40</strong>.<br>Resultado final: 50 + 40 = <strong>90</strong>.`
+      },
+      {
+        id: `n3`,
+        numLabel: `Q03 · Padrão FGV 2026`,
+        topic: `Windows 10 BR`,
+        anchor: `#windows`,
+        stem: `Um servidor da Prefeitura Municipal do Salvador abriu uma pasta no Explorador de Arquivos do Windows 10/11 BR e deseja apagar definitivamente um arquivo temporário grande, sem enviá-lo para a Lixeira do sistema. Para realizar essa exclusão permanente pelo teclado, após selecionar o arquivo, ele deve pressionar`,
+        figureHtml: ``,
+        options: [
+          `Ctrl + D`,
+          `Alt + F4`,
+          `Shift + Delete`,
+          `Ctrl + Shift + N`,
+          `Win + L`
+        ],
+        correct: 2,
+        explanation: `<strong>Gabarito: C.</strong> Pressionar <strong>Shift + Delete</strong> exclui o item selecionado de forma permanente, pulando a Lixeira (o Windows exibe apenas uma caixa de confirmação). <br><br><strong>Demais atalhos:</strong> Ctrl+D (ou Delete simples) envia para a Lixeira; Alt+F4 fecha a janela ativa; Ctrl+Shift+N cria uma nova pasta; Win+L bloqueia a estação de trabalho.`
+      },
+      {
+        id: `n4`,
+        numLabel: `Q04 · Padrão FGV 2026`,
+        topic: `PDF & Segurança`,
+        anchor: `#internet`,
+        stem: `Ao consultar um portal na Internet utilizando um navegador em modo "Navegação Anônima" (ou InPrivate) com protocolo HTTPS (ícone de cadeado fechado), é correto afirmar que`,
+        figureHtml: ``,
+        options: [
+          `o endereço IP do computador torna-se completamente invisível para o provedor de Internet e para a rede da Prefeitura.`,
+          `o ícone de cadeado fechado garante que a página é oficial, idônea e livre de tentativas de golpe (phishing).`,
+          `a comunicação entre o navegador e o servidor é criptografada, e o navegador não manterá o histórico local ao fechar a janela anônima.`,
+          `nenhum arquivo baixado durante a sessão permanecerá salvo na pasta Downloads do computador.`,
+          `o modo anônimo substitui o uso de antivírus e impede a execução de qualquer código malicioso.`
+        ],
+        correct: 2,
+        explanation: `<strong>Gabarito: C.</strong> O protocolo <strong>HTTPS</strong> usa criptografia TLS/SSL para proteger os dados em trânsito (confidencialidade e integridade), e a <strong>Navegação Anônima</strong> evita gravar histórico, cookies e cache no dispositivo após o encerramento da janela. <br><br><strong>Por que as demais estão erradas:</strong> (A) O tráfego continua visível ao provedor de internet e ao administrador da rede; (B) Sites falsos de phishing também obtêm certificados HTTPS facilmente; (D) Downloads e favoritos criados são mantidos; (E) Modo anônimo não bloqueia malwares.`
+      },
+      {
+        id: `n5`,
+        numLabel: `Q05 · Padrão FGV 2026`,
+        topic: `Hardware & Mídias`,
+        anchor: `#hardware`,
+        stem: `Um sistema de videomonitoramento municipal precisa gravar 1.024 arquivos de imagem de alta resolução, cada um ocupando exatamente 2 MB, em um único dispositivo de armazenamento portátil, com o menor desperdício de espaço possível. Assinale a mídia suficiente com menor sobra de capacidade.`,
+        figureHtml: ``,
+        options: [
+          `CD-R de 700 MB.`,
+          `Cartão SD de 1 GB.`,
+          `Pen drive de 4 GB.`,
+          `SSD externo de 128 GB.`,
+          `HD externo de 1 TB.`
+        ],
+        correct: 2,
+        explanation: `<strong>Gabarito: C.</strong> Cálculo: 1.024 arquivos × 2 MB = <strong>2.048 MB</strong>. Sabendo que 1.024 MB = 1 GB, temos que 2.048 MB equivalem exatamente a <strong>2 GB</strong>. <br><br>O CD-R (700 MB) e o cartão de 1 GB são insuficientes. Entre 4 GB, 128 GB e 1 TB, o <strong>Pen drive de 4 GB</strong> comporta os 2 GB necessários gerando o menor desperdício.`
+      },
+      {
+        id: `n6`,
+        numLabel: `Q06 · Padrão FGV 2026`,
+        topic: `PDF & Segurança`,
+        anchor: `#internet`,
+        stem: `Um candidato do concurso da GCM Salvador recebeu um arquivo contendo o edital consolidado em formato PDF/A e precisa enviar dados tabulares de notas para importação em outro sistema, sem fórmulas nem formatação visual. Os formatos adequados para o documento preservado e para a exportação de tabela pura são, respectivamente,`,
+        figureHtml: ``,
+        options: [
+          `.docx e .xlsx`,
+          `.pdf e .csv`,
+          `.rtf e .xlsm`,
+          `.txt e .png`,
+          `.docm e .svg`
+        ],
+        correct: 1,
+        explanation: `<strong>Gabarito: B.</strong> O formato <strong>.pdf</strong> (especialmente na norma PDF/A para arquivamento) preserva integralmente o layout do documento original. Já o formato <strong>.csv</strong> (<em>Comma-Separated Values</em>) armazena dados tabulares em texto simples separados por delimitador, sem fórmulas nem estilos visuais — ideal para importação/exportação entre planilhas e bancos de dados.`
+      },
+      {
+        id: `n7`,
+        numLabel: `Q07 · Padrão FGV 2026`,
+        topic: `MS Excel 2016 BR`,
+        anchor: `#excel`,
+        stem: `No MS Excel 2016 BR, o usuário digitou na célula C2 a fórmula <code>=B2*$A$1</code>. Ao copiar a célula C2 e colar na célula C5 (três linhas abaixo na mesma coluna), a fórmula resultante em C5 será`,
+        figureHtml: ``,
+        options: [
+          `=B2*$A$1`,
+          `=B5*$A$4`,
+          `=B5*$A$1`,
+          `=E2*$D$1`,
+          `=B5*A4`
+        ],
+        correct: 2,
+        explanation: `<strong>Gabarito: C.</strong> A referência <strong>B2</strong> é <em>relativa</em>: ao descer 3 linhas (da linha 2 para a linha 5), o número da linha soma 3, tornando-se <strong>B5</strong>. Já a referência <strong>$A$1</strong> é <em>absoluta</em> (possui cifrão travando a coluna A e a linha 1), permanecendo inalterada como <strong>$A$1</strong>. Logo, o resultado é <strong>=B5*$A$1</strong>.`
+      },
+      {
+        id: `n8`,
+        numLabel: `Q08 · Padrão FGV 2026`,
+        topic: `Windows 10 BR`,
+        anchor: `#windows`,
+        stem: `Em relação ao gerenciamento de memória e periféricos em microcomputadores executando Windows 10/11 BR, assinale a opção que apresenta apenas exemplos de memória volátil e dispositivo misto (entrada e saída), respectivamente.`,
+        figureHtml: ``,
+        options: [
+          `Memória RAM e monitor touchscreen.`,
+          `Memória ROM e scanner de mesa.`,
+          `Disco SSD e teclado ABNT2.`,
+          `Memória Flash e caixa de som.`,
+          `BIOS/UEFI e mouse óptico.`
+        ],
+        correct: 0,
+        explanation: `<strong>Gabarito: A.</strong> A <strong>memória RAM</strong> é volátil (perde seu conteúdo quando a energia é desligada). Já o <strong>monitor touchscreen</strong> atua simultaneamente como saída (exibe imagens) e entrada (recebe toques do usuário). <br><br><strong>Por que as demais estão erradas:</strong> ROM, SSD, Flash e BIOS são não voláteis; scanner, teclado e mouse são exclusivamente de entrada; caixa de som é exclusivamente de saída.`
+      }
+    ];
+
+    let appState = {
+      checkedTopics: [],
+      activeDeck: `2019`,
+      currentQIndex: 0,
+      answers2019: {},
+      verified2019: {},
+      answers2026: {},
+      verified2026: {}
+    };
+
+    async function persistState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+          await window.notebookAppApi.setAppState(appState);
+        }
+      } catch (e) {
+        // Safe fallback if API unavailable in local preview
+      }
+      updateHeaderProgress();
+    }
+
+    function setActiveNav(el) {
+      const pills = document.querySelectorAll(`.nav-pill`);
+      pills.forEach(function (p) {
+        p.classList.remove(`active`);
+        p.removeAttribute(`aria-current`);
+      });
+      if (el) {
+        el.classList.add(`active`);
+        el.setAttribute(`aria-current`, `true`);
+      }
+    }
+
+    function updateHeaderProgress() {
+      const deck = appState.activeDeck === `2019` ? DECK_2019 : DECK_2026;
+      const verifiedMap = appState.activeDeck === `2019` ? appState.verified2019 : appState.verified2026;
+      const answersMap = appState.activeDeck === `2019` ? appState.answers2019 : appState.answers2026;
+
+      let hits = 0;
+      let checked = 0;
+      deck.forEach(function (q) {
+        if (verifiedMap[q.id]) {
+          checked += 1;
+          if (answersMap[q.id] === q.correct) hits += 1;
+        }
+      });
+
+      const headerEl = document.getElementById(`header-progress-text`);
+      if (headerEl) {
+        headerEl.textContent = `${appState.checkedTopics.length}/8 tópicos · Simulado ${hits}/8`;
+      }
+      const simPill = document.getElementById(`sim-score-pill`);
+      if (simPill) {
+        const answeredCount = Object.keys(answersMap).length;
+        simPill.textContent = `Respondidas: ${answeredCount}/8 · Acertos verificados: ${hits}/${checked || 8}`;
+      }
+    }
+
+    function renderChecklist() {
+      const container = document.getElementById(`edital-checklist`);
+      if (!container) return;
+      let html = ``;
+      EDITAL_TOPICS.forEach(function (item) {
+        const isChecked = appState.checkedTopics.indexOf(item.id) !== -1;
+        html += `<button type="button" class="check-item ${isChecked ? `checked` : ``}" onclick="toggleTopic('${item.id}')" aria-pressed="${isChecked}">
+          <span class="check-box" aria-hidden="true">${isChecked ? `<span class="material-symbols-outlined" style="font-size:1rem;">check</span>` : ``}</span>
+          <span>${item.title}</span>
+        </button>`;
+      });
+      container.innerHTML = html;
+
+      const count = appState.checkedTopics.length;
+      const pct = Math.round((count / EDITAL_TOPICS.length) * 100);
+      const counterEl = document.getElementById(`checklist-counter`);
+      if (counterEl) counterEl.textContent = `${count} de ${EDITAL_TOPICS.length} concluídos (${pct}%)`;
+      const barEl = document.getElementById(`checklist-progress-bar`);
+      if (barEl) barEl.style.width = `${pct}%`;
+      updateHeaderProgress();
+    }
+
+    function toggleTopic(topicId) {
+      const idx = appState.checkedTopics.indexOf(topicId);
+      if (idx === -1) {
+        appState.checkedTopics.push(topicId);
+      } else {
+        appState.checkedTopics.splice(idx, 1);
+      }
+      renderChecklist();
+      persistState();
+    }
+
+    /* --- WINDOWS KEYBOARD SIMULATOR --- */
+    let currentKbdLayout = `abnt2`;
+
+    function setKbdLayout(mode) {
+      currentKbdLayout = mode;
+      const b1 = document.getElementById(`kbd-mode-abnt2`);
+      const b2 = document.getElementById(`kbd-mode-usintl`);
+      if (b1) b1.classList.toggle(`active`, mode === `abnt2`);
+      if (b2) b2.classList.toggle(`active`, mode === `usintl`);
+      const out = document.getElementById(`kbd-sim-output`);
+      if (out) {
+        out.innerHTML = mode === `abnt2`
+          ? `Layout ativo: <strong>Português (ABNT2)</strong>. Teste a tecla <span class="mono">; / :</span> para reproduzir a falha da Q25.`
+          : `Layout ativo: <strong>Estados Unidos (Internacional)</strong>. Agora a tecla <span class="mono">; / :</span> funciona normalmente!`;
+      }
+    }
+
+    function pressPhysicalKey(key) {
+      const out = document.getElementById(`kbd-sim-output`);
+      if (!out) return;
+      const map = {
+        abnt2: {
+          semicolon: `Digitado na tela: <strong style="color:var(--error);">ç</strong> (Erro da Q25! O Windows acha que essa posição é a cedilha do ABNT2)`,
+          quote: `Digitado na tela: <strong style="color:var(--error);">~</strong> (O acento til do ABNT2 ocupa essa posição)`,
+          slash: `Digitado na tela: <strong style="color:var(--error);">;</strong> (No ABNT2 a barra fica em outro ponto)`,
+          bracket: `Digitado na tela: <strong style="color:var(--error);">´</strong> (Acento agudo no lugar do colchete)`
+        },
+        usintl: {
+          semicolon: `Digitado na tela: <strong style="color:var(--positive);">;</strong> (Correto! E para digitar ç nesse layout, usa-se <strong>' + c</strong>)`,
+          quote: `Digitado na tela: <strong style="color:var(--positive);">'</strong> (Aspa/apóstrofo + c gera ç)`,
+          slash: `Digitado na tela: <strong style="color:var(--positive);">/</strong> (Correspondência exata com o teclado físico)`,
+          bracket: `Digitado na tela: <strong style="color:var(--positive);">[</strong> (Correspondência exata com o teclado físico)`
+        }
+      };
+      out.innerHTML = map[currentKbdLayout][key] || ``;
+    }
+
+    /* --- WINDOWS EXPLORER SIMULATOR --- */
+    let expHistory = [`jdk`];
+    let expHistIdx = 0;
+
+    function getPathChain(nodeId) {
+      const chain = [];
+      let curr = nodeId;
+      while (curr && EXPLORER_TREE[curr]) {
+        chain.unshift(curr);
+        curr = EXPLORER_TREE[curr].parent;
+      }
+      return chain;
+    }
+
+    function expNavigateTo(nodeId, msg) {
+      if (!EXPLORER_TREE[nodeId]) return;
+      expHistory = expHistory.slice(0, expHistIdx + 1);
+      expHistory.push(nodeId);
+      expHistIdx = expHistory.length - 1;
+      renderExplorer(msg);
+    }
+
+    function expGoBack() {
+      if (expHistIdx > 0) {
+        expHistIdx -= 1;
+        const curr = EXPLORER_TREE[expHistory[expHistIdx]].name;
+        renderExplorer(`Botão <strong>Voltar (←)</strong>: retornou à pasta anterior do histórico (<strong>${curr}</strong>).`);
+      }
+    }
+
+    function expGoForward() {
+      if (expHistIdx < expHistory.length - 1) {
+        expHistIdx += 1;
+        const curr = EXPLORER_TREE[expHistory[expHistIdx]].name;
+        renderExplorer(`Botão <strong>Avançar (→)</strong>: avançou no histórico para <strong>${curr}</strong>.`);
+      }
+    }
+
+    function expGoUp() {
+      const currentId = expHistory[expHistIdx];
+      const node = EXPLORER_TREE[currentId];
+      if (node && node.parent) {
+        const parentName = EXPLORER_TREE[node.parent].name;
+        expNavigateTo(node.parent, `Botão <strong>Subir um nível (↑)</strong>: subiu diretamente para a pasta pai <strong>${parentName}</strong> — exatamente como na Q29/2019!`);
+      }
+    }
+
+    function renderExplorer(customMsg) {
+      const currentId = expHistory[expHistIdx];
+      const node = EXPLORER_TREE[currentId];
+      if (!node) return;
+
+      const backBtn = document.getElementById(`exp-back-btn`);
+      const fwdBtn = document.getElementById(`exp-fwd-btn`);
+      const upBtn = document.getElementById(`exp-up-btn`);
+      if (backBtn) backBtn.disabled = expHistIdx <= 0;
+      if (fwdBtn) fwdBtn.disabled = expHistIdx >= expHistory.length - 1;
+      if (upBtn) upBtn.disabled = !node.parent;
+
+      const crumbsEl = document.getElementById(`exp-breadcrumbs`);
+      if (crumbsEl) {
+        const chain = getPathChain(currentId);
+        crumbsEl.innerHTML = chain.map(function (id, idx) {
+          const isLast = idx === chain.length - 1;
+          const sep = idx > 0 ? `<span style="color:var(--on-surface-variant);" aria-hidden="true">&rsaquo;</span>` : ``;
+          return `${sep}<button type="button" class="crumb-btn ${isLast ? `current` : ``}" onclick="expNavigateTo('${id}', 'Navegou diretamente pela barra de endereços para <strong>${EXPLORER_TREE[id].name}</strong>.')">${EXPLORER_TREE[id].name}</button>`;
+        }).join(``);
+      }
+
+      const contentsEl = document.getElementById(`exp-folder-contents`);
+      if (contentsEl) {
+        if (node.children.length === 0) {
+          contentsEl.innerHTML = `<div style="grid-column:1/-1; color:var(--on-surface-variant); font-size:0.875rem; padding:var(--space-sm);">Esta pasta não possui subpastas simuladas. Use a seta para cima (↑) ou a barra de endereços para voltar.</div>`;
+        } else {
+          contentsEl.innerHTML = node.children.map(function (cid) {
+            const cnode = EXPLORER_TREE[cid];
+            return `<button type="button" class="folder-entry" onclick="expNavigateTo('${cid}', 'Abriu a subpasta <strong>${cnode.name}</strong>.')">
+              <span class="material-symbols-outlined" style="color:var(--primary);" aria-hidden="true">folder</span>
+              <span>${cnode.name}</span>
+            </button>`;
+          }).join(``);
+        }
+      }
+
+      const msgEl = document.getElementById(`exp-status-msg`);
+      if (msgEl && customMsg) {
+        msgEl.innerHTML = customMsg;
+      }
+    }
+
+    /* --- WORD 2016 RIBBON INSPECTOR --- */
+    function selectWordTool(toolKey) {
+      const tool = WORD_TOOLS[toolKey];
+      if (!tool) return;
+      const ids = [`clear`, `styles`, `painter`, `highlight`, `fontcolor`, `track`];
+      ids.forEach(function (k) {
+        const btn = document.getElementById(`rb-${k}`);
+        if (btn) btn.classList.toggle(`active`, k === toolKey);
+      });
+
+      const sampleEl = document.getElementById(`word-sample-text`);
+      if (sampleEl) {
+        sampleEl.setAttribute(`style`, `font-size:1.05rem; transition: all 180ms ease; ${tool.sampleStyle}`);
+      }
+
+      const detailEl = document.getElementById(`word-tool-detail`);
+      if (detailEl) {
+        detailEl.innerHTML = `
+          <div style="margin-bottom:var(--space-sm);">
+            <h4 style="margin-bottom:var(--space-xs);">${tool.name}</h4>
+            <div class="chip" style="margin-bottom:var(--space-sm);">Atalho: <span class="mono">${tool.shortcut}</span></div>
+            <p style="margin-bottom:var(--space-sm);">${tool.desc}</p>
+          </div>
+          <div class="callout trap" style="margin-top:0;">${tool.trap}</div>
+        `;
+      }
+    }
+
+    /* --- EXCEL 2016 LAB --- */
+    function setExcelPreset(presetKey, btn) {
+      const preset = EXCEL_PRESETS[presetKey];
+      const input = document.getElementById(`excel-formula-input`);
+      if (input && preset) input.value = preset.formula;
+      document.querySelectorAll(`.preset-chip`).forEach(function (c) { c.classList.remove(`active`); });
+      if (btn) btn.classList.add(`active`);
+      evaluateExcelLab();
+    }
+
+    function triggerF9Recalc() {
+      evaluateExcelLab(true);
+    }
+
+    function evaluateExcelLab(fromF9) {
+      const b1 = parseFloat((document.getElementById(`cell-b1`) || {}).value) || 0;
+      const b2 = parseFloat((document.getElementById(`cell-b2`) || {}).value) || 0;
+      const b3 = parseFloat((document.getElementById(`cell-b3`) || {}).value) || 0;
+      const b4 = parseFloat((document.getElementById(`cell-b4`) || {}).value) || 0;
+      const raw = ((document.getElementById(`excel-formula-input`) || {}).value || ``).trim();
+      const outEl = document.getElementById(`cell-b5-output`);
+      const expEl = document.getElementById(`excel-explain-box`);
+      if (!outEl || !expEl) return;
+
+      if (!raw.startsWith(`=`)) {
+        outEl.textContent = raw || `(vazio)`;
+        expEl.className = `callout trap`;
+        expEl.innerHTML = `<strong>Atenção:</strong> Sem o sinal <span class="mono">=</span> no início, o Excel trata <span class="mono">${raw || `o texto`}</span> como texto literal e <strong>não calcula</strong>!`;
+        return;
+      }
+
+      const norm = raw.toUpperCase().replace(/\s+/g, ``);
+      let result = ``;
+      let explain = ``;
+
+      if (norm === `=B1^B2`) {
+        result = Math.pow(b1, b2);
+        explain = EXCEL_PRESETS.pow.explain;
+      } else if (norm === `=SOMA(B1:B4)`) {
+        result = b1 + b2 + b3 + b4;
+        explain = EXCEL_PRESETS.sumrange.explain + ` (${b1} + ${b2} + ${b3} + ${b4} = <strong>${result}</strong>)`;
+      } else if (norm === `=SOMA(B1;B4)`) {
+        result = b1 + b4;
+        explain = EXCEL_PRESETS.sumtwo.explain + ` (${b1} + ${b4} = <strong>${result}</strong>)`;
+      } else if (norm === `=MÉDIA(B1:B4)` || norm === `=MEDIA(B1:B4)`) {
+        result = (b1 + b2 + b3 + b4) / 4;
+        explain = EXCEL_PRESETS.avg.explain + ` ((${b1}+${b2}+${b3}+${b4}) ÷ 4 = <strong>${result}</strong>)`;
+      } else if (norm.indexOf(`=SE(B1>B2;`) === 0) {
+        result = b1 > b2 ? `B1 maior` : `B2 maior ou igual`;
+        explain = EXCEL_PRESETS.ifcond.explain + ` Como ${b1} ${b1 > b2 ? `>` : `<=`} ${b2}, retorna <strong>"${result}"</strong>.`;
+      } else if (norm === `=B1+B2*B3`) {
+        result = b1 + (b2 * b3);
+        explain = EXCEL_PRESETS.prec.explain + ` Primeiro ${b2} × ${b3} = ${b2 * b3}, depois ${b1} + ${b2 * b3} = <strong>${result}</strong>.`;
+      } else {
+        try {
+          let expr = norm.slice(1)
+            .replace(/B1/g, `(${b1})`)
+            .replace(/B2/g, `(${b2})`)
+            .replace(/B3/g, `(${b3})`)
+            .replace(/B4/g, `(${b4})`)
+            .replace(/\^/g, `**`);
+          if (/^[0-9+\-*/().*\s]+$/.test(expr)) {
+            result = Function(`"use strict"; return (${expr});`)();
+            explain = `Expressão aritmética avaliada respeitando a ordem de precedência dos operadores do Excel.`;
+          } else {
+            result = `#NOME?`;
+            explain = `Use um dos formatos suportados acima ou uma expressão aritmética válida com B1, B2, B3, B4 e operadores +, -, *, /, ^.`;
+          }
+        } catch (err) {
+          result = `#VALOR!`;
+          explain = `Erro de sintaxe na fórmula digitada.`;
+        }
+      }
+
+      outEl.textContent = String(result);
+      expEl.className = `callout tip`;
+      expEl.innerHTML = `${fromF9 ? `<strong>[F9 pressionado — Cálculos atualizados!]</strong> ` : ``}${explain}`;
+    }
+
+    /* --- STORAGE CALCULATOR --- */
+    function recalcStorage() {
+      const books = Math.max(1, parseInt((document.getElementById(`calc-books`) || {}).value, 10) || 1);
+      const pages = Math.max(1, parseInt((document.getElementById(`calc-pages`) || {}).value, 10) || 1);
+      const lines = Math.max(1, parseInt((document.getElementById(`calc-lines`) || {}).value, 10) || 1);
+      const chars = Math.max(1, parseInt((document.getElementById(`calc-chars`) || {}).value, 10) || 1);
+
+      const totalBytes = books * pages * lines * chars;
+      const totalKB = totalBytes / 1024;
+      const totalMB = totalKB / 1024;
+      const totalGB = totalMB / 1024;
+
+      const summaryEl = document.getElementById(`storage-summary-box`);
+      if (summaryEl) {
+        summaryEl.innerHTML = `
+          <div style="font-weight:700; margin-bottom:var(--space-xs);">
+            Espaço necessário: ${totalBytes.toLocaleString(`pt-BR`)} Bytes
+          </div>
+          <div class="mono" style="font-size:0.875rem;">
+            ${totalKB.toFixed(1)} KB &nbsp;|&nbsp; <strong>${totalMB.toFixed(2)} MB</strong> &nbsp;|&nbsp; ${totalGB.toFixed(4)} GB
+          </div>
+        `;
+      }
+
+      let foundIdeal = false;
+      const cardsEl = document.getElementById(`storage-media-cards`);
+      if (!cardsEl) return;
+
+      cardsEl.innerHTML = MEDIA_OPTIONS.map(function (m) {
+        let cls = `state-insufficient`;
+        let statusText = `Não comporta`;
+        if (m.capBytes >= totalBytes) {
+          if (!foundIdeal) {
+            foundIdeal = true;
+            cls = `state-ideal`;
+            statusText = `Ideal (menor desperdício)`;
+          } else {
+            cls = `state-excess`;
+            statusText = `Comporta (mais sobra)`;
+          }
+        }
+        return `<div class="media-card ${cls}">
+          <div style="font-weight:700; font-size:0.9375rem;">${m.name}</div>
+          <div class="mono" style="font-size:1.1rem; font-weight:600;">${m.label}</div>
+          <div style="font-size:0.8125rem; font-weight:600;">${statusText}</div>
+        </div>`;
+      }).join(``);
+    }
+
+    /* --- SIMULADO ENGINE --- */
+    function getActiveDeck() {
+      return appState.activeDeck === `2019` ? DECK_2019 : DECK_2026;
+    }
+
+    function getActiveAnswers() {
+      return appState.activeDeck === `2019` ? appState.answers2019 : appState.answers2026;
+    }
+
+    function getActiveVerified() {
+      return appState.activeDeck === `2019` ? appState.verified2019 : appState.verified2026;
+    }
+
+    function switchDeck(deckId) {
+      appState.activeDeck = deckId;
+      appState.currentQIndex = 0;
+      const b1 = document.getElementById(`deck-btn-2019`);
+      const b2 = document.getElementById(`deck-btn-2026`);
+      if (b1) b1.classList.toggle(`active`, deckId === `2019`);
+      if (b2) b2.classList.toggle(`active`, deckId === `2026`);
+      renderSimulado();
+      persistState();
+    }
+
+    function goToQuestion(idx) {
+      appState.currentQIndex = idx;
+      renderSimulado();
+      persistState();
+    }
+
+    function selectOption(qId, optIdx) {
+      const verified = getActiveVerified();
+      if (verified[qId]) return;
+      const answers = getActiveAnswers();
+      answers[qId] = optIdx;
+      renderSimulado();
+      persistState();
+    }
+
+    function verifyCurrentQuestion() {
+      const deck = getActiveDeck();
+      const q = deck[appState.currentQIndex];
+      const answers = getActiveAnswers();
+      const verified = getActiveVerified();
+      if (answers[q.id] === undefined) {
+        const msg = document.getElementById(`q-inline-msg`);
+        if (msg) msg.textContent = `Selecione uma alternativa (A a E) antes de conferir o gabarito.`;
+        return;
+      }
+      verified[q.id] = true;
+      renderSimulado();
+      persistState();
+    }
+
+    function verifyAllQuestions() {
+      const deck = getActiveDeck();
+      const answers = getActiveAnswers();
+      const verified = getActiveVerified();
+      let answeredAny = false;
+      deck.forEach(function (q) {
+        if (answers[q.id] !== undefined) {
+          verified[q.id] = true;
+          answeredAny = true;
+        }
+      });
+      if (!answeredAny) {
+        const msg = document.getElementById(`q-inline-msg`);
+        if (msg) msg.textContent = `Responda ao menos uma questão para corrigir o simulado.`;
+        return;
+      }
+      renderSimulado();
+      persistState();
+    }
+
+    function handleResetSim(btn) {
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">warning</span> Clique de novo para confirmar`;
+        return;
+      }
+      btn.dataset.armed = `false`;
+      btn.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">restart_alt</span> Reiniciar caderno`;
+      if (appState.activeDeck === `2019`) {
+        appState.answers2019 = {};
+        appState.verified2019 = {};
+      } else {
+        appState.answers2026 = {};
+        appState.verified2026 = {};
+      }
+      appState.currentQIndex = 0;
+      renderSimulado();
+      persistState();
+    }
+
+    function renderSimulado() {
+      const deck = getActiveDeck();
+      const answers = getActiveAnswers();
+      const verified = getActiveVerified();
+      const idx = Math.max(0, Math.min(appState.currentQIndex, deck.length - 1));
+      const q = deck[idx];
+      const letters = [`A`, `B`, `C`, `D`, `E`];
+
+      const navEl = document.getElementById(`q-nav-strip`);
+      if (navEl) {
+        navEl.innerHTML = deck.map(function (item, i) {
+          let cls = `q-pill`;
+          if (i === idx) cls += ` current`;
+          if (verified[item.id]) {
+            cls += answers[item.id] === item.correct ? ` correct` : ` wrong`;
+          } else if (answers[item.id] !== undefined) {
+            cls += ` answered`;
+          }
+          return `<button type="button" class="${cls}" onclick="goToQuestion(${i})">Q${i + 1}</button>`;
+        }).join(``);
+      }
+
+      const stageEl = document.getElementById(`question-stage`);
+      if (stageEl) {
+        const isVerified = Boolean(verified[q.id]);
+        const chosen = answers[q.id];
+        const isCorrect = isVerified && chosen === q.correct;
+
+        const optsHtml = q.options.map(function (optText, oIdx) {
+          let cls = `option-btn`;
+          if (isVerified) {
+            if (oIdx === q.correct) cls += ` is-correct`;
+            else if (oIdx === chosen) cls += ` is-wrong`;
+          } else if (oIdx === chosen) {
+            cls += ` selected`;
+          }
+          return `<button type="button" class="${cls}" onclick="selectOption('${q.id}', ${oIdx})" ${isVerified ? `disabled` : ``}>
+            <span class="option-letter">${letters[oIdx]}</span>
+            <span>${optText}</span>
+          </button>`;
+        }).join(``);
+
+        const resHtml = isVerified ? `
+          <div class="resolution-box ${isCorrect ? `ok` : `err`}">
+            <div style="font-family:var(--font-headline); font-weight:700; font-size:1rem; margin-bottom:var(--space-xs); color:${isCorrect ? `var(--on-positive-container)` : `var(--on-error-container)`};">
+              ${isCorrect ? `Resposta correta! (${letters[q.correct]})` : `Você marcou ${letters[chosen]} — Gabarito: ${letters[q.correct]}`}
+            </div>
+            <div style="font-size:0.95rem; line-height:1.6;">${q.explanation}</div>
+          </div>
+        ` : ``;
+
+        stageEl.innerHTML = `
+          <article class="question-card">
+            <div class="question-meta">
+              <div class="chip-row" style="margin-bottom:0;">
+                <span class="chip">${q.numLabel}</span>
+                <span class="chip warn">${q.topic}</span>
+              </div>
+              <span class="mono" style="font-size:0.875rem; color:var(--on-surface-variant);">Questão ${idx + 1} de ${deck.length}</span>
+            </div>
+            <div class="question-stem">${q.stem}</div>
+            ${q.figureHtml ? `<div class="question-figure">${q.figureHtml}</div>` : ``}
+            <div class="options-list">${optsHtml}</div>
+            <div class="question-actions">
+              <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm);">
+                <button type="button" class="btn-tonal" onclick="goToQuestion(${Math.max(0, idx - 1)})" ${idx === 0 ? `disabled` : ``}>Anterior</button>
+                <button type="button" class="btn-tonal" onclick="goToQuestion(${Math.min(deck.length - 1, idx + 1)})" ${idx === deck.length - 1 ? `disabled` : ``}>Próxima</button>
+              </div>
+              <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm);">
+                ${!isVerified ? `<button type="button" class="btn-primary" onclick="verifyCurrentQuestion()">Conferir esta questão</button>` : ``}
+                <button type="button" class="btn-tonal" onclick="verifyAllQuestions()">Corrigir todas respondidas</button>
+              </div>
+            </div>
+            <div class="inline-msg" id="q-inline-msg" aria-live="polite"></div>
+            ${resHtml}
+          </article>
+        `;
+      }
+
+      renderDiagnostic();
+      updateHeaderProgress();
+    }
+
+    function renderDiagnostic() {
+      const diagEl = document.getElementById(`diagnostic-panel`);
+      if (!diagEl) return;
+
+      const deck = getActiveDeck();
+      const answers = getActiveAnswers();
+      const verified = getActiveVerified();
+
+      let totalChecked = 0;
+      let totalHits = 0;
+      const byTopic = {};
+
+      deck.forEach(function (q) {
+        if (!byTopic[q.topic]) {
+          byTopic[q.topic] = { total: 0, checked: 0, hits: 0, anchor: q.anchor };
+        }
+        byTopic[q.topic].total += 1;
+        if (verified[q.id]) {
+          totalChecked += 1;
+          byTopic[q.topic].checked += 1;
+          if (answers[q.id] === q.correct) {
+            totalHits += 1;
+            byTopic[q.topic].hits += 1;
+          }
+        }
+      });
+
+      if (totalChecked === 0) {
+        diagEl.innerHTML = `
+          <h3>Diagnóstico por Assunto &amp; Placar</h3>
+          <p style="color:var(--on-surface-variant); margin-bottom:0;">
+            Responda e confira as questões acima para liberar seu placar de acertos (de 0 a 8) e a análise por tema do edital.
+          </p>
+        `;
+        return;
+      }
+
+      const pctTotal = Math.round((totalHits / deck.length) * 100);
+      let statusLabel = `Atenção: reforce a teoria antes da prova.`;
+      if (totalHits >= 6) statusLabel = `Desempenho competitivo (acima de 75% na disciplina)!`;
+      else if (totalHits >= 4) statusLabel = `Bom ritmo: revise os tópicos com erro para garantir 6+/8.`;
+
+      const cardsHtml = Object.keys(byTopic).map(function (topicName) {
+        const t = byTopic[topicName];
+        const ratio = t.checked > 0 ? Math.round((t.hits / t.total) * 100) : 0;
+        let barCls = `low`;
+        if (ratio >= 75) barCls = `high`;
+        else if (ratio >= 50) barCls = `mid`;
+        return `
+          <div class="diag-card" style="background:var(--surface-container-low);">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:var(--space-sm);">
+              <strong>${topicName}</strong>
+              <span class="mono" style="font-weight:600;">${t.hits}/${t.total}</span>
+            </div>
+            <div class="diag-bar-track">
+              <div class="diag-bar-fill ${barCls}" style="width:${ratio}%;"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.8125rem; color:var(--on-surface-variant);">
+              <span>Verificadas: ${t.checked}/${t.total} (${ratio}%)</span>
+              <a href="${t.anchor}" style="color:var(--primary); font-weight:600; text-decoration:none;">Revisar &rsaquo;</a>
+            </div>
+          </div>
+        `;
+      }).join(``);
+
+      diagEl.innerHTML = `
+        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-md);">
+          <div>
+            <h3 style="margin-bottom:var(--space-xs);">Placar: ${totalHits} / ${deck.length} acertos (${pctTotal}%)</h3>
+            <p style="color:var(--on-surface-variant); margin-bottom:0;">${statusLabel}</p>
+          </div>
+          <span class="chip ${totalHits >= 6 ? `ok` : (totalHits >= 4 ? `warn` : ``)}">${totalChecked} de ${deck.length} corrigidas</span>
+        </div>
+        <div class="diag-grid">${cardsHtml}</div>
+      `;
+    }
+
+    async function initApp() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            appState = Object.assign(appState, saved);
+          }
+        }
+      } catch (e) {
+        // Proceed with defaults if no saved state
+      }
+
+      renderChecklist();
+      setKbdLayout(`abnt2`);
+      renderExplorer();
+      selectWordTool(`clear`);
+      evaluateExcelLab(false);
+      recalcStorage();
+
+      const b1 = document.getElementById(`deck-btn-2019`);
+      const b2 = document.getElementById(`deck-btn-2026`);
+      if (b1) b1.classList.toggle(`active`, appState.activeDeck === `2019`);
+      if (b2) b2.classList.toggle(`active`, appState.activeDeck === `2026`);
+      renderSimulado();
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
