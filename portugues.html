@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
   <style>
     :root {
       color-scheme: light;
@@ -1309,6 +1310,66 @@
   </style>
 </head>
 <body>
+
+  <!-- Material Design 3 Top Bar & Horizontal Theme Navigation -->
+  <header class="m3-top-shell">
+    <div class="m3-top-inner">
+      <div class="m3-brand-row">
+        <div class="m3-brand">
+          <div class="m3-brand-badge" aria-hidden="true">
+            <span class="material-symbols-outlined">shield_person</span>
+          </div>
+          <div>
+            <div class="m3-brand-title">Portal de Re · GCM Salvador 2026</div>
+            <div class="m3-brand-subtitle">Edital nº 02/2026 Retificado (18/11/2026) · Banca FGV</div>
+          </div>
+        </div>
+        <div class="m3-status-strip">
+          <span class="m3-chip m3-chip--primary">
+            <span class="material-symbols-outlined" aria-hidden="true">today</span>
+            Hoje · 24/11/2026: Lista Preliminar de Inscrições
+          </span>
+          <span class="m3-chip m3-chip--tertiary">
+            <span class="material-symbols-outlined" aria-hidden="true">event</span>
+            Prova Objetiva: 17/01/2027
+          </span>
+        </div>
+      </div>
+
+      <nav class="m3-nav-bar" aria-label="Navegação temática do portal">
+        <button type="button" class="m3-nav-item is-active" id="nav-home" onclick="navigateTo('home')">
+          <span class="material-symbols-outlined" aria-hidden="true">home</span>
+          <span>Home</span>
+          <span class="m3-nav-count">Geral</span>
+        </button>
+        <button type="button" class="m3-nav-item" id="nav-legislacao" onclick="window.location.href='portugues.html'">
+          <span class="material-symbols-outlined" aria-hidden="true">gavel</span>
+          <span>Língua Portuguesa</span>
+        </button>
+        <button type="button" class="m3-nav-item" id="nav-logica" onclick="window.location.href='logica.html'">
+          <span class="material-symbols-outlined" aria-hidden="true">calculate</span>
+          <span>Raciocínio Lógico</span>
+          <!-- <span class="m3-nav-count">10q</span> -->
+        </button>
+        <button type="button" class="m3-nav-item" id="nav-informatica" onclick="navigateTo('informatica')">
+          <span class="material-symbols-outlined" aria-hidden="true">computer</span>
+          <span>Informática</span>
+          <!-- <span class="m3-nav-count">8q</span> -->
+        </button>
+        <button type="button" class="m3-nav-item" id="nav-legislacao" onclick="navigateTo('legislacao')">
+          <span class="material-symbols-outlined" aria-hidden="true">gavel</span>
+          <span>Legislação Institucional</span>
+          <!-- <span class="m3-nav-count">10q</span> -->
+        </button>
+        <button type="button" class="m3-nav-item" id="nav-especificos" onclick="navigateTo('especificos')">
+          <span class="material-symbols-outlined" aria-hidden="true">local_police</span>
+          <span>Conhecimentos Específicos</span>
+          <!-- <span class="m3-nav-count">32q</span> -->
+        </button>
+      </nav>
+    </div>
+  </header>
+  
   <div class="page-grid">
     <!-- Top App Bar -->
     <header class="m3-topbar">
@@ -1599,6 +1660,123 @@
   <api-shim></api-shim>
 
   <script>
+
+    function navigateTo(pageKey) {
+      appState.activePage = pageKey;
+
+      const navButtons = document.querySelectorAll(`.m3-nav-item`);
+      navButtons.forEach(function (btn) {
+        btn.classList.remove(`is-active`);
+      });
+      const activeBtn = document.getElementById(`nav-` + pageKey);
+      if (activeBtn) activeBtn.classList.add(`is-active`);
+
+      const homeView = document.getElementById(`view-home`);
+      const topicView = document.getElementById(`view-topic`);
+      if (!homeView || !topicView) return;
+
+      if (pageKey === `home`) {
+        topicView.classList.remove(`is-visible`);
+        homeView.classList.add(`is-visible`);
+      } else {
+        homeView.classList.remove(`is-visible`);
+        topicView.classList.add(`is-visible`);
+        renderThematicPage(pageKey);
+      }
+
+      window.scrollTo({ top: 0, behavior: `smooth` });
+      scheduleStateSave(false);
+    }
+
+    function scrollToSection(sectionId) {
+      if (appState.activePage !== `home`) {
+        navigateTo(`home`);
+      }
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.scrollIntoView({ behavior: `smooth`, block: `start` });
+      }
+    }
+
+    function renderThematicPage(pageKey) {
+      const data = THEMATIC_PAGES[pageKey];
+      const mount = document.getElementById(`topic-content-mount`);
+      if (!data || !mount) return;
+
+      const checkedList = Array.isArray(appState.checkedTopics[pageKey]) ? appState.checkedTopics[pageKey] : [];
+      const totalTopics = data.topics.length;
+      const doneCount = checkedList.length;
+      const pct = totalTopics > 0 ? Math.round((doneCount / totalTopics) * 100) : 0;
+
+      let topicsHtml = ``;
+      for (let i = 0; i < data.topics.length; i++) {
+        const isChecked = checkedList.indexOf(i) !== -1;
+        topicsHtml += `
+          <label class="syllabus-check-item ${isChecked ? `is-done` : ``}">
+            <input type="checkbox" ${isChecked ? `checked` : ``} onchange="toggleTopicCheck('${pageKey}', ${i}, this.checked)">
+            <span class="topic-text">${data.topics[i]}</span>
+          </label>
+        `;
+      }
+
+      mount.innerHTML = `
+        <div class="m3-hero">
+          <div class="m3-actions-row">
+            <button type="button" class="m3-btn m3-btn--outlined" onclick="navigateTo('home')">
+              <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+              Voltar para a Home
+            </button>
+            <span class="m3-chip m3-chip--primary">${data.module}</span>
+            <span class="m3-chip m3-chip--tertiary">${data.questions}</span>
+          </div>
+          <div class="m3-hero-header">
+            <h1>${data.title}</h1>
+            <p class="lede">${data.focusNote}</p>
+          </div>
+          <div class="m3-notice-box">
+            <span class="material-symbols-outlined" aria-hidden="true">emoji_events</span>
+            <div>
+              <strong>Relevância na Classificação:</strong> ${data.tiebreaker}. Marque abaixo os tópicos do Edital nº 02/2026 já revisados para acompanhar seu progresso de estudo.
+            </div>
+          </div>
+        </div>
+
+        <div class="m3-card--white">
+          <div class="section-header">
+            <div>
+              <h2>Conteúdo Programático Oficial (Anexo I — Edital 2026)</h2>
+              <p class="section-subtitle" id="topic-progress-label">${doneCount} de ${totalTopics} tópicos concluídos (${pct}%)</p>
+            </div>
+            <button type="button" class="m3-btn m3-btn--filled" onclick="scrollToSection('sec-simulador')">
+              <span class="material-symbols-outlined" aria-hidden="true">tune</span>
+              Simular Pontuação na Home
+            </button>
+          </div>
+          <div class="progress-track" aria-label="Progresso de revisão dos tópicos">
+            <div class="progress-fill" id="topic-progress-bar" style="width: ${pct}%;"></div>
+          </div>
+          <div class="syllabus-grid">
+            ${topicsHtml}
+          </div>
+        </div>
+      `;
+    }
+
+    function toggleTopicCheck(pageKey, index, isChecked) {
+      if (!Array.isArray(appState.checkedTopics[pageKey])) {
+        appState.checkedTopics[pageKey] = [];
+      }
+      const list = appState.checkedTopics[pageKey];
+      const pos = list.indexOf(index);
+      if (isChecked && pos === -1) {
+        list.push(index);
+      } else if (!isChecked && pos !== -1) {
+        list.splice(pos, 1);
+      }
+      renderThematicPage(pageKey);
+      scheduleStateSave(false);
+    }
+    
     // =========================================================================
     // DADOS DOS 12 TÓPICOS DO EDITAL 2026 (ANEXO I - LÍNGUA PORTUGUESA)
     // =========================================================================
