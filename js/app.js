@@ -1,4 +1,3 @@
-<script>
     // =========================================================================
     // DADOS ESTRUTURADOS DO EDITAL 02/2026 RETIFICADO (SEM QUESTÕES DE PROVA)
     // =========================================================================
@@ -1028,4 +1027,3 @@
     }
 
     document.addEventListener(`DOMContentLoaded`, initPortal);
-  </script>
