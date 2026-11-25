@@ -1,0 +1,2897 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="showroom">
+  <title>Raciocínio Lógico-Matemático — GCM Salvador 2026 (FGV)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Material Design 3 / Material You — Light Tonal Surface System */
+      --background: #f8f9fa;
+      --surface: #ffffff;
+      --surface-container-low: #f0f4f9;
+      --surface-container: #e9eef6;
+      --surface-container-high: #dde3ea;
+
+      /* Ink & Typography Colors */
+      --on-surface: #1f1f1f;
+      --on-surface-variant: #444746;
+
+      /* Rules & Outlines */
+      --outline: #747775;
+      --outline-variant: #c4c7c5;
+
+      /* Material You Dynamic Seed Palette (Google Blue + Tonal Containers) */
+      --primary: #0b57d0;
+      --primary-hover: #0842a0;
+      --on-primary: #ffffff;
+      --primary-container: #d3e3fd;
+      --on-primary-container: #041e49;
+
+      --secondary: #00639b;
+      --secondary-container: #c2e7ff;
+      --on-secondary-container: #001d35;
+
+      --tertiary: #65558f;
+      --tertiary-container: #eaddff;
+      --on-tertiary-container: #21005d;
+
+      /* Semantic Colors */
+      --positive: #146c2e;
+      --positive-container: #c4eed0;
+      --on-positive-container: #072711;
+      --warning: #8c5000;
+      --warning-container: #ffdea6;
+      --on-warning-container: #2e1500;
+      --error: #b3261e;
+      --error-container: #f9dedc;
+      --on-error: #ffffff;
+      --on-error-container: #410e0b;
+
+      /* Data Series */
+      --data-1: #0b57d0;
+      --data-2: #00639b;
+      --data-3: #146c2e;
+      --data-4: #65558F;
+      --data-context: #747775;
+
+      /* Focus */
+      --focus: #0b57d0;
+
+      /* Fonts */
+      --font-headline: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-label: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      /* Type Scale */
+      --display-size: clamp(2rem, 1.4rem + 2.4vw, 3.125rem);
+      --headline-size: clamp(1.45rem, 1.2rem + 1vw, 2rem);
+      --subhead-size: clamp(1.1rem, 1.02rem + 0.35vw, 1.25rem);
+      --body-size: clamp(0.975rem, 0.94rem + 0.15vw, 1.05rem);
+      --label-size: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+
+      /* Spacing Scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.25rem;
+      --space-2xl: 3.5rem;
+
+      /* Shapes (M3 Radii) */
+      --rounded: 9999px;
+      --rounded-sm: 0.75rem;
+      --rounded-md: 1rem;
+      --rounded-lg: 1.5rem;
+
+      /* Elevations & Effects */
+      --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.06), 0 1px 3px 1px rgba(0, 0, 0, 0.04);
+      --elevation-2: 0 4px 12px rgba(11, 87, 208, 0.08), 0 1px 3px rgba(0, 0, 0, 0.06);
+      --headline-tracking: -0.025em;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 400ms;
+    }
+
+    /* Base Reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+    button, input, select, textarea { font-family: inherit; }
+
+    /* Focus Accessibility */
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* Material Symbols Utility */
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 1.25rem;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      user-select: none;
+    }
+
+    /* Top App Bar & Horizontal Navigation (M3 Top Header) */
+    .top-app-bar {
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--outline-variant);
+      padding: var(--space-md) var(--space-lg);
+    }
+    .top-app-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .brand-cluster {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--rounded-md);
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .brand-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.015em;
+      color: var(--on-surface);
+      line-height: 1.2;
+    }
+    .brand-subtitle {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      font-weight: 500;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      min-height: 44px;
+      padding: 0 var(--space-md);
+      border-radius: var(--rounded);
+      text-decoration: none;
+      font-family: var(--font-label);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--on-surface-variant);
+      background-color: transparent;
+      transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+    }
+    .nav-pill:hover {
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+    }
+    .nav-pill.is-active {
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+
+    .status-strip-mini {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+    .tonal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      min-height: 36px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-size: var(--label-size);
+      font-weight: 600;
+    }
+    .tonal-badge.is-primary {
+      background-color: var(--secondary-container);
+      color: var(--on-secondary-container);
+    }
+
+    /* Main Container */
+    .page-grid {
+      display: grid;
+      gap: var(--space-2xl);
+      padding: var(--space-xl) var(--space-lg) var(--space-2xl);
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Section Headers */
+    .section-block {
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: var(--space-xs);
+    }
+    .section-title {
+      margin: 0;
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 800;
+      letter-spacing: var(--headline-tracking);
+      line-height: 1.12;
+      color: var(--on-surface);
+    }
+    .section-lede {
+      margin: var(--space-sm) 0 0;
+      max-width: 65ch;
+      color: var(--on-surface-variant);
+      font-size: var(--body-size);
+    }
+
+    /* Hero Card (M3 Expressive Surface) */
+    .hero-card {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.375rem 0.875rem;
+      border-radius: var(--rounded);
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      font-size: var(--label-size);
+      font-weight: 700;
+      width: fit-content;
+      margin-bottom: var(--space-md);
+    }
+    .hero-title {
+      margin: 0;
+      font-family: var(--font-headline);
+      font-size: var(--display-size);
+      font-weight: 800;
+      letter-spacing: var(--headline-tracking);
+      line-height: 1.08;
+      color: var(--on-surface);
+    }
+    .hero-desc {
+      margin: var(--space-md) 0 var(--space-lg);
+      color: var(--on-surface-variant);
+      max-width: 60ch;
+      font-size: 1.05rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+
+    /* Buttons (M3 Filled, Tonal, Outlined) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 44px;
+      padding: 0 var(--space-lg);
+      border-radius: var(--rounded);
+      font-family: var(--font-label);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .btn-filled {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+    .btn-filled:hover:not(:disabled) {
+      background-color: var(--primary-hover);
+      box-shadow: var(--elevation-1);
+    }
+    .btn-tonal {
+      background-color: var(--secondary-container);
+      color: var(--on-secondary-container);
+    }
+    .btn-tonal:hover:not(:disabled) {
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+    }
+    .btn-outlined {
+      background-color: var(--surface);
+      color: var(--primary);
+      box-shadow: inset 0 0 0 1px var(--outline-variant);
+    }
+    .btn-outlined:hover:not(:disabled) {
+      background-color: var(--surface-container-low);
+    }
+    .btn-danger-tonal {
+      background-color: var(--error-container);
+      color: var(--on-error-container);
+    }
+
+    /* Bento Metrics Panel in Hero */
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+    }
+    .metric-tile {
+      background-color: var(--surface);
+      border-radius: var(--rounded-md);
+      padding: var(--space-md);
+      box-shadow: var(--elevation-1);
+      display: grid;
+      gap: var(--space-xs);
+    }
+    .metric-label {
+      font-size: var(--label-size);
+      font-weight: 600;
+      color: var(--on-surface-variant);
+    }
+    .metric-value {
+      font-family: var(--font-headline);
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--on-surface);
+      font-variant-numeric: tabular-nums;
+      line-height: 1.15;
+    }
+    .metric-caption {
+      font-size: 0.8125rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Progress Banner */
+    .progress-panel {
+      background-color: var(--surface);
+      border-radius: var(--rounded-md);
+      padding: var(--space-md) var(--space-lg);
+      box-shadow: var(--elevation-1);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: var(--space-md);
+      align-items: center;
+    }
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      border-radius: var(--rounded);
+      background-color: var(--surface-container);
+      overflow: hidden;
+      margin-top: var(--space-xs);
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: var(--rounded);
+      background-color: var(--primary);
+      width: 0%;
+      transition: width var(--dur-long) var(--ease-out);
+    }
+    .progress-fill.is-positive {
+      background-color: var(--positive);
+    }
+
+    /* Filter Chip Bar (M3 Filter Chips) */
+    .chip-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      min-height: 44px;
+      padding: 0 var(--space-md);
+      border-radius: var(--rounded);
+      border: none;
+      background-color: var(--surface);
+      color: var(--on-surface-variant);
+      box-shadow: inset 0 0 0 1px var(--outline-variant);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+    }
+    .filter-chip:hover {
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+    }
+    .filter-chip.is-selected {
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      box-shadow: none;
+    }
+
+    /* Theory Modules Grid */
+    .theory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+    .theory-card {
+      background-color: var(--surface);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--elevation-1);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      transition: box-shadow var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
+    }
+    .theory-card:hover {
+      box-shadow: var(--elevation-2);
+    }
+    .theory-card.is-hidden {
+      display: none;
+    }
+    .theory-card.is-mastered {
+      background-color: var(--surface-container-low);
+      box-shadow: inset 0 0 0 2px var(--positive-container);
+    }
+    .theory-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+    .topic-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--rounded);
+      background-color: var(--surface-container);
+      color: var(--on-surface-variant);
+      font-size: var(--label-size);
+      font-weight: 700;
+    }
+    .mastered-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      min-height: 44px;
+      padding: 0 var(--space-md);
+      border-radius: var(--rounded);
+      border: none;
+      background-color: var(--surface-container-low);
+      color: var(--on-surface-variant);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+    }
+    .mastered-toggle:hover {
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+    }
+    .mastered-toggle.is-on {
+      background-color: var(--positive-container);
+      color: var(--on-positive-container);
+    }
+
+    .theory-card h3 {
+      margin: 0;
+      font-family: var(--font-headline);
+      font-size: var(--subhead-size);
+      font-weight: 700;
+      color: var(--on-surface);
+      line-height: 1.25;
+    }
+    .theory-summary {
+      margin: 0;
+      color: var(--on-surface-variant);
+      font-size: 0.95rem;
+    }
+
+    /* Structured Rule Boxes & Tables */
+    .rule-list {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .rule-item {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-sm);
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.9125rem;
+    }
+    .rule-item strong {
+      color: var(--on-surface);
+    }
+    .math-chip {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.125rem 0.5rem;
+      border-radius: 0.375rem;
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      margin: 0.125rem 0;
+    }
+    .fgv-callout {
+      background-color: var(--tertiary-container);
+      color: var(--on-tertiary-container);
+      border-radius: var(--rounded-sm);
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.8875rem;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+    }
+
+    .compact-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--rounded-sm);
+      background-color: var(--surface-container-low);
+    }
+    .compact-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .compact-table th, .compact-table td {
+      text-align: left;
+      padding: 0.55rem 0.75rem;
+      border-bottom: 1px solid var(--outline-variant);
+    }
+    .compact-table th {
+      font-weight: 700;
+      color: var(--on-surface);
+      background-color: var(--surface-container);
+    }
+    .compact-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Expandable Example Drawer inside Theory Cards */
+    .example-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-sm);
+      border: none;
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: auto;
+      transition: background-color var(--dur-short) var(--ease-out);
+    }
+    .example-toggle:hover {
+      background-color: var(--surface-container-high);
+    }
+    .example-panel {
+      display: none;
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-sm);
+      padding: var(--space-md);
+      font-size: 0.9rem;
+      border-left: 4px solid var(--primary);
+    }
+    .example-panel.is-open {
+      display: grid;
+      gap: var(--space-xs);
+    }
+
+    /* Interactive Logic & Math Laboratory */
+    .lab-card {
+      background-color: var(--surface);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--elevation-1);
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .lab-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      background-color: var(--surface-container-low);
+      padding: var(--space-xs);
+      border-radius: var(--rounded);
+      width: fit-content;
+    }
+    .lab-tab-btn {
+      min-height: 44px;
+      padding: 0 var(--space-lg);
+      border-radius: var(--rounded);
+      border: none;
+      background-color: transparent;
+      color: var(--on-surface-variant);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+    }
+    .lab-tab-btn.is-active {
+      background-color: var(--surface);
+      color: var(--primary);
+      box-shadow: var(--elevation-1);
+    }
+    .lab-pane { display: none; }
+    .lab-pane.is-active {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    .control-panel {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-md);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .field-group {
+      display: grid;
+      gap: var(--space-xs);
+    }
+    .field-label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--on-surface);
+    }
+    .field-input {
+      min-height: 44px;
+      padding: 0.5rem 0.875rem;
+      border-radius: var(--rounded-sm);
+      border: 1px solid var(--outline);
+      background-color: var(--surface);
+      color: var(--on-surface);
+      font-size: 0.95rem;
+      width: 100%;
+    }
+    .slider-pair {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 88px;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--primary);
+      min-height: 36px;
+      cursor: pointer;
+    }
+
+    .segmented-bool {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xs);
+      background-color: var(--surface-container);
+      padding: var(--space-xs);
+      border-radius: var(--rounded);
+    }
+    .bool-btn {
+      min-height: 44px;
+      border-radius: var(--rounded);
+      border: none;
+      background-color: transparent;
+      color: var(--on-surface-variant);
+      font-weight: 700;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+    }
+    .bool-btn.is-true {
+      background-color: var(--positive-container);
+      color: var(--on-positive-container);
+    }
+    .bool-btn.is-false {
+      background-color: var(--error-container);
+      color: var(--on-error-container);
+    }
+
+    .output-panel {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-md);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .truth-verdict {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      padding: var(--space-md);
+      border-radius: var(--rounded-sm);
+      background-color: var(--surface);
+      box-shadow: var(--elevation-1);
+    }
+    .verdict-pill {
+      padding: 0.375rem 1rem;
+      border-radius: var(--rounded);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .verdict-pill.is-v {
+      background-color: var(--positive-container);
+      color: var(--on-positive-container);
+    }
+    .verdict-pill.is-f {
+      background-color: var(--error-container);
+      color: var(--on-error-container);
+    }
+
+    .venn-svg-box {
+      background-color: var(--surface);
+      border-radius: var(--rounded-md);
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 250px;
+    }
+    .venn-svg {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+    }
+    .venn-circle-a { fill: var(--primary-container); fill-opacity: 0.7; stroke: var(--primary); stroke-width: 2.5; }
+    .venn-circle-b { fill: var(--secondary-container); fill-opacity: 0.7; stroke: var(--secondary); stroke-width: 2.5; }
+    .venn-label { font-family: var(--font-headline); font-weight: 700; fill: var(--on-surface); font-size: 13px; }
+    .venn-num { font-family: var(--font-mono); font-weight: 700; fill: var(--on-surface); font-size: 18px; }
+
+    .cycle-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+    }
+    .cycle-cell {
+      min-width: 38px;
+      height: 44px;
+      padding: 0 0.5rem;
+      border-radius: var(--rounded-sm);
+      background-color: var(--surface);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      box-shadow: var(--elevation-1);
+    }
+    .cycle-cell .idx {
+      font-size: 0.65rem;
+      color: var(--on-surface-variant);
+    }
+    .cycle-cell .chr {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--on-surface);
+    }
+    .cycle-cell.is-hit {
+      background-color: var(--primary);
+      color: var(--on-primary);
+    }
+    .cycle-cell.is-hit .idx,
+    .cycle-cell.is-hit .chr {
+      color: var(--on-primary);
+    }
+
+    /* Simulator Section */
+    .sim-toolbar {
+      background-color: var(--surface);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      box-shadow: var(--elevation-1);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .sim-stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .sim-counters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .sim-dots {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .q-dot {
+      min-width: 44px;
+      height: 44px;
+      border-radius: var(--rounded);
+      border: none;
+      background-color: var(--surface-container);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+    }
+    .q-dot:hover { background-color: var(--surface-container-high); }
+    .q-dot.is-answered { background-color: var(--primary-container); color: var(--on-primary-container); }
+    .q-dot.is-correct { background-color: var(--positive-container); color: var(--on-positive-container); }
+    .q-dot.is-wrong { background-color: var(--error-container); color: var(--on-error-container); }
+
+    .questions-stack {
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .q-card {
+      background-color: var(--surface);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--elevation-1);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .q-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+    .q-number {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-headline);
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--primary);
+    }
+    .q-meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+    .q-stem {
+      margin: 0;
+      font-size: 1.025rem;
+      color: var(--on-surface);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+    .q-seq-code {
+      display: block;
+      margin-top: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded-sm);
+      background-color: var(--surface-container-low);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      overflow-x: auto;
+      color: var(--on-surface);
+    }
+
+    .options-list {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .option-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      width: 100%;
+      min-height: 48px;
+      padding: 0.75rem var(--space-md);
+      border-radius: var(--rounded-md);
+      border: none;
+      background-color: var(--surface-container-low);
+      color: var(--on-surface);
+      text-align: left;
+      font-size: 0.9625rem;
+      cursor: pointer;
+      transition: background-color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+    }
+    .option-btn:hover:not(:disabled) {
+      background-color: var(--surface-container);
+    }
+    .option-btn:disabled {
+      cursor: default;
+    }
+    .option-letter {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--rounded);
+      background-color: var(--surface);
+      color: var(--on-surface);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 1px var(--outline-variant);
+    }
+    .option-btn.is-selected {
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      box-shadow: inset 0 0 0 2px var(--primary);
+    }
+    .option-btn.is-selected .option-letter {
+      background-color: var(--primary);
+      color: var(--on-primary);
+      box-shadow: none;
+    }
+    .option-btn.is-correct-ans {
+      background-color: var(--positive-container);
+      color: var(--on-positive-container);
+      box-shadow: inset 0 0 0 2px var(--positive);
+    }
+    .option-btn.is-correct-ans .option-letter {
+      background-color: var(--positive);
+      color: var(--on-primary);
+      box-shadow: none;
+    }
+    .option-btn.is-wrong-ans {
+      background-color: var(--error-container);
+      color: var(--on-error-container);
+      box-shadow: inset 0 0 0 2px var(--error);
+    }
+    .option-btn.is-wrong-ans .option-letter {
+      background-color: var(--error);
+      color: var(--on-error);
+      box-shadow: none;
+    }
+
+    .q-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+    .solution-box {
+      display: none;
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-md);
+      padding: var(--space-md) var(--space-lg);
+      border-left: 4px solid var(--positive);
+      gap: var(--space-xs);
+    }
+    .solution-box.is-visible {
+      display: grid;
+    }
+    .solution-box.is-wrong-state {
+      border-left-color: var(--error);
+    }
+    .solution-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+    .solution-steps {
+      margin: 0;
+      padding-left: 1.25rem;
+      display: grid;
+      gap: 0.35rem;
+      font-size: 0.925rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Performance Report Section */
+    .report-card {
+      background-color: var(--surface);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      box-shadow: var(--elevation-1);
+      display: grid;
+      gap: var(--space-xl);
+    }
+    .report-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .report-kpi {
+      background-color: var(--surface-container-low);
+      border-radius: var(--rounded-md);
+      padding: var(--space-md);
+      display: grid;
+      gap: var(--space-xs);
+    }
+    .report-bars {
+      display: grid;
+      gap: var(--space-md);
+    }
+    .bar-row {
+      display: grid;
+      gap: var(--space-xs);
+    }
+    .bar-row-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--space-sm);
+      font-size: 0.925rem;
+      font-weight: 600;
+    }
+    .bar-track {
+      height: 12px;
+      border-radius: var(--rounded);
+      background-color: var(--surface-container);
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: var(--rounded);
+      background-color: var(--primary);
+      transition: width var(--dur-long) var(--ease-out);
+    }
+    .bar-fill.tier-high { background-color: var(--positive); }
+    .bar-fill.tier-mid { background-color: var(--warning); }
+    .bar-fill.tier-low { background-color: var(--error); }
+
+    .advice-box {
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      border-radius: var(--rounded-md);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-xs);
+    }
+
+    .inline-msg {
+      min-height: 1.4rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--error);
+    }
+
+    /* Footer */
+    .site-footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-lg) var(--space-lg) var(--space-2xl);
+      border-top: 1px solid var(--outline-variant);
+      color: var(--on-surface-variant);
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    /* Responsive Rules */
+    @media (max-width: 900px) {
+      .hero-card { grid-template-columns: 1fr; }
+      .lab-pane.is-active { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .page-grid { padding: var(--space-md); gap: var(--space-xl); }
+      .top-app-bar { padding: var(--space-sm) var(--space-md); }
+      .hero-card, .q-card, .lab-card, .report-card { padding: var(--space-md); }
+      .progress-panel { grid-template-columns: 1fr; }
+      .hero-metrics { grid-template-columns: 1fr 1fr; }
+      .slider-pair { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-app-bar">
+    <div class="top-app-bar-inner">
+      <div class="brand-cluster">
+        <div class="brand-icon" aria-hidden="true">
+          <span class="material-symbols-outlined">calculate</span>
+        </div>
+        <div>
+          <div class="brand-title">GCM Salvador · Raciocínio Lógico</div>
+          <div class="brand-subtitle">Edital 2026 · Banca FGV · Módulo I</div>
+        </div>
+      </div>
+
+      <nav class="top-nav" aria-label="Navegação principal">
+        <a href="#visao-geral" class="nav-pill is-active" data-nav="visao-geral">
+          <span class="material-symbols-outlined" aria-hidden="true">dashboard</span>
+          Visão Geral
+        </a>
+        <a href="#revisao-teorica" class="nav-pill" data-nav="revisao-teorica">
+          <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+          Revisão Teórica
+        </a>
+        <a href="#laboratorio" class="nav-pill" data-nav="laboratorio">
+          <span class="material-symbols-outlined" aria-hidden="true">science</span>
+          Laboratório FGV
+        </a>
+        <a href="#simulado" class="nav-pill" data-nav="simulado">
+          <span class="material-symbols-outlined" aria-hidden="true">quiz</span>
+          Simulado (10Q)
+        </a>
+        <a href="#relatorio" class="nav-pill" data-nav="relatorio">
+          <span class="material-symbols-outlined" aria-hidden="true">analytics</span>
+          Relatório
+        </a>
+      </nav>
+
+      <div class="status-strip-mini">
+        <span class="tonal-badge" id="hdr-topics-badge">Tópicos: 0/10</span>
+        <span class="tonal-badge is-primary" id="hdr-score-badge">Simulado: 0/10</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-grid">
+    <!-- 1. VISÃO GERAL & EDITAL -->
+    <section id="visao-geral" class="section-block" aria-labelledby="hero-heading">
+      <div class="hero-card">
+        <div>
+          <div class="hero-tag">
+            <span class="material-symbols-outlined" aria-hidden="true">verified</span>
+            Edital nº 02/2026 (Retificado) · FGV
+          </div>
+          <h1 class="hero-title" id="hero-heading">Raciocínio Lógico-Matemático para a GCM Salvador</h1>
+          <p class="hero-desc">
+            Guia completo de revisão teórica, simuladores interativos e caderno com 10 questões no padrão da Fundação Getulio Vargas (FGV), estruturado para os 17 tópicos do Anexo I do Edital 2026 e calibrado com questões da prova oficial de 2019.
+          </p>
+          <div class="hero-actions">
+            <a href="#revisao-teorica" class="btn btn-filled">
+              <span class="material-symbols-outlined" aria-hidden="true">school</span>
+              Estudar os 10 Módulos
+            </a>
+            <a href="#simulado" class="btn btn-tonal">
+              <span class="material-symbols-outlined" aria-hidden="true">play_arrow</span>
+              Iniciar Simulado (10Q)
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-tile">
+            <span class="metric-label">Peso na Prova</span>
+            <span class="metric-value">10 / 70</span>
+            <span class="metric-caption">Questões no Módulo I (1 pt cada)</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-label">Mínimo Módulo I</span>
+            <span class="metric-value">14 / 28</span>
+            <span class="metric-caption">50% para não ser eliminado</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-label">Desempate Oficial</span>
+            <span class="metric-value">3º Critério</span>
+            <span class="metric-caption">Após Específicas e Português</span>
+          </div>
+          <div class="metric-tile">
+            <span class="metric-label">Prova Objetiva</span>
+            <span class="metric-value">17 Jan 27</span>
+            <span class="metric-caption">8h às 12h30 · Salvador/BA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-panel">
+        <div>
+          <div class="bar-row-head">
+            <span>Progresso na Revisão Teórica (10 módulos do Edital)</span>
+            <span id="theory-progress-text">0 de 10 módulos dominados (0%)</span>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" id="theory-progress-bar"></div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outlined" id="reset-progress-btn" onclick="handleResetTopics(this)">
+          <span class="material-symbols-outlined" aria-hidden="true">restart_alt</span>
+          Zerar tópicos
+        </button>
+      </div>
+    </section>
+
+    <!-- 2. REVISÃO TEÓRICA COMPLETA -->
+    <section id="revisao-teorica" class="section-block" aria-labelledby="theory-heading">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">
+            <span class="material-symbols-outlined" aria-hidden="true">auto_stories</span>
+            Anexo I · Conteúdo Programático Completo
+          </div>
+          <h2 class="section-title" id="theory-heading">Revisão Teórica: Todos os Tópicos do Edital</h2>
+          <p class="section-lede">
+            Filtre por eixo temático, consulte tabelas-verdade, regras de negação, fórmulas cobradas pela FGV e abra os exemplos resolvidos da prova anterior.
+          </p>
+        </div>
+      </div>
+
+      <div class="chip-bar" role="group" aria-label="Filtrar módulos por tema">
+        <button type="button" class="filter-chip is-selected" data-filter="all" onclick="filterTheory('all', this)">Todos (10)</button>
+        <button type="button" class="filter-chip" data-filter="logica" onclick="filterTheory('logica', this)">Lógica &amp; Conectivos</button>
+        <button type="button" class="filter-chip" data-filter="quantificadores" onclick="filterTheory('quantificadores', this)">Quantificadores &amp; Conjuntos</button>
+        <button type="button" class="filter-chip" data-filter="aritmetica" onclick="filterTheory('aritmetica', this)">Álgebra, Razão &amp; Juros</button>
+        <button type="button" class="filter-chip" data-filter="sequencias" onclick="filterTheory('sequencias', this)">Sequências &amp; Calendários</button>
+        <button type="button" class="filter-chip" data-filter="contagem" onclick="filterTheory('contagem', this)">Contagem, Probabilidade &amp; Geometria</button>
+      </div>
+
+      <div class="theory-grid" id="theory-grid">
+        <!-- Módulo 01 -->
+        <article class="theory-card" data-category="logica" data-topic-id="m1">
+          <div class="theory-card-top">
+            <span class="topic-tag">Módulo 01 · Lógica Proposicional</span>
+            <button type="button" class="mastered-toggle" data-topic="m1" onclick="toggleTopicMastered('m1', this)">
+              <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+              <span>Marcar estudado</span>
+            </button>
+          </div>
+          <h3>Proposições, Valores-Verdade e Conectivos Lógicos</h3>
+          <p class="theory-summary">
+            Proposição é toda sentença declarativa fechada que pode ser julgada exclusivamente como Verdadeira (V) ou Falsa (F). Perguntas, ordens, exclamações e sentenças abertas ("x + 2 = 5") não são proposições.
+          </p>
+          <div class="compact-table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Conectivo</th>
+                  <th>Símbolo</th>
+                  <th>Quando é Verdadeira (V)</th>
+                  <th>Quando é Falsa (F)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Conjunção ("e")</td>
+                  <td><span class="math-chip">P ∧ Q</span></td>
+                  <td>Ambas V (V ∧ V)</td>
+                  <td>Pelo menos uma F</td>
+                </tr>
+                <tr>
+                  <td>Disjunção ("ou")</td>
+                  <td><span class="math-chip">P ∨ Q</span></td>
+                  <td>Pelo menos uma V</td>
+                  <td>Ambas F (F ∨ F)</td>
+                </tr>
+                <tr>
+                  <td>Disj. Exclusiva ("ou...ou")</td>
+                  <td><span class="math-chip">P ⊻ Q</span></td>
+                  <td>Valores diferentes</td>
+                  <td>Valores iguais</td>
+                </tr>
+                <tr>
+                  <td>Condicional ("Se... então")</td>
+                  <td><span class="math-chip">P → Q</span></td>
+                  <td>Todos os outros casos</td>
+                  <td>1ª V e 2ª F (V → F)</td>
+                </tr>
+                <tr>
+                  <td>Bicondicional ("se e som. se")</td>
+                  <td><span class="math-chip">P ↔ Q</span></td>
+                  <td>Valores iguais</td>
+                  <td>Valores diferentes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="fgv-callout">
+            <span class="material-symbols-outlined" aria-hidden="true">lightbulb</span>
+            <div><strong>Dica FGV ("Vera Fischer"):</strong> Na condicional <strong>P → Q</strong>, a única combinação falsa ocorre quando o antecedente é V e o consequente é F. Além disso, P é condição <em>suficiente</em> para Q, e Q é condição <em>necessária</em> para P.</div>
+          </div>
+          <button type="button" class="example-toggle" onclick="toggleExample('ex-m1', this)">
+            <span>Exemplo Comentado · Tautologia e Condicional</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="example-panel" id="ex-m1">
+            <strong>Problema:</strong> Sabendo que "Se chove, então a pista molha" é Verdadeira, e que "a pista não molhou", o que se conclui?
+            <span><strong>Resolução:</strong> Como o consequente ("a pista molha") é Falso e a condicional inteira é Verdadeira, o antecedente ("chove") não pode ser Verdadeiro (senão teríamos V → F = F). Logo, <strong>não choveu</strong> (regra <em>Modus Tollens</em>).</span>
+          </div>
+        </article>
+
+        <!-- Módulo 02 -->
+        <article class="theory-card" data-category="logica" data-topic-id="m2">
+          <div class="theory-card-top">
+            <span class="topic-tag">Módulo 02 · Negações e Equivalências</span>
+            <button type="button" class="mastered-toggle" data-topic="m2" onclick="toggleTopicMastered('m2', this)">
+              <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+              <span>Marcar estudado</span>
+            </button>
+          </div>
+          <h3>Leis de De Morgan, Negação e Equivalências da Condicional</h3>
+          <p class="theory-summary">
+            Negar uma proposição composta não é negar apenas o verbo: exige inverter os conectivos conforme as Leis de De Morgan e as regras da condicional. Equivalências mantêm exatamente a mesma tabela-verdade.
+          </p>
+          <div class="rule-list">
+            <div class="rule-item">
+              <strong>De Morgan (E ↔ OU):</strong> <span class="math-chip">¬(P ∧ Q) ≡ ¬P ∨ ¬Q</span> e <span class="math-chip">¬(P ∨ Q) ≡ ¬P ∧ ¬Q</span> — Nega as duas partes e troca o "e" pelo "ou" (e vice-versa).
+            </div>
+            <div class="rule-item">
+              <strong>Negação da Condicional (MANÉ):</strong> <span class="math-chip">¬(P → Q) ≡ P ∧ ¬Q</span> — <strong>MA</strong>ntém a primeira <strong>E NE</strong>ga a segunda! Nunca use "Se... então" para negar um "Se... então".
+            </div>
+            <div class="rule-item">
+              <strong>Equivalência 1 — Contrapositiva:</strong> <span class="math-chip">P → Q ≡ ¬Q → ¬P</span> — Inverte e nega as duas partes.
+            </div>
+            <div class="rule-item">
+              <strong>Equivalência 2 — Disjunção ("NEyMAr"):</strong> <span class="math-chip">P → Q ≡ ¬P ∨ Q</span> — <strong>NE</strong>ga a primeira <strong>OU MA</strong>ntém a segunda.
+            </div>
+            <div class="rule-item">
+              <strong>Negação da Bicondicional:</strong> <span class="math-chip">¬(P ↔ Q) ≡ P ⊻ Q</span> (ou <span class="math-chip">(P ∧ ¬Q) ∨ (Q ∧ ¬P)</span>).
+            </div>
+          </div>
+          <button type="button" class="example-toggle" onclick="toggleExample('ex-m2', this)">
+            <span>Exemplo Comentado · Negação vs. Equivalência</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="example-panel" id="ex-m2">
+            <strong>Frase:</strong> "Se o agente patrulha o parque, então não há vandalismo."
+            <span><strong>Equivalência (Contrapositiva):</strong> "Se há vandalismo, então o agente não patrulha o parque."</span>
+            <span><strong>Equivalência (Disjunção):</strong> "O agente não patrulha o parque OU não há vandalismo."</span>
+            <span><strong>Negação (MANÉ):</strong> "O agente patrulha o parque E há vandalismo."</span>
+          </div>
+        </article>
+
+        <!-- Módulo 03 -->
+        <article class="theory-card" data-category="quantificadores" data-topic-id="m3">
+          <div class="theory-card-top">
+            <span class="topic-tag">Módulo 03 · Quantificadores &amp; Diagramas</span>
+            <button type="button" class="mastered-toggle" data-topic="m3" onclick="toggleTopicMastered('m3', this)">
+              <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+              <span>Marcar estudado</span>
+            </button>
+          </div>
+          <h3>Quantificadores Lógicos (Todo, Algum, Nenhum) e Negações</h3>
+          <p class="theory-summary">
+            Questão clássica da FGV (inclusive na prova GCM Salvador 2019). Para negar um quantificador universal, basta encontrar um contraexemplo (quantificador existencial).
+          </p>
+          <div class="compact-table-wrap">
+            <table class="compact-table">
+              <thead>
+                <tr>
+                  <th>Proposição Original</th>
+                  <th>Negação Lógica (FGV)</th>
+                  <th>Representação em Diagrama</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Todo A é B</strong> (∀)</td>
+                  <td><strong>Algum A não é B</strong> (Pelo menos um / Existe A que não é B)</td>
+                  <td>Conjunto A totalmente dentro de B</td>
+                </tr>
+                <tr>
+                  <td><strong>Nenhum A é B</strong></td>
+                  <td><strong>Algum A é B</strong> (Há pelo menos um A que é B)</td>
+                  <td>Conjuntos A e B disjuntos (sem contato)</td>
+                </tr>
+                <tr>
+                  <td><strong>Algum A é B</strong> (∃)</td>
+                  <td><strong>Nenhum A é B</strong> (Todo A não é B)</td>
+                  <td>A e B têm ao menos 1 elemento em comum</td>
+                </tr>
+                <tr>
+                  <td><strong>Algum A não é B</strong></td>
+                  <td><strong>Todo A é B</strong></td>
+                  <td>Há parte de A fora de B</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="fgv-callout">
+            <span class="material-symbols-outlined" aria-hidden="true">warning</span>
+            <div><strong>Pegadinha clássica:</strong> A negação de "Todo A é B" <strong>NUNCA</strong> é "Nenhum A é B"! Basta um único elemento de A fora de B para falsificar "Todo".</div>
+          </div>
+          <button type="button" class="example-toggle" onclick="toggleExample('ex-m3', this)">
+            <span>Exemplo Oficial FGV (GCM Salvador 2019 · Q19)</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="example-panel" id="ex-m3">
+            <strong>Enunciado:</strong> Considerando que a afirmação "Nenhum pescador sabe nadar" não é verdadeira, conclui-se que:
+            <span><strong>Resolução:</strong> Se "Nenhum A é B" é falsa, então sua negação lógica é verdadeira: <strong>"Há, pelo menos, um pescador que sabe nadar"</strong> (Alternativa A do gabarito oficial).</span>
+          </div>
+        </article>
+
+        <!-- Módulo 04 -->
+        <article class="theory-card" data-category="quantificadores" data-topic-id="m4">
+          <div class="theory-card-top">
+            <span class="topic-tag">Módulo 04 · Teoria dos Conjuntos</span>
+            <button type="button" class="mastered-toggle" data-topic="m4" onclick="toggleTopicMastered('m4', this)">
+              <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+              <span>Marcar estudado</span>
+            </button>
+          </div>
+          <h3>Operações entre Conjuntos e Diagrama de Venn</h3>
+          <p class="theory-summary">
+            Relações de pertinência (elemento ∈ conjunto) e inclusão (subconjunto ⊂ conjunto), união (A ∪ B), interseção (A ∩ B) e diferença (A − B). Ao montar diagramas, preencha sempre da interseção central para fora.
+          </p>
+          <div class="rule-list">
+            <div class="rule-item">
+              <strong>Princípio da Inclusão-Exclusão (2 conjuntos):</strong><br>
+              <span class="math-chip">n(A ∪ B) = n(A) + n(B) − n(A ∩ B)</span>
+            </div>
+            <div class="rule-item">
+              <strong>Total do Universo (U):</strong><br>
+              <span class="math-chip">n(U) = n(só A) + n(A ∩ B) + n(só B) + n(Nenhum)</span>
+            </div>
+            <div class="rule-item">
+              <strong>Número de Subconjuntos:</strong> Um conjunto com <em>n</em> elementos possui <span class="math-chip">2ⁿ</span> subconjuntos.
+            </div>
+          </div>
+          <button type="button" class="example-toggle" onclick="toggleExample('ex-m4', this)">
+            <span>Exemplo Oficial FGV (GCM Salvador 2019 · Q16)</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="example-panel" id="ex-m4">
+            <strong>Enunciado:</strong> 50 atletas treinam; 20 usam bermudas brancas, 25 camisetas brancas e 12 ambas as peças brancas. Quantos não vestem nenhuma peça branca?
+            <span><strong>Passo 1:</strong> Só bermuda branca = 20 − 12 = 8. Só camiseta branca = 25 − 12 = 13.</span>
+            <span><strong>Passo 2:</strong> Pelo menos uma peça branca = 8 + 12 + 13 = 33.</span>
+            <span><strong>Passo 3:</strong> Nenhuma peça branca = 50 − 33 = <strong>17 atletas</strong> (Alternativa D).</span>
+          </div>
+        </article>
+
+        <!-- Módulo 05 -->
+        <article class="theory-card" data-category="aritmetica" data-topic-id="m5">
+          <div class="theory-card-top">
+            <span class="topic-tag">Módulo 05 · Aritmética, Álgebra &amp; Associação</span>
+            <button type="button" class="mastered-toggle" data-topic="m5" onclick="toggleTopicMastered('m5', this)">
+              <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+              <span>Marcar estudado</span>
+            </button>
+          </div>
+          <h3>Conjuntos Numéricos, Equações do 1º Grau e Ordenação Lógica</h3>
+          <p class="theory-summary">
+            A FGV combina equações e sistemas do 1º grau (problemas de idades e quadros de dupla entrada) com problemas de dedução em filas e ordenação de pessoas.
+          </p>
+          <div class="rule-list">
+            <div class="rule-item">
+              <strong>Conjuntos Numéricos:</strong> Naturais (ℕ), Inteiros (ℤ), Racionais (ℚ = frações a/b com b ≠ 0), Irracionais (𝕀 = raízes não exatas, π) e Reais (ℝ = ℚ ∪ 𝕀), todos representáveis na reta numérica.
+            </div>
+            <div class="rule-item">
+              <strong>Problemas de Idades:</strong> A diferença entre as idades de duas pessoas <strong>nunca muda</strong> com o passar dos anos!
+            </div>
+            <div class="rule-item">
+              <strong>Contagem em Filas ("Entre A e B"):</strong> Se A está na posição <em>p</em> e há <em>k</em> pessoas entre A e B, então a posição de B é <span class="math-chip">p + k + 1</span>. Se alguém está exatamente no meio com <em>m</em> pessoas na frente, o total é <span class="math-chip">2m + 1</span>.
+            </div>
+          </div>
+          <button type="button" class="example-toggle" onclick="toggleExample('ex-m5', this)">
+            <span>Exemplo Oficial FGV (GCM Salvador 2019 · Q15 e Q18)</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="example-panel" id="ex-m5">
+            <strong>Idades (Q15):</strong> Quando José tinha 8 anos, seu irmão tinha metade (4 anos). A diferença é 8 − 4 = 4 anos. Hoje José tem 56 anos, logo o irmão tem 56 − 4 = <strong>52 anos</strong> (nunca divida 56 por 2!).
+            <span><strong>Sistema/Tabela (Q18):</strong> 120 inscritos, mulheres = 2 × homens ⇒ H + 2H = 120 ⇒ 40 homens e 80 mulheres. Com 35 mulheres em Adm. Hospitalar, restam 80 − 35 = 45 em Téc. Enfermagem. Somando aos 12 homens do cargo: 45 + 12 = <strong>57 candidatos</strong>.</span>
+          </div>
+        </article>
+
+        <!-- Módulo 06 -->
+        <article class="theory-card" data-category="aritmetica" data-topic-id="m6">
+          <div class="theory-card-top">
+            <span class="topic-tag">Módulo 06 · Razão, Proporção &amp; Regra de 3</span>
+            <button type="button" class="mastered-toggle" data-topic="m6" onclick="toggleTopicMastered('m6', this)">
+              <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+              <span>Marcar estudado</span>
+            </button>
+          </div>
+          <h3>Proporcionalidade Direta/Inversa e Regra de Três</h3>
+          <p class="theory-summary">
+            Razão é a comparação por quociente (a/b). Proporção é a igualdade entre duas razões. Saber identificar se duas grandezas variam no mesmo sentido ou em sentidos opostos evita erros de multiplicação cruzada.
+          </p>
+          <div class="rule-list">
+            <div class="rule-item">
+              <strong>Grandezas Diretamente Proporcionais (GDP):</strong> Aumentando uma, a outra aumenta na mesma razão (<span class="math-chip">y / x = k</span>). Multiplica-se em cruz. Ex.: litros de leite e kg de queijo.
+            </div>
+            <div class="rule-item">
+              <strong>Grandezas Inversamente Proporcionais (GIP):</strong> Aumentando uma, a outra diminui na mesma razão (<span class="math-chip">x · y = k</span>). Multiplica-se em linha (inverte uma fração). Ex.: número de guardas e tempo de ronda; velocidade e tempo.
+            </div>
+            <div class="rule-item">
+              <strong>Regra de Três Composta (Método Processo × Produto):</strong> Separe as grandezas de <em>esforço/tempo/recursos</em> (agentes, horas, dias) das grandezas de <em>produto/obra</em> (área patrulhada, peças). O produto dos fatores de esforço dividido pelo produto é constante.
+            </div>
+          </div>
+          <button type="button" class="example-toggle" onclick="toggleExample('ex-m6', this)">
+            <span>Exemplo Oficial FGV (GCM Salvador 2019 · Q21)</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="example-panel" id="ex-m6">
+            <strong>Enunciado:</strong> 1 kg de queijo curado exige 7,5 litros de leite. Quantos kg são produzidos com 360 litros?
+            <span><strong>Resolução:</strong> Grandezas diretamente proporcionais: 360 ÷ 7,5 = 3600 ÷ 75 = <strong>48 kg</strong> (Alternativa B).</span>
+          </div>
+        </article>
+
+        <!-- Módulo 07 -->
+        <article class="theory-card" data-category="aritmetica" data-topic-id="m7">
+          <div class="theory-card-top">
+            <span class="topic-tag">Módulo 07 · Porcentagem &amp; Juros</span>
+            <button type="button" class="mastered-toggle" data-topic="m7" onclick="toggleTopicMastered('m7', this)">
+              <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+              <span>Marcar estudado</span>
+            </button>
+          </div>
+          <h3>Porcentagem, Fatores Multiplicadores e Juros</h3>
+          <p class="theory-summary">
+            Em variações sucessivas, nunca some ou subtraia as taxas diretamente: multiplique os fatores. Em juros, confira sempre se a taxa (i) e o tempo (t) estão na mesma unidade (mês, ano).
+          </p>
+          <div class="rule-list">
+            <div class="rule-item">
+              <strong>Fator de Aumento / Desconto:</strong> Aumento de <em>p%</em> ⇒ multiplica por <span class="math-chip">(1 + p/100)</span>. Desconto de <em>p%</em> ⇒ multiplica por <span class="math-chip">(1 − p/100)</span>.
+            </div>
+            <div class="rule-item">
+              <strong>Variações Sucessivas:</strong> Aumentar 20% e depois descontar 20% resulta em <span class="math-chip">1,20 × 0,80 = 0,96</span> ⇒ redução líquida de <strong>4%</strong> (nunca volta a 100%!).
+            </div>
+            <div class="rule-item">
+              <strong>Juros Simples:</strong> <span class="math-chip">J = C · i · t</span> e <span class="math-chip">M = C + J</span> (crescimento linear / PA).
+            </div>
+            <div class="rule-item">
+              <strong>Juros Compostos:</strong> <span class="math-chip">M = C · (1 + i)ᵗ</span> (crescimento exponencial / PG).
+            </div>
+          </div>
+          <button type="button" class="example-toggle" onclick="toggleExample('ex-m7', this)">
+            <span>Exemplo Comentado · Desconto Reverso FGV</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="example-panel" id="ex-m7">
+            <strong>Problema:</strong> Após um desconto de 20%, um equipamento passou a custar R$ 400,00. Qual era o preço original?
+            <span><strong>Resolução:</strong> R$ 400,00 equivale a 80% (0,80) do valor original P. Logo, 0,80 · P = 400 ⇒ P = 400 ÷ 0,80 = <strong>R$ 500,00</strong> (erro comum: somar 20% de 400 = 480, o que está errado!).</span>
+          </div>
+        </article>
+
+        <!-- Módulo 08 -->
+        <article class="theory-card" data-category="sequencias" data-topic-id="m8">
+          <div class="theory-card-top">
+            <span class="topic-tag">Módulo 08 · Sequências, PA &amp; PG</span>
+            <button type="button" class="mastered-toggle" data-topic="m8" onclick="toggleTopicMastered('m8', this)">
+              <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+              <span>Marcar estudado</span>
+            </button>
+          </div>
+          <h3>Sequências Periódicas, Progressão Aritmética e Geométrica</h3>
+          <p class="theory-summary">
+            A FGV cobra muito sequências que repetem um bloco de tamanho fixo <em>k</em>: basta dividir a posição desejada por <em>k</em> e observar o <strong>resto</strong>. Se o resto for 0, o termo é o último do bloco!
+          </p>
+          <div class="rule-list">
+            <div class="rule-item">
+              <strong>Sequência Periódica (Ciclo de tamanho k):</strong> Divida <span class="math-chip">N ÷ k</span>. Resto 1 → 1º termo; Resto 2 → 2º termo; …; <strong>Resto 0 → k-ésimo (último) termo</strong>.
+            </div>
+            <div class="rule-item">
+              <strong>Progressão Aritmética (PA):</strong> Razão constante por soma (r). Termo geral: <span class="math-chip">aₙ = a₁ + (n − 1) · r</span>. Soma dos n termos: <span class="math-chip">Sₙ = (a₁ + aₙ) · n / 2</span>.
+            </div>
+            <div class="rule-item">
+              <strong>Progressão Geométrica (PG):</strong> Razão constante por produto (q). Termo geral: <span class="math-chip">aₙ = a₁ · qⁿ⁻¹</span>.
+            </div>
+          </div>
+          <button type="button" class="example-toggle" onclick="toggleExample('ex-m8', this)">
+            <span>Exemplo Oficial FGV (GCM Salvador 2019 · Q23)</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="example-panel" id="ex-m8">
+            <strong>Enunciado:</strong> Na faixa `SALVADORBAHIASALVADORBAHIA...`, qual é a 500ª letra?
+            <span><strong>Resolução:</strong> O ciclo `SALVADORBAHIA` tem <strong>13 letras</strong>. Dividindo 500 ÷ 13 = 38 ciclos completos (494 letras) e <strong>resto 6</strong>. A 6ª letra de S(1) A(2) L(3) V(4) A(5) D(6) é <strong>D</strong>.</span>
+          </div>
+        </article>
+
+        <!-- Módulo 09 -->
+        <article class="theory-card" data-category="sequencias" data-topic-id="m9">
+          <div class="theory-card-top">
+            <span class="topic-tag">Módulo 09 · Calendários &amp; Medidas</span>
+            <button type="button" class="mastered-toggle" data-topic="m9" onclick="toggleTopicMastered('m9', this)">
+              <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+              <span>Marcar estudado</span>
+            </button>
+          </div>
+          <h3>Lógica de Calendários e Unidades de Medida</h3>
+          <p class="theory-summary">
+            Como a semana tem 7 dias, avançar <em>D</em> dias no calendário equivale a avançar apenas o resto da divisão de <em>D</em> por 7. Atenção redobrada a anos bissextos e contagem inclusiva ("do dia X ao dia Y").
+          </p>
+          <div class="rule-list">
+            <div class="rule-item">
+              <strong>Ciclo Semanal (Módulo 7):</strong> A cada <span class="math-chip">+7 dias</span> o dia da semana repete. Um ano comum (365 dias = 52×7 + <strong>1</strong>) avança 1 dia da semana de um ano para o outro (salvo se cruzar 29/fev de ano bissexto, quando avança 2 dias).
+            </div>
+            <div class="rule-item">
+              <strong>Dias dos Meses:</strong> 30 dias têm abril, junho, setembro e novembro; 28 (ou 29 no bissexto) fevereiro; 31 todos os demais.
+            </div>
+            <div class="rule-item">
+              <strong>Unidades Essenciais:</strong> <span class="math-chip">1 km = 1.000 m</span> · <span class="math-chip">1 kg = 1.000 g</span> · <span class="math-chip">1 h = 60 min = 3.600 s</span> · <span class="math-chip">1 m³ = 1.000 L</span> · <span class="math-chip">1 dm³ = 1 L</span>.
+            </div>
+          </div>
+          <button type="button" class="example-toggle" onclick="toggleExample('ex-m9', this)">
+            <span>Exemplo Oficial FGV (GCM Salvador 2019 · Q17)</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="example-panel" id="ex-m9">
+            <strong>Enunciado:</strong> Em ano não bissexto, se 1º de janeiro é sábado, em que dia cai o último dia de fevereiro?
+            <span><strong>Resolução:</strong> Janeiro (31) + Fevereiro (28) = 59º dia do ano. Como dia 1 é sábado, somam-se 58 dias até o 59º dia. 58 = 8 × 7 + <strong>2</strong>. Sábado + 2 dias = <strong>segunda-feira</strong>.</span>
+          </div>
+        </article>
+
+        <!-- Módulo 10 -->
+        <article class="theory-card" data-category="contagem" data-topic-id="m10">
+          <div class="theory-card-top">
+            <span class="topic-tag">Módulo 10 · Contagem, Probabilidade &amp; Geometria</span>
+            <button type="button" class="mastered-toggle" data-topic="m10" onclick="toggleTopicMastered('m10', this)">
+              <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+              <span>Marcar estudado</span>
+            </button>
+          </div>
+          <h3>Combinatória, Probabilidade, Plano Cartesiano e Geometria</h3>
+          <p class="theory-summary">
+            Em contagem, pergunte primeiro: "a ordem dos escolhidos muda o agrupamento?". Em geometria, domine perímetros, áreas, Teorema de Pitágoras e conversão de medidas.
+          </p>
+          <div class="rule-list">
+            <div class="rule-item">
+              <strong>PFC e Fatorial:</strong> Multiplique as possibilidades de cada etapa independente. Permutação simples de <em>n</em> elementos distintos: <span class="math-chip">Pₙ = n!</span>.
+            </div>
+            <div class="rule-item">
+              <strong>Arranjo vs. Combinação:</strong> Ordem importa (pódio, senha, cargos distintos) → Arranjo <span class="math-chip">Aₙ,ₚ = n! / (n − p)!</span>. Ordem NÃO importa (equipe, comissão, jogos todos contra todos) → Combinação <span class="math-chip">Cₙ,ₚ = n! / [p!(n − p)!]</span>.
+            </div>
+            <div class="rule-item">
+              <strong>Probabilidade:</strong> <span class="math-chip">P(A) = Favoráveis / Possíveis</span> (sempre entre 0 e 1, ou 0% e 100%). Evento complementar: <span class="math-chip">P(não A) = 1 − P(A)</span> ("ao menos um").
+            </div>
+            <div class="rule-item">
+              <strong>Geometria &amp; Plano Cartesiano:</strong> Distância entre pontos: <span class="math-chip">d = √[(x₂ − x₁)² + (y₂ − y₁)²]</span>. Pitágoras: <span class="math-chip">a² = b² + c²</span> (ternos famosos: 3-4-5 e 5-12-13). Áreas: Retângulo <span class="math-chip">b · h</span>, Triângulo <span class="math-chip">(b · h) / 2</span>, Círculo <span class="math-chip">π · r²</span>. Volume paralelepípedo: <span class="math-chip">a · b · c</span>.
+            </div>
+          </div>
+          <button type="button" class="example-toggle" onclick="toggleExample('ex-m10', this)">
+            <span>Exemplo Oficial FGV (GCM Salvador 2019 · Q20)</span>
+            <span class="material-symbols-outlined" aria-hidden="true">expand_more</span>
+          </button>
+          <div class="example-panel" id="ex-m10">
+            <strong>Enunciado:</strong> 5 times disputam um torneio em que cada time joga uma vez com cada um dos outros. Quantas partidas ocorrem?
+            <span><strong>Resolução:</strong> A partida "Time A × Time B" é idêntica a "Time B × Time A" (ordem não importa). Combinação C(5, 2) = (5 × 4) ÷ 2 = <strong>10 partidas</strong>.</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. LABORATÓRIO INTERATIVO FGV -->
+    <section id="laboratorio" class="section-block" aria-labelledby="lab-heading">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">
+            <span class="material-symbols-outlined" aria-hidden="true">interactive_space</span>
+            Visualização &amp; Prática Guiada
+          </div>
+          <h2 class="section-title" id="lab-heading">Laboratório Interativo FGV</h2>
+          <p class="section-lede">
+            Teste combinações de valores-verdade na tabela lógica, manipule diagramas de Venn em tempo real ou calcule qualquer posição em sequências cíclicas.
+          </p>
+        </div>
+      </div>
+
+      <div class="lab-card">
+        <div class="lab-tabs" role="tablist" aria-label="Ferramentas do Laboratório">
+          <button type="button" class="lab-tab-btn is-active" role="tab" aria-selected="true" onclick="switchLabTab('logic', this)">
+            <span class="material-symbols-outlined" aria-hidden="true">rule</span>
+            Tabela-Verdade &amp; Equivalências
+          </button>
+          <button type="button" class="lab-tab-btn" role="tab" aria-selected="false" onclick="switchLabTab('venn', this)">
+            <span class="material-symbols-outlined" aria-hidden="true">join_inner</span>
+            Diagrama de Venn
+          </button>
+          <button type="button" class="lab-tab-btn" role="tab" aria-selected="false" onclick="switchLabTab('cycle', this)">
+            <span class="material-symbols-outlined" aria-hidden="true">repeat</span>
+            Sequências Periódicas
+          </button>
+        </div>
+
+        <!-- PANE 1: Tabela-Verdade -->
+        <div class="lab-pane is-active" id="lab-pane-logic" role="tabpanel">
+          <div class="control-panel">
+            <div class="field-group">
+              <span class="field-label">Valor lógico de P ("O agente está de plantão")</span>
+              <div class="segmented-bool">
+                <button type="button" class="bool-btn is-true" id="btn-p-true" onclick="setLogicVal('p', true)">Verdadeiro (V)</button>
+                <button type="button" class="bool-btn" id="btn-p-false" onclick="setLogicVal('p', false)">Falso (F)</button>
+              </div>
+            </div>
+            <div class="field-group">
+              <span class="field-label">Valor lógico de Q ("A praça está monitorada")</span>
+              <div class="segmented-bool">
+                <button type="button" class="bool-btn" id="btn-q-true" onclick="setLogicVal('q', true)">Verdadeiro (V)</button>
+                <button type="button" class="bool-btn is-false" id="btn-q-false" onclick="setLogicVal('q', false)">Falso (F)</button>
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="logic-conn-select">Conectivo Lógico</label>
+              <select class="field-input" id="logic-conn-select" onchange="updateLogicLab()">
+                <option value="imp">Condicional: P → Q ("Se P, então Q")</option>
+                <option value="and">Conjunção: P ∧ Q ("P e Q")</option>
+                <option value="or">Disjunção: P ∨ Q ("P ou Q")</option>
+                <option value="xor">Disjunção Exclusiva: P ⊻ Q ("Ou P, ou Q")</option>
+                <option value="iff">Bicondicional: P ↔ Q ("P se e somente se Q")</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="output-panel">
+            <div class="truth-verdict">
+              <div>
+                <div class="metric-label">Expressão Avaliada</div>
+                <div class="metric-value" id="logic-expr-display">V → F</div>
+              </div>
+              <span class="verdict-pill is-f" id="logic-result-pill">FALSO (F)</span>
+            </div>
+            <div class="rule-item" id="logic-why-box">
+              <strong>Por que deu esse valor?</strong> Na condicional P → Q, quando o antecedente é Verdadeiro e o consequente é Falso ("Vera Fischer"), o resultado é obrigatoriamente Falso.
+            </div>
+            <div class="rule-item" id="logic-neg-box">
+              <strong>Negação da proposição:</strong> <span class="math-chip">P ∧ ¬Q</span> ("O agente está de plantão E a praça NÃO está monitorada").
+            </div>
+            <div class="rule-item" id="logic-eq-box">
+              <strong>Equivalência FGV:</strong> <span class="math-chip">¬Q → ¬P</span> ou <span class="math-chip">¬P ∨ Q</span>.
+            </div>
+          </div>
+        </div>
+
+        <!-- PANE 2: Diagrama de Venn -->
+        <div class="lab-pane" id="lab-pane-venn" role="tabpanel">
+          <div class="control-panel">
+            <div class="field-group">
+              <label class="field-label" for="venn-u-num">Universo Total (U)</label>
+              <div class="slider-pair">
+                <input type="range" id="venn-u-range" min="10" max="200" value="50" oninput="syncVennFromSlider('u', this.value)">
+                <input type="number" class="field-input" id="venn-u-num" min="10" max="200" value="50" oninput="syncVennFromNumber('u', this.value)">
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="venn-a-num">Conjunto A (ex.: Bermuda branca)</label>
+              <div class="slider-pair">
+                <input type="range" id="venn-a-range" min="0" max="150" value="20" oninput="syncVennFromSlider('a', this.value)">
+                <input type="number" class="field-input" id="venn-a-num" min="0" max="150" value="20" oninput="syncVennFromNumber('a', this.value)">
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="venn-b-num">Conjunto B (ex.: Camiseta branca)</label>
+              <div class="slider-pair">
+                <input type="range" id="venn-b-range" min="0" max="150" value="25" oninput="syncVennFromSlider('b', this.value)">
+                <input type="number" class="field-input" id="venn-b-num" min="0" max="150" value="25" oninput="syncVennFromNumber('b', this.value)">
+              </div>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="venn-ab-num">Interseção (A ∩ B)</label>
+              <div class="slider-pair">
+                <input type="range" id="venn-ab-range" min="0" max="100" value="12" oninput="syncVennFromSlider('ab', this.value)">
+                <input type="number" class="field-input" id="venn-ab-num" min="0" max="100" value="12" oninput="syncVennFromNumber('ab', this.value)">
+              </div>
+            </div>
+            <div class="hero-actions">
+              <button type="button" class="btn btn-tonal" onclick="loadVennPreset(50, 20, 25, 12)">Preset FGV 2019 (50 Atletas)</button>
+              <button type="button" class="btn btn-outlined" onclick="loadVennPreset(100, 58, 46, 18)">Preset 100 Candidatos</button>
+            </div>
+            <div class="inline-msg" id="venn-error-msg" aria-live="polite"></div>
+          </div>
+
+          <div class="output-panel">
+            <div class="venn-svg-box">
+              <svg viewBox="0 0 380 220" class="venn-svg" role="img" aria-label="Diagrama de Venn interativo dos conjuntos A e B">
+                <rect x="8" y="8" width="364" height="204" rx="16" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="2" />
+                <text x="22" y="30" class="venn-label" id="svg-u-label">U = 50</text>
+                <circle cx="145" cy="112" r="72" class="venn-circle-a" />
+                <circle cx="235" cy="112" r="72" class="venn-circle-b" />
+                <text x="98" y="64" class="venn-label">Conjunto A</text>
+                <text x="230" y="64" class="venn-label">Conjunto B</text>
+                <text x="108" y="118" text-anchor="middle" class="venn-num" id="svg-only-a">8</text>
+                <text x="190" y="118" text-anchor="middle" class="venn-num" id="svg-both">12</text>
+                <text x="272" y="118" text-anchor="middle" class="venn-num" id="svg-only-b">13</text>
+                <text x="348" y="196" text-anchor="end" class="venn-label" id="svg-none">Nenhum: 17</text>
+              </svg>
+            </div>
+            <div class="rule-item" id="venn-formula-out">
+              <strong>Cálculo:</strong> n(A ∪ B) = 20 + 25 − 12 = 33 · Sem nenhum dos dois = 50 − 33 = <strong>17</strong>.
+            </div>
+          </div>
+        </div>
+
+        <!-- PANE 3: Sequências Periódicas -->
+        <div class="lab-pane" id="lab-pane-cycle" role="tabpanel">
+          <div class="control-panel">
+            <div class="field-group">
+              <label class="field-label" for="cycle-pattern-input">Bloco que se repete (sem espaços)</label>
+              <input type="text" class="field-input" id="cycle-pattern-input" maxlength="20" value="SALVADORBAHIA" oninput="updateCycleLab()">
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="cycle-pos-input">Posição N procurada (1 a 10.000)</label>
+              <input type="number" class="field-input" id="cycle-pos-input" min="1" max="10000" value="500" oninput="updateCycleLab()">
+            </div>
+            <div class="hero-actions">
+              <button type="button" class="btn btn-tonal" onclick="loadCyclePreset('SALVADORBAHIA', 500)">FGV 2019 (500ª letra)</button>
+              <button type="button" class="btn btn-outlined" onclick="loadCyclePreset('GUARDACIVIL', 2026)">Ciclo 2026ª posição</button>
+            </div>
+            <div class="inline-msg" id="cycle-error-msg" aria-live="polite"></div>
+          </div>
+
+          <div class="output-panel">
+            <div class="truth-verdict">
+              <div>
+                <div class="metric-label" id="cycle-math-label">500 ÷ 13 = 38 ciclos + resto 6</div>
+                <div class="metric-value" id="cycle-hit-display">6ª posição: D</div>
+              </div>
+              <span class="verdict-pill is-v" id="cycle-len-pill">Tamanho: 13</span>
+            </div>
+            <div class="cycle-strip" id="cycle-strip"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SIMULADO INTERATIVO (10 QUESTÕES FGV) -->
+    <section id="simulado" class="section-block" aria-labelledby="sim-heading">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">
+            <span class="material-symbols-outlined" aria-hidden="true">fact_check</span>
+            Prática Cronometrada no Padrão Oficial
+          </div>
+          <h2 class="section-title" id="sim-heading">Simulado Interativo — 10 Questões (A–E)</h2>
+          <p class="section-lede">
+            Mesma quantidade de itens da prova oficial da FGV. Selecione as alternativas em tempo real, acompanhe a resolução passo a passo e gere o diagnóstico final por tema.
+          </p>
+        </div>
+      </div>
+
+      <div class="sim-toolbar">
+        <div class="sim-stats-row">
+          <div class="sim-counters">
+            <span class="tonal-badge" id="sim-answered-badge">Respondidas: 0/10</span>
+            <span class="tonal-badge is-primary" id="sim-correct-badge">Acertos: 0/10</span>
+            <span class="tonal-badge" id="sim-pct-badge">Aproveitamento: 0%</span>
+          </div>
+
+          <div class="hero-actions">
+            <button type="button" class="btn btn-filled" id="finish-sim-btn" onclick="finalizeSimulado()">
+              <span class="material-symbols-outlined" aria-hidden="true">grading</span>
+              Corrigir Todas &amp; Ver Relatório
+            </button>
+            <button type="button" class="btn btn-danger-tonal" id="reset-sim-btn" onclick="handleResetSimulado(this)">
+              <span class="material-symbols-outlined" aria-hidden="true">refresh</span>
+              Reiniciar Simulado
+            </button>
+          </div>
+        </div>
+
+        <div class="sim-dots" id="sim-dots" aria-label="Navegação rápida entre as 10 questões"></div>
+      </div>
+
+      <div class="questions-stack" id="questions-stack"></div>
+    </section>
+
+    <!-- 5. RELATÓRIO FINAL DE DESEMPENHO POR CONTEÚDO -->
+    <section id="relatorio" class="section-block" aria-labelledby="report-heading">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">
+            <span class="material-symbols-outlined" aria-hidden="true">bar_chart</span>
+            Diagnóstico Inteligente por Eixo
+          </div>
+          <h2 class="section-title" id="report-heading">Relatório de Desempenho por Conteúdo</h2>
+          <p class="section-lede">
+            Acompanhe seus acertos em cada bloco de Raciocínio Lógico-Matemático e identifique quais módulos teóricos priorizar antes da prova.
+          </p>
+        </div>
+      </div>
+
+      <div class="report-card" id="report-card">
+        <div class="report-summary-grid">
+          <div class="report-kpi">
+            <span class="metric-label">Pontuação Atual</span>
+            <span class="metric-value" id="rep-score">0 / 10</span>
+            <span class="metric-caption" id="rep-status">Aguardando correção das questões</span>
+          </div>
+          <div class="report-kpi">
+            <span class="metric-label">Meta Mínima Edital (50%)</span>
+            <span class="metric-value" id="rep-edital-check">5 / 10</span>
+            <span class="metric-caption">Referência proporcional ao Módulo I (14/28)</span>
+          </div>
+          <div class="report-kpi">
+            <span class="metric-label">Eixo Mais Forte</span>
+            <span class="metric-value" id="rep-best-topic">—</span>
+            <span class="metric-caption">Maior taxa de acerto no simulado</span>
+          </div>
+          <div class="report-kpi">
+            <span class="metric-label">Prioridade de Revisão</span>
+            <span class="metric-value" id="rep-worst-topic">—</span>
+            <span class="metric-caption">Tema que requer reforço teórico</span>
+          </div>
+        </div>
+
+        <div class="report-bars" id="report-bars"></div>
+
+        <div class="advice-box" id="report-advice">
+          <strong>Diagnóstico Inicial:</strong>
+          <span>Responda e corrija as questões no Simulado acima para visualizar seu gráfico detalhado de acertos por conteúdo e recomendações personalizadas de revisão.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <strong>Fontes oficiais utilizadas:</strong> Edital nº 02/2026 (retificado em 18/11/2026) da Prefeitura Municipal do Salvador — Concurso Público para Guarda Civil Municipal (Banca FGV · conhecimento.fgv.br/concursos/pmsguarda2026) e Caderno de Prova + Gabarito Definitivo FGV — GCM Salvador 2019 (Tipo 1).
+    </div>
+    <div>Material de estudo independente · Raciocínio Lógico-Matemático</div>
+  </footer>
+
+  <api-shim></api-shim>
+  <script>
+    const QUESTIONS = [
+      {
+        id: 1,
+        topicKey: `logica`,
+        topicLabel: `Lógica Proposicional & Equivalências`,
+        moduleRef: `Módulo 02`,
+        sourceTag: `Estilo FGV · Edital 2026`,
+        stem: `Considere a seguinte proposição lógica: "Se o guarda municipal está em patrulha, então a praça está segura." Uma proposição logicamente equivalente à afirmação dada é:`,
+        options: [
+          `O guarda municipal não está em patrulha e a praça está segura.`,
+          `Se a praça não está segura, então o guarda municipal não está em patrulha.`,
+          `Se a praça está segura, então o guarda municipal está em patrulha.`,
+          `O guarda municipal está em patrulha e a praça não está segura.`,
+          `Se o guarda municipal não está em patrulha, então a praça não está segura.`
+        ],
+        correct: 1,
+        steps: [
+          `Identificamos a estrutura condicional P → Q, em que P = "o guarda municipal está em patrulha" e Q = "a praça está segura".`,
+          `Pela regra da equivalência Contrapositiva, uma condicional P → Q é sempre equivalente a ¬Q → ¬P (inverte a ordem e nega ambas as proposições).`,
+          `Aplicando a regra: "Se a praça NÃO está segura (¬Q), então o guarda municipal NÃO está em patrulha (¬P)".`,
+          `A alternativa D corresponde à negação (P ∧ ¬Q), e as alternativas C e E são falácias lógicas (recíproca e inversa), muito usadas pela FGV como distratores.`
+        ]
+      },
+      {
+        id: 2,
+        topicKey: `quantificadores`,
+        topicLabel: `Quantificadores & Negações`,
+        moduleRef: `Módulo 03`,
+        sourceTag: `FGV · GCM Salvador 2019 (Q19)`,
+        stem: `Considerando que a afirmação "Nenhum pescador sabe nadar" não é verdadeira, é correto concluir que:`,
+        options: [
+          `"Há, pelo menos, um pescador que sabe nadar".`,
+          `"Quem não é pescador não sabe nadar".`,
+          `"Todos os pescadores sabem nadar".`,
+          `"Todas as pessoas que sabem nadar são pescadores".`,
+          `"Ninguém que sabe nadar é pescador".`
+        ],
+        correct: 0,
+        steps: [
+          `Dizer que a proposição "Nenhum pescador sabe nadar" não é verdadeira significa afirmar que a sua NEGAÇÃO lógica é verdadeira.`,
+          `A proposição tem forma universal negativa ("Nenhum A é B").`,
+          `Para negar "Nenhum A é B", usamos o quantificador existencial afirmativo: "Algum A é B", equivalente a "Há, pelo menos, um pescador que sabe nadar".`,
+          `Portanto, a alternativa correta é a letra A.`
+        ]
+      },
+      {
+        id: 3,
+        topicKey: `conjuntos`,
+        topicLabel: `Teoria dos Conjuntos (Venn)`,
+        moduleRef: `Módulo 04`,
+        sourceTag: `FGV · GCM Salvador 2019 (Q16)`,
+        stem: `50 atletas estão treinando e todos usam bermuda e camiseta do mesmo modelo, mas com cores diversas. Entre esses atletas há 20 com bermudas brancas, 25 com camisetas brancas e 12 com bermudas e camisetas brancas. Assinale a opção que indica o número de atletas que não estão vestindo nenhuma peça branca.`,
+        options: [
+          `5.`,
+          `13.`,
+          `15.`,
+          `17.`,
+          `20.`
+        ],
+        correct: 3,
+        steps: [
+          `Seja B o conjunto dos atletas com bermuda branca (20) e C o conjunto com camiseta branca (25). A interseção é n(B ∩ C) = 12.`,
+          `Aplicamos a fórmula da união: n(B ∪ C) = n(B) + n(C) − n(B ∩ C) = 20 + 25 − 12 = 33 atletas com pelo menos uma peça branca.`,
+          `Como o total em treinamento é de 50 atletas, os que não vestem nenhuma peça branca são: 50 − 33 = 17 atletas.`,
+          `Resposta correta: alternativa D (17).`
+        ]
+      },
+      {
+        id: 4,
+        topicKey: `sequencias`,
+        topicLabel: `Calendários & Aritmética Modular`,
+        moduleRef: `Módulo 09`,
+        sourceTag: `FGV · GCM Salvador 2019 (Q17)`,
+        stem: `Em um ano não bissexto, quando o primeiro dia do ano cai em um sábado, o último dia de fevereiro cairá em uma:`,
+        options: [
+          `segunda-feira.`,
+          `terça-feira.`,
+          `quarta-feira.`,
+          `quinta-feira.`,
+          `sexta-feira.`
+        ],
+        correct: 0,
+        steps: [
+          `Em um ano não bissexto, janeiro tem 31 dias e fevereiro tem 28 dias.`,
+          `Logo, o último dia de fevereiro (28/02) é o 31 + 28 = 59º dia do ano.`,
+          `Como 1º de janeiro é sábado, somamos 58 dias para chegar ao 59º dia. Dividindo 58 por 7 (dias da semana): 58 = 8 × 7 + 2 (resto 2).`,
+          `Avançando 2 dias a partir de sábado: sábado + 1 = domingo; sábado + 2 = segunda-feira. Alternativa correta: A.`
+        ]
+      },
+      {
+        id: 5,
+        topicKey: `sequencias`,
+        topicLabel: `Sequências Lógicas Periódicas`,
+        moduleRef: `Módulo 08`,
+        sourceTag: `FGV · GCM Salvador 2019 (Q23)`,
+        stem: `Certo arquiteto planejou colocar no aeroporto da cidade uma faixa muito comprida com as seguintes letras em sequência, mantendo sempre o mesmo padrão:
+SALVADORBAHIASALVADORBAHIASALVADORBA...
+A 500ª letra dessa sequência é:`,
+        options: [
+          `A.`,
+          `L.`,
+          `D.`,
+          `S.`,
+          `V.`
+        ],
+        correct: 2,
+        steps: [
+          `Identificamos o bloco periódico que se repete: "SALVADORBAHIA".`,
+          `Contamos o tamanho do ciclo: S(1)-A(2)-L(3)-V(4)-A(5)-D(6)-O(7)-R(8)-B(9)-A(10)-H(11)-I(12)-A(13), totalizando 13 letras.`,
+          `Dividimos 500 por 13: 500 = 38 × 13 + 6 (pois 38 × 13 = 494, sobrando resto 6).`,
+          `A 500ª letra coincide com a 6ª letra do ciclo, que é a letra D. Alternativa correta: C.`
+        ]
+      },
+      {
+        id: 6,
+        topicKey: `algebra`,
+        topicLabel: `Raciocínio de Ordenação & Filas`,
+        moduleRef: `Módulo 05`,
+        sourceTag: `FGV · GCM Salvador 2019 (Q22)`,
+        stem: `Sílvio, Robson e Túlio estão em uma fila, nessa ordem, ou seja, Robson está atrás de Sílvio e Túlio está atrás de Robson. Sabe-se que:
+• Robson está no meio da fila, ou seja, há tantas pessoas na frente dele como atrás dele.
+• Há 7 pessoas entre Sílvio e Robson.
+• Há 10 pessoas entre Robson e Túlio.
+• Sílvio é o 12º da fila.
+Nessa fila, o número de pessoas atrás de Túlio é:`,
+        options: [
+          `6.`,
+          `7.`,
+          `8.`,
+          `9.`,
+          `10.`
+        ],
+        correct: 2,
+        steps: [
+          `Sílvio ocupa a 12ª posição. Como há 7 pessoas entre Sílvio e Robson, a posição de Robson é 12 + 7 + 1 = 20ª posição.`,
+          `Como Robson está exatamente no meio da fila, existem 19 pessoas na frente dele e 19 pessoas atrás dele (total na fila = 19 + 1 + 19 = 39 pessoas).`,
+          `Há 10 pessoas entre Robson (20º) e Túlio, logo a posição de Túlio é 20 + 10 + 1 = 31ª posição.`,
+          `O número de pessoas atrás de Túlio é 39 − 31 = 8 pessoas. Alternativa correta: C.`
+        ]
+      },
+      {
+        id: 7,
+        topicKey: `aritmetica`,
+        topicLabel: `Porcentagem & Variações Sucessivas`,
+        moduleRef: `Módulo 07`,
+        sourceTag: `Estilo FGV · Edital 2026`,
+        stem: `De acordo com o edital, o candidato matriculado no Curso de Formação da GCM percebe bolsa-auxílio correspondente a 85% do vencimento do cargo. Suponha um vencimento hipotético de R$ 1.800,00 e que, sobre o valor resultante da bolsa-auxílio, incida primeiro um aumento de 10% e, em seguida, um desconto de 10%. O valor final dessa bolsa-auxílio será de:`,
+        options: [
+          `R$ 1.530,00.`,
+          `R$ 1.514,70.`,
+          `R$ 1.545,30.`,
+          `R$ 1.620,00.`,
+          `R$ 1.683,00.`
+        ],
+        correct: 1,
+        steps: [
+          `Calculamos a bolsa-auxílio inicial: 85% de R$ 1.800,00 = 0,85 × 1.800 = R$ 1.530,00.`,
+          `Aplicamos o aumento de 10%: 1.530,00 × 1,10 = R$ 1.683,00.`,
+          `Em seguida, aplicamos a redução de 10% sobre o novo valor: 1.683,00 × 0,90 = R$ 1.514,70.`,
+          `Alternativamente, usando fatores multiplicadores: 1.530 × 1,10 × 0,90 = 1.530 × 0,99 = R$ 1.514,70 (redução líquida de 1%). Alternativa correta: B.`
+        ]
+      },
+      {
+        id: 8,
+        topicKey: `contagem`,
+        topicLabel: `Análise Combinatória`,
+        moduleRef: `Módulo 10`,
+        sourceTag: `FGV · GCM Salvador 2019 (Q20)`,
+        stem: `Os cinco times de futebol de certo município disputarão um torneio em que cada time jogará uma vez com cada um dos outros times. O número de partidas que serão realizadas é:`,
+        options: [
+          `8.`,
+          `9.`,
+          `10.`,
+          `15.`,
+          `20.`
+        ],
+        correct: 2,
+        steps: [
+          `Cada partida envolve 2 times escolhidos entre os 5 participantes.`,
+          `A ordem de escolha não altera a partida ("Time A × Time B" é o mesmo jogo que "Time B × Time A"), portanto trata-se de uma Combinação Simples.`,
+          `Calculamos C(5, 2) = (5 × 4) ÷ (2 × 1) = 20 ÷ 2 = 10 partidas.`,
+          `Alternativa correta: C (10).`
+        ]
+      },
+      {
+        id: 9,
+        topicKey: `contagem`,
+        topicLabel: `Noção de Probabilidade`,
+        moduleRef: `Módulo 10`,
+        sourceTag: `Estilo FGV · Edital 2026`,
+        stem: `Em uma guarnição da Guarda Civil Municipal composta por 6 agentes do sexo masculino e 4 agentes do sexo feminino, serão sorteados, aleatoriamente e sem reposição, 2 agentes para uma ronda preventiva. A probabilidade de que ambos os agentes sorteados sejam do sexo feminino é:`,
+        options: [
+          `1/15.`,
+          `2/15.`,
+          `4/25.`,
+          `1/5.`,
+          `2/5.`
+        ],
+        correct: 1,
+        steps: [
+          `Há ao todo 6 + 4 = 10 agentes disponíveis para o sorteio.`,
+          `Na 1ª escolha, a probabilidade de sortear uma agente do sexo feminino é 4/10.`,
+          `Sem reposição, restam 9 agentes na guarnição, sendo 3 do sexo feminino. Logo, a probabilidade na 2ª escolha é 3/9.`,
+          `Multiplicando as probabilidades: P = (4/10) × (3/9) = 12/90. Simplificando por 6, obtemos 2/15. Alternativa correta: B.`
+        ]
+      },
+      {
+        id: 10,
+        topicKey: `geometria`,
+        topicLabel: `Geometria Básica (Pitágoras & Área)`,
+        moduleRef: `Módulo 10`,
+        sourceTag: `Estilo FGV · Edital 2026`,
+        stem: `Uma praça retangular de Salvador mede 40 metros de comprimento por 30 metros de largura. Durante o patrulhamento a pé, um guarda municipal parte de um vértice, atravessa a praça em linha reta pela diagonal até o vértice oposto e retorna ao ponto inicial caminhando pela calçada de dois lados consecutivos. A distância total percorrida pelo guarda e a área da praça são, respectivamente:`,
+        options: [
+          `100 m e 1.200 m².`,
+          `120 m e 1.200 m².`,
+          `120 m e 700 m².`,
+          `140 m e 1.200 m².`,
+          `140 m e 600 m².`
+        ],
+        correct: 1,
+        steps: [
+          `A diagonal do retângulo forma um triângulo retângulo de catetos 40 m e 30 m.`,
+          `Pelo Teorema de Pitágoras: d² = 40² + 30² = 1.600 + 900 = 2.500 ⇒ d = 50 m (terno pitagórico 3-4-5 multiplicado por 10).`,
+          `O retorno pelos dois lados consecutivos soma 40 + 30 = 70 m. Assim, a distância total percorrida é 50 + 70 = 120 m.`,
+          `A área do retângulo é comprimento × largura = 40 × 30 = 1.200 m². Alternativa correta: B.`
+        ]
+      }
+    ];
+
+    const TOPIC_AXES = [
+      { key: `logica`, label: `Lógica Proposicional & Equivalências`, qIds: [1] },
+      { key: `quantificadores`, label: `Quantificadores & Conjuntos (Venn)`, qIds: [2, 3] },
+      { key: `sequencias`, label: `Sequências Periódicas & Calendários`, qIds: [4, 5] },
+      { key: `algebra`, label: `Ordenação Lógica & Problemas`, qIds: [6] },
+      { key: `aritmetica`, label: `Porcentagem & Variações Sucessivas`, qIds: [7] },
+      { key: `contagem`, label: `Contagem, Probabilidade & Geometria`, qIds: [8, 9, 10] }
+    ];
+
+    const appState = {
+      masteredTopics: [],
+      answers: {},
+      checked: {},
+      finalized: false,
+      logicP: true,
+      logicQ: false
+    };
+
+    function saveState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+        window.notebookAppApi.setAppState({
+          masteredTopics: appState.masteredTopics,
+          answers: appState.answers,
+          checked: appState.checked,
+          finalized: appState.finalized
+        });
+      }
+    }
+
+    function updateHeaderAndProgress() {
+      const totalTopics = 10;
+      const masteredCount = appState.masteredTopics.length;
+      const topicPct = Math.round((masteredCount / totalTopics) * 100);
+
+      const hdrTopics = document.getElementById('hdr-topics-badge');
+      if (hdrTopics) hdrTopics.textContent = `Tópicos: ${masteredCount}/${totalTopics}`;
+
+      const progText = document.getElementById('theory-progress-text');
+      if (progText) progText.textContent = `${masteredCount} de ${totalTopics} módulos dominados (${topicPct}%)`;
+
+      const progBar = document.getElementById('theory-progress-bar');
+      if (progBar) {
+        progBar.style.width = `${topicPct}%`;
+        if (masteredCount === totalTopics) {
+          progBar.classList.add('is-positive');
+        } else {
+          progBar.classList.remove('is-positive');
+        }
+      }
+
+      document.querySelectorAll('.theory-card').forEach((card) => {
+        const id = card.getAttribute('data-topic-id');
+        const btn = card.querySelector('.mastered-toggle');
+        const isOn = appState.masteredTopics.includes(id);
+        card.classList.toggle('is-mastered', isOn);
+        if (btn) {
+          btn.classList.toggle('is-on', isOn);
+          const span = btn.querySelector('span:last-child');
+          if (span) span.textContent = isOn ? `Estudado` : `Marcar estudado`;
+        }
+      });
+
+      const answeredCount = Object.keys(appState.answers).length;
+      let correctCount = 0;
+      QUESTIONS.forEach((q) => {
+        const isChecked = appState.finalized || appState.checked[q.id];
+        if (isChecked && appState.answers[q.id] === q.correct) {
+          correctCount += 1;
+        }
+      });
+
+      const checkedTotal = appState.finalized
+        ? QUESTIONS.length
+        : Object.keys(appState.checked).filter((id) => appState.checked[id]).length;
+      const pct = checkedTotal > 0 ? Math.round((correctCount / QUESTIONS.length) * 100) : 0;
+
+      const hdrScore = document.getElementById('hdr-score-badge');
+      if (hdrScore) hdrScore.textContent = `Simulado: ${correctCount}/10`;
+
+      const simAnsBadge = document.getElementById('sim-answered-badge');
+      if (simAnsBadge) simAnsBadge.textContent = `Respondidas: ${answeredCount}/10`;
+
+      const simCorrBadge = document.getElementById('sim-correct-badge');
+      if (simCorrBadge) simCorrBadge.textContent = `Acertos: ${correctCount}/10`;
+
+      const simPctBadge = document.getElementById('sim-pct-badge');
+      if (simPctBadge) simPctBadge.textContent = `Aproveitamento: ${pct}%`;
+    }
+
+    function toggleTopicMastered(topicId, btn) {
+      const idx = appState.masteredTopics.indexOf(topicId);
+      if (idx === -1) {
+        appState.masteredTopics.push(topicId);
+      } else {
+        appState.masteredTopics.splice(idx, 1);
+      }
+      updateHeaderAndProgress();
+      saveState();
+    }
+
+    function handleResetTopics(btn) {
+      if (btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">warning</span> Clique novamente para zerar`;
+        setTimeout(() => {
+          if (btn.dataset.armed === 'true') {
+            btn.dataset.armed = 'false';
+            btn.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">restart_alt</span> Zerar tópicos`;
+          }
+        }, 4000);
+        return;
+      }
+      btn.dataset.armed = 'false';
+      btn.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">restart_alt</span> Zerar tópicos`;
+      appState.masteredTopics = [];
+      updateHeaderAndProgress();
+      saveState();
+    }
+
+    function filterTheory(cat, chipBtn) {
+      document.querySelectorAll('.filter-chip').forEach((c) => c.classList.remove('is-selected'));
+      if (chipBtn) chipBtn.classList.add('is-selected');
+      document.querySelectorAll('.theory-card').forEach((card) => {
+        const cardCat = card.getAttribute('data-category');
+        if (cat === 'all' || cardCat === cat) {
+          card.classList.remove('is-hidden');
+        } else {
+          card.classList.add('is-hidden');
+        }
+      });
+    }
+
+    function toggleExample(panelId, btn) {
+      const panel = document.getElementById(panelId);
+      if (!panel) return;
+      const isOpen = panel.classList.toggle('is-open');
+      const icon = btn ? btn.querySelector('.material-symbols-outlined') : null;
+      if (icon) icon.textContent = isOpen ? `expand_less` : `expand_more`;
+    }
+
+    /* Lab Tabs */
+    function switchLabTab(tabName, btn) {
+      document.querySelectorAll('.lab-tab-btn').forEach((b) => {
+        b.classList.remove('is-active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      if (btn) {
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected', 'true');
+      }
+      document.querySelectorAll('.lab-pane').forEach((p) => p.classList.remove('is-active'));
+      const target = document.getElementById(`lab-pane-${tabName}`);
+      if (target) target.classList.add('is-active');
+    }
+
+    /* Logic Lab */
+    function setLogicVal(varName, val) {
+      if (varName === 'p') {
+        appState.logicP = val;
+        const t = document.getElementById('btn-p-true');
+        const f = document.getElementById('btn-p-false');
+        if (t && f) {
+          t.classList.toggle('is-true', val);
+          f.classList.toggle('is-false', !val);
+        }
+      } else {
+        appState.logicQ = val;
+        const t = document.getElementById('btn-q-true');
+        const f = document.getElementById('btn-q-false');
+        if (t && f) {
+          t.classList.toggle('is-true', val);
+          f.classList.toggle('is-false', !val);
+        }
+      }
+      updateLogicLab();
+    }
+
+    function updateLogicLab() {
+      const selectEl = document.getElementById('logic-conn-select');
+      if (!selectEl) return;
+      const conn = selectEl.value;
+      const p = appState.logicP;
+      const q = appState.logicQ;
+      const pStr = p ? `V` : `F`;
+      const qStr = q ? `V` : `F`;
+
+      let res = false;
+      let sym = `→`;
+      let why = ``;
+      let neg = ``;
+      let eq = ``;
+
+      if (conn === 'imp') {
+        sym = `→`;
+        res = !p || q;
+        why = res
+          ? `Na condicional P → Q, o resultado só é Falso no caso "Vera Fischer" (V → F). Como temos ${pStr} → ${qStr}, a proposição é Verdadeira.`
+          : `Caso clássico "Vera Fischer" (V → F): antecedente Verdadeiro e consequente Falso tornam a condicional FALSA.`;
+        neg = `<strong>Negação (MANÉ):</strong> <span class="math-chip">P ∧ ¬Q</span> ("O agente está de plantão E a praça NÃO está monitorada").`;
+        eq = `<strong>Equivalências FGV:</strong> <span class="math-chip">¬Q → ¬P</span> (Contrapositiva) ou <span class="math-chip">¬P ∨ Q</span> (Disjunção).`;
+      } else if (conn === 'and') {
+        sym = `∧`;
+        res = p && q;
+        why = res
+          ? `Na conjunção (E), a proposição é Verdadeira porque ambas as partes (P e Q) são Verdadeiras.`
+          : `Na conjunção (E), basta que pelo menos uma das partes seja Falsa para que toda a expressão seja FALSA.`;
+        neg = `<strong>Negação (De Morgan):</strong> <span class="math-chip">¬P ∨ ¬Q</span> (nega ambas e troca "e" por "ou").`;
+        eq = `<strong>Comutatividade:</strong> <span class="math-chip">Q ∧ P</span>.`;
+      } else if (conn === 'or') {
+        sym = `∨`;
+        res = p || q;
+        why = res
+          ? `Na disjunção inclusiva (OU), basta que pelo menos uma das proposições seja Verdadeira para que o resultado seja Verdadeiro.`
+          : `Na disjunção inclusiva (OU), o único caso Falso ocorre quando ambas as partes são Falsas (F ∨ F).`;
+        neg = `<strong>Negação (De Morgan):</strong> <span class="math-chip">¬P ∧ ¬Q</span> (nega ambas e troca "ou" por "e").`;
+        eq = `<strong>Equivalência Condicional:</strong> <span class="math-chip">¬P → Q</span> ou <span class="math-chip">¬Q → P</span>.`;
+      } else if (conn === 'xor') {
+        sym = `⊻`;
+        res = p !== q;
+        why = res
+          ? `Na disjunção exclusiva (OU... OU...), os valores lógicos são diferentes (${pStr} e ${qStr}), logo o resultado é Verdadeiro.`
+          : `Na disjunção exclusiva (OU... OU...), valores iguais (${pStr} e ${qStr}) tornam a proposição FALSA.`;
+        neg = `<strong>Negação:</strong> <span class="math-chip">P ↔ Q</span> (Bicondicional: valores iguais).`;
+        eq = `<strong>Equivalência:</strong> <span class="math-chip">(P ∧ ¬Q) ∨ (¬P ∧ Q)</span>.`;
+      } else if (conn === 'iff') {
+        sym = `↔`;
+        res = p === q;
+        why = res
+          ? `Na bicondicional (se e somente se), valores lógicos iguais (${pStr} e ${qStr}) resultam em Verdadeiro.`
+          : `Na bicondicional (se e somente se), valores lógicos diferentes (${pStr} e ${qStr}) resultam em FALSO.`;
+        neg = `<strong>Negação:</strong> <span class="math-chip">P ⊻ Q</span> (Disjunção exclusiva: valores diferentes).`;
+        eq = `<strong>Equivalência:</strong> <span class="math-chip">(P → Q) ∧ (Q → P)</span>.`;
+      }
+
+      const exprEl = document.getElementById('logic-expr-display');
+      if (exprEl) exprEl.textContent = `${pStr} ${sym} ${qStr}`;
+
+      const pillEl = document.getElementById('logic-result-pill');
+      if (pillEl) {
+        pillEl.textContent = res ? `VERDADEIRO (V)` : `FALSO (F)`;
+        pillEl.className = `verdict-pill ${res ? 'is-v' : 'is-f'}`;
+      }
+
+      const whyEl = document.getElementById('logic-why-box');
+      if (whyEl) whyEl.innerHTML = `<strong>Análise:</strong> ${why}`;
+
+      const negEl = document.getElementById('logic-neg-box');
+      if (negEl) negEl.innerHTML = neg;
+
+      const eqEl = document.getElementById('logic-eq-box');
+      if (eqEl) eqEl.innerHTML = eq;
+    }
+
+    /* Venn Lab — Dual-Input Sync Handlers */
+    function syncVennFromSlider(key, val) {
+      const numEl = document.getElementById(`venn-${key}-num`);
+      if (numEl) numEl.value = val;
+      updateVennLab();
+    }
+
+    function syncVennFromNumber(key, val) {
+      const rangeEl = document.getElementById(`venn-${key}-range`);
+      if (rangeEl) rangeEl.value = val;
+      updateVennLab();
+    }
+
+    function loadVennPreset(u, a, b, ab) {
+      const pairs = [['u', u], ['a', a], ['b', b], ['ab', ab]];
+      pairs.forEach(([k, v]) => {
+        const r = document.getElementById(`venn-${k}-range`);
+        const n = document.getElementById(`venn-${k}-num`);
+        if (r) r.value = v;
+        if (n) n.value = v;
+      });
+      updateVennLab();
+    }
+
+    function updateVennLab() {
+      const u = parseInt((document.getElementById('venn-u-num') || {}).value, 10) || 0;
+      const a = parseInt((document.getElementById('venn-a-num') || {}).value, 10) || 0;
+      const b = parseInt((document.getElementById('venn-b-num') || {}).value, 10) || 0;
+      const ab = parseInt((document.getElementById('venn-ab-num') || {}).value, 10) || 0;
+
+      const errEl = document.getElementById('venn-error-msg');
+      const formulaEl = document.getElementById('venn-formula-out');
+
+      if (ab > a || ab > b) {
+        if (errEl) errEl.textContent = `A interseção (${ab}) não pode ser maior que A (${a}) nem que B (${b}). Ajuste o valor de A ∩ B.`;
+        return;
+      }
+
+      const onlyA = a - ab;
+      const onlyB = b - ab;
+      const union = onlyA + ab + onlyB;
+      const none = u - union;
+
+      if (none < 0) {
+        if (errEl) errEl.textContent = `A união (${union}) ultrapassou o universo total (${u}). Aumente o Universo Total ou a Interseção.`;
+        return;
+      }
+
+      if (errEl) errEl.textContent = ``;
+
+      const uLbl = document.getElementById('svg-u-label');
+      const onlyAEl = document.getElementById('svg-only-a');
+      const bothEl = document.getElementById('svg-both');
+      const onlyBEl = document.getElementById('svg-only-b');
+      const noneEl = document.getElementById('svg-none');
+
+      if (uLbl) uLbl.textContent = `U = ${u}`;
+      if (onlyAEl) onlyAEl.textContent = `${onlyA}`;
+      if (bothEl) bothEl.textContent = `${ab}`;
+      if (onlyBEl) onlyBEl.textContent = `${onlyB}`;
+      if (noneEl) noneEl.textContent = `Nenhum: ${none}`;
+
+      if (formulaEl) {
+        formulaEl.innerHTML = `<strong>Cálculo:</strong> n(A ∪ B) = ${a} + ${b} − ${ab} = ${union} · Só A = ${onlyA} · Só B = ${onlyB} · Nenhum = ${u} − ${union} = <strong>${none}</strong>.`;
+      }
+    }
+
+    /* Cycle Lab */
+    function loadCyclePreset(pattern, pos) {
+      const patEl = document.getElementById('cycle-pattern-input');
+      const posEl = document.getElementById('cycle-pos-input');
+      if (patEl) patEl.value = pattern;
+      if (posEl) posEl.value = pos;
+      updateCycleLab();
+    }
+
+    function updateCycleLab() {
+      const patEl = document.getElementById('cycle-pattern-input');
+      const posEl = document.getElementById('cycle-pos-input');
+      const errEl = document.getElementById('cycle-error-msg');
+      if (!patEl || !posEl) return;
+
+      const rawPattern = patEl.value.trim().toUpperCase();
+      const pos = parseInt(posEl.value, 10);
+
+      if (!rawPattern) {
+        if (errEl) errEl.textContent = `Digite ao menos 1 caractere no bloco repetitivo.`;
+        return;
+      }
+      if (isNaN(pos) || pos < 1) {
+        if (errEl) errEl.textContent = `Informe uma posição N inteira maior ou igual a 1.`;
+        return;
+      }
+      if (errEl) errEl.textContent = ``;
+
+      const len = rawPattern.length;
+      const quotient = Math.floor(pos / len);
+      const rem = pos % len;
+      const hitIndex = rem === 0 ? len : rem;
+      const hitChar = rawPattern.charAt(hitIndex - 1);
+
+      const mathLbl = document.getElementById('cycle-math-label');
+      if (mathLbl) {
+        mathLbl.textContent = rem === 0
+          ? `${pos} ÷ ${len} = ${quotient} ciclos exatos (resto 0 → última posição: ${len}ª)`
+          : `${pos} ÷ ${len} = ${quotient} ciclos completos + resto ${rem}`;
+      }
+
+      const hitDisp = document.getElementById('cycle-hit-display');
+      if (hitDisp) hitDisp.textContent = `${hitIndex}ª posição: ${hitChar}`;
+
+      const lenPill = document.getElementById('cycle-len-pill');
+      if (lenPill) lenPill.textContent = `Tamanho: ${len}`;
+
+      const strip = document.getElementById('cycle-strip');
+      if (strip) {
+        strip.innerHTML = rawPattern.split('').map((ch, idx) => {
+          const i = idx + 1;
+          const isHit = i === hitIndex;
+          return `<div class="cycle-cell ${isHit ? 'is-hit' : ''}"><span class="idx">${i}</span><span class="chr">${ch}</span></div>`;
+        }).join('');
+      }
+    }
+
+    /* Simulator Rendering & Logic */
+    function renderSimulator() {
+      const dotsEl = document.getElementById('sim-dots');
+      const stackEl = document.getElementById('questions-stack');
+      if (!dotsEl || !stackEl) return;
+
+      const letters = [`A`, `B`, `C`, `D`, `E`];
+
+      dotsEl.innerHTML = QUESTIONS.map((q) => {
+        const ans = appState.answers[q.id];
+        const isChecked = appState.finalized || appState.checked[q.id];
+        let cls = `q-dot`;
+        if (isChecked) {
+          cls += ans === q.correct ? ` is-correct` : ` is-wrong`;
+        } else if (ans !== undefined) {
+          cls += ` is-answered`;
+        }
+        return `<button type="button" class="${cls}" onclick="scrollToQuestion(${q.id})" aria-label="Ir para questão ${q.id}">${q.id}</button>`;
+      }).join('');
+
+      stackEl.innerHTML = QUESTIONS.map((q) => {
+        const selected = appState.answers[q.id];
+        const isChecked = appState.finalized || appState.checked[q.id];
+        const isCorrect = selected === q.correct;
+
+        let formattedStem = q.stem;
+        if (q.id === 5) {
+          formattedStem = formattedStem.replace(
+            `SALVADORBAHIASALVADORBAHIASALVADORBA...`,
+            `<code class="q-seq-code">SALVADORBAHIASALVADORBAHIASALVADORBA...</code>`
+          );
+        } else if (q.id === 6) {
+          formattedStem = formattedStem.replace(/\n/g, `<br>`);
+        }
+
+        const optionsHtml = q.options.map((optText, idx) => {
+          let optCls = `option-btn`;
+          if (isChecked) {
+            if (idx === q.correct) optCls += ` is-correct-ans`;
+            else if (selected === idx) optCls += ` is-wrong-ans`;
+          } else if (selected === idx) {
+            optCls += ` is-selected`;
+          }
+          return `
+            <button type="button" class="${optCls}" ${isChecked ? 'disabled' : ''} onclick="selectOption(${q.id}, ${idx})">
+              <span class="option-letter">${letters[idx]}</span>
+              <span>${optText}</span>
+            </button>
+          `;
+        }).join('');
+
+        let solStatus = ``;
+        if (isChecked) {
+          solStatus = selected === undefined
+            ? `Questão não respondida · Gabarito oficial: ${letters[q.correct]}`
+            : isCorrect
+              ? `Resposta correta! Gabarito: ${letters[q.correct]}`
+              : `Você marcou ${letters[selected]} · Gabarito oficial: ${letters[q.correct]}`;
+        }
+
+        const stepsHtml = q.steps.map((s) => `<li>${s}</li>`).join('');
+
+        return `
+          <article class="q-card" id="question-card-${q.id}">
+            <div class="q-header">
+              <div class="q-number">
+                <span class="material-symbols-outlined" aria-hidden="true">help</span>
+                Questão ${String(q.id).padStart(2, '0')} de 10
+              </div>
+              <div class="q-meta-pills">
+                <span class="topic-tag">${q.topicLabel}</span>
+                <span class="topic-tag">${q.sourceTag}</span>
+              </div>
+            </div>
+            <p class="q-stem">${formattedStem}</p>
+            <div class="options-list" role="group" aria-label="Alternativas da questão ${q.id}">
+              ${optionsHtml}
+            </div>
+            <div class="q-actions">
+              <span class="brand-subtitle">Referência teórica: ${q.moduleRef}</span>
+              ${!isChecked ? `
+                <button type="button" class="btn btn-tonal" onclick="checkSingleQuestion(${q.id})">
+                  <span class="material-symbols-outlined" aria-hidden="true">check</span>
+                  Conferir Questão
+                </button>
+              ` : `
+                <span class="tonal-badge ${isCorrect ? 'is-primary' : ''}">
+                  ${isCorrect ? 'Acertou (+1 pt)' : 'Revisar conteúdo'}
+                </span>
+              `}
+            </div>
+            <div class="solution-box ${isChecked ? 'is-visible' : ''} ${isChecked && !isCorrect ? 'is-wrong-state' : ''}">
+              <div class="solution-title">
+                <span class="material-symbols-outlined" aria-hidden="true">${isCorrect ? 'check_circle' : 'info'}</span>
+                <span>${solStatus}</span>
+              </div>
+              <ol class="solution-steps">${stepsHtml}</ol>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      updateHeaderAndProgress();
+      renderPerformanceReport();
+    }
+
+    function scrollToQuestion(qId) {
+      const el = document.getElementById(`question-card-${qId}`);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function selectOption(qId, optIdx) {
+      if (appState.finalized || appState.checked[qId]) return;
+      appState.answers[qId] = optIdx;
+      renderSimulator();
+      saveState();
+    }
+
+    function checkSingleQuestion(qId) {
+      appState.checked[qId] = true;
+      renderSimulator();
+      saveState();
+    }
+
+    function finalizeSimulado() {
+      appState.finalized = true;
+      QUESTIONS.forEach((q) => {
+        appState.checked[q.id] = true;
+      });
+      renderSimulator();
+      saveState();
+      const reportEl = document.getElementById('relatorio');
+      if (reportEl) reportEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function handleResetSimulado(btn) {
+      if (btn.dataset.armed !== 'true') {
+        btn.dataset.armed = 'true';
+        btn.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">warning</span> Confirmar reinício`;
+        setTimeout(() => {
+          if (btn.dataset.armed === 'true') {
+            btn.dataset.armed = 'false';
+            btn.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">refresh</span> Reiniciar Simulado`;
+          }
+        }, 4000);
+        return;
+      }
+      btn.dataset.armed = 'false';
+      btn.innerHTML = `<span class="material-symbols-outlined" aria-hidden="true">refresh</span> Reiniciar Simulado`;
+      appState.answers = {};
+      appState.checked = {};
+      appState.finalized = false;
+      renderSimulator();
+      saveState();
+    }
+
+    /* Performance Report */
+    function renderPerformanceReport() {
+      const scoreEl = document.getElementById('rep-score');
+      const statusEl = document.getElementById('rep-status');
+      const editalEl = document.getElementById('rep-edital-check');
+      const bestEl = document.getElementById('rep-best-topic');
+      const worstEl = document.getElementById('rep-worst-topic');
+      const barsEl = document.getElementById('report-bars');
+      const adviceEl = document.getElementById('report-advice');
+      if (!barsEl || !adviceEl) return;
+
+      let totalChecked = 0;
+      let totalCorrect = 0;
+
+      const axisResults = TOPIC_AXES.map((axis) => {
+        let axisChecked = 0;
+        let axisCorrect = 0;
+        axis.qIds.forEach((id) => {
+          const q = QUESTIONS.find((item) => item.id === id);
+          const isChecked = appState.finalized || appState.checked[id];
+          if (isChecked && q) {
+            axisChecked += 1;
+            totalChecked += 1;
+            if (appState.answers[id] === q.correct) {
+              axisCorrect += 1;
+              totalCorrect += 1;
+            }
+          }
+        });
+        const totalInAxis = axis.qIds.length;
+        const pct = axisChecked > 0 ? Math.round((axisCorrect / totalInAxis) * 100) : 0;
+        return { label: axis.label, correct: axisCorrect, total: totalInAxis, checked: axisChecked, pct };
+      });
+
+      if (scoreEl) scoreEl.textContent = `${totalCorrect} / 10`;
+      if (statusEl) {
+        statusEl.textContent = totalChecked === 0
+          ? `Aguardando correção das questões`
+          : totalChecked < 10
+            ? `${totalChecked} de 10 questões corrigidas`
+            : `Simulado finalizado (${totalCorrect * 10}% de acerto)`;
+      }
+      if (editalEl) {
+        if (totalChecked === 0) {
+          editalEl.textContent = `5 / 10`;
+        } else {
+          editalEl.textContent = totalCorrect >= 5 ? `Atingida` : `Abaixo`;
+        }
+      }
+
+      const evaluatedAxes = axisResults.filter((a) => a.checked > 0);
+      if (evaluatedAxes.length > 0) {
+        const sortedDesc = [...evaluatedAxes].sort((a, b) => b.pct - a.pct);
+        const sortedAsc = [...evaluatedAxes].sort((a, b) => a.pct - b.pct);
+        if (bestEl) bestEl.textContent = `${sortedDesc[0].pct}%`;
+        if (worstEl) worstEl.textContent = sortedAsc[0].pct < 100 ? `${sortedAsc[0].pct}%` : `Nenhum`;
+      } else {
+        if (bestEl) bestEl.textContent = `—`;
+        if (worstEl) worstEl.textContent = `—`;
+      }
+
+      barsEl.innerHTML = axisResults.map((a) => {
+        const tier = a.pct >= 70 ? `tier-high` : a.pct >= 50 ? `tier-mid` : `tier-low`;
+        const statusText = a.checked === 0
+          ? `Não corrigido (0/${a.total})`
+          : `${a.correct} de ${a.total} (${a.pct}%)`;
+        return `
+          <div class="bar-row">
+            <div class="bar-row-head">
+              <span>${a.label}</span>
+              <span>${statusText}</span>
+            </div>
+            <div class="bar-track">
+              <div class="bar-fill ${tier}" style="width: ${a.checked > 0 ? a.pct : 0}%;"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      if (totalChecked === 0) {
+        adviceEl.innerHTML = `<strong>Diagnóstico Inicial:</strong><span>Responda às 10 questões do Simulado e clique em "Corrigir Todas &amp; Ver Relatório" para gerar seu mapa completo de acertos por conteúdo.</span>`;
+      } else {
+        const weakTopics = axisResults.filter((a) => a.checked > 0 && a.pct < 70).map((a) => a.label);
+        if (weakTopics.length === 0 && totalChecked === 10) {
+          adviceEl.innerHTML = `<strong>Excelente desempenho (10/10 ou domínio pleno):</strong><span>Você atingiu aproveitamento superior a 70% em todos os eixos de Raciocínio Lógico-Matemático, garantindo vantagem estratégica inclusive no 3º critério de desempate do Edital 2026.</span>`;
+        } else if (weakTopics.length > 0) {
+          adviceEl.innerHTML = `<strong>Plano de Revisão Recomendado:</strong><span>Priorize os módulos teóricos de: <strong>${weakTopics.join('; ')}</strong>. Lembre-se de que o Edital exige mínimo de 50% (14 de 28 questões) no Módulo I.</span>`;
+        } else {
+          adviceEl.innerHTML = `<strong>Progresso parcial registrado (${totalChecked}/10):</strong><span>Continue respondendo e finalize todas as 10 questões para obter a análise completa dos 6 eixos temáticos.</span>`;
+        }
+      }
+    }
+
+    /* Active Nav Highlight on Click */
+    function setupNavPills() {
+      document.querySelectorAll('.nav-pill').forEach((link) => {
+        link.addEventListener('click', function () {
+          document.querySelectorAll('.nav-pill').forEach((l) => l.classList.remove('is-active'));
+          this.classList.add('is-active');
+        });
+      });
+    }
+
+    async function initApp() {
+      setupNavPills();
+      updateLogicLab();
+      updateVennLab();
+      updateCycleLab();
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === 'object') {
+            if (Array.isArray(saved.masteredTopics)) appState.masteredTopics = saved.masteredTopics;
+            if (saved.answers && typeof saved.answers === 'object') appState.answers = saved.answers;
+            if (saved.checked && typeof saved.checked === 'object') appState.checked = saved.checked;
+            if (typeof saved.finalized === 'boolean') appState.finalized = saved.finalized;
+          }
+        } catch (err) {
+          /* Silently start with clean default state */
+        }
+      }
+
+      renderSimulator();
+      updateHeaderAndProgress();
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
