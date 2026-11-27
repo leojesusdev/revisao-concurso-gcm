@@ -10,7 +10,7 @@
    Quando vazio (""), tanto o menu quanto o card indicam acesso pendente.
    ========================================================================== */
 const disciplineLinks = {
-  portugues: "",
+  portugues: "lingua-portuguesa.html",
   raciocinioLogico: "",
   informatica: "",
   direitoConstitucional: "",
