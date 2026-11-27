@@ -22,7 +22,7 @@ const disciplineLinks = {
 };
 
 const disciplineLabels = {
-  portugues: "Língua Portuguesa",
+  portugues: "lingua-portuguesa.html",
   raciocinioLogico: "Raciocínio Lógico-Matemático",
   informatica: "Informática",
   direitoConstitucional: "Noções de Direito Constitucional",
