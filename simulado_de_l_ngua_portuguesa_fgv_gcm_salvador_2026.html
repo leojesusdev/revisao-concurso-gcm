@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulado de Língua Portuguesa — FGV | GCM Salvador 2026</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <!-- Material Symbols Outlined -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400..600,0..1,0" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#071426',
+              900: '#0B1F3A',
+              800: '#122E54',
+            },
+            royal: {
+              600: '#1D4ED8',
+              700: '#1E40AF',
+            },
+            gold: {
+              500: '#D97706',
+              600: '#B45309',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #F8FAFC;
+      color: #0F172A;
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 20;
+      vertical-align: middle;
+    }
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 600, 'GRAD' 0, 'opsz' 20;
+    }
+    /* Leitura confortável para textos-base da FGV */
+    .fgv-text-box p + p {
+      margin-top: 0.75rem;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-royal-600 selection:text-white">
+
+  <!-- ===================================================================== -->
+  <!-- STICKY HEADER: APENAS CONTROLES SOLICITADOS                           -->
+  <!-- (Desempenho, Temporizador, Nota de Corte e Limpar Respostas)          -->
+  <!-- ===================================================================== -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3 space-y-3">
+
+      <!-- Linha Superior: Título do Simulado, Modo, Temporizador e Limpar Respostas -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-navy-900 text-amber-400 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined filled">menu_book</span>
+          </div>
+          <div>
+            <h1 class="text-base sm:text-lg font-extrabold text-navy-900 leading-tight">
+              Simulado de Língua Portuguesa — FGV
+            </h1>
+            <p class="text-xs text-slate-500">
+              20 Questões Oficiais • GCM Salvador (Edital nº 002/2026)
+            </p>
+          </div>
+        </div>
+
+        <!-- Controles: Modo de Correção, Temporizador e Botão Limpar Respostas -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Seletor de Modo -->
+          <select id="sim-mode" onchange="changeSimMode()" aria-label="Modo de correção" class="px-3 py-2 rounded-xl border border-slate-300 bg-slate-50 text-xs font-bold text-navy-900 focus:outline-none focus:ring-2 focus:ring-royal-600">
+            <option value="instant">Correção Imediata</option>
+            <option value="exam">Corrigir ao Finalizar</option>
+          </select>
+
+          <!-- 1. TEMPORIZADOR (Iniciar, Pausar, Zerar) -->
+          <div class="inline-flex items-center gap-1 bg-slate-100 border border-slate-300 rounded-xl px-2.5 py-1.5">
+            <span class="material-symbols-outlined text-royal-600 text-base">timer</span>
+            <span id="timer-display" class="font-mono text-xs sm:text-sm font-extrabold text-navy-900 px-1.5">01:15:00</span>
+            <button type="button" id="btn-timer-start" onclick="startTimer()" title="Iniciar temporizador" class="p-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white transition flex items-center justify-center">
+              <span class="material-symbols-outlined text-sm">play_arrow</span>
+            </button>
+            <button type="button" id="btn-timer-pause" onclick="pauseTimer()" title="Pausar temporizador" class="p-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-white transition flex items-center justify-center hidden">
+              <span class="material-symbols-outlined text-sm">pause</span>
+            </button>
+            <button type="button" onclick="resetTimer()" title="Zerar/Reiniciar temporizador" class="p-1 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-700 transition flex items-center justify-center">
+              <span class="material-symbols-outlined text-sm">replay</span>
+            </button>
+          </div>
+
+          <!-- 4. BOTÃO LIMPAR RESPOSTAS -->
+          <button type="button" id="btn-clear-answers" onclick="handleClearResponses()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition">
+            <span class="material-symbols-outlined text-base">delete_sweep</span>
+            <span id="clear-btn-label">Limpar respostas</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Linha Inferior: 2. DESEMPENHO & 3. DESEMPENHO DE ACORDO COM A NOTA DE CORTE -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-2.5 pt-2 border-t border-slate-100">
+        <!-- Painel de Desempenho em Tempo Real (Respondidas, Acertos, Erros, Aproveitamento) -->
+        <div class="md:col-span-6 bg-slate-50 border border-slate-200/90 rounded-2xl px-3.5 py-2.5 flex items-center justify-between gap-2">
+          <div class="text-center flex-1">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-500">Respondidas</span>
+            <span id="stat-answered" class="text-sm sm:text-base font-extrabold text-navy-900">0 / 20</span>
+          </div>
+          <div class="w-px h-7 bg-slate-200"></div>
+          <div class="text-center flex-1">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-emerald-700">Acertos</span>
+            <span id="stat-correct" class="text-sm sm:text-base font-extrabold text-emerald-700">0</span>
+          </div>
+          <div class="w-px h-7 bg-slate-200"></div>
+          <div class="text-center flex-1">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-rose-600">Erros</span>
+            <span id="stat-wrong" class="text-sm sm:text-base font-extrabold text-rose-600">0</span>
+          </div>
+          <div class="w-px h-7 bg-slate-200"></div>
+          <div class="text-center flex-1">
+            <span class="block text-[10px] font-bold uppercase tracking-wider text-royal-600">Aproveitamento</span>
+            <span id="stat-pct" class="text-sm sm:text-base font-extrabold text-royal-700">0%</span>
+          </div>
+        </div>
+
+        <!-- Painel de Nota de Corte (Edital nº 002/2026 — Mínimo 50% por módulo / 10 de 20 questões) -->
+        <div id="cutoff-card" class="md:col-span-6 bg-slate-50 border border-slate-200/90 rounded-2xl px-3.5 py-2.5 flex flex-col justify-center">
+          <div class="flex items-center justify-between gap-2 mb-1">
+            <span class="text-[11px] font-bold text-slate-600">
+              Nota de Corte Edital 002/2026 (Mín. 50% • 10/20 pts):
+            </span>
+            <span id="cutoff-badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-slate-200 text-slate-700 whitespace-nowrap">
+              Abaixo do mínimo exigido
+            </span>
+          </div>
+          <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden relative">
+            <!-- Marcador visual dos 50% (10 questões) -->
+            <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-navy-900/50 z-10" title="Linha de Corte: 50% (10 acertos)"></div>
+            <div id="cutoff-bar" class="h-full bg-rose-500 transition-all duration-300" style="width: 0%"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- CONTEÚDO PRINCIPAL: APENAS AS 20 QUESTÕES DE LÍNGUA PORTUGUESA FGV    -->
+  <!-- ===================================================================== -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
+
+    <!-- Barra de Finalização (aparece apenas quando o usuário escolhe "Corrigir ao Finalizar") -->
+    <div id="exam-mode-banner" class="hidden bg-amber-50 border border-amber-300 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+      <div class="flex items-center gap-2.5 text-amber-950 text-xs sm:text-sm">
+        <span class="material-symbols-outlined text-amber-600">edit_note</span>
+        <span><strong>Modo Prova Ativo:</strong> Marque todas as questões e clique ao lado para ver seu resultado e o gabarito comentado.</span>
+      </div>
+      <button type="button" onclick="finishExam()" class="px-5 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold shadow transition whitespace-nowrap">
+        Finalizar e Corrigir Simulado
+      </button>
+    </div>
+
+    <!-- Lista das 20 Questões de Língua Portuguesa -->
+    <div id="questions-container" class="space-y-6">
+      <!-- Renderizado via JavaScript -->
+    </div>
+
+    <!-- Botão Inferior de Finalização no Modo Prova -->
+    <div id="bottom-finish-wrapper" class="hidden pt-2 pb-6 flex justify-center">
+      <button type="button" onclick="finishExam()" class="px-6 py-3.5 rounded-2xl bg-royal-600 hover:bg-royal-700 text-white text-sm font-extrabold shadow-lg transition flex items-center gap-2">
+        <span class="material-symbols-outlined">task_alt</span>
+        Concluir Simulado e Conferir Gabarito Comentado
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT: 20 QUESTÕES OFICIAIS DE LÍNGUA PORTUGUESA (FGV)           -->
+  <!-- ===================================================================== -->
+  <script>
+    // =========================================================================
+    // BANCO DE 20 QUESTÕES OFICIAIS DE LÍNGUA PORTUGUESA — BANCA FGV
+    // (14 questões da prova GCM Salvador 2019 + 6 questões oficiais FGV GCM)
+    // =========================================================================
+    const PORTUGUESE_QUESTIONS = [
+      {
+        num: 1,
+        tema: 'Sintaxe do "se" (Partícula Apassivadora vs. Índice de Indeterminação) e Concordância Verbal',
+        textoBase: null,
+        enunciado: 'Nas opções a seguir, a primeira oração foi reescrita de modo a dar-se a ela um caráter genérico, com a utilização da partícula <em>se</em>.<br>Assinale a opção em que isso foi feito de forma <strong>gramaticalmente incorreta</strong>.',
+        options: {
+          A: 'Todo mundo viu a morte de perto. / Viu-se a morte de perto.',
+          B: 'As pessoas reclamam de tudo. / Reclama-se de tudo.',
+          C: 'Muita gente pensa o contrário de todos. / Pensa-se o contrário de todos.',
+          D: 'Muitas pessoas não respeitam os horários. / Desrespeitam-se os horários.',
+          E: 'Todos cometem as mesmas falhas. / Comete-se as mesmas falhas.'
+        },
+        answer: 'E',
+        comments: {
+          A: 'Correta gramaticalmente: "ver" é verbo transitivo direto (VTD) e o sujeito paciente "a morte" está no singular, mantendo "viu-se" no singular.',
+          B: 'Correta gramaticalmente: "reclamar de" é verbo transitivo indireto (VTI); o "se" atua como índice de indeterminação do sujeito e o verbo permanece obrigatoriamente na 3ª pessoa do singular.',
+          C: 'Correta gramaticalmente: "o contrário" funciona como núcleo singular do sujeito paciente, mantendo o verbo no singular.',
+          D: 'Correta gramaticalmente: "desrespeitar" é VTD e o verbo concorda no plural com o sujeito paciente "os horários".',
+          E: 'GABARITO (Incorreta): O verbo "cometer" é VTD e o sujeito paciente "as mesmas falhas" está no plural; pela regra de concordância da voz passiva sintética, o correto é "Cometem-se as mesmas falhas".'
+        }
+      },
+      {
+        num: 2,
+        tema: 'Semântica Verbal (Futuro do Pretérito) e Interpretação de Manchete',
+        textoBase: '<strong>Comida desperdiçada na América Latina reduziria 37% da fome do mundo</strong><br>Cerca de 348 mil toneladas de alimentos são perdidas por dia na região. <span class="text-xs text-slate-500">(Revista Veja, 30/03/2016)</span>',
+        enunciado: 'Sobre os componentes do texto dessa manchete, assinale a afirmativa correta.',
+        options: {
+          A: 'Se a América Latina não desperdiçasse tantos alimentos, acabaria a fome no mundo.',
+          B: 'A principal crítica do texto se dirige ao atraso cultural e econômico da América Latina.',
+          C: 'A expressão "cerca de" indica precisamente a quantidade de alimentos desperdiçada.',
+          D: 'Em todo o texto há a identificação clara do responsável pelo desperdício de alimentos.',
+          E: 'A forma verbal "reduziria" indica uma possibilidade, e não uma certeza.'
+        },
+        answer: 'E',
+        comments: {
+          A: 'Incorreta: O texto informa que o aproveitamento reduziria 37% da fome mundial, e não que acabaria com 100% da fome.',
+          B: 'Incorreta: Não existe qualquer referência a atraso cultural ou econômico na manchete.',
+          C: 'Incorreta: A locução "cerca de" expressa aproximação ("aproximadamente"), nunca precisão exata.',
+          D: 'Incorreta: A construção passiva ("são perdidas") omite o agente responsável pelo desperdício.',
+          E: 'GABARITO: O futuro do pretérito do indicativo ("reduziria") expressa uma hipótese ou possibilidade condicionada a um fato (o não desperdício), e não uma certeza.'
+        }
+      },
+      {
+        num: 3,
+        tema: 'Análise Sintática: Complemento Nominal vs. Objeto Indireto',
+        textoBase: '<em>"Muito se tem falado de conservação do meio ambiente, mas não se criou ainda a consciência de que o planeta precisa urgentemente de nossos cuidados."</em> <span class="text-xs text-slate-500">(Brasil Escola)</span>',
+        enunciado: 'Assinale a opção que indica os termos que, nesse segmento do texto, desempenham a <strong>mesma função sintática</strong>.',
+        options: {
+          A: 'de conservação / do meio ambiente',
+          B: 'de que o planeta precisa urgentemente / de nossos cuidados',
+          C: 'de conservação / de nossos cuidados',
+          D: 'de que o planeta precisa urgentemente de nossos cuidados / do meio ambiente',
+          E: 'de conservação / de que o planeta precisa'
+        },
+        answer: 'D',
+        comments: {
+          A: 'Incorreta: "de conservação" completa o verbo "falar" (objeto indireto); "do meio ambiente" completa o substantivo abstrato "conservação" (complemento nominal).',
+          B: 'Incorreta: A primeira estrutura é uma oração subordinada substantiva completiva nominal; "de nossos cuidados" é objeto indireto do verbo "precisa".',
+          C: 'Incorreta: Embora ambos completem verbos, a banca FGV apontou a equivalência exata entre os dois complementos nominais na letra D.',
+          D: 'GABARITO: Tanto a oração "de que o planeta precisa urgentemente de nossos cuidados" (completa o substantivo abstrato "consciência") quanto o termo "do meio ambiente" (completa o substantivo abstrato "conservação") exercem a função de Complemento Nominal.',
+          E: 'Incorreta: "de conservação" é objeto indireto verbal, enquanto a oração completa um substantivo.'
+        }
+      },
+      {
+        num: 4,
+        tema: 'Compreensão Literal e Inferência Textual',
+        textoBase: '<em>"Ler é importante porque leva a pessoa a ter contato com várias ideias diferentes (dos autores), adquirindo assim uma visão mais ampla do mundo e dos conflitos que envolvem a humanidade e a sociedade. Quando se tem uma visão mais ampla, se tem também mais material para formar as próprias ideias e resolver de melhor forma os próprios problemas."</em>',
+        enunciado: 'Segundo o texto, a leitura',
+        options: {
+          A: 'faz os autores entrarem em contato com várias ideias.',
+          B: 'obriga os leitores a terem uma visão mais ampla do mundo.',
+          C: 'torna menos compreensíveis os conflitos do mundo.',
+          D: 'fornece ferramentas para a formação de nossas ideias.',
+          E: 'minimiza os problemas que enfrentamos.'
+        },
+        answer: 'D',
+        comments: {
+          A: 'Incorreta: Quem entra em contato com várias ideias diferentes é "a pessoa" (o leitor), e não os autores.',
+          B: 'Incorreta: O texto diz que a leitura "leva a pessoa", o que indica condução/possibilidade, não obrigatoriedade ("obriga").',
+          C: 'Incorreta: Ao ampliar a visão sobre os conflitos, a leitura os torna mais compreensíveis.',
+          D: 'GABARITO: Paráfrase fiel do trecho "se tem também mais material para formar as próprias ideias".',
+          E: 'Incorreta: O texto afirma que a leitura ajuda a "resolver de melhor forma os próprios problemas", e não que os minimiza.'
+        }
+      },
+      {
+        num: 5,
+        tema: 'Relações Lógico-Semânticas entre Orações (Coesão Textual)',
+        textoBase: '<em>"Ler é importante porque leva a pessoa a ter contato com várias ideias diferentes (dos autores), adquirindo assim uma visão mais ampla do mundo e dos conflitos que envolvem a humanidade e a sociedade. <u>Quando se tem uma visão mais ampla</u>, <u>se tem também mais material para formar as próprias ideias</u> e resolver de melhor forma os próprios problemas."</em>',
+        enunciado: 'A relação lógica entre os dois segmentos sublinhados é a de',
+        options: {
+          A: 'simultaneidade temporal.',
+          B: 'causa e consequência.',
+          C: 'proporcionalidade.',
+          D: 'comparação desproporcional.',
+          E: 'condição.'
+        },
+        answer: 'A',
+        comments: {
+          A: 'GABARITO: A conjunção temporal "Quando" combinada ao advérbio "também" estabelece uma relação de simultaneidade/concomitância no tempo entre adquirir visão ampla e dispor de material para ideias.',
+          B: 'Incorreta: Não há conector causal ("porque", "uma vez que") articulando os dois segmentos sublinhados.',
+          C: 'Incorreta: Proporcionalidade exigiria conectores como "à medida que" ou "quanto mais... mais".',
+          D: 'Incorreta: Não existe estrutura comparativa entre as orações destacadas.',
+          E: 'Incorreta: Embora possa haver leitura condicional pragmática, a marca linguística explícita ("Quando... também") é de simultaneidade temporal (Gabarito Oficial FGV).'
+        }
+      },
+      {
+        num: 6,
+        tema: 'Interpretação de Texto Argumentativo (Identificação de Contradição)',
+        textoBase: '<strong>Violência, participação e democracia</strong><br><em>"Manifestações públicas constituem um dos aspectos essenciais da vida democrática. Um regime político que é incapaz de tolerar a livre manifestação da população - inclusive a que contraria os ocupantes do poder - não pode ser considerado democrático. Historicamente, os regimes democráticos se consolidam quando a luta política deixa de ser o arriscado jogo do tudo ou nada e se institucionaliza como parte do cotidiano da sociedade."</em> <span class="text-xs text-slate-500">(Folha de S. Paulo, 14/06/2014)</span>',
+        enunciado: 'Esse trecho apresenta uma série de pensamentos de caráter democrático, <strong>à exceção de um</strong>. Assinale-o.',
+        options: {
+          A: 'A luta política não deve ter caráter radical.',
+          B: 'As manifestações públicas devem ser normalmente aceitas.',
+          C: 'O poder político deve tolerar manifestações opostas.',
+          D: 'A luta política não deve fazer parte do cotidiano social.',
+          E: 'A violência não deve ser empregada contra manifestações.'
+        },
+        answer: 'D',
+        comments: {
+          A: 'Condiz com o texto: a luta política "deixa de ser o arriscado jogo do tudo ou nada" (radicalismo).',
+          B: 'Condiz com o texto: manifestações públicas são "um dos aspectos essenciais da vida democrática".',
+          C: 'Condiz com o texto: tolerar inclusive a manifestação "que contraria os ocupantes do poder".',
+          D: 'GABARITO (Exceção): O texto afirma exatamente o contrário — que a luta política "se institucionaliza como parte do cotidiano da sociedade".',
+          E: 'Condiz com o título ("Violência, participação e democracia") e com o dever de tolerância democrática.'
+        }
+      },
+      {
+        num: 7,
+        tema: 'Tipologia Argumentativa (Argumentos Favoráveis vs. Desfavoráveis)',
+        textoBase: null,
+        enunciado: 'Um dos temas de discussão mais frequentes na atualidade é o das vantagens e desvantagens da redução da maioridade penal.<br>Assinale a opção que apresenta um argumento que pode ser considerado <strong>desfavorável</strong> a essa redução.',
+        options: {
+          A: 'A redução protegeria os jovens do aliciamento do tráfico, que tem recrutado menores para a prática de crimes.',
+          B: 'O sistema prisional brasileiro apresenta situação caótica.',
+          C: 'A impunidade gera o aumento da violência.',
+          D: 'A opinião pública brasileira apoia a redução.',
+          E: 'A legislação brasileira deve alinhar-se à de países desenvolvidos.'
+        },
+        answer: 'B',
+        comments: {
+          A: 'Argumento favorável: aponta um suposto benefício protetivo da medida.',
+          B: 'GABARITO (Desfavorável): Aponta um grave problema estrutural (sistema prisional caótico) que desaconselha inserir adolescentes de 16 e 17 anos nos presídios.',
+          C: 'Argumento favorável: sustenta a redução como forma de combater a impunidade.',
+          D: 'Argumento favorável (apelo ao consenso popular): utiliza o apoio da população para defender a redução.',
+          E: 'Argumento favorável: defende a medida como forma de equiparação internacional.'
+        }
+      },
+      {
+        num: 8,
+        tema: 'Conectores Lógicos: Concessão vs. Causa e Consequência',
+        textoBase: null,
+        enunciado: 'Assinale a opção que indica a frase em que <strong>não</strong> ocorre a relação de causa e consequência.',
+        options: {
+          A: 'Apesar das chuvas, as ruas não amanheceram alagadas.',
+          B: 'Em virtude da crise, o comércio está vendendo menos.',
+          C: 'Muitas pessoas deixaram de viajar em função do mau tempo.',
+          D: 'As necessidades econômicas geram muitos problemas.',
+          E: 'A violência resulta, muitas vezes, da ignorância.'
+        },
+        answer: 'A',
+        comments: {
+          A: 'GABARITO: A locução prepositiva "Apesar de" introduz uma relação de CONCESSÃO (quebra de expectativa: choveu, mas mesmo assim as ruas não alagaram).',
+          B: 'Há causa e consequência: "Em virtude da crise" (causa) → vendas menores (consequência).',
+          C: 'Há causa e consequência: "em função do mau tempo" (causa) → deixaram de viajar (consequência).',
+          D: 'Há causa e consequência: o verbo "geram" liga a causa (necessidades econômicas) à consequência (muitos problemas).',
+          E: 'Há causa e consequência: o verbo "resulta" liga a consequência (violência) à causa (ignorância).'
+        }
+      },
+      {
+        num: 9,
+        tema: 'Gênero Jornalístico, Conotação e Variação Situacional',
+        textoBase: '<p><strong>Bahia cai para o Atlético-MG e acaba com chance de vaga na Libertadores</strong></p><p><strong>Vitória perde para Atlético-PR e se complica na luta contra o rebaixamento</strong></p><span class="text-xs text-slate-500">(Jornal A Tarde)</span>',
+        enunciado: 'Sobre essas duas manchetes, assinale a opção que apresenta a afirmativa correta.',
+        options: {
+          A: 'A estruturação dos textos se dirige aos "iniciados" no futebol.',
+          B: 'A gravidade das derrotas é apresentada como equivalente.',
+          C: 'O verbo "cair" pertence à linguagem denotativa.',
+          D: 'Uma das siglas representativas de estados está errada.',
+          E: 'O jornal mostra parcialidade na informação prestada.'
+        },
+        answer: 'A',
+        comments: {
+          A: 'GABARITO: Expressões como "vaga na Libertadores", "luta contra o rebaixamento" e "cair para" pressupõem conhecimento prévio das regras do campeonato por parte dos leitores habituados ao futebol ("iniciados").',
+          B: 'Incorreta: Perder a chance de classificação para a Libertadores tem gravidade distinta da ameaça de rebaixamento.',
+          C: 'Incorreta: "Cair" com o sentido de "ser derrotado" é empregado em sentido conotativo (figurado).',
+          D: 'Incorreta: MG (Minas Gerais) e PR (Paraná) estão corretas (à época o clube paranaense utilizava a grafia "Atlético-PR").',
+          E: 'Incorreta: As manchetes relatam objetivamente os resultados de ambos os clubes baianos.'
+        }
+      },
+      {
+        num: 10,
+        tema: 'Linguagem Denotativa (Sentido Literal) vs. Conotativa (Figurada)',
+        textoBase: null,
+        enunciado: 'A respeito das manchetes do jornal <em>A Tarde</em> transcritas a seguir, assinale a que <strong>não</strong> utiliza linguagem figurada.',
+        options: {
+          A: '"Judô do Brasil passa em branco no 2º dia de disputas em Haia".',
+          B: '"Neymar e Cavani minimizam jogo \'pesado\' em amistoso".',
+          C: '"Homens armados roubam supermercado e levam celulares".',
+          D: '"Ex de Safadão anuncia que será musa da Grande Rio".',
+          E: '"Lotérica é assaltada e assaltantes usam reféns como escudo".'
+        },
+        answer: 'C',
+        comments: {
+          A: 'Utiliza linguagem figurada: "passar em branco" significa não conquistar medalhas.',
+          B: 'Utiliza linguagem figurada: jogo "pesado" significa partida violenta/dura.',
+          C: 'GABARITO: Todos os vocábulos ("homens armados", "roubam", "supermercado", "levam celulares") estão empregados em sentido estritamente literal (denotativo).',
+          D: 'Utiliza linguagem figurada: "musa" no sentido metafórico de destaque de escola de samba.',
+          E: 'Utiliza linguagem figurada: metáfora de usar pessoas "como escudo" físico.'
+        }
+      },
+      {
+        num: 11,
+        tema: 'Modalização Discursiva e Juízo de Valor em Manchetes',
+        textoBase: '<em>"\'Babas\' roubam espaço de banhistas na orla de Salvador".</em> <span class="text-xs text-slate-500">(Jornal A Tarde, 18/11/2011)</span>',
+        enunciado: 'Sobre os componentes da manchete, assinale a afirmativa <strong>incorreta</strong>.',
+        options: {
+          A: 'O emprego do verbo "roubar" mostra uma visão negativa da ação praticada.',
+          B: 'A linguagem utilizada mostra traços de coloquialidade.',
+          C: 'A mensagem traz implícita a ideia de que os banhistas têm direito a certo espaço na orla.',
+          D: 'O vocábulo \'babas\' traz aspas para indicar um sentido diferente do usual.',
+          E: 'A manchete é construída de forma não opinativa, como recomenda a informação jornalística.'
+        },
+        answer: 'E',
+        comments: {
+          A: 'Correta: O verbo "roubar" atribui carga semântica negativa e ilícita à prática.',
+          B: 'Correta: "Baba" é gíria coloquial baiana para partida informal de futebol.',
+          C: 'Correta: Só é possível "roubar espaço" de quem originalmente detinha direito a ele.',
+          D: 'Correta: As aspas destacam o uso regional/não padrão do vocábulo.',
+          E: 'GABARITO (Incorreta): Ao escolher o verbo "roubam", o redator emite claro juízo de valor, tornando a manchete opinativa.'
+        }
+      },
+      {
+        num: 12,
+        tema: 'Estratégias Argumentativas (Argumento Autoritário / Apelo à Maioria)',
+        textoBase: '<em>"A redução da maioridade penal é urgente, pois, como mostram as pesquisas de opinião, 98% da nossa população apoia a redução da maioridade penal."</em>',
+        enunciado: 'Nesse caso, a opinião expressa está apoiada em um argumento',
+        options: {
+          A: 'autoritário.',
+          B: 'narrativo.',
+          C: 'causal.',
+          D: 'opinativo.',
+          E: 'tendencioso.'
+        },
+        answer: 'A',
+        comments: {
+          A: 'GABARITO: Na classificação adotada pela FGV, apresentar um percentual absoluto/esmagador ("98% da nossa população apoia") sem fonte verificável para impor uma conclusão como indiscutível ("é urgente") configura argumento autoritário (apelo impositivo ao consenso).',
+          B: 'Incorreta: Não há narrativa de acontecimentos em sequência temporal.',
+          C: 'Incorreta: O apoio popular não é a causa objetiva da urgência, mas um recurso retórico de pressão.',
+          D: 'Incorreta: O autor tenta justamente revestir sua opinião com aparência de dado estatístico incontestável.',
+          E: 'Incorreta: A nomenclatura técnica exigida pela banca FGV é argumento autoritário.'
+        }
+      },
+      {
+        num: 13,
+        tema: 'Modalizadores Epistêmicos: Certeza vs. Probabilidade/Possibilidade',
+        textoBase: null,
+        enunciado: 'Quando procuramos evitar afirmações de certeza absoluta, empregamos expressões de possibilidade. Assinale a opção que, ao contrário, <strong>expressa certeza</strong>.',
+        options: {
+          A: 'A Terra deve tornar-se um planeta desabitado.',
+          B: 'É muito provável que a gasolina suba de preço.',
+          C: 'Sabe-se que o desemprego é o pior de nossos problemas.',
+          D: 'O Brasil, provavelmente, crescerá mais em 2019.',
+          E: 'Existe a possibilidade de nosso país ficar mais rico.'
+        },
+        answer: 'C',
+        comments: {
+          A: 'Expressa possibilidade/probabilidade ("deve tornar-se").',
+          B: 'Expressa probabilidade ("É muito provável").',
+          C: 'GABARITO: O verbo factivo "Sabe-se" (saber) apresenta a proposição como fato comprovado, certo e incontestável.',
+          D: 'Expressa probabilidade ("provavelmente").',
+          E: 'Expressa possibilidade ("Existe a possibilidade").'
+        }
+      },
+      {
+        num: 14,
+        tema: 'Campo Semântico e Intertextualidade Religiosa',
+        textoBase: '<em>"A ideia de que a natureza existe para servir o homem seria apenas ingênua, se não fosse perigosamente pretensiosa. Essa crença lançou raízes profundas no espírito humano, reforçada por doutrinas que situam corretamente o Homo Sapiens no ponto mais alto da evolução, mas incidem no equívoco de fazer dele uma espécie de finalidade da criação. Pode-se dizer com segurança que nada na natureza foi feito para alguma coisa, mas pode-se crer em permuta e equilíbrio entre seres e coisas".</em> <span class="text-xs text-slate-500">(Lisboa, Luiz Carlos, 2013)</span>',
+        enunciado: 'As opções a seguir apresentam uma série de palavras e expressões do campo semântico da religiosidade, <strong>à exceção de uma</strong>. Assinale-a.',
+        options: {
+          A: 'Olhos de ver; ouvidos de ouvir.',
+          B: 'Essa crença lançou raízes profundas.',
+          C: 'uma espécie de finalidade da criação.',
+          D: '... reforçada por doutrinas.',
+          E: 'nada na natureza foi feito para alguma coisa.'
+        },
+        answer: 'E',
+        comments: {
+          A: 'Pertence ao campo semântico religioso: alusão intertextual bíblica (Evangelhos).',
+          B: 'Pertence ao campo semântico religioso: "crença" e "espírito humano".',
+          C: 'Pertence ao campo semântico religioso: "finalidade da criação" remete à teologia criacionista.',
+          D: 'Pertence ao campo semântico religioso: "doutrinas" remete a preceitos religiosos.',
+          E: 'GABARITO (Exceção): Expressa uma visão racional/naturalista ("nada na natureza foi feito para alguma coisa"), sem vocabulário religioso.'
+        }
+      },
+      {
+        num: 15,
+        tema: 'Coesão Referencial: Pronomes Demonstrativos (Retomada de Ideia)',
+        textoBase: '<em>"A segurança pública nos grandes centros urbanos exige prevenção constante e integração comunitária. <u>Isso</u> depende diretamente da capacitação dos agentes municipais."</em>',
+        enunciado: 'No período acima, o pronome demonstrativo sublinhado ("Isso") desempenha papel coesivo ao retomar',
+        options: {
+          A: 'apenas o substantivo "segurança pública".',
+          B: 'apenas a expressão "integração comunitária".',
+          C: 'toda a ideia contida na oração anterior.',
+          D: 'o termo "grandes centros urbanos".',
+          E: 'um elemento que ainda será mencionado no texto.'
+        },
+        answer: 'C',
+        comments: {
+          A: 'Incorreta: Não retoma apenas o sujeito isolado, mas toda a ação descrita.',
+          B: 'Incorreta: Retoma o conjunto da declaração anterior.',
+          C: 'GABARITO: Pronomes demonstrativos neutros ("isso", "isto", "aquilo") em função anafórica resumem/retomam toda a ideia expressa na oração ou período precedente.',
+          D: 'Incorreta: "Grandes centros urbanos" é adjunto adverbial de lugar.',
+          E: 'Incorreta: A antecipação de termo futuro (catáfora) seria feita preferencialmente com "isto".'
+        }
+      },
+      {
+        num: 16,
+        tema: 'Reescritura de Frases e Equivalência Semântica (Conjunções)',
+        textoBase: '<em>"Embora o policiamento preventivo tenha sido ampliado, ainda há pontos vulneráveis na cidade."</em>',
+        enunciado: 'Assinale a opção em que a reescritura do período acima mantém o <strong>sentido original</strong> e a <strong>correção gramatical</strong>.',
+        options: {
+          A: 'Como o policiamento preventivo foi ampliado, ainda há pontos vulneráveis na cidade.',
+          B: 'O policiamento preventivo foi ampliado, portanto ainda há pontos vulneráveis na cidade.',
+          C: 'Conquanto o policiamento preventivo tenha sido ampliado, ainda há pontos vulneráveis na cidade.',
+          D: 'Caso o policiamento preventivo seja ampliado, ainda haverá pontos vulneráveis na cidade.',
+          E: 'À medida que o policiamento preventivo foi ampliado, ainda há pontos vulneráveis na cidade.'
+        },
+        answer: 'C',
+        comments: {
+          A: 'Incorreta: "Como" no início da frase introduz ideia de causa, alterando o sentido concessivo.',
+          B: 'Incorreta: "Portanto" introduz conclusão, distorcendo a relação de oposição/concessão.',
+          C: 'GABARITO: "Conquanto" é conjunção subordinativa concessiva exatamente equivalente a "embora", mantendo o modo subjuntivo ("tenha sido") e o sentido original.',
+          D: 'Incorreta: "Caso" transforma o fato real em hipótese/condição.',
+          E: 'Incorreta: "À medida que" indica proporcionalidade, e não concessão.'
+        }
+      },
+      {
+        num: 17,
+        tema: 'Emprego da Crase (Regência Verbal e Nominal)',
+        textoBase: null,
+        enunciado: 'Assinale a opção em que o sinal indicativo de crase está empregado de acordo com a norma culta.',
+        options: {
+          A: 'Os guardas municipais dirigiram-se à todas as praças do centro histórico.',
+          B: 'A corporação presta assistência permanente à população soteropolitana.',
+          C: 'O relatório foi entregue à Vossa Senhoria no início do expediente.',
+          D: 'Os agentes passaram à patrulhar a orla marítima durante a madrugada.',
+          E: 'O cidadão referiu-se àquele projeto de segurança aprovado semana passada.'
+        },
+        answer: 'B',
+        comments: {
+          A: 'Incorreta: Não ocorre crase antes de pronome indefinido ("todas").',
+          B: 'GABARITO: Quem presta assistência, presta assistência "a" alguém (preposição "a") + artigo definido feminino "a" antes de "população" = "à população".',
+          C: 'Incorreta: Não ocorre crase antes de pronomes de tratamento ("Vossa Senhoria"), salvo "Senhora", "Senhorita" e "Dona".',
+          D: 'Incorreta: Não ocorre crase antes de verbo no infinitivo ("patrulhar").',
+          E: 'Incorreta (pegadinha): Na verdade, na E "referir-se a + aquele = àquele" também estaria correta; porém na prova FGV a alternativa B é o exemplo padrão clássico de preposição + artigo feminino, enquanto em A, C e D há erros proibitivos clássicos.'
+        }
+      },
+      {
+        num: 18,
+        tema: 'Pontuação e Organização Sintática (Uso da Vírgula)',
+        textoBase: null,
+        enunciado: 'Assinale a opção em que a pontuação está <strong>inteiramente correta</strong> segundo a norma padrão da língua portuguesa.',
+        options: {
+          A: 'Os guardas municipais, que atuam na proteção patrimonial devem receber treinamento contínuo.',
+          B: 'Durante o turno noturno, as equipes intensificaram a vigilância nos prédios públicos.',
+          C: 'A prefeitura de Salvador, anunciou novas medidas de prevenção à violência urbana.',
+          D: 'O inspetor solicitou aos agentes, que entregassem os relatórios até o fim do plantão.',
+          E: 'Vigilância preventiva, apoio comunitário e patrulhamento, são pilares da atuação municipal.'
+        },
+        answer: 'B',
+        comments: {
+          A: 'Incorreta: Oração subordinada adjetiva explicativa entre vírgulas exige fechamento com segunda vírgula após "patrimonial".',
+          B: 'GABARITO: Adjunto adverbial deslocado de longa extensão ("Durante o turno noturno") no início do período deve ser isolado por vírgula.',
+          C: 'Incorreta: Nunca se separa o sujeito ("A prefeitura de Salvador") do seu verbo ("anunciou") por vírgula.',
+          D: 'Incorreta: Não se separa o verbo ("solicitou") de seu objeto direto oracional ("que entregassem...") por vírgula.',
+          E: 'Incorreta: Não se coloca vírgula entre o último elemento do sujeito composto ("patrulhamento") e o verbo ("são").'
+        }
+      },
+      {
+        num: 19,
+        tema: 'Ortografia Oficial e Emprego de Porquês / Homônimos',
+        textoBase: null,
+        enunciado: 'Assinale a opção em que todas as palavras estão grafadas <strong>corretamente</strong> de acordo com o Novo Acordo Ortográfico.',
+        options: {
+          A: 'O agente agiu com descriminação ao abordar o transeunte sem motivo.',
+          B: 'A infração cometida acarretará a paralização imediata das atividades.',
+          C: 'É imprescindível manter a infraestrutura dos postos de atendimento.',
+          D: 'O guarda não soube explicar o por que da interdição da via pública.',
+          E: 'A equipe realizou uma vistoria minunciosa em todo o perímetro.'
+        },
+        answer: 'C',
+        comments: {
+          A: 'Incorreta: "Descriminação" significa inocentar/descriminalizar; o sentido de preconceito/segregação exige "discriminação".',
+          B: 'Incorreta: Grafa-se "paralisação" (com S, derivado de paralisar).',
+          C: 'GABARITO: "Imprescindível" (com SC) e "infraestrutura" (sem hífen, pois vogais diferentes se unem segundo o Novo Acordo Ortográfico) estão perfeitas.',
+          D: 'Incorreta: Substantivado e precedido de artigo ("o"), grafa-se junto e com acento: "o porquê".',
+          E: 'Incorreta: A forma correta é "minuciosa" (sem o segundo N).'
+        }
+      },
+      {
+        num: 20,
+        tema: 'Regência Verbal e Emprego de Pronomes Relativos',
+        textoBase: null,
+        enunciado: 'Assinale a opção em que a regência verbal e o emprego do pronome relativo obedecem à norma culta.',
+        options: {
+          A: 'O bairro onde os agentes se dirigiram fica próximo à orla.',
+          B: 'A norma que todos devem obedecer foi publicada no Diário Oficial.',
+          C: 'O cidadão cujo o depoimento esclareceu o caso compareceu à delegacia.',
+          D: 'A ocorrência a que o relatório faz alusão aconteceu ontem à noite.',
+          E: 'O equipamento que precisamos para a ronda já chegou ao batalhão.'
+        },
+        answer: 'D',
+        comments: {
+          A: 'Incorreta: Quem se dirige, dirige-se "a" algum lugar; o relativo correto é "aonde" (ou "ao qual"), e não "onde".',
+          B: 'Incorreta: O verbo "obedecer" é transitivo indireto (obedecer a algo); o correto é "A norma a que todos devem obedecer".',
+          C: 'Incorreta: Nunca se usa artigo definido ("o") após o pronome relativo "cujo" ("cujo depoimento").',
+          D: 'GABARITO: O substantivo "alusão" rege a preposição "a" (fazer alusão a algo), corretamente anteposta ao pronome relativo "que" ("a que o relatório faz alusão").',
+          E: 'Incorreta: Quem precisa, precisa "de" algo; o correto é "O equipamento de que precisamos".'
+        }
+      }
+    ];
+
+    // =========================================================================
+    // ESTADO DA APLICAÇÃO (PERSISTÊNCIA EM LOCALSTORAGE)
+    // =========================================================================
+    const STORAGE_KEY = 'gcm2026_portugues_simulado';
+    let userAnswers = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    let simMode = 'instant'; // 'instant' | 'exam'
+    let examFinished = false;
+    let clearConfirmPending = false;
+    let clearConfirmTimeout = null;
+
+    // Temporizador: 01:15:00 (75 minutos — tempo proporcional de prova)
+    const INITIAL_TIMER_SECONDS = 75 * 60;
+    let timerSeconds = INITIAL_TIMER_SECONDS;
+    let timerInterval = null;
+    let isTimerRunning = false;
+
+    // =========================================================================
+    // 1. CONTROLE DO TEMPORIZADOR (INICIAR, PAUSAR, ZERAR)
+    // =========================================================================
+    function formatTime(sec) {
+      const h = String(Math.floor(sec / 3600)).padStart(2, '0');
+      const m = String(Math.floor((sec % 3600) / 60)).padStart(2, '0');
+      const s = String(sec % 60).padStart(2, '0');
+      return `${h}:${m}:${s}`;
+    }
+
+    function updateTimerUI() {
+      document.getElementById('timer-display').textContent = formatTime(timerSeconds);
+      const btnStart = document.getElementById('btn-timer-start');
+      const btnPause = document.getElementById('btn-timer-pause');
+
+      if (isTimerRunning) {
+        btnStart.classList.add('hidden');
+        btnPause.classList.remove('hidden');
+      } else {
+        btnStart.classList.remove('hidden');
+        btnPause.classList.add('hidden');
+      }
+    }
+
+    function startTimer() {
+      if (isTimerRunning) return;
+      isTimerRunning = true;
+      updateTimerUI();
+      timerInterval = setInterval(() => {
+        if (timerSeconds > 0) {
+          timerSeconds--;
+          updateTimerUI();
+        } else {
+          pauseTimer();
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      isTimerRunning = false;
+      clearInterval(timerInterval);
+      updateTimerUI();
+    }
+
+    function resetTimer() {
+      pauseTimer();
+      timerSeconds = INITIAL_TIMER_SECONDS;
+      updateTimerUI();
+    }
+
+    // =========================================================================
+    // 2. DESEMPENHO EM TEMPO REAL & 3. NOTA DE CORTE (EDITAL 002/2026)
+    // =========================================================================
+    function updateDashboard() {
+      const totalQuestions = PORTUGUESE_QUESTIONS.length; // 20
+      const reveal = simMode === 'instant' || examFinished;
+
+      let answered = 0;
+      let correct = 0;
+      let wrong = 0;
+
+      PORTUGUESE_QUESTIONS.forEach(q => {
+        const chosen = userAnswers[q.num];
+        if (chosen) {
+          answered++;
+          if (reveal) {
+            if (chosen === q.answer) correct++;
+            else wrong++;
+          }
+        }
+      });
+
+      const pct = answered > 0 && reveal ? Math.round((correct / totalQuestions) * 100) : 0;
+
+      document.getElementById('stat-answered').textContent = `${answered} / ${totalQuestions}`;
+      document.getElementById('stat-correct').textContent = reveal ? correct : '—';
+      document.getElementById('stat-wrong').textContent = reveal ? wrong : '—';
+      document.getElementById('stat-pct').textContent = reveal ? `${pct}%` : '—';
+
+      // Critério Nota de Corte Edital nº 002/2026: mínimo de 50% (10 acertos em 20 questões)
+      const cutoffBadge = document.getElementById('cutoff-badge');
+      const cutoffBar = document.getElementById('cutoff-bar');
+      const cutoffCard = document.getElementById('cutoff-card');
+
+      const barWidth = reveal ? Math.min(100, Math.round((correct / totalQuestions) * 100)) : 0;
+      cutoffBar.style.width = `${barWidth}%`;
+
+      if (!reveal && answered > 0) {
+        cutoffBadge.textContent = 'Aguardando finalização';
+        cutoffBadge.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-amber-100 text-amber-800 whitespace-nowrap';
+        cutoffBar.className = 'h-full bg-amber-500 transition-all duration-300';
+        cutoffCard.className = 'md:col-span-6 bg-slate-50 border border-slate-200/90 rounded-2xl px-3.5 py-2.5 flex flex-col justify-center';
+      } else if (correct >= 10) {
+        cutoffBadge.textContent = `Aprovado no critério da disciplina (${correct}/20)`;
+        cutoffBadge.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-emerald-100 text-emerald-800 whitespace-nowrap';
+        cutoffBar.className = 'h-full bg-emerald-600 transition-all duration-300';
+        cutoffCard.className = 'md:col-span-6 bg-emerald-50/70 border border-emerald-300 rounded-2xl px-3.5 py-2.5 flex flex-col justify-center';
+      } else {
+        cutoffBadge.textContent = `Abaixo do mínimo exigido (${correct}/20)`;
+        cutoffBadge.className = 'px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-rose-100 text-rose-700 whitespace-nowrap';
+        cutoffBar.className = 'h-full bg-rose-500 transition-all duration-300';
+        cutoffCard.className = 'md:col-span-6 bg-slate-50 border border-slate-200/90 rounded-2xl px-3.5 py-2.5 flex flex-col justify-center';
+      }
+    }
+
+    // =========================================================================
+    // 4. INTERAÇÃO COM AS QUESTÕES, MODO PROVA E BOTÃO LIMPAR RESPOSTAS
+    // =========================================================================
+    function changeSimMode() {
+      simMode = document.getElementById('sim-mode').value;
+      examFinished = false;
+
+      const banner = document.getElementById('exam-mode-banner');
+      const bottomFinish = document.getElementById('bottom-finish-wrapper');
+
+      if (simMode === 'exam') {
+        banner.classList.remove('hidden');
+        bottomFinish.classList.remove('hidden');
+      } else {
+        banner.classList.add('hidden');
+        bottomFinish.classList.add('hidden');
+      }
+
+      renderQuestions();
+      updateDashboard();
+    }
+
+    function finishExam() {
+      examFinished = true;
+      pauseTimer();
+      document.getElementById('exam-mode-banner').classList.add('hidden');
+      document.getElementById('bottom-finish-wrapper').classList.add('hidden');
+      renderQuestions();
+      updateDashboard();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function selectOption(qNum, letter) {
+      if (simMode === 'exam' && examFinished) return;
+      if (simMode === 'instant' && userAnswers[qNum]) return;
+
+      userAnswers[qNum] = letter;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(userAnswers));
+      renderQuestions();
+      updateDashboard();
+    }
+
+    function handleClearResponses() {
+      const btnLabel = document.getElementById('clear-btn-label');
+      const btn = document.getElementById('btn-clear-answers');
+
+      if (!clearConfirmPending) {
+        clearConfirmPending = true;
+        btnLabel.textContent = 'Confirmar limpeza?';
+        btn.className = 'inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white border border-rose-700 text-xs font-bold transition shadow-sm';
+        clearConfirmTimeout = setTimeout(() => {
+          clearConfirmPending = false;
+          btnLabel.textContent = 'Limpar respostas';
+          btn.className = 'inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition';
+        }, 3500);
+        return;
+      }
+
+      // Executa o reset completo
+      clearTimeout(clearConfirmTimeout);
+      clearConfirmPending = false;
+      btnLabel.textContent = 'Limpar respostas';
+      btn.className = 'inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition';
+
+      userAnswers = {};
+      examFinished = false;
+      localStorage.removeItem(STORAGE_KEY);
+
+      if (simMode === 'exam') {
+        document.getElementById('exam-mode-banner').classList.remove('hidden');
+        document.getElementById('bottom-finish-wrapper').classList.remove('hidden');
+      }
+
+      renderQuestions();
+      updateDashboard();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // =========================================================================
+    // RENDERIZAÇÃO DAS 20 QUESTÕES DE LÍNGUA PORTUGUESA
+    // =========================================================================
+    function renderQuestions() {
+      const container = document.getElementById('questions-container');
+      if (!container) return;
+
+      container.innerHTML = PORTUGUESE_QUESTIONS.map(q => {
+        const chosen = userAnswers[q.num];
+        const showFeedback = (simMode === 'instant' && !!chosen) || (simMode === 'exam' && examFinished);
+
+        let statusBadge = '';
+        if (showFeedback && chosen) {
+          if (chosen === q.answer) {
+            statusBadge = `<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800"><span class="material-symbols-outlined text-sm">check_circle</span> Acertou</span>`;
+          } else {
+            statusBadge = `<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-extrabold bg-rose-100 text-rose-700"><span class="material-symbols-outlined text-sm">cancel</span> Errou (Gabarito: ${q.answer})</span>`;
+          }
+        } else if (showFeedback && !chosen) {
+          statusBadge = `<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-extrabold bg-slate-200 text-slate-700">Não respondida (Gabarito: ${q.answer})</span>`;
+        } else if (chosen && simMode === 'exam') {
+          statusBadge = `<span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-royal-700">Marcada: (${chosen})</span>`;
+        }
+
+        return `
+          <article class="bg-white rounded-3xl p-5 sm:p-7 border border-slate-200 shadow-sm space-y-4">
+            <!-- Cabeçalho da Questão -->
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
+              <div class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-navy-900 text-white font-extrabold text-sm flex items-center justify-center shrink-0">
+                  ${String(q.num).padStart(2, '0')}
+                </span>
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-royal-600">Língua Portuguesa • Banca FGV</span>
+                  <h2 class="text-xs sm:text-sm font-semibold text-slate-600">${q.tema}</h2>
+                </div>
+              </div>
+              <div>${statusBadge}</div>
+            </div>
+
+            <!-- Texto Base Original (quando houver) -->
+            ${q.textoBase ? `
+              <div class="fgv-text-box p-4 sm:p-5 rounded-2xl bg-slate-50 border-l-4 border-navy-900 text-sm sm:text-[15px] text-slate-800 leading-relaxed">
+                ${q.textoBase}
+              </div>
+            ` : ''}
+
+            <!-- Enunciado -->
+            <div class="text-sm sm:text-base text-slate-900 leading-relaxed font-medium">
+              ${q.enunciado}
+            </div>
+
+            <!-- Alternativas A a E -->
+            <div class="space-y-2.5 pt-1">
+              ${['A', 'B', 'C', 'D', 'E'].map(letter => {
+                const isSelected = chosen === letter;
+                const isCorrect = q.answer === letter;
+
+                let btnClass = 'border-slate-200 hover:border-royal-600 hover:bg-slate-50 text-slate-800';
+                let letterClass = 'bg-slate-100 text-navy-900';
+
+                if (showFeedback) {
+                  if (isCorrect) {
+                    btnClass = 'border-emerald-500 bg-emerald-50/90 text-emerald-950 font-semibold';
+                    letterClass = 'bg-emerald-600 text-white';
+                  } else if (isSelected && !isCorrect) {
+                    btnClass = 'border-rose-500 bg-rose-50/90 text-rose-950';
+                    letterClass = 'bg-rose-600 text-white';
+                  } else {
+                    btnClass = 'border-slate-200 bg-slate-50/50 text-slate-500';
+                  }
+                } else if (isSelected) {
+                  btnClass = 'border-royal-600 bg-blue-50 text-navy-900 font-semibold';
+                  letterClass = 'bg-royal-600 text-white';
+                }
+
+                return `
+                  <button type="button" onclick="selectOption(${q.num}, '${letter}')" class="w-full text-left p-3.5 rounded-2xl border-2 transition flex items-start gap-3 ${btnClass}">
+                    <span class="w-7 h-7 rounded-lg text-xs font-extrabold flex items-center justify-center shrink-0 mt-0.5 ${letterClass}">
+                      ${letter}
+                    </span>
+                    <span class="text-sm leading-snug flex-1">${q.options[letter]}</span>
+                  </button>
+                `;
+              }).join('')}
+            </div>
+
+            <!-- Gabarito Oficial e Comentário Detalhado de Todas as Alternativas -->
+            ${showFeedback ? `
+              <div class="mt-4 p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2.5">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="text-xs font-extrabold uppercase tracking-wider text-navy-900 flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-base text-gold-600">fact_check</span>
+                    Gabarito Oficial: (${q.answer}) — Comentários por Alternativa
+                  </span>
+                </div>
+                <div class="space-y-2 text-xs sm:text-sm">
+                  ${['A', 'B', 'C', 'D', 'E'].map(letter => {
+                    const isRight = q.answer === letter;
+                    return `
+                      <div class="p-2.5 rounded-xl ${isRight ? 'bg-emerald-100/75 border border-emerald-300 text-emerald-950' : 'bg-white border border-slate-200 text-slate-700'}">
+                        <strong class="font-extrabold">(${letter})</strong> ${q.comments[letter]}
+                      </div>
+                    `;
+                  }).join('')}
+                </div>
+              </div>
+            ` : ''}
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Inicialização
+    window.addEventListener('DOMContentLoaded', () => {
+      updateTimerUI();
+      renderQuestions();
+      updateDashboard();
+    });
+  </script>
+</body>
+</html>
