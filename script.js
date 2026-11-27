@@ -11,8 +11,8 @@
    ========================================================================== */
 const disciplineLinks = {
   portugues: "lingua-portuguesa.html",
-  raciocinioLogico: "",
-  informatica: "informatica.html",
+  raciocinioLogico: "raciocinio-logico.html",
+  informatica: "",
   direitoConstitucional: "",
   direitoPenal: "",
   administracao: "",
