@@ -13,7 +13,7 @@ const disciplineLinks = {
   portugues: "lingua-portuguesa.html",
   raciocinioLogico: "raciocinio-logico.html",
   informatica: "",
-  direitoConstitucional: "",
+  direitoConstitucional: "direito-constitucional.html",
   direitoPenal: "",
   administracao: "",
   conhecimentosAtuacao: "",
