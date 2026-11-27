@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal de Estudos — GCM Salvador 2026. Central de acesso às disciplinas, informações oficiais do Edital nº 002/2026, distribuição de questões, critérios de aprovação e etapas do concurso da Guarda Civil Municipal de Salvador.">
+  <title>Portal de Estudos — GCM Salvador 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- 1. MENU SUPERIOR -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#topo" class="brand" data-scroll-top aria-label="Portal de Estudos GCM Salvador 2026 — Voltar ao início">
+        <span class="brand-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+            <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm6 9.09c0 4-2.55 7.7-6 8.83-3.45-1.13-6-4.82-6-8.83V6.31l6-2.25 6 2.25v4.78z"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-title">Portal de Estudos</span>
+          <span class="brand-subtitle">GCM Salvador 2026</span>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li>
+            <a href="#topo" class="nav-link is-active" data-scroll-top>Início</a>
+          </li>
+          <li>
+            <a href="#conheca-concurso" class="nav-link">Concurso</a>
+          </li>
+          <li>
+            <a href="#distribuicao-questoes" class="nav-link">Questões</a>
+          </li>
+          <li>
+            <a href="#criterios-aprovacao" class="nav-link">Aprovação</a>
+          </li>
+          <li>
+            <a href="#etapas-concurso" class="nav-link">Etapas</a>
+          </li>
+          <li class="nav-dropdown">
+            <button
+              type="button"
+              class="nav-link nav-dropdown-trigger"
+              id="desktop-disciplines-btn"
+              aria-expanded="false"
+              aria-controls="desktop-disciplines-panel"
+            >
+              <span>Disciplinas</span>
+              <svg class="chevron-icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+              </svg>
+            </button>
+
+            <div class="nav-dropdown-panel" id="desktop-disciplines-panel" hidden>
+              <div class="dropdown-panel-header">
+                <span class="dropdown-panel-title">Acesso às Disciplinas</span>
+                <a href="#disciplinas" class="dropdown-see-all" data-close-dropdown>Ver seção completa</a>
+              </div>
+              <ul class="dropdown-disciplines-grid">
+                <li><a class="discipline-nav-link" data-discipline="portugues">Língua Portuguesa</a></li>
+                <li><a class="discipline-nav-link" data-discipline="raciocinioLogico">Raciocínio Lógico-Matemático</a></li>
+                <li><a class="discipline-nav-link" data-discipline="informatica">Informática</a></li>
+                <li><a class="discipline-nav-link" data-discipline="direitoConstitucional">Noções de Direito Constitucional</a></li>
+                <li><a class="discipline-nav-link" data-discipline="direitoPenal">Noções de Direito Penal e Direito Processual Penal</a></li>
+                <li><a class="discipline-nav-link" data-discipline="administracao">Noções de Administração e Políticas Públicas</a></li>
+                <li><a class="discipline-nav-link" data-discipline="conhecimentosAtuacao">Conhecimentos na Área de Atuação</a></li>
+                <li><a class="discipline-nav-link" data-discipline="legislacao">Legislação</a></li>
+                <li><a class="discipline-nav-link" data-discipline="leiOrganica">Lei Orgânica do Município de Salvador</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <button
+        type="button"
+        class="mobile-menu-btn"
+        id="mobile-menu-btn"
+        aria-expanded="false"
+        aria-controls="mobile-nav-drawer"
+        aria-label="Abrir menu de navegação"
+      >
+        <svg class="icon-open" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" aria-hidden="true">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menu expansível para telas menores -->
+    <nav class="mobile-nav-drawer" id="mobile-nav-drawer" aria-label="Menu de navegação móvel" hidden>
+      <div class="container mobile-nav-inner">
+        <div class="mobile-nav-group">
+          <p class="mobile-nav-label">Navegação do Portal</p>
+          <ul class="mobile-nav-links">
+            <li><a href="#topo" class="mobile-nav-item" data-scroll-top>Início</a></li>
+            <li><a href="#apresentacao" class="mobile-nav-item">Apresentação do Portal</a></li>
+            <li><a href="#conheca-concurso" class="mobile-nav-item">Conheça o Concurso</a></li>
+            <li><a href="#distribuicao-questoes" class="mobile-nav-item">Distribuição das Questões</a></li>
+            <li><a href="#criterios-aprovacao" class="mobile-nav-item">Critérios de Aprovação</a></li>
+            <li><a href="#etapas-concurso" class="mobile-nav-item">Etapas do Concurso</a></li>
+          </ul>
+        </div>
+        <div class="mobile-nav-group">
+          <p class="mobile-nav-label">Disciplinas (9 módulos)</p>
+          <ul class="mobile-nav-links mobile-disciplines-list">
+            <li><a class="discipline-nav-link" data-discipline="portugues">Língua Portuguesa</a></li>
+            <li><a class="discipline-nav-link" data-discipline="raciocinioLogico">Raciocínio Lógico-Matemático</a></li>
+            <li><a class="discipline-nav-link" data-discipline="informatica">Informática</a></li>
+            <li><a class="discipline-nav-link" data-discipline="direitoConstitucional">Noções de Direito Constitucional</a></li>
+            <li><a class="discipline-nav-link" data-discipline="direitoPenal">Noções de Direito Penal e Direito Processual Penal</a></li>
+            <li><a class="discipline-nav-link" data-discipline="administracao">Noções de Administração e Políticas Públicas</a></li>
+            <li><a class="discipline-nav-link" data-discipline="conhecimentosAtuacao">Conhecimentos na Área de Atuação</a></li>
+            <li><a class="discipline-nav-link" data-discipline="legislacao">Legislação</a></li>
+            <li><a class="discipline-nav-link" data-discipline="leiOrganica">Lei Orgânica do Município de Salvador</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="conteudo-principal">
+    <!-- 2. BANNER PRINCIPAL -->
+    <section id="topo" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            <span>Edital nº 002/2026 · Banca FGV Conhecimento</span>
+          </div>
+
+          <h1 class="hero-title">
+            PORTAL DE ESTUDOS<br>
+            <span class="hero-title-accent">GCM SALVADOR 2026</span>
+          </h1>
+
+          <p class="hero-description">
+            Seu espaço de preparação para o concurso da Guarda Civil Municipal de Salvador.
+          </p>
+          <p class="hero-subdescription">
+            Acesse suas disciplinas, acompanhe informações importantes do concurso e organize sua jornada de estudos em um único lugar.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#disciplinas" class="btn btn-filled btn-hero">
+              <span>ACESSAR DISCIPLINAS</span>
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+              </svg>
+            </a>
+            <a href="#conheca-concurso" class="btn btn-outlined-hero">
+              <span>Ver dados do edital</span>
+            </a>
+          </div>
+        </div>
+
+        <aside class="hero-summary-card" aria-label="Resumo rápido do concurso">
+          <div class="hero-summary-header">
+            <span class="summary-label">Panorama Oficial</span>
+            <span class="summary-tag">Nível Médio · 40h</span>
+          </div>
+          <div class="hero-metrics">
+            <div class="hero-metric">
+              <span class="metric-value">50 + CR</span>
+              <span class="metric-label">Vagas imediatas e cadastro de reserva (10x)</span>
+            </div>
+            <div class="hero-metric">
+              <span class="metric-value">R$ 3.546,42</span>
+              <span class="metric-label">Remuneração inicial (vencimento + gratificações)</span>
+            </div>
+            <div class="hero-metric">
+              <span class="metric-value">70 questões</span>
+              <span class="metric-label">28 básicas e 42 específicas (mín. 35 acertos)</span>
+            </div>
+            <div class="hero-metric">
+              <span class="metric-value">17/01/2027</span>
+              <span class="metric-label">Data prevista para a Prova Objetiva em Salvador</span>
+            </div>
+          </div>
+          <p class="hero-summary-footnote">
+            Dados verificados no Edital nº 002/2026 e na 1ª Retificação oficial.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 3. APRESENTAÇÃO DO PORTAL -->
+    <section id="apresentacao" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Sobre a Plataforma</span>
+          <h2 class="section-title">Central de Preparação GCM Salvador 2026</h2>
+          <p class="section-lead">
+            Este portal foi projetado como a central de acesso e consulta para o candidato ao cargo de Guarda Civil Municipal de Salvador. Aqui você encontra as regras verificadas do certame e acessa diretamente os módulos independentes de estudo de cada disciplina do conteúdo programático.
+          </p>
+        </div>
+
+        <div class="pillars-grid">
+          <article class="pillar-card">
+            <div class="icon-chip icon-chip-primary" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Acesso Modular e Independente</h3>
+            <p class="pillar-text">
+              Cada uma das nove frentes de estudo possui sua própria página dedicada, permitindo focar no conteúdo específico sem distrações e manter seu ritmo de revisão.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="icon-chip icon-chip-secondary" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Fidelidade ao Edital Oficial</h3>
+            <p class="pillar-text">
+              Todas as informações sobre vagas, remuneração, distribuição de questões, notas mínimas e etapas seguem rigorosamente o Edital nº 002/2026 e suas retificações.
+            </p>
+          </article>
+
+          <article class="pillar-card">
+            <div class="icon-chip icon-chip-tertiary" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Visão Estratégica da Prova</h3>
+            <p class="pillar-text">
+              Consulte o peso real de cada disciplina na prova objetiva, entenda as barreiras eliminatórias e planeje suas prioridades de estudo com clareza.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CONHEÇA O CONCURSO -->
+    <section id="conheca-concurso" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Edital nº 002/2026 · Prefeitura de Salvador</span>
+          <h2 class="section-title">CONHEÇA O CONCURSO GCM SALVADOR 2026</h2>
+          <p class="section-lead">
+            Síntese objetiva dos principais pontos do Edital nº 002, de 24 de setembro de 2026, e sua 1ª Retificação oficial. Itens dependentes de atos futuros de convocação estão devidamente sinalizados.
+          </p>
+        </div>
+
+        <div class="info-cards-grid">
+          <!-- CARD 1 -->
+          <article class="info-card">
+            <div class="info-card-header">
+              <span class="info-card-badge">Card 1</span>
+              <h3 class="info-card-title">INFORMAÇÕES GERAIS</h3>
+            </div>
+            <dl class="info-list">
+              <div class="info-row">
+                <dt>Nome do concurso</dt>
+                <dd>Concurso Público da Prefeitura Municipal do Salvador — Guarda Civil Municipal (Edital nº 002/2026)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Órgão responsável</dt>
+                <dd>Prefeitura Municipal do Salvador / Secretaria Municipal de Gestão (SEMGE) — atuação na GCM</dd>
+              </div>
+              <div class="info-row">
+                <dt>Cargo</dt>
+                <dd>Guarda Civil Municipal — GCM 3ª Classe (Nível I), regime estatutário (LC nº 01/1991)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Escolaridade exigida</dt>
+                <dd>Ensino Médio Completo (além de CNH válida categoria mínima "B" e idade entre 18 e 40 anos na posse)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Número de vagas</dt>
+                <dd>50 vagas imediatas + Cadastro de Reserva (22 Ampla Concorrência, 15 PPP [30%], 10 Sexo Feminino [20%] e 3 PcD [5%]; CR até 10x as vagas por lista)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Banca organizadora</dt>
+                <dd>Fundação Getulio Vargas (FGV Conhecimento)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Jornada de trabalho</dt>
+                <dd>40 horas semanais</dd>
+              </div>
+            </dl>
+          </article>
+
+          <!-- CARD 2 -->
+          <article class="info-card">
+            <div class="info-card-header">
+              <span class="info-card-badge">Card 2</span>
+              <h3 class="info-card-title">REMUNERAÇÃO</h3>
+            </div>
+            <dl class="info-list">
+              <div class="info-row">
+                <dt>Remuneração inicial</dt>
+                <dd><strong>R$ 3.546,42</strong> (valor total inicial previsto no Quadro de Vagas, com base na Lei nº 9.640/2022)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Composição remuneratória</dt>
+                <dd>Vencimento Inicial de <strong>R$ 1.773,21</strong> + Gratificação por Avanço de Competências + Gratificação por Regime Especial de Trabalho (RET)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Benefícios previstos oficialmente</dt>
+                <dd>
+                  <ul class="compact-bullets">
+                    <li>Auxílio-uniforme (Decreto nº 38.179/2024).</li>
+                    <li>Possibilidade de concessão de auxílio-alimentação, transporte e gratificações específicas (LC nº 01/1991) — <em>valores exatos: Informação pendente de confirmação oficial.</em></li>
+                    <li>No Curso de Formação Inicial: bolsa-auxílio de 85% do vencimento inicial do cargo, sem descontos de encargos.</li>
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="info-card">
+            <div class="info-card-header">
+              <span class="info-card-badge">Card 3</span>
+              <h3 class="info-card-title">PROVA OBJETIVA</h3>
+            </div>
+            <dl class="info-list">
+              <div class="info-row">
+                <dt>Data da prova</dt>
+                <dd><strong>17 de janeiro de 2027</strong> (aplicação na cidade do Salvador/BA)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Horário</dt>
+                <dd>Das <strong>8h às 12h30</strong> (horário oficial de Brasília/DF; fechamento dos portões às 7h30)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Duração</dt>
+                <dd>4 horas e 30 minutos (permanência mínima obrigatória de 3 horas no local de prova)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Quantidade de questões</dt>
+                <dd><strong>70 questões</strong> (28 de Conhecimentos Básicos + 42 de Conhecimentos Específicos; 1 ponto por questão, máximo de 70 pontos)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Formato da avaliação</dt>
+                <dd>Prova Escrita Objetiva de múltipla escolha, com 5 alternativas (A a E) e apenas uma correta, sem consulta, de caráter eliminatório e classificatório</dd>
+              </div>
+            </dl>
+          </article>
+
+          <!-- CARD 4 -->
+          <article class="info-card">
+            <div class="info-card-header">
+              <span class="info-card-badge">Card 4</span>
+              <h3 class="info-card-title">DISTRIBUIÇÃO DAS QUESTÕES</h3>
+            </div>
+            <dl class="info-list">
+              <div class="info-row">
+                <dt>Módulo I — Básicos (28)</dt>
+                <dd>Língua Portuguesa (10), Raciocínio Lógico-Matemático (10) e Informática (8)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Módulo II — Específicos (42)</dt>
+                <dd>
+                  <ul class="compact-bullets">
+                    <li>Noções de Direito Constitucional e Direito Civil: 10</li>
+                    <li>Noções de Direito Penal e Direito Processual Penal: 07</li>
+                    <li>Noções de Administração e Políticas Públicas: 05</li>
+                    <li>Conhecimentos na Área de Atuação: 10</li>
+                    <li>Legislação (inclui Lei Orgânica de Salvador no Anexo I): 10</li>
+                  </ul>
+                </dd>
+              </div>
+              <div class="info-row">
+                <dt>Total de questões</dt>
+                <dd><strong>70 questões objetivas</strong> (40% Módulo I e 60% Módulo II)</dd>
+              </div>
+            </dl>
+          </article>
+
+          <!-- CARD 5 -->
+          <article class="info-card">
+            <div class="info-card-header">
+              <span class="info-card-badge">Card 5</span>
+              <h3 class="info-card-title">CRITÉRIOS DE APROVAÇÃO</h3>
+            </div>
+            <dl class="info-list">
+              <div class="info-row">
+                <dt>Pontuação mínima</dt>
+                <dd>50% de acertos em cada módulo e no total da Prova Objetiva, de forma cumulativa</dd>
+              </div>
+              <div class="info-row">
+                <dt>Critérios por grupo</dt>
+                <dd>Mínimo de <strong>14 acertos</strong> no Módulo I (28 questões) e mínimo de <strong>21 acertos</strong> no Módulo II (42 questões)</dd>
+              </div>
+              <div class="info-row">
+                <dt>Pontuação total mínima</dt>
+                <dd>Mínimo de <strong>35 acertos</strong> no total das 70 questões</dd>
+              </div>
+              <div class="info-row">
+                <dt>Outras exigências eliminatórias</dt>
+                <dd>Classificação dentro do limite de <strong>500 convocados</strong> para o TAF (225 Ampla, 150 PPP, 100 Sexo Feminino, 25 PcD), além de aptidão no TAF, Avaliação Psicológica, Perícia Médica e Curso de Formação Inicial</dd>
+              </div>
+            </dl>
+          </article>
+
+          <!-- CARD 6 -->
+          <article class="info-card">
+            <div class="info-card-header">
+              <span class="info-card-badge">Card 6</span>
+              <h3 class="info-card-title">ETAPAS DO CONCURSO</h3>
+            </div>
+            <ol class="stages-summary-list">
+              <li><strong>Prova Escrita Objetiva:</strong> eliminatória e classificatória (FGV — 17/01/2027).</li>
+              <li><strong>Teste de Aptidão Física (TAF):</strong> eliminatório e classificatório (FGV — 05 a 07/04/2027).</li>
+              <li><strong>Avaliação Psicológica:</strong> eliminatória (FGV — 30/05/2027).</li>
+              <li><strong>Heteroidentificação (PPP):</strong> aferição presencial de autodeclaração (02 a 06/08/2027).</li>
+              <li><strong>Perícia Médica:</strong> eliminatória (Prefeitura/GESMS — pós-homologação).</li>
+              <li><strong>Curso de Formação Inicial:</strong> eliminatório, 744 h/a (GCM Salvador — pós-perícia).</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DISTRIBUIÇÃO DAS QUESTÕES -->
+    <section id="distribuicao-questoes" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Estrutura da Prova Objetiva · Item 9.4 do Edital</span>
+          <h2 class="section-title">DISTRIBUIÇÃO DAS QUESTÕES DA PROVA</h2>
+          <p class="section-lead">
+            A Prova Escrita Objetiva possui 70 questões (1 ponto cada), divididas em Módulo I (Conhecimentos Básicos) e Módulo II (Conhecimentos Específicos). Confira o peso percentual oficial de cada disciplina.
+          </p>
+        </div>
+
+        <div class="module-kpi-strip" role="region" aria-label="Resumo por módulos">
+          <div class="kpi-pill">
+            <span class="kpi-dot kpi-dot-secondary" aria-hidden="true"></span>
+            <span><strong>Módulo I — Básicos:</strong> 28 questões (40,00%)</span>
+          </div>
+          <div class="kpi-pill">
+            <span class="kpi-dot kpi-dot-primary" aria-hidden="true"></span>
+            <span><strong>Módulo II — Específicos:</strong> 42 questões (60,00%)</span>
+          </div>
+          <div class="kpi-pill">
+            <span class="kpi-dot kpi-dot-tertiary" aria-hidden="true"></span>
+            <span><strong>Total da Prova:</strong> 70 questões (100,00%)</span>
+          </div>
+        </div>
+
+        <div class="distribution-layout">
+          <!-- Tabela organizada -->
+          <div class="surface-card table-card">
+            <div class="card-top-bar">
+              <h3 class="card-subtitle">Quadro Oficial de Questões</h3>
+              <span class="card-caption">Fonte: Edital nº 002/2026, item 9.4</span>
+            </div>
+
+            <div class="table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Disciplina</th>
+                    <th scope="col" class="col-center">Módulo</th>
+                    <th scope="col" class="col-num">Questões</th>
+                    <th scope="col" class="col-num">Participação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <span class="disc-name">01. Língua Portuguesa</span>
+                    </td>
+                    <td class="col-center"><span class="module-tag tag-m1">Módulo I</span></td>
+                    <td class="col-num">10</td>
+                    <td class="col-num">14,29%</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="disc-name">02. Raciocínio Lógico-Matemático</span>
+                    </td>
+                    <td class="col-center"><span class="module-tag tag-m1">Módulo I</span></td>
+                    <td class="col-num">10</td>
+                    <td class="col-num">14,29%</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="disc-name">03. Informática</span>
+                    </td>
+                    <td class="col-center"><span class="module-tag tag-m1">Módulo I</span></td>
+                    <td class="col-num">08</td>
+                    <td class="col-num">11,43%</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="disc-name">04. Noções de Direito Constitucional e Direito Civil</span>
+                    </td>
+                    <td class="col-center"><span class="module-tag tag-m2">Módulo II</span></td>
+                    <td class="col-num">10</td>
+                    <td class="col-num">14,29%</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="disc-name">05. Noções de Direito Penal e Direito Processual Penal</span>
+                    </td>
+                    <td class="col-center"><span class="module-tag tag-m2">Módulo II</span></td>
+                    <td class="col-num">07</td>
+                    <td class="col-num">10,00%</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="disc-name">06. Noções de Administração e Políticas Públicas</span>
+                    </td>
+                    <td class="col-center"><span class="module-tag tag-m2">Módulo II</span></td>
+                    <td class="col-num">05</td>
+                    <td class="col-num">7,14%</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="disc-name">07. Conhecimentos na Área de Atuação</span>
+                    </td>
+                    <td class="col-center"><span class="module-tag tag-m2">Módulo II</span></td>
+                    <td class="col-num">10</td>
+                    <td class="col-num">14,29%</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="disc-name">08. Legislação <small class="disc-note">(inclui Lei Orgânica de Salvador)</small></span>
+                    </td>
+                    <td class="col-center"><span class="module-tag tag-m2">Módulo II</span></td>
+                    <td class="col-num">10</td>
+                    <td class="col-num">14,29%</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th scope="row" colspan="2">TOTAL DA PROVA OBJETIVA</th>
+                    <td class="col-num">70</td>
+                    <td class="col-num">100,00%</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <p class="table-footnote">
+              Nota oficial: No Anexo I do Edital, a <strong>Lei Orgânica do Município de Salvador</strong> compõe o conteúdo programático de <em>Legislação</em> (10 questões no total), e <em>Direito Civil</em> compõe <em>Noções de Direito Constitucional e Direito Civil</em> (10 questões no total), sem subdivisão numérica específica pelo edital.
+            </p>
+          </div>
+
+          <!-- Gráfico de barras -->
+          <div class="surface-card chart-card">
+            <div class="card-top-bar">
+              <div>
+                <h3 class="card-subtitle">Peso por Disciplina</h3>
+                <span class="card-caption">Participação percentual sobre 70 questões</span>
+              </div>
+              <div class="chart-filters" role="group" aria-label="Filtrar gráfico por módulo">
+                <button type="button" class="filter-chip is-active" data-chart-filter="all">Todas (70)</button>
+                <button type="button" class="filter-chip" data-chart-filter="M1">Módulo I (28)</button>
+                <button type="button" class="filter-chip" data-chart-filter="M2">Módulo II (42)</button>
+              </div>
+            </div>
+
+            <div class="bar-chart" id="questions-bar-chart" aria-label="Gráfico de barras da distribuição de questões por disciplina">
+              <!-- Preenchido dinamicamente por script.js a partir dos dados oficiais -->
+            </div>
+
+            <div class="chart-legend" aria-hidden="true">
+              <span class="legend-item">
+                <span class="legend-swatch swatch-m1"></span>
+                <span>Módulo I — Conhecimentos Básicos</span>
+              </span>
+              <span class="legend-item">
+                <span class="legend-swatch swatch-m2"></span>
+                <span>Módulo II — Conhecimentos Específicos</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CRITÉRIOS DE APROVAÇÃO -->
+    <section id="criterios-aprovacao" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Regras de Habilitação e Classificação</span>
+          <h2 class="section-title">COMO FUNCIONA A APROVAÇÃO?</h2>
+          <p class="section-lead">
+            Para não ser eliminado na Prova Objetiva, o candidato precisa atingir simultaneamente os mínimos exigidos por módulo e no total da prova, conforme o item 9.13 do Edital.
+          </p>
+        </div>
+
+        <div class="approval-metrics-grid">
+          <article class="metric-card">
+            <span class="metric-badge">Módulo I · Conhecimentos Básicos</span>
+            <p class="metric-number">14 acertos</p>
+            <p class="metric-detail">Mínimo obrigatório de 50% entre as 28 questões (Português, RLM e Informática).</p>
+          </article>
+
+          <article class="metric-card">
+            <span class="metric-badge">Módulo II · Conhecimentos Específicos</span>
+            <p class="metric-number">21 acertos</p>
+            <p class="metric-detail">Mínimo obrigatório de 50% entre as 42 questões das disciplinas específicas.</p>
+          </article>
+
+          <article class="metric-card metric-card-highlight">
+            <span class="metric-badge">Total da Prova Objetiva</span>
+            <p class="metric-number">35 acertos</p>
+            <p class="metric-detail">Mínimo cumulativo de 50% dos 70 pontos possíveis na Prova Escrita Objetiva.</p>
+          </article>
+        </div>
+
+        <div class="approval-details-grid">
+          <article class="surface-card">
+            <h3 class="card-subtitle">Critérios Adicionais de Eliminação</h3>
+            <ul class="check-list">
+              <li>
+                <strong>Regra cumulativa (item 9.14):</strong> Não atingir qualquer um dos três mínimos (14 no Módulo I, 21 no Módulo II ou 35 no total) resulta em eliminação automática.
+              </li>
+              <li>
+                <strong>Cláusula de barreira para o TAF (item 10.1.1):</strong> Somente serão convocados para o Teste de Aptidão Física os candidatos aprovados na objetiva dentro do limite de <strong>500 convocados</strong> (225 Ampla Concorrência, 150 Negros/PPP, 100 Sexo Feminino e 25 PcD), respeitados os critérios de desempate. Quem ficar fora desse corte é eliminado do concurso.
+              </li>
+              <li>
+                <strong>Desempate na Prova Objetiva (item 14.1):</strong> Em caso de empate, prevalece quem obtiver maior número de acertos em: 1º Conhecimentos Específicos; 2º Língua Portuguesa; 3º Raciocínio Lógico; 4º Maior idade; 5º Exercício da função de jurado.
+              </li>
+              <li>
+                <strong>Fases subsequentes eliminatórias:</strong> Ausência ou inaptidão no TAF, na Avaliação Psicológica, na Perícia Médica Admissional ou no Curso de Formação Inicial (que exige 85% de frequência e 60% de aproveitamento) também eliminam o candidato.
+              </li>
+            </ul>
+          </article>
+
+          <aside class="callout-card" aria-label="Diferença entre pontuação mínima e nota de corte">
+            <div class="callout-header">
+              <span class="icon-chip icon-chip-primary" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                </svg>
+              </span>
+              <h3 class="callout-title">Pontuação Mínima × Nota de Corte Classificatória</h3>
+            </div>
+            <p class="callout-text">
+              <strong>Pontuação mínima para aprovação (35 acertos):</strong> É o piso fixo definido no Edital (14 no Módulo I + 21 no Módulo II + 35 no total). Atingir esse patamar apenas evita a eliminação imediata por desempenho insuficiente.
+            </p>
+            <p class="callout-text">
+              <strong>Nota de corte classificatória:</strong> Não é um valor fixo pré-definido. Ela representa a pontuação obtida pelo último candidato convocado dentro do limite de vagas de cada etapa — inicialmente os <strong>500 convocados para o TAF</strong> (por modalidade de concorrência) e, ao final, as <strong>50 vagas imediatas</strong> e o cadastro de reserva (até 10x o número de vagas por lista).
+            </p>
+            <p class="callout-text callout-note">
+              Portanto, a nota de corte real depende diretamente do nível de desempenho dos demais candidatos e das regras de classificação e desempate do Edital, somando-se na Nota Final a pontuação da Prova Objetiva e do TAF (condicionada à aptidão na Avaliação Psicológica).
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ETAPAS DO CONCURSO -->
+    <section id="etapas-concurso" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Jornada Oficial de Seleção</span>
+          <h2 class="section-title">ETAPAS DO CONCURSO</h2>
+          <p class="section-lead">
+            Sequência oficial das fases previstas no Edital nº 002/2026 para o provimento do cargo de Guarda Civil Municipal de Salvador.
+          </p>
+        </div>
+
+        <ol class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true">1</div>
+            <article class="timeline-card">
+              <div class="timeline-card-top">
+                <h3 class="timeline-title">Prova Escrita Objetiva</h3>
+                <span class="stage-badge badge-both">Eliminatória e Classificatória</span>
+              </div>
+              <p class="timeline-desc">
+                <strong>Descrição:</strong> Primeira fase do certame, sob responsabilidade da FGV, composta por 70 questões de múltipla escolha (5 alternativas) distribuídas entre Módulo I (28) e Módulo II (42).
+              </p>
+              <p class="timeline-meta">
+                <strong>Objetivo:</strong> Avaliar o domínio dos conhecimentos básicos e específicos previstos no Anexo I e classificar os candidatos para convocação ao TAF.
+              </p>
+              <p class="timeline-meta">
+                <strong>Informações relevantes:</strong> Prevista para <strong>17/01/2027</strong> (8h às 12h30, Salvador/BA). Exige mínimos cumulativos de 14 (Módulo I), 21 (Módulo II) e 35 acertos no total.
+              </p>
+            </article>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true">2</div>
+            <article class="timeline-card">
+              <div class="timeline-card-top">
+                <h3 class="timeline-title">Teste de Aptidão Física (TAF)</h3>
+                <span class="stage-badge badge-both">Eliminatório e Classificatório</span>
+              </div>
+              <p class="timeline-desc">
+                <strong>Descrição:</strong> Avaliação prática executada pela FGV com quatro testes físicos: barra fixa (dinâmica masculina / estática feminina), flexão de membros superiores, abdominal remador e corrida (12 min masc. / 14 min fem.).
+              </p>
+              <p class="timeline-meta">
+                <strong>Objetivo:</strong> Verificar a capacidade física e orgânica para suportar as exigências típicas das atividades de Guarda Civil Municipal e compor a Nota Final junto à Prova Objetiva.
+              </p>
+              <p class="timeline-meta">
+                <strong>Informações relevantes:</strong> Previsto para <strong>05/04/2027 a 07/04/2027</strong> (convocação em 17/03/2027 para 500 candidatos: 225 Ampla, 150 PPP, 100 Sexo Feminino e 25 PcD). Exige atestado cardiológico (Anexo VI) emitido em até 30 dias. A 1ª Retificação detalhou a posição da flexão (apoio de frente para homens; seis apoios para mulheres).
+              </p>
+            </article>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true">3</div>
+            <article class="timeline-card">
+              <div class="timeline-card-top">
+                <h3 class="timeline-title">Avaliação Psicológica</h3>
+                <span class="stage-badge badge-elim">Eliminatória</span>
+              </div>
+              <p class="timeline-desc">
+                <strong>Descrição:</strong> Bateria de testes psicológicos padronizados e aprovados pelo CFP, aplicada por psicólogos credenciados designados pela FGV, com resultado expresso em APTO ou INAPTO.
+              </p>
+              <p class="timeline-meta">
+                <strong>Objetivo:</strong> Aferir 11 constructos cognitivos e de personalidade compatíveis com o perfil do cargo (atenção concentrada e difusa, inteligência geral, memória, estabilidade emocional, conscienciosidade, controle de ansiedade, agressividade e impulsividade).
+              </p>
+              <p class="timeline-meta">
+                <strong>Informações relevantes:</strong> Prevista para <strong>30/05/2027</strong> (convocação em 11/05/2027). Será considerado INAPTO o candidato que apresentar três ou mais características impeditivas. Prevê entrevista devolutiva em caso de inaptidão.
+              </p>
+            </article>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true">4</div>
+            <article class="timeline-card">
+              <div class="timeline-card-top">
+                <h3 class="timeline-title">Perícia Médica Admissional</h3>
+                <span class="stage-badge badge-elim">Eliminatória</span>
+              </div>
+              <p class="timeline-desc">
+                <strong>Descrição:</strong> Avaliação clínica e documental realizada pela Junta Médica / GESMS da Prefeitura Municipal do Salvador, mediante apresentação de exames laboratoriais, complementares, vacinas e exame toxicológico de larga janela.
+              </p>
+              <p class="timeline-meta">
+                <strong>Objetivo:</strong> Comprovar capacidade laborativa física e mental para o desempenho do cargo efetivo e, para candidatos PcD, verificar a deficiência e sua compatibilidade com as atribuições da GCM por equipe multidisciplinar.
+              </p>
+              <p class="timeline-meta">
+                <strong>Informações relevantes:</strong> Realizada após a homologação do concurso (previsão de resultado final em 02/09/2027) e publicação de convocação no Diário Oficial do Município. <em>Data exata da perícia: Informação pendente de confirmação oficial (depende de edital de convocação).</em>
+              </p>
+            </article>
+          </li>
+
+          <li class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true">5</div>
+            <article class="timeline-card">
+              <div class="timeline-card-top">
+                <h3 class="timeline-title">Curso de Formação Inicial</h3>
+                <span class="stage-badge badge-elim">Eliminatório</span>
+              </div>
+              <p class="timeline-desc">
+                <strong>Descrição:</strong> Curso presencial organizado pela Guarda Civil Municipal de Salvador para os candidatos aprovados nas etapas anteriores e considerados aptos na Perícia Médica.
+              </p>
+              <p class="timeline-meta">
+                <strong>Objetivo:</strong> Capacitar técnica e operacionalmente o futuro servidor, sendo requisito indispensável para nomeação e posse na 3ª Classe da GCM.
+              </p>
+              <p class="timeline-meta">
+                <strong>Informações relevantes:</strong> Carga horária de <strong>744 horas-aula presenciais</strong> em Salvador/BA, frequência mínima de 85%, bolsa-auxílio de 85% do vencimento, Prova Final (mín. 60%) e avaliação de manuseio de arma de fogo (mín. 60%). <em>Período e local de realização: Informação pendente de confirmação oficial (aguarda edital de convocação).</em>
+              </p>
+            </article>
+          </li>
+        </ol>
+
+        <div class="timeline-extra-note">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/>
+          </svg>
+          <p>
+            <strong>Procedimentos complementares oficiais:</strong> Candidatos autodeclarados Pretos ou Pardos (PPP) passarão por <strong>Heteroidentificação presencial</strong> (prevista para 02/08/2027 a 06/08/2027), antes da publicação do Resultado Final em <strong>02/09/2027</strong> (com 4 listas após a 1ª Retificação: Ampla Concorrência, PPP, Sexo Feminino e PcD). Para investidura/posse, o item 3.3 do Edital também exige comprovação de idoneidade moral mediante investigação social e certidões judiciárias.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. ACESSO ÀS DISCIPLINAS -->
+    <section id="disciplinas" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker">Módulos Independentes de Estudo</span>
+          <h2 class="section-title">ACESSE SUAS DISCIPLINAS</h2>
+          <p class="section-lead">
+            Selecione uma das nove disciplinas abaixo para acessar sua página independente de estudos. Os acessos ainda não vinculados estão claramente identificados como pendentes de configuração.
+          </p>
+        </div>
+
+        <div class="disciplines-grid">
+          <!-- 1. LÍNGUA PORTUGUESA -->
+          <a class="discipline-card" data-discipline="portugues">
+            <div class="discipline-card-top">
+              <span class="discipline-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                  <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
+                </svg>
+              </span>
+              <span class="discipline-edital-tag">Módulo I · 10 questões</span>
+            </div>
+            <h3 class="discipline-card-title">LÍNGUA PORTUGUESA</h3>
+            <p class="discipline-card-desc">
+              Estude interpretação de textos, gramática, ortografia e os demais conteúdos previstos no programa.
+            </p>
+            <div class="discipline-card-footer">
+              <span class="access-status" data-status-label>Acesso pendente</span>
+              <span class="access-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- 2. RACIOCÍNIO LÓGICO-MATEMÁTICO -->
+          <a class="discipline-card" data-discipline="raciocinioLogico">
+            <div class="discipline-card-top">
+              <span class="discipline-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM6.25 7.72h5v1.5h-5zm6.75 7.75h5v1.5h-5zm0-2.5h5v1.5h-5zm-3.68-1.25h1.5v-1.5h1.5v-1.5h-1.5v-1.5h-1.5v1.5h-1.5v1.5h1.5zM18 7.47l-1.06-1.06-1.44 1.44-1.44-1.44L13 7.47l1.44 1.44L13 10.35l1.06 1.06 1.44-1.44 1.44 1.44L18 10.35l-1.44-1.44z"/>
+                </svg>
+              </span>
+              <span class="discipline-edital-tag">Módulo I · 10 questões</span>
+            </div>
+            <h3 class="discipline-card-title">RACIOCÍNIO LÓGICO-MATEMÁTICO</h3>
+            <p class="discipline-card-desc">
+              Desenvolva suas habilidades em lógica, matemática e resolução de problemas.
+            </p>
+            <div class="discipline-card-footer">
+              <span class="access-status" data-status-label>Acesso pendente</span>
+              <span class="access-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- 3. INFORMÁTICA -->
+          <a class="discipline-card" data-discipline="informatica">
+            <div class="discipline-card-top">
+              <span class="discipline-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                  <path d="M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z"/>
+                </svg>
+              </span>
+              <span class="discipline-edital-tag">Módulo I · 08 questões</span>
+            </div>
+            <h3 class="discipline-card-title">INFORMÁTICA</h3>
+            <p class="discipline-card-desc">
+              Aprenda os principais conceitos e ferramentas de informática cobrados no concurso.
+            </p>
+            <div class="discipline-card-footer">
+              <span class="access-status" data-status-label>Acesso pendente</span>
+              <span class="access-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- 4. NOÇÕES DE DIREITO CONSTITUCIONAL -->
+          <a class="discipline-card" data-discipline="direitoConstitucional">
+            <div class="discipline-card-top">
+              <span class="discipline-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                  <path d="M4 10v7h3v-7H4zm6 0v7h3v-7h-3zM2 22h19v-3H2v3zm14-12v7h3v-7h-3zm-4.5-9L2 6v2h19V6l-9.5-5z"/>
+                </svg>
+              </span>
+              <span class="discipline-edital-tag">Módulo II · Bloco 10 questões</span>
+            </div>
+            <h3 class="discipline-card-title">NOÇÕES DE DIREITO CONSTITUCIONAL</h3>
+            <p class="discipline-card-desc">
+              Estude os fundamentos constitucionais e os dispositivos previstos no conteúdo programático.
+            </p>
+            <div class="discipline-card-footer">
+              <span class="access-status" data-status-label>Acesso pendente</span>
+              <span class="access-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- 5. NOÇÕES DE DIREITO PENAL E DIREITO PROCESSUAL PENAL -->
+          <a class="discipline-card" data-discipline="direitoPenal">
+            <div class="discipline-card-top">
+              <span class="discipline-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                  <path d="M5.249 8.068l2.83-2.828 14.134 14.15-2.83 2.828zM9.486 3.83l2.828-2.829 3.535 3.536-2.828 2.828zm-5.657 5.657l2.828-2.828 3.536 3.535-2.828 2.829zM1 21h12v2H1z"/>
+                </svg>
+              </span>
+              <span class="discipline-edital-tag">Módulo II · 07 questões</span>
+            </div>
+            <h3 class="discipline-card-title">NOÇÕES DE DIREITO PENAL E DIREITO PROCESSUAL PENAL</h3>
+            <p class="discipline-card-desc">
+              Aprenda os principais conceitos de Direito Penal e Processo Penal.
+            </p>
+            <div class="discipline-card-footer">
+              <span class="access-status" data-status-label>Acesso pendente</span>
+              <span class="access-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- 6. NOÇÕES DE ADMINISTRAÇÃO E POLÍTICAS PÚBLICAS -->
+          <a class="discipline-card" data-discipline="administracao">
+            <div class="discipline-card-top">
+              <span class="discipline-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                  <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+                </svg>
+              </span>
+              <span class="discipline-edital-tag">Módulo II · 05 questões</span>
+            </div>
+            <h3 class="discipline-card-title">NOÇÕES DE ADMINISTRAÇÃO E POLÍTICAS PÚBLICAS</h3>
+            <p class="discipline-card-desc">
+              Estude os fundamentos da administração pública e das políticas públicas.
+            </p>
+            <div class="discipline-card-footer">
+              <span class="access-status" data-status-label>Acesso pendente</span>
+              <span class="access-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- 7. CONHECIMENTOS NA ÁREA DE ATUAÇÃO -->
+          <a class="discipline-card" data-discipline="conhecimentosAtuacao">
+            <div class="discipline-card-top">
+              <span class="discipline-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                  <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                </svg>
+              </span>
+              <span class="discipline-edital-tag">Módulo II · 10 questões</span>
+            </div>
+            <h3 class="discipline-card-title">CONHECIMENTOS NA ÁREA DE ATUAÇÃO</h3>
+            <p class="discipline-card-desc">
+              Desenvolva conhecimentos relacionados às atribuições e atividades da Guarda Civil Municipal.
+            </p>
+            <div class="discipline-card-footer">
+              <span class="access-status" data-status-label>Acesso pendente</span>
+              <span class="access-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- 8. LEGISLAÇÃO -->
+          <a class="discipline-card" data-discipline="legislacao">
+            <div class="discipline-card-top">
+              <span class="discipline-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                  <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                </svg>
+              </span>
+              <span class="discipline-edital-tag">Módulo II · Bloco 10 questões</span>
+            </div>
+            <h3 class="discipline-card-title">LEGISLAÇÃO</h3>
+            <p class="discipline-card-desc">
+              Estude a legislação específica relacionada ao concurso e à atuação profissional.
+            </p>
+            <div class="discipline-card-footer">
+              <span class="access-status" data-status-label>Acesso pendente</span>
+              <span class="access-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- 9. LEI ORGÂNICA DO MUNICÍPIO DE SALVADOR -->
+          <a class="discipline-card" data-discipline="leiOrganica">
+            <div class="discipline-card-top">
+              <span class="discipline-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
+                  <path d="M15 11V5l-3-3-3 3v2H3v14h18V11h-6zm-8 8H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V9h2v2zm6 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V9h2v2zm0-4h-2V5h2v2zm6 12h-2v-2h2v2zm0-4h-2v-2h2v2z"/>
+                </svg>
+              </span>
+              <span class="discipline-edital-tag">Módulo II · Integra Legislação</span>
+            </div>
+            <h3 class="discipline-card-title">LEI ORGÂNICA DO MUNICÍPIO DE SALVADOR</h3>
+            <p class="discipline-card-desc">
+              Conheça a organização político-administrativa do município e os dispositivos da Lei Orgânica.
+            </p>
+            <div class="discipline-card-footer">
+              <span class="access-status" data-status-label>Acesso pendente</span>
+              <span class="access-arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 9. RODAPÉ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="footer-brand">
+            <span class="brand-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z"/>
+              </svg>
+            </span>
+            <div>
+              <p class="footer-title">Portal de Estudos — GCM Salvador 2026</p>
+              <p class="footer-subtitle">Central educacional de apoio ao candidato</p>
+            </div>
+          </div>
+          <p class="footer-project-desc">
+            Projeto estruturado para centralizar o acesso às páginas independentes de estudo das disciplinas do concurso da Guarda Civil Municipal de Salvador, com base no Edital nº 002, de 24 de setembro de 2026, e sua 1ª Retificação.
+          </p>
+        </div>
+
+        <div class="footer-links-col">
+          <h3 class="footer-heading">Fontes Oficiais</h3>
+          <ul class="footer-links">
+            <li>
+              <a href="https://conhecimento.fgv.br/concursos/pmsguarda2026" target="_blank" rel="noopener noreferrer">
+                FGV Conhecimento — Página Oficial do Concurso
+              </a>
+            </li>
+            <li>
+              <a href="https://www.semge.salvador.ba.gov.br" target="_blank" rel="noopener noreferrer">
+                Secretaria Municipal de Gestão (SEMGE Salvador)
+              </a>
+            </li>
+            <li>
+              <a href="https://www.dom.salvador.ba.gov.br" target="_blank" rel="noopener noreferrer">
+                Diário Oficial do Município de Salvador (DOM)
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-meta-col">
+          <h3 class="footer-heading">Referência e Atualização</h3>
+          <p class="footer-meta-item">
+            <strong>Edital de referência:</strong> Edital nº 002/2026 (24/09/2026) e 1ª Retificação.
+          </p>
+          <p class="footer-meta-item">
+            <strong>Última atualização das informações:</strong> 27 de novembro de 2026.
+          </p>
+          <p class="footer-disclaimer">
+            <strong>Aviso importante:</strong> As informações desta página possuem finalidade educacional e estão sujeitas a alterações decorrentes de retificações, comunicados ou novos editais de convocação publicados oficialmente pela Prefeitura Municipal do Salvador e pela FGV. Confira sempre as publicações oficiais.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>Portal de Estudos — GCM Salvador 2026 · Guarda Civil Municipal</p>
+        <a href="#topo" class="back-to-top-link" data-scroll-top>Voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Feedback acessível (Snackbar MD3) para links pendentes de configuração -->
+  <div class="snackbar" id="portal-snackbar" role="status" aria-live="polite" hidden>
+    <span class="snackbar-message" id="snackbar-message"></span>
+    <button type="button" class="snackbar-close" id="snackbar-close" aria-label="Fechar aviso">Entendi</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
