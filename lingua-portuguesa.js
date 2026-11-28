@@ -10,9 +10,9 @@
    ========================================================================== */
 const disciplineLinks = {
   portugues: "lingua-portuguesa.html",
-  raciocinioLogico: "raciocinio-logico.html",
+  raciocinioLogico: "",
   informatica: "",
-  direitoConstitucional: "",
+  direitoConstitucional: "direito-constitucional.html",
   direitoPenal: "",
   administracao: "",
   conhecimentosAtuacao: "",
@@ -21,7 +21,7 @@ const disciplineLinks = {
 };
 
 const disciplineLabels = {
-  portugues: "Língua Portuguesa",
+  portugues: "lingua-portuguesa.html",
   raciocinioLogico: "Raciocínio Lógico-Matemático",
   informatica: "Informática",
   direitoConstitucional: "Noções de Direito Constitucional",
