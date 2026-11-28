@@ -9,10 +9,10 @@
    1. CONFIGURAÇÃO DA NAVEGAÇÃO COMPARTILHADA
    ========================================================================== */
 const disciplineLinks = {
-  portugues: "pages/lingua-portuguesa.html",
-  raciocinioLogico: "pages/raciocinio-logico.html",
+  portugues: "lingua-portuguesa.html",
+  raciocinioLogico: "raciocinio-logico.html",
   informatica: "",
-  direitoConstitucional: "pages/direito-constitucional.html",
+  direitoConstitucional: "direito-constitucional.html",
   direitoPenal: "",
   administracao: "",
   conhecimentosAtuacao: "",
@@ -21,7 +21,7 @@ const disciplineLinks = {
 };
 
 const disciplineLabels = {
-  portugues: "lingua-portuguesa.html",
+  portugues: "Língua Portuguesa",
   raciocinioLogico: "Raciocínio Lógico-Matemático",
   informatica: "Informática",
   direitoConstitucional: "Noções de Direito Constitucional",
